@@ -58,8 +58,6 @@ html, body
 	float: left;
 	width: 15em;
 	margin-right: 1em;
-	box-shadow: 0em 0em 0.7em #000;
-	border-radius: 0.5em;
 	overflow: hidden;
 	margin-top: 1em;
 }
@@ -84,6 +82,27 @@ html, body
 .AREA_NAV > div
 {
 	border-right: solid 0.5em;
+	overflow: hidden;
+	
+	-webkit-transition:	max-height .8s ease-in-out;
+	-moz-transition: 	max-height .8s ease-in-out;
+	-o-transition:		max-height .8s ease-in-out;
+	-ms-transition:		max-height .8s ease-in-out;
+	transition:			max-height .8s ease-in-out;
+	
+	max-height: 2.5em;
+	box-shadow: 0em 0em 0.7em #000;
+	border-radius: 0.4em;
+	margin-bottom: 0.5em;
+}
+.AREA_NAV > div:hover, .AREA_NAV > div:focus
+{
+	max-height: 999em;
+}
+.AREA_NAV > div:nth-child(1)
+{
+	max-height: 1000em;
+	
 }
 .AREA_NAV div a, .AREA_NAV div div
 {
@@ -93,69 +112,74 @@ html, body
 	background-repeat: repeat-x;
 	color: #FFF;
 }
-.AREA_NAV div div
+.AREA_NAV > div > div
 {
 	background-color: #222;
 }
-.AREA_NAV div a
+.AREA_NAV > div > a, .AREA_NAV > div > div > a
 {
 	display: block;
-	background-color: #333;
 	text-decoration: none;
+}
+.AREA_NAV > div > a
+{
+	background-color: #333;	
 	border-bottom: solid 0.2em #222;
 }
-.AREA_NAV div a:last-child
+.AREA_NAV > div > a:last-child
 {
 	border-bottom: none;
 }
-.AREA_NAV div a:hover, .AREA_NAV div a:focus
+.AREA_NAV > div > a:hover, .AREA_NAV > div > a:focus
 {
 	background-color: #444;
 }
-.AREA_NAV div a img
+.AREA_NAV > div > a > img
 {
 	width: 1.33em;
 	height: 1.33em;
 	vertical-align: middle;
 	border: none;
 }
-.AREA_NAV div:nth-child(1)
+
+/* Navigation colours */
+#nav_main
 {
 	border-right-color: #6F3;
 }
-.AREA_NAV div:nth-child(1) a:hover, .AREA_NAV div:nth-child(1) a:focus
+#nav_main a:hover, #nav_main a:focus
 {
 	background-color: #3C0;
 }
-.AREA_NAV div:nth-child(2)
+#nav_projects
 {
 	border-right-color: #09F;
 }
-.AREA_NAV div:nth-child(2) a:hover, .AREA_NAV div:nth-child(2) a:focus
+#nav_projects:hover, #nav_projects:focus
 {
 	background-color: #06C;
 }
-.AREA_NAV div:nth-child(3)
+.AREA_NAV > div:nth-child(3)
 {
 	border-right-color: #F0C;
 }
-.AREA_NAV div:nth-child(3) a:hover, .AREA_NAV div:nth-child(3) a:focus
+.AREA_NAV > div:nth-child(3) a:hover, .AREA_NAV > div:nth-child(3) a:focus
 {
 	background-color: #C09;
 }
-.AREA_NAV div:nth-child(4)
+#nav_articles
 {
 	border-right-color: #FC0;
 }
-.AREA_NAV div:nth-child(4) a:hover, .AREA_NAV div:nth-child(4) a:focus
+#nav_articles:hover, #nav_articles:focus
 {
 	background-color: #C90;
 }
-.AREA_NAV div:nth-child(5)
+#nav_misc
 {
 	border-right-color: #F33;
 }
-.AREA_NAV div:nth-child(5) a:hover, .AREA_NAV div:nth-child(5) a:focus
+#nav_misc:hover, #nav_misc:focus
 {
 	background-color: #C00;
 }
