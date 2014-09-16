@@ -430,42 +430,42 @@ html, body
 {
     display: block;
 }
-.table .row .cell, .table .row .cell1, .table .row .cell2, .table .row .cell3, .table .row .cell4
+.content .table .row .cell, .content .table .row .cell1, .content .table .row .cell2, .content .table .row .cell3, .content .table .row .cell4
 {
     vertical-align: middle;
     display: inline-block;
     float: left;
 }
-.table .row .p
+.content .table .row .p
 {
 	padding: 0.5em;
 }
-.table .row .cell1
+.content .table .row .cell1
 {
     width: 100%;
 }
-.table .row .cell2
+.content .table .row .cell2
 {
     width: 50%;
 }
-.table .row .cell3
+.content .table .row .cell3
 {
     width: 33.33%;
 }
-.table .row .cell4
+.content .table .row .cell4
 {
     width: 25%;
 }
-.table input, .BUTTON
+.content .table input, .button
 {
 	font-size: small;
 }
-.table input[type=submit], .BUTTON
+.content .table input[type=submit], .content .button
 {
 	padding: 0.25em 0.5em;
 	border-radius: 0.25em;
 }
-.table input[type=text], .table input[type=password], .TEXTBOX
+.content .table input[type=text], .content .table input[type=password], .TEXTBOX
 {
 	border: solid 0.1em #CCC;
 	background: #FFF;
@@ -473,24 +473,24 @@ html, body
 	padding: 0.25em 0.5em;
 	box-sizing: border-box;
 }
-.table input[type=text]:hover, .table input[type=text]:focus, .table input[type=password]:hover, .table input[type=password]:focus, .TEXTBOX:hover, .TEXTBOX:focus
+.content .table input[type=text]:hover, .content .table input[type=text]:focus, .content .table input[type=password]:hover, .content .table input[type=password]:focus, .content .textbox:hover, .content .textbox:focus
 {
 	background: #EEE;
 	box-shadow: inset 0em 0em 0.5em #CCC, 0em 0em 0.5em #CCC;
 }
-.table ::-webkit-input-placeholder
+.content .table ::-webkit-input-placeholder
 {
 	color: #888;
 }
-.table ::-moz-placeholder
+.content .table ::-moz-placeholder
 {
 	color: #888;
 }
-.table :-ms-input-placeholder
+.content .table :-ms-input-placeholder
 {
 	color: #888;
 }
-.table input[type=submit], .table input[type=reset], .button
+.content .table input[type=submit], .content .table input[type=reset], .content .button
 {
 	display: inline-block;
 	border: none;
@@ -509,9 +509,9 @@ html, body
 	background: linear-gradient(to bottom,  #666666 0%,#333333 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666666', endColorstr='#333333',GradientType=0 ); /* IE6-9 */
 }
-.table input[type=submit]:hover, .table input[type=submit]:focus,
-.table input[type=reset]:hover, .table input[type=reset]:focus,
-.button:hover, .button:focus
+.content .table input[type=submit]:hover, .content .table input[type=submit]:focus,
+.content .table input[type=reset]:hover, .content .table input[type=reset]:focus,
+.content .button:hover, .content .button:focus
 {
 	color: #333 !important;
 	cursor: pointer;
@@ -526,7 +526,7 @@ html, body
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
 }
 /* Checkbox Control */
-.table .checkbox
+.content .table .checkbox
 {
 	position: relative;
 	display: inline-block;
@@ -538,17 +538,17 @@ html, body
 	box-shadow: 0em 0em 0.5em #CCC;
 	cursor: pointer;
 }
-.table .checkbox:before, .table .checkbox label, .table .checkbox:after
+.content .table .checkbox:before, .content .table .checkbox label, .content .table .checkbox:after
 {
 	position: absolute;
 	text-align: center;
 }
-.table .checkbox:before, .table .checkbox:after
+.content .table .checkbox:before, .content .table .checkbox:after
 {
 	z-index: 0;
 	width: 8em;
 }
-.table .checkbox:before
+.content .table .checkbox:before
 {
 	content: 'Off';
 	color: #900;
@@ -561,7 +561,7 @@ html, body
 	background: linear-gradient(to bottom,  #ff8c8c 0%,#ffcccc 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8c8c', endColorstr='#ffcccc',GradientType=0 ); /* IE6-9 */
 }
-.table .checkbox:after
+.content .table .checkbox:after
 {
 	left: 8em;
 	content: 'On';
@@ -575,7 +575,7 @@ html, body
 	background: linear-gradient(to bottom,  #56ff56 0%,#c1ffc1 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56ff56', endColorstr='#c1ffc1',GradientType=0 ); /* IE6-9 */
 }
-.table .checkbox label
+.content .table .checkbox label
 {
 	display: block;
 	position: absolute;
@@ -593,34 +593,34 @@ html, body
 	border-top: none;
 	border-bottom: none;
 }
-.table .checkbox input[type=checkbox]
+.content .table .checkbox input[type=checkbox]
 {
 	border: solid 0.1em #CCC;
 	border-radius: 0.5em;
 	display: none;
 }
-.table .checkbox input[type=checkbox]:checked ~ label
+.content .table .checkbox input[type=checkbox]:checked ~ label
 {
 	margin-left: 0.5em;
 }
 /* Error Box */
-.error, .success, .info
+.content .error, .content .success, .content .info
 {
 	padding: 0.5em;
 }
-.info
+.content .info
 {
 	background: #6CF;
 	border: solid 0.2em #06F;
 	color: #06F !important;
 }
-.error
+.content .error
 {
 	background: #F9C;
 	border: solid 0.2em #903;
 	color: #903 !important;
 }
-.success
+.content .success
 {
 	background: #9C6;
 	border: solid 0.2em #360;
