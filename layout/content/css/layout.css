@@ -28,58 +28,55 @@ html, body
 {
 	clear: both;
 }
-.AREA_PWRAPPER
+.pwrapper
 {
 	width: 82em;
 	height: 100%;
 	margin: auto;
 }
-.AREA_WRAPPER
+.wrapper
 {
 	width: 100%;
-	overflow: hidden;
 }
-.AREA_WRAPPER .AREA_BANNER
+.wrapper .banner
 {
 	padding: 0.5em;
-	height: 4em;
-	line-height: 6em;
+	height: 3em;
+	line-height: 3.5em;
 	text-align: right;
 	color: #FFF;
 }
-.AREA_WRAPPER .AREA_BANNER h1
+.wrapper .banner h1
 {
 	margin: 0em;
 	text-shadow: 0em 0em 0.3em #000;
 	font-weight: normal;
 }
-.AREA_WRAPPER .AREA_NAV
+.wrapper .nav
 {
 	float: left;
 	width: 15em;
 	margin-right: 1em;
-	overflow: hidden;
 	margin-top: 1em;
 }
-.AREA_WRAPPER .AREA_CONTENT
+.wrapper .content
 {
 	float: right;
 	width: 65em;
 	color: #333;
 	font-weight: normal;
 }
-.AREA_WRAPPER .AREA_CONTENT .AREA_INNER_CONTENT
+.wrapper .content .inner_content
 {
 	border: solid 0.5em #999;
 	border-left: none;
 	border-right: none;
-	background: #FFF;
+	background: #DDD;
 	min-height: 44.5em;
-	box-shadow: 0em 0em 0.7em #000;
-	border-bottom-left-radius: 0.5em;
-	border-bottom-right-radius: 0.5em;
+	box-shadow: 0em 0em 5em #000;
+	border-radius: 0.5em;
 }
-.AREA_NAV > div
+.wrapper .nav > div
 {
 	border-right: solid 0.5em;
 	overflow: hidden;
@@ -91,20 +88,20 @@ html, body
 	transition:			max-height .8s ease-in-out;
 	
 	max-height: 2.5em;
-	box-shadow: 0em 0em 0.7em #000;
+	box-shadow: 0em 0em 5em #000;
 	border-radius: 0.4em;
 	margin-bottom: 0.5em;
 }
-.AREA_NAV > div:hover, .AREA_NAV > div:focus
+.wrapper .nav > div:hover, .nav > div:focus
 {
 	max-height: 999em;
 }
-.AREA_NAV > div:nth-child(1)
+.wrapper .nav > div:nth-child(1)
 {
 	max-height: 1000em;
 	
 }
-.AREA_NAV div a, .AREA_NAV div div
+.wrapper .nav div a, .nav div div
 {
 	text-indent: 0.5em;
 	line-height: 2.5em;
@@ -112,29 +109,29 @@ html, body
 	background-repeat: repeat-x;
 	color: #FFF;
 }
-.AREA_NAV > div > div
+.wrapper .nav > div > div
 {
 	background-color: #222;
 }
-.AREA_NAV > div > a, .AREA_NAV > div > div > a
+.wrapper .nav > div > a, .nav > div > div > a
 {
 	display: block;
 	text-decoration: none;
 }
-.AREA_NAV > div > a
+.wrapper .nav > div > a
 {
 	background-color: #333;	
 	border-bottom: solid 0.2em #222;
 }
-.AREA_NAV > div > a:last-child
+.wrapper .nav > div > a:last-child
 {
 	border-bottom: none;
 }
-.AREA_NAV > div > a:hover, .AREA_NAV > div > a:focus
+.wrapper .nav > div > a:hover, .nav > div > a:focus
 {
 	background-color: #444;
 }
-.AREA_NAV > div > a > img
+.wrapper .nav > div > a > img
 {
 	width: 1.33em;
 	height: 1.33em;
@@ -159,11 +156,11 @@ html, body
 {
 	background-color: #06C;
 }
-.AREA_NAV > div:nth-child(3)
+.nav > div:nth-child(3)
 {
 	border-right-color: #F0C;
 }
-.AREA_NAV > div:nth-child(3) a:hover, .AREA_NAV > div:nth-child(3) a:focus
+.nav > div:nth-child(3) a:hover, .nav > div:nth-child(3) a:focus
 {
 	background-color: #C09;
 }
@@ -183,67 +180,67 @@ html, body
 {
 	background-color: #C00;
 }
-.AREA_CONTENT p, .AREA_CONTENT pre
+.content p, .content pre
 {
 	margin: 0.5em 0.65em;
 }
-.AREA_CONTENT h2, .AREA_CONTENT h3, .AREA_CONTENT h4
+.content h2, .content h3, .content h4
 {
 	font-weight: bold;
 }
-.AREA_CONTENT h2
+.content h2
 {
 	font-size: 1.4em;
 	margin: 0.5em 0.5em 0em 0.5em;
 	padding: 0.25em 0em;
 	color: #333;
 }
-.AREA_CONTENT h3, .AREA_CONTENT h4, .AREA_CONTENT h5
+.content h3, .content h4, .content h5
 {
 	font: inherit;
 	margin: 0em 0.7em;
 	padding: 0.5em 0.5em;
 }
-.AREA_CONTENT h3
+.content h3
 {
 	background: #000;
 	color: #FFF;
 }
-.AREA_CONTENT h4
+.content h4
 {
 	color: #333;
 	background: #CCC;
 }
-.AREA_CONTENT h5
+.content h5
 {
 	color: #666;
 	background: #DDD;
 	border-bottom: solid 0.1em #CCC;
 }
-.AREA_CONTENT a
+.content a
 {
 	color: #390;
 }
-.AREA_CONTENT a:hover, .AREA_CONTENT a:focus
+.content a:hover, .content a:focus
 {
 	color: #666;
 }
-.AREA_CONTENT p img
+.content p img
 {
 	max-width: 90%;
 	max-height: 90%;
 }
-.AREA_CONTENT p a img
+.content p a img
 {
 	border: solid 0.2em #999;
 	border-radius: 0.4em;
 }
-.AREA_CONTENT p a img:hover, .AREA_CONTENT p a img:focus
+.content p a img:hover, .content p a img:focus
 {
 	border-color: #390;
 }
 /* Content navigation */
-.AREA_CONTENT .navigation
+.content .navigation
 {
 	display: inline-block;
 	float: right;
@@ -254,12 +251,12 @@ html, body
 	border-right: none;
 	padding: 0em 0.5em;
 }
-.AREA_CONTENT .navigation ol
+.content .navigation ol
 {
 	list-style-type: none;
 	padding-left: 2em;
 }
-.AREA_CONTENT .navigation ol:first-child
+.content .navigation ol:first-child
 {
 	padding-left: 0.5em;
 }
@@ -387,23 +384,23 @@ html, body
 	float: right;
 }
 /* Table - Data */
-.AREA_CONTENT table
+.content table
 {
 	border: solid 0.1em #333;
 	border-radius: 0.5em;
 	border-collapse: collapse;
 	margin: 0.6em;
 }
-.AREA_CONTENT table tr:nth-child(even)
+.content table tr:nth-child(even)
 {
 	background: #CCC;
 }
-.AREA_CONTENT table th, .AREA_CONTENT table td
+.content table th, .content table td
 {
 	padding: 0.5em;
 	border: solid 0.1em #333;
 }
-.AREA_CONTENT table th, .TABLE .HEADER
+.content table th, .TABLE .HEADER
 {
 	background: #000;
 	color: #FFF;
