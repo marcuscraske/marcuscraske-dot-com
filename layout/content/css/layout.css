@@ -460,23 +460,15 @@ html, body
 {
 	font-size: small;
 }
-.content .table input[type=submit], .content .button
-{
-	padding: 0.25em 0.5em;
-	border-radius: 0.25em;
-}
-.content .table input[type=text], .content .table input[type=password], .TEXTBOX
+.content .table input[type=text],
+.content .table input[type=password],
+.textbox
 {
 	border: solid 0.1em #CCC;
 	background: #FFF;
-	box-shadow: 0em 0em 0.5em #CCC;
+	box-shadow: inset 0em 0em 0.5em #DDD, 0em 0em 0.5em #CCC;
 	padding: 0.25em 0.5em;
 	box-sizing: border-box;
-}
-.content .table input[type=text]:hover, .content .table input[type=text]:focus, .content .table input[type=password]:hover, .content .table input[type=password]:focus, .content .textbox:hover, .content .textbox:focus
-{
-	background: #EEE;
-	box-shadow: inset 0em 0em 0.5em #CCC, 0em 0em 0.5em #CCC;
 }
 .content .table ::-webkit-input-placeholder
 {
@@ -490,7 +482,9 @@ html, body
 {
 	color: #888;
 }
-.content .table input[type=submit], .content .table input[type=reset], .content .button
+.content .table input[type=submit],
+.content .table input[type=reset],
+.content .button
 {
 	display: inline-block;
 	border: none;
@@ -499,6 +493,8 @@ html, body
 	text-decoration: none;
 	margin: 0em 0.5em 0.25em 0em;
 	font: inherit;
+	padding: 0.25em 0.5em;
+	border-radius: 0.25em;
 	
 	background: #333; /* Old browsers */
 	background: -moz-linear-gradient(top,  #666666 0%, #333333 100%); /* FF3.6+ */
