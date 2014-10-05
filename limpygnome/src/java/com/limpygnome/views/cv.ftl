@@ -1,5 +1,6 @@
+<h2>CV</h2>
 <p>
-    The most up-to-date version of my curriculum vitae can be downloaded <a href="/content/static/cv.pdf">here</a>.
+    The most up-to-date version of my curriculum vitae can be downloaded <a href="/files/cv.pdf">here</a>.
 </p>
 
 <p>

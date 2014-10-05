@@ -102,12 +102,6 @@
 			</div>
 			<div class="content">
 				<div class="inner_content <#if page_fill??>fill</#if>">
-                                        <#if page_fill??>
-                                            <h2>
-                                                <#if title??>${title?html}<#else>Undefined Title</#if>
-                                            </h2>
-                                        </#if>
-
                                         <#if content??>
                                             <#include content+".ftl">
                                         </#if>

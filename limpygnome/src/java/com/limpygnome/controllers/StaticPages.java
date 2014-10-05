@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = {
     "/me",
+    "/me/cycling",
     "/cv",
-    "/contact"
+    "/contact",
+    "/tools",
+    "/music"
 })
 public class StaticPages extends ExtendedHttpServlet
 {
@@ -35,9 +38,11 @@ public class StaticPages extends ExtendedHttpServlet
         switch(urlPart)
         {
             case "me":          title = "Me";                       break;
+            case "me_cycling":  title = "Me - Cycling";             break;
             case "cv":          title = "Curriculum Vitae";         break;
             case "contact":     title = "Contact";                  break;
-                
+            case "tools":       title = "Tools";                    break;
+            case "music":       title = "Music";                    break;
             default:    title = null;                               break;
         }
         

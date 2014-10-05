@@ -393,7 +393,11 @@ html, body
     border: solid 0.2em #999;
     box-shadow: 0em 0em 0.5em #000;
 }
-
+.content a:hover .img,
+.content a:focus .img
+{
+    border-color: #EEE;
+}
 .tal
 {
 	text-align: left;
@@ -653,8 +657,14 @@ html, body
     height: 60%;
     border-radius: 0.8em;
 }
-.me_annie
+.me_small
 {
-    width: 10em;
-    height: 10em;
+    float: right;
+    margin: 0.5em;
+    text-align: center;
+}
+.me_small img
+{
+    max-width: 10em !important;
+    max-height: 10em !important;
 }

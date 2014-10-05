@@ -66,9 +66,8 @@ public class TemplateSettings
         }
         finally
         {
-            // Finish writer
+            // Make sure all content has been written
             out.flush();
-            out.close();
         }
     }
 
