@@ -6,10 +6,9 @@
         </title>
 	<meta http-equiv="/content-type" content="text/html;charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
-	<link rel="stylesheet" type="text/css" href="content/css/layout.css" />
+	<link rel="stylesheet" type="text/css" href="/content/css/layout.css" />
 </head>
 <body>
-<div class="swrapper">
 	<div class="pwrapper">
 		<div class="wrapper">
 			<div class="banner">
@@ -20,19 +19,19 @@
 			<div class="nav">
 				<div id="nav_main">
 					<a href="/">
-						<img alt="Home" src="content/images/nav/home.png" />
+						<img alt="Home" src="/content/images/nav/home.png" />
 						Home
 					</a>
 					<a href="/me">
-						<img alt="Me" src="content/images/nav/me.png" />
+						<img alt="Me" src="/content/images/nav/me.png" />
 						Me
 					</a>
 					<a href="/cv">
-						<img alt="Cirriculum Vitae" src="content/images/nav/cv.png" />
+						<img alt="Cirriculum Vitae" src="/content/images/nav/cv.png" />
 						Curriculum Vitae
 					</a>
 					<a href="/contact">
-						<img alt="Contact" src="content/images/nav/contact.png" />
+						<img alt="Contact" src="/content/images/nav/contact.png" />
 						Contact
 					</a>
 				</div>
@@ -43,26 +42,26 @@
 						</a>
 					</div>
 					<a href="/software/binary_clock">
-						<img alt="Binary Clock" src="content/images/nav/binary_clock.png" />
+						<img alt="Binary Clock" src="/content/images/nav/binary_clock.png" />
 						Binary Clock
 					</a>
 					<a href="/software/portable_postgres">
-						<img alt="Portable Postgres" src="content/images/nav/portable_postgres.png" />
+						<img alt="Portable Postgres" src="/content/images/nav/portable_postgres.png" />
 						Portable Postgres
 					</a>
 					<a href="/software/pals">
-						<img alt="PALS" src="content/images/nav/portable_postgres.png" />
+						<img alt="PALS" src="/content/images/nav/portable_postgres.png" />
 						PALS
 					</a>
 				</div>
 				<div id="nav_games">
 					<div>Games</div>
 					<a href="/games/insomniac">
-						<img alt="Insomniac" src="content/images/nav/insomniac.png" />
+						<img alt="Insomniac" src="/content/images/nav/insomniac.png" />
 						Insomniac
 					</a>
 					<a href="/games/whirlpool">
-						<img alt="Whirlpool" src="content/images/nav/whirlpool.png" />
+						<img alt="Whirlpool" src="/content/images/nav/whirlpool.png" />
 						Whirlpool
 					</a>
 				</div>
@@ -73,30 +72,30 @@
 						</a>
 					</div>
 					<a href="/hacking_nandos_pong_game">
-						<img alt="Alarm Clock" src="content/images/nav/nandos.png" />
+						<img alt="Alarm Clock" src="/content/images/nav/nandos.png" />
 						Hacking The Nandos...
 					</a>
 					<a href="/university">
-						<img alt="Alarm Clock" src="content/images/nav/uni.png" />
+						<img alt="Alarm Clock" src="/content/images/nav/uni.png" />
 						University Work
 					</a>
 				</div>
 				<div id="nav_misc">
 					<div>Misc</div>
 					<a href="/files">
-						<img alt="Images" src="content/images/nav/files.png" />
+						<img alt="Images" src="/content/images/nav/files.png" />
 						Public Files
 					</a>
 					<a href="https://github.com/limpygnome">
-						<img alt="Github" src="content/images/nav/github.png" />
+						<img alt="Github" src="/content/images/nav/github.png" />
 						Github
 					</a>
 					<a href="/music">
-						<img alt="Guitar" src="content/images/nav/music.png" />
+						<img alt="Guitar" src="/content/images/nav/music.png" />
 						Music
 					</a>
 					<a href="/tools">
-						<img alt="Guitar" src="content/images/nav/tools.png" />
+						<img alt="Guitar" src="/content/images/nav/tools.png" />
 						Tools
 					</a>
 				</div>
@@ -146,6 +145,8 @@
 		</div>
 		<div class="clear"></div>
 	</div>
+<div class="swrapper">
+    &nbsp;
 </div>
 </body>
 </html>

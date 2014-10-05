@@ -11,7 +11,7 @@
     </tr>
     <tr>
         <th class="tal">Born</th>
-        <td>April 1993</td>
+        <td>1993</td>
     </tr>
     <tr>
         <th class="tal">Gender</th>
@@ -100,5 +100,13 @@
     <li>A software developer</li>
     <li>Creating and playing <a href="/music">music</a></li>
     <li>Running side <a href="/projects">projects</a></li>
+    <li><a href="/cycling">Cycling</a> for pleasure, exercise and commuting</li>
     <li>In a relationship with Annie.</li>
 </ul>
+
+<h3>Timeline</h3>
+<h4>Web Design Competitions (2010-2011)</h4>
+
+<h4>Skydiving (2012)</h4>
+
+<h4>University (2012-2014)</h4>
