@@ -1,3 +1,3 @@
-<p>
-    home test page
+<p class="tac">
+    <img src="/content/images/me.png" alt="limpygnome" class="home" />
 </p>

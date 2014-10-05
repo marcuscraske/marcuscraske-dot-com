@@ -1,0 +1,653 @@
+/* Main body and wrappers */
+::selection
+{
+	background: #06C;
+	color: #999;
+}
+::-moz-selection
+{
+	background: #06C;
+	color: #999;
+}
+html
+{
+	overflow-y: scroll;
+}
+html, body
+{
+	height: 100%;
+	font: normal 12px Droid Sans, Arial, Verdana;
+	margin: 0em;
+	background: #111;
+	background: url('../images/background.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.clear
+{
+	clear: both;
+}
+.swrapper
+{
+        width: 100%;
+        height: 100%;
+        box-shadow: inset 0em 0em 8em #000;
+        overflow: auto;
+}
+.pwrapper
+{
+	width: 82em;
+	height: 100%;
+	margin: auto;
+}
+.wrapper
+{
+	width: 100%;
+}
+.wrapper .banner
+{
+	padding: 0.5em;
+	height: 3em;
+	line-height: 3.5em;
+	text-align: right;
+	color: #FFF;
+}
+.wrapper .banner h1
+{
+	margin: 0em;
+	text-shadow: 0em 0em 0.3em #000;
+	font-weight: normal;
+}
+.wrapper .nav
+{
+	float: left;
+	width: 15em;
+	margin-right: 1em;
+	margin-top: 1em;
+}
+.wrapper .content
+{
+	float: right;
+	width: 65em;
+	color: #333;
+	font-weight: normal;
+}
+.wrapper .content .inner_content
+{
+	min-height: 44.5em;
+        border: solid 0.5em #999;
+        border-left: none;
+	border-right: none;
+}
+.wrapper .content .inner_content.fill
+{
+	background: rgba(221,221,221,0.9);
+	box-shadow: 0em 0em 5em #000;
+	border-radius: 0.5em;
+}
+.wrapper .nav > div
+{
+	border-right: solid 0.5em;
+	overflow: hidden;
+	
+	-webkit-transition:	max-height .8s ease-in-out;
+	-moz-transition: 	max-height .8s ease-in-out;
+	-o-transition:		max-height .8s ease-in-out;
+	-ms-transition:		max-height .8s ease-in-out;
+	transition:			max-height .8s ease-in-out;
+	
+	max-height: 2.5em;
+	box-shadow: 0em 0em 5em #000;
+	border-radius: 0.4em;
+	margin-bottom: 0.5em;
+}
+.wrapper .nav > div:hover, .nav > div:focus
+{
+	max-height: 999em;
+}
+.wrapper .nav > div:nth-child(1)
+{
+	max-height: 1000em;
+	
+}
+.wrapper .nav div a, .nav div div
+{
+	text-indent: 0.5em;
+	line-height: 2.5em;
+	background-image: url('../images/gradient.png');
+	background-repeat: repeat-x;
+	color: #FFF;
+}
+.wrapper .nav > div > div
+{
+	background-color: #222;
+}
+.wrapper .nav > div > a, .nav > div > div > a
+{
+	display: block;
+	text-decoration: none;
+}
+.wrapper .nav > div > a
+{
+	background-color: #333;	
+	border-bottom: solid 0.2em #222;
+}
+.wrapper .nav > div > a:last-child
+{
+	border-bottom: none;
+}
+.wrapper .nav > div > a:hover, .nav > div > a:focus
+{
+	background-color: #444;
+}
+.wrapper .nav > div > a > img
+{
+	width: 1.33em;
+	height: 1.33em;
+	vertical-align: middle;
+	border: none;
+}
+
+/* Navigation colours */
+#nav_main
+{
+	border-right-color: #6F3;
+}
+#nav_main a:hover, #nav_main a:focus
+{
+	background-color: #3C0;
+}
+#nav_projects
+{
+	border-right-color: #09F;
+}
+#nav_projects a:hover, #nav_projects a:focus
+{
+	background-color: #06C;
+}
+#nav_games
+{
+	border-right-color: #F0C;
+}
+#nav_games a:hover, #nav_games a:focus
+{
+	background-color: #C09;
+}
+#nav_articles
+{
+	border-right-color: #FC0;
+}
+#nav_articles a:hover, #nav_articles a:focus
+{
+	background-color: #C90;
+}
+#nav_misc
+{
+	border-right-color: #F33;
+}
+#nav_misc a:hover, #nav_misc a:focus
+{
+	background-color: #C00;
+}
+
+/* Content headings */
+.content h2, .content h3, .content h4
+{
+	font-weight: bold;
+}
+.content h2
+{
+	font-size: 1.4em;
+	margin: 0.5em 0.5em 0em 0.5em;
+	padding: 0.25em 0em;
+	color: #333;
+}
+.content h3, .content h4, .content h5
+{
+	font: inherit;
+	margin: 0em;
+	padding: 0.5em 0.5em;
+	color: #333;
+}
+.content h3
+{
+	background: #CCC;
+	border-bottom: solid 0.2em #999;
+	font-size: 1.2em;
+}
+.content h4
+{
+	background: #EEE;
+	border-bottom: solid 0.2em #CCC;
+}
+.content h5
+{
+	border-bottom: solid 0.2em #CCC;
+	margin: 0em 0.5em;
+}
+
+/* Content navigation */
+.content .navigation
+{
+	display: inline-block;
+	float: right;
+	margin: 0em 0.5em 0.5em 0.5em;
+	background: #DDD;
+	border: solid 1em #FFF;
+	border-top: none;
+	border-right: none;
+	padding: 0em 0.5em;
+}
+.content .navigation ol
+{
+	list-style-type: none;
+	padding-left: 2em;
+}
+.content .navigation ol:first-child
+{
+	padding-left: 0.5em;
+}
+/* Footer Icons */
+.icons
+{
+	text-align: center;
+	height: 4.4em;
+}
+.icons a.icon
+{
+	display: inline-block;
+	text-indent: -9999em;
+	width: 2.8em;
+	height: 2.8em;
+	background-size: 100%;
+	margin: 0.5em;
+	text-decoration: none;
+	-webkit-transition:	width .4s,	height .4s ease;
+	-moz-transition: 	width .4s,	height .4s ease;
+	-o-transition:		width .4s,	height .4s ease;
+	-ms-transition:		width .4s,	height .4s ease;
+	transition:			width .4s,	height .4s ease;
+}
+.icons a:hover, .icons a:focus
+{
+	width: 3.4em;
+	height: 3.4em;
+}
+/* ~ Github */
+.icons .gh
+{
+	background-image: url('../images/footer/gh.png');
+}
+.icons .gh:hover, .icons .gh:focus
+{
+	background-image: url('../images/footer/gh_h.png');
+}
+/* ~ YouTube */
+.icons .yt
+{
+	background-image: url('../images/footer/yt.png');
+}
+.icons .yt:hover, .icons .yt:focus
+{
+	background-image: url('../images/footer/yt_h.png');
+}
+/* ~SoundCloud */
+.icons .sc
+{
+	background-image: url('../images/footer/sc.png');
+}
+.icons .sc:hover, .icons .sc:focus
+{
+	background-image: url('../images/footer/sc_h.png');
+}
+/* ~ Gmail */
+.icons .gm
+{
+	background-image: url('../images/footer/gm.png');
+}
+.icons .gm:hover, .icons .gm:focus
+{
+	background-image: url('../images/footer/gm_h.png');
+}
+/* ~ LinkedIn */
+.icons .li
+{
+	background-image: url('../images/footer/li.png');
+}
+.icons .li:hover, .icons .li:focus
+{
+	background-image: url('../images/footer/li_h.png');
+}
+/* ~ G+ */
+.icons .gp
+{
+	background-image: url('../images/footer/gp.png');
+}
+.icons .gp:hover, .icons .gp:focus
+{
+	background-image: url('../images/footer/gp_h.png');
+}
+/* ~ TWT */
+.icons .twt
+{
+	background-image: url('../images/footer/twt.png');
+}
+.icons .twt:hover, .icons .twt:focus
+{
+	background-image: url('../images/footer/twt_h.png');
+}
+/* ~ FB */
+.icons .fb
+{
+	background-image: url('../images/footer/fb.png');
+}
+.icons .fb:hover, .icons .fb:focus
+{
+	background-image: url('../images/footer/fb_h.png');
+}
+
+/* Content elements */
+.content a
+{
+	color: #06C;
+}
+.content a:hover, .content a:focus
+{
+	color: #666;
+}
+
+.content p
+{
+	font-size: 1.1em;
+}
+.content p img
+{
+	max-width: 90%;
+	max-height: 90%;
+}
+.content p a img
+{
+	border: solid 0.2em #999;
+	border-radius: 0.4em;
+}
+.content p a img:hover, .content p a img:focus
+{
+	border-color: #390;
+}
+.content p, .content pre
+{
+	margin: 0.5em 0.65em;
+}
+.content .img
+{
+    border-radius: 0.5em;
+    border: solid 0.2em #999;
+    box-shadow: 0em 0em 0.5em #000;
+}
+
+.tal
+{
+	text-align: left;
+}
+.tar
+{
+	text-align: right;
+}
+.tac
+{
+	text-align: center;
+}
+.fl
+{
+	float: left;
+}
+.fr
+{
+	float: right;
+}
+
+/* Table - Data */
+.content table
+{
+	border: solid 0.1em #333;
+	border-radius: 0.5em;
+	border-collapse: collapse;
+	margin: 0.6em 0.5em;
+}
+.content table tr:nth-child(even)
+{
+	background: #CCC;
+}
+.content table th, .content table td
+{
+	padding: 0.5em;
+	border: solid 0.1em #333;
+}
+.content table th, .TABLE .HEADER
+{
+	background: #999;
+	color: #333;
+        vertical-align: top;
+}
+
+/* Table - Layout */
+.content .table
+{
+    display: block;
+	margin: auto;
+	margin-bottom: 0.5em;
+	overflow: hidden;
+	font-size: small;
+	padding: 0.5em;
+}
+.content .table .row
+{
+    display: block;
+}
+.content .table .row .cell, .content .table .row .cell1, .content .table .row .cell2, .content .table .row .cell3, .content .table .row .cell4
+{
+    vertical-align: middle;
+    display: inline-block;
+    float: left;
+}
+.content .table .row .p
+{
+	padding: 0.5em;
+}
+.content .table .row .cell1
+{
+    width: 100%;
+}
+.content .table .row .cell2
+{
+    width: 50%;
+}
+.content .table .row .cell3
+{
+    width: 33.33%;
+}
+.content .table .row .cell4
+{
+    width: 25%;
+}
+.content .table input, .button
+{
+	font-size: small;
+}
+.content .table input[type=text],
+.content .table input[type=password],
+.textbox
+{
+	border: solid 0.1em #CCC;
+	background: #FFF;
+	box-shadow: inset 0em 0em 0.5em #DDD, 0em 0em 0.5em #CCC;
+	padding: 0.25em 0.5em;
+	box-sizing: border-box;
+}
+.content .table ::-webkit-input-placeholder
+{
+	color: #888;
+}
+.content .table ::-moz-placeholder
+{
+	color: #888;
+}
+.content .table :-ms-input-placeholder
+{
+	color: #888;
+}
+.content .table input[type=submit],
+.content .table input[type=reset],
+.content .button
+{
+	display: inline-block;
+	border: none;
+	color: #FFF !important;
+	box-shadow: 0em 0em 0.3em #333;
+	text-decoration: none;
+	margin: 0em 0.5em 0.25em 0em;
+	font: inherit;
+	padding: 0.25em 0.5em;
+	border-radius: 0.25em;
+	
+	background: #333; /* Old browsers */
+	background: -moz-linear-gradient(top,  #666666 0%, #333333 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#666666), color-stop(100%,#333333)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #666666 0%,#333333 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #666666 0%,#333333 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #666666 0%,#333333 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #666666 0%,#333333 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666666', endColorstr='#333333',GradientType=0 ); /* IE6-9 */
+}
+.content .table input[type=submit]:hover, .content .table input[type=submit]:focus,
+.content .table input[type=reset]:hover, .content .table input[type=reset]:focus,
+.content .button:hover, .content .button:focus
+{
+	color: #333 !important;
+	cursor: pointer;
+	
+	background: #CCC; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e5e5e5 0%, #cccccc 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e5e5e5), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e5e5e5 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e5e5e5 0%,#cccccc 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e5e5e5 0%,#cccccc 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #e5e5e5 0%,#cccccc 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+/* Checkbox Control */
+.content .table .checkbox
+{
+	position: relative;
+	display: inline-block;
+	width: 16em;
+	height: 2em;
+	line-height: 2em;
+	border: solid 0.1em #CCC;
+	border-radius: 0.5em;
+	box-shadow: 0em 0em 0.5em #CCC;
+	cursor: pointer;
+}
+.content .table .checkbox:before, .content .table .checkbox label, .content .table .checkbox:after
+{
+	position: absolute;
+	text-align: center;
+}
+.content .table .checkbox:before, .content .table .checkbox:after
+{
+	z-index: 0;
+	width: 8em;
+}
+.content .table .checkbox:before
+{
+	content: 'Off';
+	color: #900;
+	background: #FCC; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ff8c8c 0%, #ffcccc 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8c8c), color-stop(100%,#ffcccc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ff8c8c 0%,#ffcccc 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ff8c8c 0%,#ffcccc 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ff8c8c 0%,#ffcccc 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ff8c8c 0%,#ffcccc 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8c8c', endColorstr='#ffcccc',GradientType=0 ); /* IE6-9 */
+}
+.content .table .checkbox:after
+{
+	left: 8em;
+	content: 'On';
+	color: #060;
+	background: #9F9; /* Old browsers */
+	background: -moz-linear-gradient(top,  #56ff56 0%, #c1ffc1 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#56ff56), color-stop(100%,#c1ffc1)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #56ff56 0%,#c1ffc1 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #56ff56 0%,#c1ffc1 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #56ff56 0%,#c1ffc1 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #56ff56 0%,#c1ffc1 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#56ff56', endColorstr='#c1ffc1',GradientType=0 ); /* IE6-9 */
+}
+.content .table .checkbox label
+{
+	display: block;
+	position: absolute;
+	width: 10em;
+	z-index: 1;
+	-webkit-transition:	all .4s ease;
+	-moz-transition: 	all .4s ease;
+	-o-transition:		all .4s ease;
+	-ms-transition:		all .4s ease;
+	transition:			all .4s ease;
+	cursor: pointer;
+	background: #FFF;
+	margin-left: 5.5em;
+	border: solid 0.1em #CCC;
+	border-top: none;
+	border-bottom: none;
+}
+.content .table .checkbox input[type=checkbox]
+{
+	border: solid 0.1em #CCC;
+	border-radius: 0.5em;
+	display: none;
+}
+.content .table .checkbox input[type=checkbox]:checked ~ label
+{
+	margin-left: 0.5em;
+}
+/* Error Box */
+.content .error, .content .success, .content .info
+{
+	padding: 0.5em;
+}
+.content .info
+{
+	background: #6CF;
+	border: solid 0.2em #06F;
+	color: #06F !important;
+}
+.content .error
+{
+	background: #F9C;
+	border: solid 0.2em #903;
+	color: #903 !important;
+}
+.content .success
+{
+	background: #9C6;
+	border: solid 0.2em #360;
+	color: #360 !important;
+}
+
+/* Page Specific */
+.home
+{
+    width: 60%;
+    height: 60%;
+    border-radius: 0.8em;
+}
+.me_annie
+{
+    width: 10em;
+    height: 10em;
+}

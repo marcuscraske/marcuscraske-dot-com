@@ -27,6 +27,7 @@ public class TemplateSettings
     private static  Configuration   templateConfiguration;
     
     private String                  templatePage;
+    private boolean                 templatePageFill;
     private String                  templatePageTitle;
     private String                  templatePageContent;
     
@@ -35,6 +36,7 @@ public class TemplateSettings
         // Set default config
         templatePageTitle = "Untitled Page";
         templatePage = "layout";
+        templatePageFill = true;
         templatePageContent = "404";
     }
     
@@ -43,6 +45,9 @@ public class TemplateSettings
         // Set layout areas
         templateData.put("title", templatePageTitle);
         templateData.put("content", templatePageContent);
+        
+        if(templatePageFill)
+            templateData.put("page_fill", true);
         
         // Fetch template
         Template t = templateConfiguration.getTemplate("/com/limpygnome/views/"+templatePage+".ftl");
@@ -76,6 +81,15 @@ public class TemplateSettings
         this.templatePage = templatePage;
     }
 
+    public boolean isTemplatePageFill()
+    {
+        return templatePageFill;
+    }
+    public void setTemplatePageFill(boolean templatePageFill)
+    {
+        this.templatePageFill = templatePageFill;
+    }
+    
     public String getTemplatePageTitle()
     {
         return templatePageTitle;
