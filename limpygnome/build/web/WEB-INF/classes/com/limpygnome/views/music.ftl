@@ -1,3 +1,5 @@
+<#global title="Music">
+
 <h2>Music</h2>
 
 <p class="tac">

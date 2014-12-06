@@ -1,4 +1,4 @@
-package com.limpygnome.controllers;
+package com.limpygnome.controllers.special;
 
 import com.limpygnome.ExtendedHttpServlet;
 import java.io.IOException;

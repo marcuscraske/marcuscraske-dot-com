@@ -20,7 +20,7 @@ public abstract class ExtendedHttpServlet extends HttpServlet
     public ExtendedHttpServlet()
     {
         this.templateSettings = new TemplateSettings();
-        this.templateData = new HashMap<String, Object>();
+        this.templateData = new HashMap<>();
     }
     
     public abstract void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;

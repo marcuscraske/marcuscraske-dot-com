@@ -1,3 +1,5 @@
+<#global title="Tools">
+
 <h2>Tools</h2>
 
 <p>

@@ -1,8 +1,12 @@
+<#-- Import any overriding variables from the content template. -->
+<#if content??>
+    <#import content+".ftl" as page>
+</#if>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>
-            limpygnome.com ~ <#if title??>${title?html}<#else>Undefined Title</#if>
+             <#if title??>${title?html}<#else>Undefined Title</#if> ~ limpygnome.com
         </title>
 	<meta http-equiv="/content-type" content="text/html;charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
@@ -102,6 +106,7 @@
 			</div>
 			<div class="content">
 				<div class="inner_content <#if page_fill??>fill</#if>">
+
                                         <#if content??>
                                             <#include content+".ftl">
                                         </#if>

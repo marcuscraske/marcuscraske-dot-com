@@ -1,6 +1,8 @@
 <h2>Me</h2>
 <h3>Overview</h3>
 
+<#global title="Me">
+
 <table>
     <tr>
         <th class="tal">Online Alias</th>

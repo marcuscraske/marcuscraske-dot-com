@@ -1,4 +1,6 @@
-<h2>CV</h2>
+<#global title="Curriculum Vitae">
+
+<h2>Curriculum Vitae</h2>
 <p>
     The most up-to-date version of my curriculum vitae can be downloaded <a href="/files/cv.pdf">here</a>.
 </p>

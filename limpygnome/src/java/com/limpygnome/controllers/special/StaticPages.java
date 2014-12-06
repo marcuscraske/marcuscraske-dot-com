@@ -1,4 +1,4 @@
-package com.limpygnome.controllers;
+package com.limpygnome.controllers.special;
 
 import com.limpygnome.ExtendedHttpServlet;
 import java.io.IOException;
@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
     "/cv",
     "/contact",
     "/tools",
-    "/music"
+    "/music",
+    "/software/binary_clock"
 })
 public class StaticPages extends ExtendedHttpServlet
 {
@@ -28,26 +29,9 @@ public class StaticPages extends ExtendedHttpServlet
         else if(urlPart.startsWith("/") && urlPart.length() > 1) {
             urlPart = urlPart.substring(1);
         }
-        urlPart = urlPart.replace("/", "_");
 
         // Set template
         templateSettings.setTemplatePageContent(urlPart);
-        
-        // Set title
-        String title;
-        switch(urlPart)
-        {
-            case "me":          title = "Me";                       break;
-            case "me_cycling":  title = "Me - Cycling";             break;
-            case "cv":          title = "Curriculum Vitae";         break;
-            case "contact":     title = "Contact";                  break;
-            case "tools":       title = "Tools";                    break;
-            case "music":       title = "Music";                    break;
-            default:    title = null;                               break;
-        }
-        
-        if(title != null)
-            templateSettings.setTemplatePageTitle(title);
     }
     
 }
