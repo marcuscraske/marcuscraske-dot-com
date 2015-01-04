@@ -122,7 +122,7 @@ public class Upload extends ExtendedHttpServlet
                                         entry = (ZipEntry)entries.nextElement();
                                         
                                         rawInfo .append("- Processing file '").append(entry.getName())
-                                                .append("' [").append(entry.getSize()).append("bytes]")
+                                                .append("' [").append(entry.getSize()).append(" bytes]")
                                                 .append("\n");
                                         
                                         is = zf.getInputStream(entry);
