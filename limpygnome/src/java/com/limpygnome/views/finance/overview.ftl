@@ -5,7 +5,7 @@ ${append_css("/content/css/finance.css")}
     Finance - <a href="/finance">Overview</a>
 </h2>
 
-<h3>Overview</h3>
+<h3>Last 6 Months</h3>
 <script src="/content/js/Chart.js"></script>
 
 <p class="tac">
@@ -104,6 +104,20 @@ ${append_css("/content/css/finance.css")}
     var chartOverview = new Chart(ctx).Line(data, options);
     document.write(chartOverview.generateLegend());
 </script>
+
+<h3>Options</h3>
+<p class="tac">
+    <a class="button" href="/finance/upload">
+        <img src="/content/images/finance/upload.png" alt="Upload" />
+        Upload
+    </a>
+
+    <a class="button" href="/finance/wipe">
+        <img src="/content/images/finance/wipe.png" alt="Wipe All Data" />
+        Wipe All Data
+    </a>
+</p>
+
 
 <h3>Accounts</h3>
 list each account

@@ -522,6 +522,9 @@ html, body
 	font: inherit;
 	padding: 0.25em 0.5em;
 	border-radius: 0.25em;
+        
+        line-height: 1.4em;
+        height: 1.4em;
 	
 	background: #333; /* Old browsers */
 	background: -moz-linear-gradient(top,  #666666 0%, #333333 100%); /* FF3.6+ */
@@ -548,6 +551,14 @@ html, body
 	background: linear-gradient(to bottom,  #e5e5e5 0%,#cccccc 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5e5e5', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
 }
+.content .button img
+{
+    vertical-align: middle;
+    width: 1.0em;
+    height: 1.0em;
+    border: none;
+}
+
 /* Checkbox Control */
 .content .table .checkbox
 {
