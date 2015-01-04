@@ -25,7 +25,7 @@
             </div>
             <div class="cell2">
                 <div class="p">
-                    <input type="file" name="fileupload1" />
+                    <input type="file" name="fileupload2" />
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="cell2">
                 <div class="p">
-                    <input type="file" name="fileupload1" />
+                    <input type="file" name="fileupload3" />
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
             </div>
             <div class="cell2">
                 <div class="p">
-                    <input type="file" name="fileupload1" />
+                    <input type="file" name="fileupload4" />
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
             </div>
             <div class="cell2">
                 <div class="p">
-                    <input type="file" name="fileupload1" />
+                    <input type="file" name="fileupload5" />
                 </div>
             </div>
         </div>
@@ -73,7 +73,31 @@
             </div>
             <div class="cell2">
                 <div class="p">
-                    <input type="file" name="fileupload1" />
+                    <input type="file" name="fileupload6" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell2">
+                <div class="p">
+                    File #7:
+                </div>
+            </div>
+            <div class="cell2">
+                <div class="p">
+                    <input type="file" name="fileupload7" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell2">
+                <div class="p">
+                    File #8:
+                </div>
+            </div>
+            <div class="cell2">
+                <div class="p">
+                    <input type="file" name="fileupload8" />
                 </div>
             </div>
         </div>
@@ -87,14 +111,20 @@
     </div>
 </form>
 
-<#if finance_error??>
-    <div class="error">
-        ${finance_error?html}
-    </div>
+<#if finance_success??>
+    <p class="success">
+        ${finance_success?html}
+    </p>
 </#if>
 
-<#if finance_output??>
-    <div class="info">
-        ${finance_output?html}
-    </div>
+<#if finance_error??>
+    <p class="error">
+        ${finance_error?html}
+    </p>
+</#if>
+
+<#if finance_info??>
+    <p class="info">
+        ${finance_info?html?replace("\n", "<br />")}
+    </p>
 </#if>
