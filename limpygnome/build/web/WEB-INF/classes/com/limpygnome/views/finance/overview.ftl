@@ -9,7 +9,7 @@ ${append_css("/content/css/finance.css")}
 <script src="/content/js/Chart.js"></script>
 
 <p class="tac">
-    <canvas id="myChart" width="600" height="300"></canvas>
+    <canvas id="chartOverview" width="600" height="300"></canvas>
 </p>
 
 <script>
@@ -56,8 +56,12 @@ ${append_css("/content/css/finance.css")}
                 "<% for (var i=0; i<datasets.length; i++){%>" +
                     "<li><span style=\"background-color:<%=datasets[i].pointColor%>\"><%if(datasets[i].label){%><%=datasets[i].label%></span><%}%></li>" +
                 "<%}%>" +
-            "</ul>"
+            "</ul>",
 
+        tooltipTemplate: "£<%if (label){%><%=label%>: <%}%><%= value %>",
+
+         // String - Template string for single tooltips
+        multiTooltipTemplate: "\u00A3<%= value %>"
     };
 
     var data = {
@@ -96,11 +100,9 @@ ${append_css("/content/css/finance.css")}
         ]
     };
 
-
-
-    var ctx = document.getElementById("myChart").getContext("2d");
-    var myNewChart = new Chart(ctx).Line(data, options);
-    document.write(myNewChart.generateLegend());
+    var ctx = document.getElementById("chartOverview").getContext("2d");
+    var chartOverview = new Chart(ctx).Line(data, options);
+    document.write(chartOverview.generateLegend());
 </script>
 
 <h3>Accounts</h3>
