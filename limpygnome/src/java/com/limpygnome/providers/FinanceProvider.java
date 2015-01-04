@@ -1,11 +1,14 @@
 package com.limpygnome.providers;
 
 import com.limpygnome.models.FinanceAccount;
+import com.limpygnome.models.FinanceStatsMonthly;
+import com.limpygnome.models.FinanceStatsOverview;
 import com.limpygnome.models.FinanceTransaction;
+import java.util.Collections;
+import java.util.List;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import org.hibernate.Criteria;
 
 public class FinanceProvider extends BaseProvider
 {
@@ -45,5 +48,33 @@ public class FinanceProvider extends BaseProvider
     public void transactionCreate(FinanceTransaction tx)
     {
         em.persist(tx);
+    }
+    
+    public FinanceStatsOverview statsOverviewFetch()
+    {
+        return em.find(FinanceStatsOverview.class, 1);
+    }
+    
+    public FinanceStatsMonthly[] statsMonthlyFetch(int months)
+    {
+        TypedQuery<FinanceStatsMonthly> q = em.createQuery("SELECT fsm FROM FinanceStatsMonthly fsm", FinanceStatsMonthly.class);
+        
+        if(months > 0)
+        {
+            q.setMaxResults(months);
+        }
+        
+        try
+        {
+            List<FinanceStatsMonthly> result = q.getResultList();
+            for(FinanceStatsMonthly m : result)
+                System.out.println(m.getYear() + ", " + m.getMonth() + ", " + m.getTotalIn() + ", " + m.getTotalOut());
+            Collections.reverse(result);
+            return result.toArray(new FinanceStatsMonthly[result.size()]);
+        }
+        catch(NoResultException ex)
+        {
+            return new FinanceStatsMonthly[0];
+        }
     }
 }

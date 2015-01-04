@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
  *
  * @author limpygnome
  */
-public abstract class BaseProvider
+public class BaseProvider
 {
     protected EntityManager em;
     
@@ -35,5 +35,10 @@ public abstract class BaseProvider
     {
         em.close();
         em = null;
+    }
+    
+    public EntityManager getEntityManager()
+    {
+        return em;
     }
 }

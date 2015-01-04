@@ -1,3 +1,16 @@
+<#-- Define any functions -->
+<#function append_css url>
+    <#if css??>
+        <#global css = css + "," + url>
+    <#else>
+        <#global css = url>
+    </#if>
+    <#return "">
+</#function>
+
+<#-- Move functions to global scope -->
+<#global append_css=append_css>
+
 <#-- Import any overriding variables from the content template. -->
 <#if content??>
     <#import content+".ftl" as page>
@@ -11,6 +24,12 @@
 	<meta http-equiv="/content-type" content="text/html;charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
 	<link rel="stylesheet" type="text/css" href="/content/css/layout.css" />
+        <!-- Add stylesheets -->
+        <#if css??>
+            <#list css?split(",") as url>
+                <link rel="stylesheet" type="text/css" href="${url}" />
+            </#list>
+        </#if>
 </head>
 <body>
 	<div class="pwrapper">

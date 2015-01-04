@@ -1,5 +1,6 @@
 package com.limpygnome.models;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "finance_account")
-public class FinanceAccount
+public class FinanceAccount implements Serializable
 {
     private static long serialVersionUID = 1L;
     
