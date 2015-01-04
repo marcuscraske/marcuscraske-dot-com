@@ -105,7 +105,7 @@
 				</div>
 				<div id="nav_misc">
 					<div>Misc</div>
-					<a href="/files">
+					<a href="http://public.limpygnome.com">
 						<img alt="Images" src="/content/images/nav/files.png" />
 						Public Files
 					</a>

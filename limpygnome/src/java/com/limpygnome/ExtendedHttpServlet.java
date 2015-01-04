@@ -59,4 +59,9 @@ public abstract class ExtendedHttpServlet extends HttpServlet
     {
         handleRequestProcess(req, resp);
     }
+    
+    public HashMap<String, Object> getTemplateData()
+    {
+        return templateData;
+    }
 }

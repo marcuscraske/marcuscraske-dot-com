@@ -7,7 +7,6 @@ import com.limpygnome.models.FinanceTransaction;
 import java.util.Collections;
 import java.util.List;
 import javax.persistence.NoResultException;
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 public class FinanceProvider extends BaseProvider
@@ -15,6 +14,21 @@ public class FinanceProvider extends BaseProvider
     public FinanceProvider()
     {
         super("limpygnome.comPU");
+    }
+    
+    public FinanceAccount[] accountsFetch()
+    {
+        TypedQuery<FinanceAccount> accounts = em.createQuery("SELECT fa FROM FinanceAccount fa", FinanceAccount.class);
+        
+        try
+        {
+            List<FinanceAccount> res = accounts.getResultList();
+            return res.toArray(new FinanceAccount[res.size()]);
+        }
+        catch(NoResultException ex)
+        {
+            return new FinanceAccount[0];
+        }
     }
     
     public FinanceAccount accountFetch(String sortCode, String accountNumber)
@@ -55,7 +69,7 @@ public class FinanceProvider extends BaseProvider
         return em.find(FinanceStatsOverview.class, 1);
     }
     
-    public FinanceStatsMonthly[] statsMonthlyFetch(int months)
+    public FinanceStatsMonthly[] statsMonthlyFetch(int months, boolean reverse)
     {
         TypedQuery<FinanceStatsMonthly> q = em.createQuery("SELECT fsm FROM FinanceStatsMonthly fsm", FinanceStatsMonthly.class);
         
@@ -67,9 +81,13 @@ public class FinanceProvider extends BaseProvider
         try
         {
             List<FinanceStatsMonthly> result = q.getResultList();
-            for(FinanceStatsMonthly m : result)
-                System.out.println(m.getYear() + ", " + m.getMonth() + ", " + m.getTotalIn() + ", " + m.getTotalOut());
-            Collections.reverse(result);
+            
+            // Items come reversed from the db
+            if(!reverse)
+            {
+                Collections.reverse(result);
+            }
+            
             return result.toArray(new FinanceStatsMonthly[result.size()]);
         }
         catch(NoResultException ex)

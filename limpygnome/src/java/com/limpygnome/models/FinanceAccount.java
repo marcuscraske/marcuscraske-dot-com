@@ -20,13 +20,13 @@ public class FinanceAccount implements Serializable
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer         id;
+    private Integer id;
     
     @Column(nullable = false)
-    private String          alias;
+    private String alias;
     
     @Column(unique = true, nullable = false)
-    private String          accountIdentifier;
+    private String accountIdentifier;
     
     public FinanceAccount() {}
     
@@ -41,6 +41,31 @@ public class FinanceAccount implements Serializable
         this(
                 convertUkToAccountIdentifier(sortCode, accountNumber)
         );
+    }
+
+    public void setAlias(String alias)
+    {
+        this.alias = alias;
+    }
+
+    public void setAccountIdentifier(String accountIdentifier)
+    {
+        this.accountIdentifier = accountIdentifier;
+    }
+
+    public Integer getId()
+    {
+        return id;
+    }
+
+    public String getAlias()
+    {
+        return alias;
+    }
+
+    public String getAccountIdentifier()
+    {
+        return accountIdentifier;
     }
     
     public static String convertUkToAccountIdentifier(String sortCode, String accountNumber)

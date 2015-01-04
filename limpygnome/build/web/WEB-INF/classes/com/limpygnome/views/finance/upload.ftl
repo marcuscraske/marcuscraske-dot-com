@@ -16,6 +16,7 @@
                     <input type="file" name="fileupload1" />
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
         <div class="row">
             <div class="cell2">
@@ -28,6 +29,7 @@
                     <input type="file" name="fileupload2" />
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
         <div class="row">
             <div class="cell2">
@@ -40,6 +42,7 @@
                     <input type="file" name="fileupload3" />
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
         <div class="row">
             <div class="cell2">
@@ -52,6 +55,7 @@
                     <input type="file" name="fileupload4" />
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
         <div class="row">
             <div class="cell2">
@@ -64,6 +68,7 @@
                     <input type="file" name="fileupload5" />
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
         <div class="row">
             <div class="cell2">
@@ -76,6 +81,7 @@
                     <input type="file" name="fileupload6" />
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
         <div class="row">
             <div class="cell2">
@@ -88,6 +94,7 @@
                     <input type="file" name="fileupload7" />
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
         <div class="row">
             <div class="cell2">
@@ -100,6 +107,7 @@
                     <input type="file" name="fileupload8" />
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
         <div class="row">
             <div class="cell1 tac">
@@ -107,7 +115,9 @@
                     <input type="submit" value="Upload" />
                 </div>
             </div>
+            <div class="clear"></div>
         </div>
+        <div class="clear"></div>
     </div>
 </form>
 

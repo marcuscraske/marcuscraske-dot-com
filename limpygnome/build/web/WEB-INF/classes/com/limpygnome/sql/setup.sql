@@ -2,8 +2,10 @@
 CREATE OR REPLACE VIEW finance_stats_overview AS
     SELECT
         (1) AS id,
+        IFNULL((SELECT COUNT('') FROM finance_txs), 0) AS totalTxs,
         IFNULL((SELECT SUM(amount) FROM finance_txs WHERE amount < 0), 0) AS totalOut,
-        IFNULL((SELECT SUM(amount) FROM finance_txs WHERE amount > 0), 0) AS totalIn
+        IFNULL((SELECT SUM(amount) FROM finance_txs WHERE amount > 0), 0) AS totalIn,
+        IFNULL((SELECT SUM(amount) FROM finance_txs), 0) AS totalBalance
     ;
 
 CREATE OR REPLACE VIEW finance_stats_monthly AS
