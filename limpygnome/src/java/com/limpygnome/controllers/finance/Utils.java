@@ -1,6 +1,6 @@
 package com.limpygnome.controllers.finance;
 
-import com.limpygnome.ExtendedHttpServlet;
+import com.limpygnome.servlet.ExtendedHttpServlet;
 import com.limpygnome.models.FinanceStatsMonthly;
 import java.util.HashMap;
 import org.joda.time.DateTime;

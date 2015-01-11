@@ -1,3 +1,5 @@
+<#global title="Page Not Foun (404)">
+
 <p class="tac">
     <img src="/content/images/404.png" />
 </p>

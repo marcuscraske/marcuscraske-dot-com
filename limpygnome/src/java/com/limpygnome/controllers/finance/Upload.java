@@ -1,6 +1,6 @@
 package com.limpygnome.controllers.finance;
 
-import com.limpygnome.ExtendedHttpServlet;
+import com.limpygnome.servlet.ExtendedHttpServlet;
 import com.limpygnome.finance.BaseStreamParser;
 import com.limpygnome.finance.CsvStreamParser;
 import com.limpygnome.models.FinanceAccount;

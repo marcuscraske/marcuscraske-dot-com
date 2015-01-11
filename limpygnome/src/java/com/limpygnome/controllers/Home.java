@@ -1,6 +1,6 @@
 package com.limpygnome.controllers;
 
-import com.limpygnome.ExtendedHttpServlet;
+import com.limpygnome.servlet.ExtendedHttpServlet;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

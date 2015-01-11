@@ -1,39 +1,51 @@
-package com.limpygnome;
+package com.limpygnome.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
+ * An extended servlet for serving content, using Freemarker as the render
+ * engine, along with other features and improvements.
+ * 
  * @author limpygnome
  */
 public abstract class ExtendedHttpServlet extends HttpServlet
 {
-    private static final int            CSRF_CODE_LENGTH = 32;
-    private static final String         CSRF_SESSION_ATTRIB_NAME = "csrf";
-    
+    // Fields: View
+    // *************************************************************************
     protected TemplateSettings          templateSettings;
     protected HashMap<String, Object>   templateData;
     
-    private HttpServletRequest          req;
-    private HttpServletResponse         resp;
+    // Fields: HTTP
+    // *************************************************************************
+    protected HttpServletRequest          request;
+    protected HttpServletResponse         response;
     
+    // Constructors
+    // *************************************************************************
     public ExtendedHttpServlet()
     {
         this.templateSettings = new TemplateSettings();
         this.templateData = new HashMap<>();
+        
+        this.request = null;
+        this.response = null;
     }
     
+    // Methods
+    // *************************************************************************
     public abstract void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
     
     private void handleRequestProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        this.request = request;
+        this.response = response;
+        
         // Log start time
         long start = System.currentTimeMillis();
         
@@ -67,66 +79,8 @@ public abstract class ExtendedHttpServlet extends HttpServlet
         handleRequestProcess(req, resp);
     }
     
-    public String csrfGenerate()
-    {
-        StringBuilder rawKey = new StringBuilder();
-        Random rnd = new Random(System.currentTimeMillis());
-        int charVal;
-        for(int i = 0; i < CSRF_CODE_LENGTH; i++)
-        {
-            charVal = rnd.nextInt(25+25+10);
-            
-            // Alphabet char lower-case
-            if(charVal < 25)
-            {
-                charVal += 97;
-            }
-            // Alphabet char upper-case
-            else if(charVal >= 25 && charVal < 50)
-            {
-                charVal += 65;
-            }
-            // Numeric value
-            else
-            {
-                charVal += 48;
-            }
-            
-            rawKey.append((char)charVal);
-        }
-        
-        String key = rawKey.toString();
-        req.getSession().setAttribute("csrf", key);
-        return key;
-    }
-    
-    public boolean csrfIsValid()
-    {
-        return csrfIsValid("csrf");
-    }
-    
-    public boolean csrfIsValid(String paramName)
-    {
-        // Fetch and check param/form value
-        String param = req.getParameter(paramName);
-        if(param == null || param.length() != CSRF_CODE_LENGTH)
-        {
-            return false;
-        }
-        
-        // Fetch and check CSRF value
-        String sessCode = (String)req.getSession().getAttribute(CSRF_SESSION_ATTRIB_NAME);
-        if(sessCode == null)
-        {
-            return false;
-        }
-        
-        // Compare and reset
-        boolean cmp = sessCode.equals(param);
-        req.getSession().setAttribute(CSRF_SESSION_ATTRIB_NAME, null);
-        return cmp;
-    }
-    
+    // Methods - Accessors
+    // *************************************************************************
     public HashMap<String, Object> getTemplateData()
     {
         return templateData;

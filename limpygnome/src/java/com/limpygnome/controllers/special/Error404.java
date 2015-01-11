@@ -1,6 +1,6 @@
 package com.limpygnome.controllers.special;
 
-import com.limpygnome.ExtendedHttpServlet;
+import com.limpygnome.servlet.ExtendedHttpServlet;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,9 +15,7 @@ public class Error404 extends ExtendedHttpServlet
     {
         // Check if the page maps to an article
         //request.getRequestDispatcher("/home").forward(request, response);
-        
-        // Nothing found - output 404 page!
+
         templateSettings.setTemplatePageContent("404");
-        templateSettings.setTemplatePageTitle("Page Not Found (404)");
     }
 }

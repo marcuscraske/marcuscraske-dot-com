@@ -1,4 +1,4 @@
-package com.limpygnome;
+package com.limpygnome.servlet;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
