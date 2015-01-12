@@ -6,6 +6,7 @@
     <a class="button" href="/music/songs">Songs</a>
     <a class="button" href="/music/tabs">Tabs</a>
     <a class="button" href="/music/mixtape">Mixtape</a>
+    <a class="button" href="/music/rig">Rig</a>
 </p>
 
 <p class="tac">

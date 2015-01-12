@@ -2,36 +2,39 @@ package com.limpygnome.controllers.special;
 
 import com.limpygnome.servlet.ExtendedHttpServlet;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = {
-    "/me",
-    "/me/cycling",
-    "/cv",
-    "/contact",
-    "/tools",
-    "/music",
-    "/software/binary_clock"
-})
+@WebServlet(urlPatterns = {"/404", "/static_pages"})
 public class StaticPages extends ExtendedHttpServlet
 {
+    private static final String PAGE_404 = "404";
+    private static final String BASE_CLASSPATH_VIEWS = "/WEB-INF/classes/com/limpygnome/views/";
+    
     @Override
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        // Fetch URL, this will form basis of template used. / is replaced with
-        // _ i.e. test/page becomes test_page.ftl
-        String urlPart = request.getRequestURI();
-        if(urlPart == null)
-            response.sendError(404);
-        else if(urlPart.startsWith("/") && urlPart.length() > 1) {
-            urlPart = urlPart.substring(1);
+        String page = null;
+        String origin = (String) request.getAttribute(OriginFilter.REQUEST_ATTRIBUTE_KEY_ORIGIN_URI);
+        boolean verified = request.getAttribute(OriginFilter.REQUEST_ATTRIBUTE_KEY_VERIFIED) != null;
+
+        // Check if to set a static page, else we're handling a 404...
+        if(origin != null && verified)
+        {
+            page = origin;
         }
 
-        // Set template
-        templateSettings.setTemplatePageContent(urlPart);
+        // Set page
+        templateSettings.setTemplatePageContent(page != null ? page : PAGE_404);
     }
     
+    public static boolean isStaticPage(ServletContext ctx, String uri) throws MalformedURLException
+    {
+        // Check the page exists
+        return ctx.getResource(BASE_CLASSPATH_VIEWS + uri + ".ftl") != null;
+    }
 }

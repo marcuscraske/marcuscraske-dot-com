@@ -2,9 +2,14 @@
 
 <h2>Tools</h2>
 
-<p>
-    Below are various tools I have created, mostly relevant for developers.
-</p>
+<h3>General</h3>
+<ul>
+    <li>
+        <a href="/tools/sync_videos">Sync Videos</a> - allows for multiple people to synchronise the same video, through a private link.
+    </li>
+</ul>
+
+<h3>Developers</h3>
  
 <ul>
     <li>
@@ -18,16 +23,5 @@
     </li>
     <li>
         <a href="/tools/counting">Line &amp; Word Counting</a> - provides line, word and character counting.
-    </li>
-    <li>
-        YouTube:
-    </li>
-    <ul>
-        <li>
-            <a href="/tools/youtube/sync">Sync Videos</a> - allows for multiple people to synchronise the same video, through a private link.
-        </li>
-    </ul>
-    <li>
-        <a href="/tools/restricted">Restricted Tools</a> - restricted tools, which are not available to the public and require authentication.
     </li>
 </ul>

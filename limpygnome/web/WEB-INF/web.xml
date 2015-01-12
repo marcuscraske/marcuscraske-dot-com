@@ -11,6 +11,6 @@
     </session-config>
     <error-page>
         <error-code>404</error-code>
-        <location>/404</location>
+        <location>/static_pages</location>
     </error-page>
 </web-app>

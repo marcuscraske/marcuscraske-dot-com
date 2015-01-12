@@ -41,7 +41,7 @@
         <th class="tal">Games</th>
         <td>
             Minecraft, Day of Defeat: Source, Counter-Strike: Source, Garrysmod, Powdertoy, Team Fortress 2,
-            Sims City 4, Kerbal Space Program, Left 4 Dead 2, Battlefield 2, Battlefield 3
+            Sims City 4, Kerbal Space Program, Left 4 Dead 2, Battlefield 2, Battlefield 3, Space Engineers 3
 
             <br /><br />
             Although, I don't play games a huge amount now.
@@ -54,7 +54,7 @@
             La Dispute, Eminem, Lil Jon, Deadmau5, Ludovico Einaudi, Clint Mansell (film scores),
             John Murphy (film scores), Defeater, Touche Amore, Bauhaus, Silversun Pickups,
             How to Destroy Angels, Blonde Redhead, Flaming Lips, Grimes, Soley, Kanye West,
-            Skinny Puppy, Justice
+            Skinny Puppy, Justice, Boards of Canada
 
             <br /><br />
             ...pretty much anything, across almost every genre.
@@ -63,7 +63,8 @@
     <tr>
         <th class="tal">TV</th>
         <td>
-            Battlestar Galactica (new), South Park, Stargate, Eureka, Walking Dead, Breaking Bad
+            Battlestar Galactica (new), South Park, Stargate, Eureka, Walking Dead, Breaking Bad,
+            Orange is the New Black
         </td>
     </tr>
     <tr>
@@ -109,7 +110,7 @@
 </p>
 
 <ul>
-    <li>A software developer</li>
+    <li>A software engineer</li>
     <li>Creating and playing <a href="/music">music</a></li>
     <li>Running side <a href="/projects">projects</a></li>
     <li><a href="/me/cycling">Cycling</a> for pleasure, exercise and commuting</li>
@@ -119,7 +120,7 @@
 <h3>Website</h3>
 <p>
     This website is used to host various pieces of information related to my life, currently running
-    on Apache Tomcat (Java), forwarded by Apache HTTP, using MySQL as a database backend.
+    on Apache Tomcat (Java), forwarded by Apache HTTP, using MySQL as a database backend wit JPA.
 </p>
 <p>
     Originally, the website used my own CMS built on Microsoft .NET, running on Apache HTTP through Mono.
@@ -177,6 +178,11 @@
     </li>
 </ul>
 
+<h4>University (2011-2014)</h4>
+<p>
+    This section is covered <a href="/university">here</a>.
+</p>
+
 <h4>Skydiving (2012)</h4>
 <div class="me_small">
     <a href="/content/images/me/skydiving1.png">
@@ -195,18 +201,3 @@
     to push away, which goes against one's survival instincts.
 </p>
 
-<h4>University (2012-2014)</h4>
-<div class="me_small">
-    <a href="/content/images/me/graduation.png">
-        <img class="img" src="/content/images/me/graduation.png" alt="Graduation day." />
-    </a>
-    <br />
-    Graduation day,<br />
-    with my project advisor<br />
-    and BFFL
-</div>
-
-
-<p>
-
-</p>

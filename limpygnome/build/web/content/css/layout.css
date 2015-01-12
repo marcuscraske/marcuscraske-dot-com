@@ -422,9 +422,9 @@ html, body
 /* Table - Data */
 .content table
 {
+	margin: 0.5em;
     border: solid 0.1em #999;
     border-collapse: collapse;
-    margin: 0.6em auto;
 }
 .content table tr:nth-child(even)
 {

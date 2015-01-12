@@ -64,15 +64,15 @@
 							Projects
 						</a>
 					</div>
-					<a href="/software/binary_clock">
+					<a href="/projects/binary_clock">
 						<img alt="Binary Clock" src="/content/images/nav/binary_clock.png" />
 						Binary Clock
 					</a>
-					<a href="/software/portable_postgres">
+					<a href="/projects/portable_postgres">
 						<img alt="Portable Postgres" src="/content/images/nav/portable_postgres.png" />
 						Portable Postgres
 					</a>
-					<a href="/software/pals">
+					<a href="/projects/pals">
 						<img alt="PALS" src="/content/images/nav/portable_postgres.png" />
 						PALS
 					</a>
@@ -100,7 +100,7 @@
 					</a>
 					<a href="/university">
 						<img alt="Alarm Clock" src="/content/images/nav/uni.png" />
-						University Work
+						University
 					</a>
 				</div>
 				<div id="nav_misc">
