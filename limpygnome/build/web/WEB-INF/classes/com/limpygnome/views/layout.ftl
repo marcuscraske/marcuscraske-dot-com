@@ -77,28 +77,17 @@
 						PALS
 					</a>
 				</div>
-				<div id="nav_games">
-					<div>Games</div>
-					<a href="/games/insomniac">
-						<img alt="Insomniac" src="/content/images/nav/insomniac.png" />
-						Insomniac
-					</a>
-					<a href="/games/whirlpool">
-						<img alt="Whirlpool" src="/content/images/nav/whirlpool.png" />
-						Whirlpool
-					</a>
-				</div>
 				<div id="nav_articles">
 					<div>
 						<a href="/articles">
 							Articles
 						</a>
 					</div>
-					<a href="/hacking_nandos_pong_game">
+					<a href="/articles/hacking_nandos_pong_game">
 						<img alt="Alarm Clock" src="/content/images/nav/nandos.png" />
 						Hacking The Nandos...
 					</a>
-					<a href="/university">
+					<a href="/articles/university">
 						<img alt="Alarm Clock" src="/content/images/nav/uni.png" />
 						University
 					</a>

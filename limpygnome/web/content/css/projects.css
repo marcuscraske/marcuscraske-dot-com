@@ -1,0 +1,21 @@
+.content .project
+{
+    background: #BBB;
+}
+.content .project .status
+{
+    float: right;
+    border-radius: 0.5em;
+    color: #FFF;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+.content .project .status.ACTIVE
+{
+    background-color: #090;
+}
+.content .project h2
+{
+    display: inline-block;
+    clear: both;
+}

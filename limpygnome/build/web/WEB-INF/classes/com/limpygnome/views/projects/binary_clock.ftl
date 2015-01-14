@@ -1,3 +1,7 @@
 <#global title="Binary Clock">
 
-test
+<#include "includes/header.ftl">
+
+<p>
+    test
+</p>

@@ -11,9 +11,10 @@ import javax.persistence.TypedQuery;
 
 public class FinanceProvider extends BaseProvider
 {
+
     public FinanceProvider()
     {
-        super("limpygnome.comPU");
+        super("finance.limpygnome.com");
     }
     
     public FinanceAccount[] accountsFetch()

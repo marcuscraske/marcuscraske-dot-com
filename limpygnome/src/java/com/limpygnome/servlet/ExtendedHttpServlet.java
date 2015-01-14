@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 public abstract class ExtendedHttpServlet extends HttpServlet
 {
+    // Constants
+    // *************************************************************************
+    private static final String         TEMPLATE_DATA_REQUEST_ATTRIB_KEY = "template_data";
+    
     // Fields: View
     // *************************************************************************
     protected TemplateSettings          templateSettings;
@@ -31,7 +36,6 @@ public abstract class ExtendedHttpServlet extends HttpServlet
     public ExtendedHttpServlet()
     {
         this.templateSettings = new TemplateSettings();
-        this.templateData = new HashMap<>();
         
         this.request = null;
         this.response = null;
@@ -43,8 +47,12 @@ public abstract class ExtendedHttpServlet extends HttpServlet
     
     private void handleRequestProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        // Setup fields
         this.request = request;
         this.response = response;
+        
+        // Fetch template data
+        this.templateData = retrieveOrSetupRequestTemplateData(request);
         
         // Log start time
         long start = System.currentTimeMillis();
@@ -84,5 +92,29 @@ public abstract class ExtendedHttpServlet extends HttpServlet
     public HashMap<String, Object> getTemplateData()
     {
         return templateData;
+    }
+    
+    // Methods - Static
+    // *************************************************************************
+    
+    /**
+     * Retrieves or sets up the template data for the request.
+     * 
+     * @param request The current request.
+     * @return Template data KV.
+     */
+    public static HashMap<String, Object> retrieveOrSetupRequestTemplateData(ServletRequest request)
+    {
+        // Check for existing data
+        Object obj = request.getAttribute(TEMPLATE_DATA_REQUEST_ATTRIB_KEY);
+        if(obj != null && obj instanceof HashMap)
+        {
+            return (HashMap<String, Object>) obj;
+        }
+        
+        // Setup new data
+        HashMap<String, Object> kv = new HashMap<>();
+        request.setAttribute(TEMPLATE_DATA_REQUEST_ATTRIB_KEY, kv);
+        return kv;
     }
 }

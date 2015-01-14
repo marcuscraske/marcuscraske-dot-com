@@ -101,7 +101,7 @@
 <h3>What I'm Doing in Life</h3>
 
 <div class="me_small">
-    <img class="img" src="http://graph.facebook.com/annie.glover.9/picture?type=large" alt="Annie" /><br />
+    <img class="thumb" src="http://graph.facebook.com/annie.glover.9/picture?type=large" alt="Annie" /><br />
     Annie, my girlfriend.
 </div>
 
@@ -137,7 +137,7 @@
 <h4>Web Design Competitions (2010-2011)</h4>
 <div class="me_small">
     <a href="/content/images/me/worldskills.jpg">
-        <img class="img" src="/content/images/me/worldskills.jpg" alt="Winrar." />
+        <img class="thumb" src="/content/images/me/worldskills.jpg" alt="Winrar." />
     </a>
     <br />
     Awards photoshoot<br />
@@ -186,7 +186,7 @@
 <h4>Skydiving (2012)</h4>
 <div class="me_small">
     <a href="/content/images/me/skydiving1.png">
-        <img class="img" src="/content/images/me/skydiving1.png" alt="Me, Skydiving." />
+        <img class="thumb" src="/content/images/me/skydiving1.png" alt="Me, Skydiving." />
     </a>
     <br />
     "Landing"...

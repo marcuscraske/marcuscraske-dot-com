@@ -9,7 +9,14 @@ import javax.persistence.Persistence;
  */
 public class BaseProvider
 {
+    private static final String DEFAULT_PERSISTENCE_UNIT = "limpygnome.com";
+    
     protected EntityManager em;
+    
+    public BaseProvider()
+    {
+        em = Persistence.createEntityManagerFactory(DEFAULT_PERSISTENCE_UNIT).createEntityManager();
+    }
     
     public BaseProvider(String persistenceUnit)
     {

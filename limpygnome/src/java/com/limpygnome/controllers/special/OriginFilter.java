@@ -12,10 +12,8 @@ import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
-import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -62,10 +60,8 @@ public class OriginFilter implements Filter
             {
                 // Set as verified
                 request.setAttribute(REQUEST_ATTRIBUTE_KEY_VERIFIED, true);
-                
                 // Let static pages controller continue request
                 request.getRequestDispatcher("/static_pages").forward(req, resp);
-                return;
             }
         }
         

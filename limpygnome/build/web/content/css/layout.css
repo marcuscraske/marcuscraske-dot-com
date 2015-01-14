@@ -1,8 +1,8 @@
 /* Main body and wrappers */
 ::selection
 {
-	background: #06C;
-	color: #999;
+    background: #06C;
+    color: #999;
 }
 ::-moz-selection
 {
@@ -159,27 +159,19 @@ html, body
 /* Navigation colours */
 #nav_main
 {
-	border-right-color: #6F3;
+	border-right-color: #09F;
 }
 #nav_main a:hover, #nav_main a:focus
 {
-	background-color: #3C0;
+	background-color: #06C;
 }
 #nav_projects
 {
-	border-right-color: #09F;
+	border-right-color: #6F3;
 }
 #nav_projects a:hover, #nav_projects a:focus
 {
-	background-color: #06C;
-}
-#nav_games
-{
-	border-right-color: #F0C;
-}
-#nav_games a:hover, #nav_games a:focus
-{
-	background-color: #C09;
+	background-color: #090;
 }
 #nav_articles
 {
@@ -364,39 +356,28 @@ html, body
 {
 	color: #666;
 }
-
 .content p
 {
 	font-size: 1.1em;
 }
 .content p img
 {
-	max-width: 90%;
-	max-height: 90%;
+    max-width: 90%;
+    max-height: 90%;
 }
-.content p a img
+.content .thumb
 {
-	border: solid 0.2em #999;
-	border-radius: 0.4em;
+    border: solid 0.1em #CCC;
+    border-radius: 0.5em;
+    box-shadow: 0em 0em 0.5em #000;
 }
-.content p a img:hover, .content p a img:focus
+.content .thumb:hover, .content .thumb:focus
 {
-	border-color: #390;
+	border-color: #EEE;
 }
 .content p, .content pre
 {
 	margin: 0.5em 0.65em;
-}
-.content .img
-{
-    border-radius: 0.5em;
-    border: solid 0.2em #999;
-    box-shadow: 0em 0em 0.5em #000;
-}
-.content a:hover .img,
-.content a:focus .img
-{
-    border-color: #EEE;
 }
 .tal
 {
