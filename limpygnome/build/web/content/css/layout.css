@@ -79,6 +79,7 @@ html, body
 	width: 65em;
 	color: #333;
 	font-weight: normal;
+        overflow: hidden;
 }
 .wrapper .content .inner_content
 {
@@ -205,25 +206,25 @@ html, body
 }
 .content h3, .content h4, .content h5
 {
-	font: inherit;
-	margin: 0em;
-	padding: 0.5em 0.5em;
-	color: #333;
+    font: inherit;
+    margin: 0em;
+    padding: 0.5em 0.5em;
+    color: #333;
 }
 .content h3
 {
-	background: #CCC;
-	border-bottom: solid 0.2em #999;
-	font-size: 1.2em;
+    background: #DDD;
+    border-top: solid 0.1em #BBB;
+    border-bottom: solid 0.2em #999;
+    font-size: 1.2em;
 }
 .content h4
 {
-	background: #EEE;
-	border-bottom: solid 0.2em #CCC;
+	background: #BBB;
 }
 .content h5
 {
-	border-bottom: solid 0.2em #CCC;
+	border-bottom: solid 0.2em #999;
 	margin: 0em 0.5em;
 }
 
@@ -358,7 +359,8 @@ html, body
 }
 .content p
 {
-	font-size: 1.1em;
+    margin: 0.5em;
+    font-size: 1.1em;
 }
 .content p img
 {
@@ -375,9 +377,17 @@ html, body
 {
 	border-color: #EEE;
 }
-.content p, .content pre
+.content ul li
 {
-	margin: 0.5em 0.65em;
+    padding: 0.25em 0em;
+}
+.content ul li b
+{
+    color: #666;
+}
+.content pre, .syntaxhighlighter
+{
+    margin: 0.5em !important;
 }
 .tal
 {

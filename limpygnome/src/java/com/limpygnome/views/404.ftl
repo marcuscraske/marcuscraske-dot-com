@@ -1,4 +1,4 @@
-<#global title="Page Not Foun (404)">
+<#global title="Page Not Found (404)">
 
 <p class="tac">
     <img src="/content/images/404.png" />

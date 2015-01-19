@@ -1,6 +1,6 @@
 <#if project??>
     ${append_css("/content/css/projects.css")}
-    <#global title="project.getTitle()">
+    <#global title=project.getTitle()>
 
     <div class="project">
         <div class="status ${project.getStatus()?html}">${project.getStatusText()?html}</div>

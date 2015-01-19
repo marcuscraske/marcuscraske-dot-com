@@ -6,6 +6,7 @@ import freemarker.template.TemplateException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.Locale;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -19,6 +20,8 @@ public class TemplateSettings
         // Setup configuration for rendering templates
         Configuration config  = new Configuration();
         config.setClassForTemplateLoading(TemplateSettings.class, "/");
+        config.setDefaultEncoding("UTF-8");
+        config.setURLEscapingCharset("UTF-8");
         
         // Set actual value
         templateConfiguration = config;

@@ -46,10 +46,14 @@ public class OriginFilter implements Filter
         {
             String origin = request.getRequestURI();
             
-            // Remove starting slash
+            // Remove trailing slash
             if(origin.startsWith("/") && origin.length() > 1)
             {
                 origin = origin.substring(1);
+            }
+            if(origin.endsWith("/") && origin.length() > 1)
+            {
+                origin = origin.substring(0, origin.length()-1);
             }
             
             // Set the origin
