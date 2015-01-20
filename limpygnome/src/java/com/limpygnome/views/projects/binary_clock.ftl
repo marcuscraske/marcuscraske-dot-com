@@ -30,8 +30,8 @@ ${append_css("/content/syntaxhighlighter/styles/shThemeDefault.css")}
     Pin layout:
 </p>
 <p class="tac">
-    <a href="/content/images/articles/binary_clock/shift_registers_pin_layout.png">
-        <img src="/content/images/articles/binary_clock/shift_registers_pin_layout.png" class="thumb" style="width: 14em; height: 14em;" alt="Shift Registers Pin Layout" />
+    <a href="/content/articles/binary_clock/shift_registers_pin_layout.png">
+        <img src="/content/articles/binary_clock/shift_registers_pin_layout.png" class="thumb" style="width: 14em; height: 14em;" alt="Shift Registers Pin Layout" />
     </a>
 </p>
 
@@ -81,8 +81,8 @@ ${append_css("/content/syntaxhighlighter/styles/shThemeDefault.css")}
     The clock and latch is therefore connected to each shift-register using the same circuit, hence for our 17 LEDs we end-up with the following circuit (click to open the image):
 </p>
 <p class="tac">
-    <a href="/content/images/articles/binary_clock/shift_registers_circuit_diagram.png">
-        <img class="thumb" src="/content/images/articles/binary_clock/shift_registers_circuit_diagram.png" alt="Shift Registers Circuit Diagram" style="width=; height=;" />
+    <a href="/content/articles/binary_clock/shift_registers_circuit_diagram.png">
+        <img class="thumb" src="/content/articles/binary_clock/shift_registers_circuit_diagram.png" alt="Shift Registers Circuit Diagram" style="width=; height=;" />
     </a>
 </p>
 
@@ -179,8 +179,8 @@ ${append_css("/content/syntaxhighlighter/styles/shThemeDefault.css")}
     Pin layout:
 </p>
 <p class="tac">
-    <a href="/content/images/articles/binary_clock/adc_pin_layout.png">
-        <img src="/content/images/articles/binary_clock/adc_pin_layout.png" alt="ADC Pin Layout" class="thumb" style="width: 14em; height: 14em;" />
+    <a href="/content/articles/binary_clock/adc_pin_layout.png">
+        <img src="/content/articles/binary_clock/adc_pin_layout.png" alt="ADC Pin Layout" class="thumb" style="width: 14em; height: 14em;" />
     </a>
 </p>
 
@@ -208,8 +208,8 @@ ${append_css("/content/syntaxhighlighter/styles/shThemeDefault.css")}
     According to the <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21295d.pdf">data-sheet</a>, the following takes place to read a single-pin on the MCP3008 (which has eight analogue inputs):
 </p>
 <p class="tac">
-    <a href="/content/images/articles/binary_clock/adc_communication.png">
-        <img src="/content/images/articles/binary_clock/adc_communication.png" alt="ADC Communication" class="thumb" />
+    <a href="/content/articles/binary_clock/adc_communication.png">
+        <img src="/content/articles/binary_clock/adc_communication.png" alt="ADC Communication" class="thumb" />
     </a>
 </p>
 
@@ -387,8 +387,8 @@ ${append_css("/content/syntaxhighlighter/styles/shThemeDefault.css")}
 </p>
 
 <p class="tac">
-    <a href="/content/images/articles/binary_clock/adc_circuit_diagram.png">
-        <img src="/content/images/articles/binary_clock/adc_circuit_diagram.png" alt="ADC Circuit Diagram" style="width: 20em; height: 20em;" class="thumb" />
+    <a href="/content/articles/binary_clock/adc_circuit_diagram.png">
+        <img src="/content/articles/binary_clock/adc_circuit_diagram.png" alt="ADC Circuit Diagram" style="width: 20em; height: 20em;" class="thumb" />
     </a>
 </p>
 
