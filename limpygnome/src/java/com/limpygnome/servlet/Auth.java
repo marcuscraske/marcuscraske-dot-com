@@ -1,6 +1,6 @@
 package com.limpygnome.servlet;
 
-import com.limpygnome.models.AuthSession;
+import com.limpygnome.jpa.models.AuthSession;
 
 /**
  * Authentication functions.

@@ -6,7 +6,6 @@ import freemarker.template.TemplateException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.Locale;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -38,7 +37,7 @@ public class TemplateSettings
     {
         // Set default config
         templatePageTitle = "Untitled Page";
-        templatePage = "layout";
+        templatePage = "#layout";
         templatePageFill = true;
         templatePageContent = "404";
     }

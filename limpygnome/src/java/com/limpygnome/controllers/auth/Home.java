@@ -28,7 +28,7 @@ public class Home extends ExtendedHttpServlet
     
     public void handleRequest_authenticated(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException
     {
-        templateSettings.setTemplatePageContent("auth/home");
+        templateSettings.setTemplatePageContent("auth/#home");
     }
     
     
@@ -51,6 +51,6 @@ public class Home extends ExtendedHttpServlet
             //Auth.set(this, username);
         }
         
-        templateSettings.setTemplatePageContent("auth/login");
+        templateSettings.setTemplatePageContent("auth/#login");
     }
 }

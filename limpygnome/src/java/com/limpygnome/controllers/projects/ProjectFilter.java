@@ -1,10 +1,12 @@
 package com.limpygnome.controllers.projects;
 
-import com.limpygnome.models.Project;
-import com.limpygnome.providers.ProjectProvider;
+import com.limpygnome.jpa.ConnectionFactory;
+import com.limpygnome.jpa.models.Project;
+import com.limpygnome.jpa.providers.ProjectProvider;
 import com.limpygnome.servlet.ExtendedHttpServlet;
 import java.io.IOException;
 import java.util.HashMap;
+import javax.persistence.EntityManager;
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -37,36 +39,51 @@ public class ProjectFilter implements Filter
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException
     {
-        // Parse second part of URL
-        HttpServletRequest req = (HttpServletRequest) request;
-        String uri = req.getRequestURI();
+        EntityManager em = null;
         
-        if(uri.length() > 1 && uri.startsWith("/"))
+        try
         {
-            uri = uri.substring(1);
-        }
-        
-        String[] segs = uri.split("/");
-        
-        // Attempt to load project model if the second part of the segment is available
-        // i.e. /project/second segment used for loading model - of URI/URL
-        if(segs.length >= 2)
-        {
-            // Attempt to load the model
-            ProjectProvider pp = new ProjectProvider();
-            Project project = pp.projectFetchByUrl(segs[1]);
-            pp.close();
+            // Parse second part of URL
+            HttpServletRequest req = (HttpServletRequest) request;
+            String uri = req.getRequestURI();
 
-            if(project != null)
+            if(uri.length() > 1 && uri.startsWith("/"))
             {
-                // Put the model in the template data
-                HashMap<String, Object> templateData = ExtendedHttpServlet.retrieveOrSetupRequestTemplateData(request);
-                templateData.put("project", project);
+                uri = uri.substring(1);
+            }
+
+            String[] segs = uri.split("/");
+
+            // Attempt to load project model if the second part of the segment is available
+            // i.e. /project/second segment used for loading model - of URI/URL
+            if(segs.length >= 2)
+            {
+                // Fetch instance of em
+                em = ConnectionFactory.getInstance().createMain();
+                
+                // Load project model
+                ProjectProvider pp = new ProjectProvider(em);
+                Project project = pp.projectFetchByUrl(segs[1]);
+
+                if(project != null)
+                {
+                    // Put the model in the template data
+                    HashMap<String, Object> templateData = ExtendedHttpServlet.retrieveOrSetupRequestTemplateData(request);
+                    templateData.put("project", project);
+                }
+            }
+
+            // We're done...
+            chain.doFilter(request, response);
+        }
+        finally
+        {
+            if(em != null)
+            {
+                em.close();
             }
         }
         
-        // We're done...
-        chain.doFilter(request, response);
     }
     
 }

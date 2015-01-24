@@ -17,7 +17,7 @@ public class Logout extends ExtendedHttpServlet
         if(Auth.isValid(this))
         {
             Auth.logout(this);
-            templateSettings.setTemplatePageContent("auth/logout");
+            templateSettings.setTemplatePageContent("auth/#logout");
         }
     }
     

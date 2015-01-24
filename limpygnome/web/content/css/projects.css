@@ -1,8 +1,6 @@
-.content .project
-{
-    background: #BBB;
-}
-.content .project .status
+/* Shared Status */
+.content .project .status,
+.content .projects .status
 {
     float: right;
     border-radius: 0.5em;
@@ -10,9 +8,68 @@
     margin: 0.5em;
     padding: 0.5em;
 }
-.content .project .status.ACTIVE
+.content .project .status.INACTIVE,
+.content .projects .status.INACTIVE
+{
+    background-color: #666;
+}
+.content .project .status.ACTIVE,
+.content .projects .status.ACTIVE
 {
     background-color: #090;
+}
+.content .project .status.MAINTAINED,
+.content .projects .status.MAINTAINED
+{
+    background-color: #609;
+}
+
+/* Projects */
+.content .projects
+{
+    padding: 0.5em;
+}
+.content .projects a
+{
+    display: block;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: solid 0.2em #999;
+    height: 4em;
+    text-decoration: none;
+    color: inherit;
+}
+.content .projects a:first-child
+{
+    border-top: solid 0.2em #666;
+}
+.content .projects a:last-child
+{
+    border-bottom: none;
+}
+.content .projects a:focus, .content .projects a:hover
+{
+    background: #DDD;
+}
+.content .projects a span.status
+{
+    float: right;
+}
+.content .projects a img
+{
+    float: left;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 0.5em;
+    vertical-align: middle;
+    margin-right: 0.5em;
+    box-shadow: 0em 0em 0.5em #999;
+}
+
+/* Project Header */
+.content .project
+{
+    background: #BBB;
 }
 .content .project h2
 {
