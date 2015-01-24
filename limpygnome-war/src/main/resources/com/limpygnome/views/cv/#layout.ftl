@@ -6,13 +6,16 @@
 </head>
 <body>
     <div class="options">
-        <a href="#print">
+        <a href="/">
+            Back
+        </a>
+        <a href="#print" onclick="window.print();">
             Print
         </a>
-        <a href="">
+        <a href="/cv.pdf">
             Download as PDF
         </a>
-        <a href="">
+        <a href="mailto:?subject=Curriculum Vitae - Marcus Craske&amp;body=Available at: https://www.limpygnome.com/cv">
             E-mail
         </a>
     </div>
@@ -49,7 +52,78 @@
             </div>
             <div class="clear"></div>
         </div>
-        
+
+        <div class="section first">
+            <div class="header">
+                <h2>Experience</h2>
+            </div>
+            <div class="content">
+                <div class="item">
+                    <div class="time">
+                        Feb 2015 - Present
+                    </div>
+                    <div class="text">
+                        <b>Proxama</b> - Scrum Master<br />
+                        Continuing as a software engineer on CardGateway, with the responsibility of scrum master.
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="time">
+                        Nov 2014 - Jan 2015
+                    </div>
+                    <div class="text">
+                        <b>Proxama</b> - Software Engineer<br />
+                        Working on a PCI-compliant product, CardGateway, to provide token and risk management of
+                        contactless payments for Visa and MasterCard. Using JEE and Glassfish.
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="time">
+                        Aug 2014 - Oct 2014
+                    </div>
+                    <div class="text">
+                        <b>Proxama</b> - Research &amp; Development<br />
+                        Design of the CardGateway Issuer System product, graph databases for risk analysis, EMVTT / PoS solution.
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="time">
+                        2013
+                    </div>
+                    <div class="text">
+                        <b>Teaching Lab Assistant</b> - helped with <i>Discover Computing</i> school visit.
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="section">
+            <div class="header">
+                <h2>Computer Skills</h2>
+            </div>
+            <div class="content">
+                <div class="item">
+                    <div class="text">
+                        <b>Languages</b> - Java, C#, C/C++ (inc. 11), Python, Matlab, Lua, JavaScript, Assembly.
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="text">
+                        <b>Platforms</b> - Linux (Arch, Debian, Ubuntu), Windows (inc. Server 2003/2008).
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="text">
+                        <b>Misc.</b> - SQL (MySQL, Postgres, MSSQL), HTML5, CSS3, PHP, Android, OpenGL,
+                        Java EE, Glassfish/Tomcat, Resource Adapters, JMS, Hibernate, Git, Jenkins, JUnit, Docker, Maven, Checkstyle,
+                        PMD, Embedded Systems (ARM Cortex M7, Raspberry Pi).
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
         <div class="section">
             <div class="header">
                 <h2>Education</h2>
@@ -90,6 +164,109 @@
                             <b>GCSEs</b> -  History, Religious Studies and IT (A);
                             Maths, English, English Literature, Science, Additional Science,
                             Graphics (B); French (D).
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="section">
+            <div class="header">
+                <h2>Third Year Project</h2>
+            </div>
+            <div class="content">
+                <div class="item">
+                    <div class="text">
+                        <b>The Automated Assessment of Programming Skills</b><br />
+                        An open-source distributed system, which can be clustered across multiple
+                        nodes/instances using RMI communication, to automatically mark Java code
+                        using dynamic and static analysis.
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="section">
+            <div class="header">
+                <h2>Awards</h2>
+            </div>
+            <div class="content">
+                <div class="item">
+                    <div class="time">
+                        2014
+                    </div>
+                    <div class="text">
+                        <i>Douglas Lewin Memorial Prize for Final Year Project</i>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="time">
+                        2012
+                    </div>
+                    <div class="text">
+                        <i>The Pearson Education Prize in Computing Science</i>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="time">
+                        2011
+                    </div>
+                    <div class="text">
+                        <i>WorldSkills Web Design - National Final - Gold</i>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="time">
+                        2011
+                    </div>
+                    <div class="text">
+                        <i>Further Education Awards</i>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="time">
+                        2010
+                    </div>
+                    <div class="text">
+                        <i>WorldSkills Web Design - National Final - Bronze</i>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="time">
+                        2010
+                    </div>
+                    <div class="text">
+                        <i>Further Education Awards</i>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="section">
+            <div class="header">
+                <h2>Hobbies</h2>
+            </div>
+            <div class="content">
+                <div class="item">
+                    <div class="text">
+                        Road cycling, open source projects (such as a C++ Raspberry Pi binary clock with a multi-threaded web server),
+                        music (electric guitar and synth).
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="section">
+            <div class="header">
+                <h2>References</h2>
+            </div>
+            <div class="content">
+                <div class="item">
+                    <div class="text">
+                        Available on request.
                     </div>
                 </div>
             </div>

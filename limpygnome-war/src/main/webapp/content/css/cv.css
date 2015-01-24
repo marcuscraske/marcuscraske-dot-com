@@ -110,7 +110,11 @@ a
 }
 .section
 {
-    margin: 0.25em 0em;
+    margin: 1.0em 0em 0.25em 0em;
+}
+.wrapper .section.first
+{
+    margin-top: 0.25em;
 }
 .section .header h2
 {
@@ -136,4 +140,10 @@ a
 {
     float: right;
     color: #999;
+    width: 25%;
+    text-align: right;
+}
+.section .content .item .text
+{
+    width: 75%;
 }
