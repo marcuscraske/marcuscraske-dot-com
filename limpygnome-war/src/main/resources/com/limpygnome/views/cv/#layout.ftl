@@ -9,17 +9,17 @@
         <a href="/">
             Back
         </a>
-        <a href="#print" onclick="window.print();">
+        <a href="/cv" onclick="window.print();">
             Print
         </a>
-        <a href="/cv.pdf">
+        <a href="/content/cv.pdf">
             Download as PDF
         </a>
         <a href="mailto:?subject=Curriculum Vitae - Marcus Craske&amp;body=Available at: https://www.limpygnome.com/cv">
             E-mail
         </a>
     </div>
-    <div class="wrapper">
+    <div id="wrapper" class="wrapper">
         <h1>
             Marcus Craske
         </h1>
@@ -60,21 +60,12 @@
             <div class="content">
                 <div class="item">
                     <div class="time">
-                        Feb 2015 - Present
-                    </div>
-                    <div class="text">
-                        <b>Proxama</b> - Scrum Master<br />
-                        Continuing as a software engineer on CardGateway, with the responsibility of scrum master.
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="time">
-                        Nov 2014 - Jan 2015
+                        Nov 2014 - Present
                     </div>
                     <div class="text">
                         <b>Proxama</b> - Software Engineer<br />
                         Working on a PCI-compliant product, CardGateway, to provide token and risk management of
-                        contactless payments for Visa and MasterCard. Using JEE and Glassfish.
+                        contactless payments for Visa and MasterCard. Using JEE6, Glassfish and C#.
                     </div>
                 </div>
                 <div class="item">
@@ -105,19 +96,19 @@
             <div class="content">
                 <div class="item">
                     <div class="text">
-                        <b>Languages</b> - Java, C#, C/C++ (inc. 11), Python, Matlab, Lua, JavaScript, Assembly.
+                        <b>Languages</b> - Java, C#, C/C++ (inc. 11), Matlab, JavaScript, VB.NET, Assembly.
                     </div>
                 </div>
                 <div class="item">
                     <div class="text">
-                        <b>Platforms</b> - Linux (Arch, Debian, Ubuntu), Windows (inc. Server 2003/2008).
+                        <b>Platforms</b> - Linux (Arch, Debian, Ubuntu), Windows (inc. Server 2003/2008), ARM Cortex M, Raspberry Pi, Verifone VX 820 PoS PED.
                     </div>
                 </div>
                 <div class="item">
                     <div class="text">
-                        <b>Misc.</b> - SQL (MySQL, Postgres, MSSQL), HTML5, CSS3, PHP, Android, OpenGL,
-                        Java EE, Glassfish/Tomcat, Resource Adapters, JMS, Hibernate, Git, Jenkins, JUnit, Docker, Maven, Checkstyle,
-                        PMD, Embedded Systems (ARM Cortex M7, Raspberry Pi).
+                        <b>Misc.</b> - SQL (MySQL, Postgres, MSSQL), HTML5, CSS3, PHP, Android, OpenGL, ASP.NET,
+                        Java EE, Glassfish/Tomcat, Resource Adapters, JMS, Hibernate, Git, Jenkins, JUnit, Mockito, Docker, Maven, Checkstyle,
+                        Ant, dependency injection, Agile / Scrum, WSDL, SOAP, REST, LDAP/AD, design patterns, Jira.
                     </div>
                 </div>
             </div>
@@ -179,8 +170,8 @@
                     <div class="text">
                         <b>The Automated Assessment of Programming Skills</b><br />
                         An open-source distributed system, which can be clustered across multiple
-                        nodes/instances using RMI communication, to automatically mark Java code
-                        using dynamic and static analysis.
+                        nodes/instances using RMI communication, to automatically mark Java
+                        programming assignments using dynamic and static analysis.
                     </div>
                 </div>
             </div>
@@ -192,6 +183,14 @@
                 <h2>Awards</h2>
             </div>
             <div class="content">
+                <div class="item">
+                    <div class="time">
+                        2014
+                    </div>
+                    <div class="text">
+                        <i>Proxama Award - October - Talent</i>
+                    </div>
+                </div>
                 <div class="item">
                     <div class="time">
                         2014
@@ -251,7 +250,7 @@
             <div class="content">
                 <div class="item">
                     <div class="text">
-                        Road cycling, open source projects (such as a C++ Raspberry Pi binary clock with a multi-threaded web server),
+                        Road cycling, projects (such as a C++ Raspberry Pi binary clock with a multi-threaded web server),
                         music (electric guitar and synth).
                     </div>
                 </div>

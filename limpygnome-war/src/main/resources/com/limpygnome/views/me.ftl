@@ -3,6 +3,11 @@
 
 <#global title="Me">
 
+<div class="me_small">
+    <img class="thumb" src="https://graph.facebook.com/marcus.craske/picture?type=large" alt="Me" /><br />
+    Me!<br />...from my latest Facebook photo
+</div>
+
 <table>
     <tr>
         <th class="tal">Online Alias</th>
@@ -22,7 +27,7 @@
     </tr>
     <tr>
         <th class="tal">Religion</th>
-        <td>None</td>
+        <td>None / Undecided</td>
     </tr>
     <tr>
         <th class="tal">Political Views</th>
@@ -54,7 +59,7 @@
             La Dispute, Eminem, Lil Jon, Deadmau5, Ludovico Einaudi, Clint Mansell (film scores),
             John Murphy (film scores), Defeater, Touche Amore, Bauhaus, Silversun Pickups,
             How to Destroy Angels, Blonde Redhead, Flaming Lips, Grimes, Soley, Kanye West,
-            Skinny Puppy, Justice, Boards of Canada
+            Skinny Puppy, Justice, Boards of Canada, Depeche Mode
 
             <br /><br />
             ...pretty much anything, across almost every genre.
@@ -101,7 +106,7 @@
 <h3>What I'm Doing in Life</h3>
 
 <div class="me_small">
-    <img class="thumb" src="http://graph.facebook.com/annie.glover.9/picture?type=large" alt="Annie" /><br />
+    <img class="thumb" src="https://graph.facebook.com/annie.glover.9/picture?type=large" alt="Annie" /><br />
     Annie, my girlfriend.
 </div>
 
@@ -110,10 +115,10 @@
 </p>
 
 <ul>
-    <li>A software engineer</li>
-    <li>Creating and playing <a href="/music">music</a></li>
-    <li>Running side <a href="/projects">projects</a></li>
-    <li><a href="/me/cycling">Cycling</a> for pleasure, exercise and commuting</li>
+    <li>A software engineer.</li>
+    <li>Creating and playing <a href="/music">music</a>.</li>
+    <li>Running side <a href="/projects">projects</a>.</li>
+    <li><a href="/me/cycling">Cycling</a> for pleasure, exercise and commuting.</li>
     <li>In a relationship with Annie.</li>
 </ul>
 
@@ -180,7 +185,7 @@
 
 <h4>University (2011-2014)</h4>
 <p>
-    This section is covered <a href="/university">here</a>.
+    This section is covered <a href="/articles/university">here</a>.
 </p>
 
 <h4>Skydiving (2012)</h4>

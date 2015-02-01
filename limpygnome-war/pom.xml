@@ -20,6 +20,7 @@
 			<groupId>javax</groupId>
 			<artifactId>javaee-web-api</artifactId>
 			<version>7.0</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.freemarker</groupId>
@@ -32,6 +33,11 @@
 		  <groupId>org.hibernate</groupId>
 		  <artifactId>hibernate-core</artifactId>
 		  <version>4.3.8.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.8.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -47,4 +53,32 @@
 		</dependency>
 
     </dependencies>
+	
+	<build>
+		<plugins>
+		
+			<!-- Automatic generation of schema -->
+			<plugin>
+				<groupId>de.juplo</groupId>
+				<artifactId>hibernate4-maven-plugin</artifactId>
+				<version>1.0.4</version>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>export</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<hibernateDialect>org.hibernate.dialect.MySQLDialect</hibernateDialect>
+					<target>NONE</target>
+					<type>CREATE</type>
+					<outputFile>${project.build.outputDirectory}/schema.sql</outputFile>
+				</configuration>
+			</plugin>
+			
+		</plugins>
+	</build>
+	
 </project>

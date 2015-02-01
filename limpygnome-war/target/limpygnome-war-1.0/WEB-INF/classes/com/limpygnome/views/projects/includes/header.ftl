@@ -9,4 +9,11 @@
         </h2>
         <div class="clear"></div>
     </div>
+<#else>
+    <h2>
+        <#if title??>${title?html}</#if>
+    </h2>
+    <p class="error">
+        Cannot include project header, not present in database.
+    </p>
 </#if>

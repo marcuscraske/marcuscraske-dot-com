@@ -7,13 +7,13 @@ com\limpygnome\controllers\auth\Home.class
 com\limpygnome\controllers\auth\Logout.class
 com\limpygnome\controllers\Home.class
 com\limpygnome\controllers\finance\Home.class
+com\limpygnome\controllers\tools\ToolUUID.class
 com\limpygnome\jpa\models\Project.class
 com\limpygnome\jpa\models\FinanceAccount.class
 com\limpygnome\controllers\CV.class
 com\limpygnome\jpa\models\Project$Status.class
 com\limpygnome\jpa\models\FinanceTransaction.class
 com\limpygnome\controllers\finance\misc\parsing\CsvStreamParser.class
-com\limpygnome\controllers\ToolsUUID.class
 com\limpygnome\controllers\finance\misc\Utils.class
 com\limpygnome\jpa\ConnectionFactory.class
 com\limpygnome\servlet\CSRF.class
@@ -25,6 +25,7 @@ com\limpygnome\controllers\projects\Home.class
 com\limpygnome\jpa\providers\ProjectProvider.class
 com\limpygnome\controllers\finance\misc\parsing\CsvColumnMappings.class
 com\limpygnome\controllers\ErrorPage500.class
+.netbeans_automatic_build
 com\limpygnome\controllers\projects\ProjectFilter.class
 com\limpygnome\servlet\ExtendedHttpServlet.class
 com\limpygnome\controllers\static_pages\StaticPages.class

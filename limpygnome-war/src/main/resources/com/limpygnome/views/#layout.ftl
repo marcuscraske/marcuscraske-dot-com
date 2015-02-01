@@ -51,7 +51,11 @@
 	<div class="pwrapper">
 		<div class="wrapper">
 			<div class="banner">
-				<h1>limpygnome</h1>
+				<h1>
+                                    <a href="/">
+                                        limpygnome
+                                    </a>
+                                </h1>
 			</div>
 		</div>
 		<div class="wrapper">
