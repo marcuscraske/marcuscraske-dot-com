@@ -1,6 +1,7 @@
 package com.limpygnome.servlet;
 
 import com.limpygnome.jpa.models.AuthSession;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Authentication functions.
@@ -21,7 +22,12 @@ public final class Auth
     // *************************************************************************
     public static boolean isValid(ExtendedHttpServlet servlet)
     {
-        return servlet.request != null && servlet.request.getSession().getAttribute(SESSION_KEY) != null;
+        return servlet != null ? isValid(servlet.request) : null;
+    }
+    
+    public static boolean isValid(HttpServletRequest request)
+    {
+        return request != null && request.getSession().getAttribute(SESSION_KEY) != null;
     }
     
     public static boolean set(ExtendedHttpServlet servlet, String username)

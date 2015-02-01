@@ -5,6 +5,7 @@ import com.limpygnome.controllers.finance.misc.parsing.BaseStreamParser;
 import com.limpygnome.controllers.finance.misc.parsing.CsvStreamParser;
 import com.limpygnome.jpa.ConnectionFactory;
 import com.limpygnome.jpa.providers.FinanceProvider;
+import com.limpygnome.servlet.Auth;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,6 +32,13 @@ public class Upload extends ExtendedHttpServlet
     @Override
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        // Check the user is authorised
+        if(!Auth.isValid(this))
+        {
+            return;
+        }
+        
+        // Get instance of entity manager
         EntityManager em = ConnectionFactory.getInstance().createFinance();
         
         try
