@@ -1,5 +1,7 @@
 # IDE configuration
 nb-configuration.xml
+.idea/
+*.iml
 
 # Compiled files
 target/

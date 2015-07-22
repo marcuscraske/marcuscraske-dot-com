@@ -60,7 +60,18 @@
             <div class="content">
                 <div class="item">
                     <div class="time">
-                        Nov 2014 - Present
+                        March 2015 - Present
+                    </div>
+                    <div class="text">
+                        <b>Worldpay</b> - Software Engineer<br />
+                        Working on HPP (Hosted Payment Pages), the next generation of payment pages for online
+                        commerce. Supporting multiple languages, currencies, international alternative payment methods
+                        and card schemes. Using Spring, Ansible, Oracle stack (Weblogic / DB / Coherence).
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="time">
+                        Nov 2014 - March 2015
                     </div>
                     <div class="text">
                         <b>Proxama</b> - Software Engineer<br />
@@ -75,6 +86,7 @@
                     <div class="text">
                         <b>Proxama</b> - Research &amp; Development<br />
                         Design of the CardGateway Issuer System product, graph databases for risk analysis, EMVTT / PoS solution.
+                        Software for demos presented to tier one/two clients, including major banks.
                     </div>
                 </div>
                 <div class="item">
@@ -168,7 +180,7 @@
             <div class="content">
                 <div class="item">
                     <div class="text">
-                        <b>The Automated Assessment of Programming Skills</b><br />
+                        <b>The Automated Assessment of Programming Skills</b> (graded 94.4%)<br />
                         An open-source distributed system, which can be clustered across multiple
                         nodes/instances using RMI communication, to automatically mark Java
                         programming assignments using dynamic and static analysis.

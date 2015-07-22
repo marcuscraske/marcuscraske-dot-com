@@ -32,6 +32,18 @@
 					<artifactId>maven-war-plugin</artifactId>
 				</plugin>
 
+                <!-- Embedded Tomcat -->
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.2</version>
+                    <configuration>
+                        <port>8080</port>
+                        <path>/</path>
+                        <contextFile>src/main/webapp/META-INF/context.xml</contextFile>
+                        <warSourceDirectory>${project.build.directory}/${project.build.finalName}</warSourceDirectory>
+                    </configuration>
+                </plugin>
 				
             </plugins>
         </pluginManagement>
