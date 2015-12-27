@@ -1,5 +1,5 @@
 /*
-    General styling for entire page container
+    General styling for page/document container
 */
 ::selection
 {
@@ -63,97 +63,18 @@ body
     margin: auto;
     z-index: 2;
 }
-.wrapper
-{
-    width: 100%;
-}
-.wrapper .banner
-{
-    padding: 0.5em;
-    height: 3em;
-    line-height: 3.5em;
-    color: #FFF;
-}
-.wrapper .banner h1
-{
-    margin: 0em;
-    text-shadow: 0em 0em 0.3em #000;
-    font-weight: normal;
-}
-.wrapper .banner h1 a
-{
-    text-decoration: none;
-    color: #FFF;
-}
 
-.wrapper .content
+/*
+    Content region; margin-top will also offset sidebar (due to absolute positioning)
+*/
+.content
 {
     margin-top: 3em;
     color: #333;
     font-weight: normal;
     overflow: hidden;
-}
-.wrapper .content .inner_content
-{
     min-height: 44.5em;
 }
-
-/* Content elements */
-.content a
-{
-    color: #06C;
-}
-.content a:hover, .content a:focus
-{
-    color: #666;
-}
-.content p
-{
-    margin: 0.5em;
-    font-size: 1.1em;
-}
-.content p img
-{
-    max-width: 90%;
-    max-height: 90%;
-}
-
-.tal
-{
-    text-align: left;
-}
-.tar
-{
-    text-align: right;
-}
-.tac
-{
-    text-align: center;
-}
-.fl
-{
-    float: left;
-}
-.fr
-{
-    float: right;
-}
-
-/*
-    Home
-*/
-.home
-{
-    width: 60%;
-    height: 60%;
-    border-radius: 0.8em;
-}
-
-
-
-
-
-
 
 
 /*
@@ -163,14 +84,14 @@ body
 .sidebar
 {
     position: absolute;
-    top: 1em;
+    top: 0em;
     left: -16em;
     width: 15em;
 }
 
 
 /*
-    header
+    Header
 */
 .header a,
 .header h1
@@ -191,10 +112,7 @@ body
 /*
     Navigation
 */
-.nav
-{
 
-}
 .nav > div
 {
     border-right: solid 0.4em;
@@ -211,17 +129,10 @@ body
     line-height: 2.5em;
     color: #FFF;
 }
-.nav > div > div
-{
-    background-color: #222;
-}
-.nav > div > a, .nav > div > div > a
+.nav > div > a
 {
     display: block;
     text-decoration: none;
-}
-.nav > div > a
-{
     background-color: #333;
     border-bottom: solid 0.2em #222;
 }
@@ -229,22 +140,24 @@ body
 {
     border-bottom: none;
 }
-.nav > div > a:hover, .nav > div > a:focus
+.nav > div > a:hover,
+.nav > div > a:focus
 {
     background-color: #444;
 }
-.nav > div > a > img
-{
-    width: 1.33em;
-    height: 1.33em;
-    vertical-align: middle;
-    border: none;
-}
+
+/* Icon styling */
 .nav > div span
 {
     color: #AAA;
     margin-right: 0.7em;
 }
+.nav > div:hover span,
+.nav > div:focus span
+{
+    color: #DDD;
+}
+
 
 /*
     Navigation section colouring
@@ -286,8 +199,6 @@ body
 {
     background-color: #C90;
 }
-
-
 
 
 /*

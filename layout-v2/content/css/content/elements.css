@@ -1,0 +1,39 @@
+.content a
+{
+    color: #06C;
+}
+.content a:hover, .content a:focus
+{
+    color: #666;
+}
+.content p
+{
+    margin: 0.5em;
+    font-size: 1.1em;
+}
+.content p img
+{
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.tal
+{
+    text-align: left;
+}
+.tar
+{
+    text-align: right;
+}
+.tac
+{
+    text-align: center;
+}
+.fl
+{
+    float: left;
+}
+.fr
+{
+    float: right;
+}
