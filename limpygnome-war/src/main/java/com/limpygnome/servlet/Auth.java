@@ -1,6 +1,6 @@
 package com.limpygnome.servlet;
 
-import com.limpygnome.jpa.models.AuthSession;
+import com.limpygnome.legacy.jpa.models.AuthSession;
 import javax.servlet.http.HttpServletRequest;
 
 /**
