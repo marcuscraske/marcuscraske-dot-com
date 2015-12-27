@@ -2,6 +2,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/maven-v4_0_0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.limpygnome</groupId>
@@ -17,7 +18,7 @@
     <build>
         <pluginManagement>
             <plugins>
-			
+            
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -26,11 +27,11 @@
                         <target>1.7</target>
                     </configuration>
                 </plugin>
-				
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-war-plugin</artifactId>
-				</plugin>
+                
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                </plugin>
 
                 <!-- Embedded Tomcat -->
                 <plugin>
@@ -38,26 +39,26 @@
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>2.2</version>
                     <configuration>
-                        <port>8080</port>
+                        <port>8090</port>
                         <path>/</path>
                         <contextFile>src/main/webapp/META-INF/context.xml</contextFile>
                         <warSourceDirectory>${project.build.directory}/${project.build.finalName}</warSourceDirectory>
                     </configuration>
                 </plugin>
-				
+                
             </plugins>
         </pluginManagement>
     </build>
 
     <dependencies>
-	
-		<!-- Testing -->
+    
+        <!-- Testing -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-		
+        
     </dependencies>
 </project>
