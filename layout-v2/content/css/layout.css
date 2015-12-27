@@ -182,6 +182,10 @@ body
     margin: 0 0 0.5em 0;
     padding: 0;
 }
+.header h1
+{
+    text-shadow: 0em 0em 0.8em #CCC;
+}
 
 
 /*
@@ -193,20 +197,18 @@ body
 }
 .nav > div
 {
-    border-right: solid 0.5em;
+    border-right: solid 0.4em;
     overflow: hidden;
 
-    box-shadow: 0em 0em 5em #000;
+    box-shadow: 0em 0em 1em #000;
     border-radius: 0.4em;
     margin-bottom: 1em;
 }
-.nav div a,
-.nav div div
+.nav > div a,
+.nav > div div
 {
     text-indent: 0.5em;
     line-height: 2.5em;
-    background-image: url('../images/gradient.png');
-    background-repeat: repeat-x;
     color: #FFF;
 }
 .nav > div > div
@@ -237,6 +239,11 @@ body
     height: 1.33em;
     vertical-align: middle;
     border: none;
+}
+.nav > div span
+{
+    color: #AAA;
+    margin-right: 0.7em;
 }
 
 /*
@@ -402,4 +409,3 @@ body
 {
     background-image: url('../images/footer/fb_h.png');
 }
-
