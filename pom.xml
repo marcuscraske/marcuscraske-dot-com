@@ -42,7 +42,7 @@
                         <port>8090</port>
                         <path>/</path>
                         <contextFile>src/main/webapp/META-INF/context.xml</contextFile>
-                        <warSourceDirectory>${project.build.directory}/${project.build.finalName}</warSourceDirectory>
+                        <contextReloadable>true</contextReloadable>
                     </configuration>
                 </plugin>
                 

@@ -1,0 +1,322 @@
+/*
+    General styling for page/document container
+*/
+::selection
+{
+    background: #06C;
+    color: #999;
+}
+::-moz-selection
+{
+    background: #06C;
+    color: #999;
+}
+html
+{
+    overflow-y: scroll;
+}
+html, body
+{
+    min-width: 1400px;
+
+    font: normal 14px Droid Sans, Arial, Verdana;
+    margin: 0em;
+    background: #111;
+    background: url('../images/background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body
+{
+    height: 100%;
+}
+.clear
+{
+    clear: both;
+}
+
+
+/*
+    Shadow wrapper
+*/
+.swrapper
+{
+    position: fixed;
+    top: 0em;
+    left: 0em;
+    width: 100%;
+    height: 100%;   
+    overflow: auto;
+    z-index: 1;
+}
+
+/*
+    Parent wrapper for page content
+*/
+.pwrapper
+{
+    position: relative;
+    width: 65em;
+    height: 100%;
+    margin: auto;
+    z-index: 2;
+}
+
+/*
+    Content region; margin-top will also offset sidebar (due to absolute positioning)
+*/
+.content
+{
+    margin-top: 3em;
+    color: #333;
+    font-weight: normal;
+    overflow: hidden;
+    min-height: 44.5em;
+}
+
+
+/*
+    Sidebar container for header and navigation
+*/
+
+.sidebar
+{
+    position: absolute;
+    top: 0em;
+    left: -16em;
+    width: 15em;
+}
+
+
+/*
+    Header
+*/
+.header a,
+.header h1
+{
+    color: #FFF;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: center;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}
+.header h1
+{
+    text-shadow: 0em 0em 0.8em #CCC;
+}
+
+
+/*
+    Navigation
+*/
+
+.nav > div
+{
+    border-right: solid 0.4em;
+    overflow: hidden;
+
+    box-shadow: 0em 0em 1em #000;
+    border-radius: 0.4em;
+    margin-bottom: 1em;
+}
+.nav > div a,
+.nav > div div
+{
+    text-indent: 0.5em;
+    line-height: 2.5em;
+    color: #FFF;
+}
+.nav > div > a
+{
+    display: block;
+    text-decoration: none;
+    background-color: #333;
+    border-bottom: solid 0.2em #222;
+}
+.nav > div > a:last-child
+{
+    border-bottom: none;
+}
+.nav > div > a:hover,
+.nav > div > a:focus
+{
+    background-color: #444;
+}
+
+/* Icon styling */
+.nav > div span
+{
+    color: #AAA;
+    margin-right: 0.7em;
+}
+.nav > div:hover span,
+.nav > div:focus span
+{
+    color: #DDD;
+}
+
+
+/*
+    Navigation section colouring
+*/
+#nav_cv
+{
+    border-right-color: #6F3;
+}
+#nav_cv a:hover,
+#nav_cv a:focus
+{
+    background-color: #090;
+}
+
+#nav_main
+{
+    border-right-color: #09F;
+}
+#nav_main a:hover, #nav_main a:focus
+{
+    background-color: #06C;
+}
+
+#nav_misc
+{
+    border-right-color: #F33;
+}
+#nav_misc a:hover, #nav_misc a:focus
+{
+    background-color: #C00;
+}
+
+#nav_contact
+{
+    border-right-color: #FC0;
+}
+#nav_contact a:hover,
+#nav_contact a:focus
+{
+    background-color: #C90;
+}
+
+
+/*
+    Footer icons
+*/
+.footer-icons
+{
+    width: 100%;
+    text-align: center;
+    height: 4.3em;
+    border-top: solid 0.5em #333;
+    margin-top: 1em;
+}
+.footer-icons a.ficon
+{
+    display: inline-block;
+    text-indent: -9999em;
+    width: 2.8em;
+    height: 2.8em;
+    background-size: 100%;
+    margin: 0.5em;
+    text-decoration: none;
+    -webkit-transition:    width .4s,    height .4s ease;
+    -moz-transition:     width .4s,    height .4s ease;
+    -o-transition:        width .4s,    height .4s ease;
+    -ms-transition:        width .4s,    height .4s ease;
+    transition:            width .4s,    height .4s ease;
+}
+.footer-icons a:hover,
+.footer-icons a:focus
+{
+    width: 3.8em;
+    height: 3.8em;
+}
+/* Github */
+.footer-icons .gh
+{
+    background-image: url('../images/footer/gh.png');
+}
+.footer-icons .gh:hover,
+.footer-icons .gh:focus
+{
+    background-image: url('../images/footer/gh_h.png');
+}
+
+/* YouTube */
+.footer-icons .yt
+{
+    background-image: url('../images/footer/yt.png');
+}
+.footer-icons .yt:hover,
+.footer-icons .yt:focus
+{
+    background-image: url('../images/footer/yt_h.png');
+}
+
+/* SoundCloud */
+.footer-icons .sc
+{
+    background-image: url('../images/footer/sc.png');
+}
+.footer-icons .sc:hover,
+.footer-icons .sc:focus
+{
+    background-image: url('../images/footer/sc_h.png');
+}
+
+/* Gmail */
+.footer-icons .gm
+{
+    background-image: url('../images/footer/gm.png');
+}
+.footer-icons .gm:hover,
+.footer-icons .gm:focus
+{
+    background-image: url('../images/footer/gm_h.png');
+}
+
+/* LinkedIn */
+.footer-icons .li
+{
+    background-image: url('../images/footer/li.png');
+}
+.footer-icons .li:hover,
+.footer-icons .li:focus
+{
+    background-image: url('../images/footer/li_h.png');
+}
+
+/* G+ */
+.footer-icons .gp
+{
+    background-image: url('../images/footer/gp.png');
+}
+.footer-icons .gp:hover,
+.footer-icons .gp:focus
+{
+    background-image: url('../images/footer/gp_h.png');
+}
+
+/* TWT */
+.footer-icons .twt
+{
+    background-image: url('../images/footer/twt.png');
+}
+.footer-icons .twt:hover,
+.footer-icons .twt:focus
+{
+    background-image: url('../images/footer/twt_h.png');
+}
+
+/* FB */
+.footer-icons .fb
+{
+    background-image: url('../images/footer/fb.png');
+}
+.footer-icons .fb:hover,
+.footer-icons .fb:focus
+{
+    background-image: url('../images/footer/fb_h.png');
+}
