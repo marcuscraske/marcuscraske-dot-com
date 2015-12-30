@@ -8,15 +8,10 @@
 <head>
 
     <title>
-        <tiles:insertAttribute name="pageTitle" ignore="true" /> - limpygnome.com
+        <c:out value="title" /> - limpygnome.com
     </title>
 
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-
-    <%--
-    remove this...
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Sans">
-    --%>
 
     <link rel="stylesheet" type="text/css" href="/content/fonts/droid-sans/droid-sans.css" />
     <link rel="stylesheet" type="text/css" href="/content/fonts/icomoon/style.css" />
@@ -40,7 +35,7 @@
                     </a>
                 </h1>
             </div>
-            <div class="nav">
+            <nav>
 
                 <div id="nav_cv">
                     <a href="/cv">
@@ -84,15 +79,14 @@
                     </a>
                 </div>
 
-            </div>
+            </nav>
         </div>
 
-        <div class="content">
+        <main>
             <tiles:insertAttribute name="pageContent" />
-            <div class="clear"></div>
-        </div>
+        </main>
 
-        <div class="footer-icons">
+        <footer class="footer-icons">
             <a title="Github" class="ficon gh" href="https://www.github.com/limpygnome">
                 Github
             </a>
@@ -117,8 +111,7 @@
             <a title="E-mail" class="ficon gm" href="mailto:limpygnome@gmail.com">
                 E-mail
             </a>
-        </div>
-        <div class="clear"></div>
+        </footer>
     </div>
     <div class="swrapper">
         &nbsp;

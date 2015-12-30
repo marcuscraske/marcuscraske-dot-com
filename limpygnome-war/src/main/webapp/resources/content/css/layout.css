@@ -53,7 +53,7 @@ body
 }
 
 /*
-    Parent wrapper for page content
+    Parent wrapper for pagemain
 */
 .pwrapper
 {
@@ -65,12 +65,11 @@ body
 }
 
 /*
-    Content region; margin-top will also offset sidebar (due to absolute positioning)
+   main region
 */
-.content
+main
 {
-    margin-top: 3em;
-    color: #333;
+    margin-top: 3.5em;
     font-weight: normal;
     overflow: hidden;
     min-height: 44.5em;
@@ -84,7 +83,7 @@ body
 .sidebar
 {
     position: absolute;
-    top: 0em;
+    top: -3em;
     left: -16em;
     width: 15em;
 }
@@ -107,13 +106,18 @@ body
 {
     text-shadow: 0em 0em 0.8em #CCC;
 }
+.header a:hover,
+.header a:focus
+{
+    color: #CCC;
+}
 
 
 /*
     Navigation
 */
 
-.nav > div
+nav > div
 {
     border-right: solid 0.4em;
     overflow: hidden;
@@ -122,38 +126,38 @@ body
     border-radius: 0.4em;
     margin-bottom: 1em;
 }
-.nav > div a,
-.nav > div div
+nav > div a,
+nav > div div
 {
     text-indent: 0.5em;
     line-height: 2.5em;
     color: #FFF;
 }
-.nav > div > a
+nav > div > a
 {
     display: block;
     text-decoration: none;
     background-color: #333;
     border-bottom: solid 0.2em #222;
 }
-.nav > div > a:last-child
+nav > div > a:last-child
 {
     border-bottom: none;
 }
-.nav > div > a:hover,
-.nav > div > a:focus
+nav > div > a:hover,
+nav > div > a:focus
 {
     background-color: #444;
 }
 
 /* Icon styling */
-.nav > div span
+nav > div span
 {
     color: #AAA;
     margin-right: 0.7em;
 }
-.nav > div:hover span,
-.nav > div:focus span
+nav > div:hover span,
+nav > div:focus span
 {
     color: #DDD;
 }

@@ -13,4 +13,9 @@
         </put-list-attribute>
     </definition>
 
+    <!-- Pages (general setup) -->
+    <definition name="pages/**" extends="layout">
+        <put-attribute name="pageContent" value="/WEB-INF/views/pages/{1}.jsp" />
+    </definition>
+
 </tiles-definitions>

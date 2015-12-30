@@ -1,39 +1,65 @@
-.content a
+main a
 {
     color: #06C;
 }
-.content a:hover, .content a:focus
+main a:hover, main a:focus
 {
     color: #666;
 }
-.content p
+main p
 {
     margin: 0.5em;
     font-size: 1.1em;
 }
-.content p img
+main p img
 {
     max-width: 90%;
     max-height: 90%;
 }
 
-.tal
+main ul
+{
+    margin: 0em;
+    padding: 0.4em 3em;
+}
+main ul li
+{
+    padding: 0.3em;
+}
+
+
+main .tal
 {
     text-align: left;
 }
-.tar
+main .tar
 {
     text-align: right;
 }
-.tac
+main .tac
 {
     text-align: center;
 }
-.fl
+main .fl
 {
     float: left;
 }
-.fr
+main .fr
 {
     float: right;
+}
+
+main > section,
+main > article
+{
+    color: #333;
+    border-radius: 0.4em;
+    background: rgba(221,221,221,0.9);
+}
+
+main h1
+{
+    margin: 0.5em;
+    padding-top: 0.5em;
+    color: #333;
 }

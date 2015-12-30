@@ -1,2 +1,8 @@
+high priority:
 - convert footer icons to svgs
 - convert nav to use ul / li
+- move songs to public.limpygnome.com, inflates war by a lot - probably wrong place to live
+- create favicon
+
+low priority:
+- consider tomcat shared libs

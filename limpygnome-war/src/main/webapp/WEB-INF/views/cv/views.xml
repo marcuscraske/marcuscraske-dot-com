@@ -4,9 +4,9 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
-    <definition name="pages/home/default-home" extends="layout">
-        <put-attribute name="pageContent" value="/WEB-INF/views/pages/home/default-home" />
-        <put-attribute name="pageTitle" value="welcome" />
-    </definition>
+    <definition
+            name="cv"
+            template="/WEB-INF/views/cv/layout.jsp"
+    />
 
 </tiles-definitions>

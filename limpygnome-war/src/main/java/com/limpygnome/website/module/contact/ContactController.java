@@ -1,8 +1,18 @@
 package com.limpygnome.website.module.contact;
 
-/**
- * Created by limpygnome on 27/12/15.
- */
-public class ContactController
+import com.limpygnome.website.common.controller.BaseController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class ContactController extends BaseController
 {
+
+    @RequestMapping("/contact")
+    public ModelAndView contact()
+    {
+        return createMV("pages/contact/default-contact", "contact");
+    }
+
 }

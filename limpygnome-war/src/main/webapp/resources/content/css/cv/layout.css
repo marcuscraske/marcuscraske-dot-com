@@ -1,0 +1,149 @@
+body
+{
+    font: normal 14px Arial;
+    padding: 0em;
+    margin: 0em;
+}
+@media all
+{
+    .wrapper
+    {
+        background: #FFF;
+    }
+}
+@media screen
+{
+    body
+    {
+        background: #000;
+    }
+    .options
+    {
+        margin: 0.5em;
+        text-align: center;
+    }
+    .options a
+    {
+        padding: 0.25em;
+        color: #999;
+    }
+    .options a:hover, .options a:focus
+    {
+        color: #FFF;
+    }
+    .wrapper
+    {
+        width: 8.27in;
+        margin: 1em auto;
+        padding: 0.5em;
+        border-radius: 0.4em;
+    }
+}
+@media print
+{
+    .options
+    {
+        display: none;
+    }
+    .wrapper
+    {
+        width: 100%;
+        margin: 0em;
+    }
+}
+.clear
+{
+    clear: both;
+}
+h1
+{
+    margin: 0em;
+    padding: 0em;
+    text-align: center;
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 0.25em;
+    border-bottom: solid 0.2em #CCC;
+}
+a
+{
+    color: #369;
+}
+
+.contact
+{
+    border-bottom: solid 0.3em #CCC;
+    padding-bottom: 0.5em;
+}
+.contact .th
+{
+    float: left;
+    width: 5em;
+    font-weight: bold;
+    color: #369;
+    margin: 0em 0.25em;
+    text-align: right;
+}
+.contact .td
+{
+    float: right;
+}
+.contact .address
+{
+    float: left;
+}
+.contact .internet
+{
+    width: 14em;
+    margin: 0em auto;
+    text-align: center;
+}
+.contact .info
+{
+    float: right;
+}
+
+.section .header
+{
+    float: left;
+    width: 20%;
+}
+.section
+{
+    margin: 1.0em 0em 0.25em 0em;
+}
+.wrapper .section.first
+{
+    margin-top: 0.25em;
+}
+.section .header h2
+{
+    margin: 0em;
+    padding: 0em 0.5em 0em 0em;
+    color: #369;
+}
+.section .content
+{
+    float: right;
+    width: 80%;
+}
+.section .content .item
+{
+    clear: both;
+    margin-bottom: 0.5em;
+}
+.section .content .item:last-child
+{
+    margin-bottom: 0em;
+}
+.section .content .item .time
+{
+    float: right;
+    color: #999;
+    width: 25%;
+    text-align: right;
+}
+.section .content .item .text
+{
+    width: 75%;
+}
