@@ -55,11 +55,46 @@ main > article
     color: #333;
     border-radius: 0.4em;
     background: rgba(221,221,221,0.9);
+
+    border: solid 0.5em #999;
+    border-left: none;
+    border-right: none;
 }
 
 main h1
 {
     margin: 0.5em;
-    padding-top: 0.5em;
+    color: #333;
+}
+
+
+/*
+    Generic button
+*/
+
+main .button
+{
+    display: inline-block;
+    color: #FFF;
+    border-radius: 0.5em;
+    text-decoration: none;
+    padding: 0.5em 0.8em;
+    margin: 0.5em;
+    box-shadow: 0em 0em 0.5em #999;
+    background: #007acc;
+    border-bottom: solid 0.2em #004c99;
+}
+
+main .button > span
+{
+    margin-right: 0.5em;
+}
+
+main .button:hover,
+main .button:focus
+{
+    background: #AAA;
+    color: #FFF;
+    border-color: #999;
     color: #333;
 }

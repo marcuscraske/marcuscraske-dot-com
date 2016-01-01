@@ -3,5 +3,5 @@
 <tiles:putAttribute name="pageTitle" value="welcome" />
 
 <p class="tac">
-    <img src="/content/images/welcome/me.png" alt="limpygnome" class="home">
+    <img src="/content/images/welcome/me.png" alt="me, limpygnome" class="home">
 </p>

@@ -8,7 +8,7 @@
 <head>
 
     <title>
-        <c:out value="title" /> - limpygnome.com
+        <c:out value="${pageTitle}" /> - limpygnome.com
     </title>
 
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
