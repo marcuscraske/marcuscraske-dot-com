@@ -23,6 +23,11 @@
 
     <link rel="stylesheet" type="text/css" href="/content/css/pages/home.css" />
 
+    <tiles:importAttribute name="headerIncludes" />
+    <c:forEach var="item" items="${headerIncludes}">
+        <tiles:insertAttribute value="${item}" flush="true" />
+    </c:forEach>
+
 </head>
 <body>
     <div class="pwrapper">

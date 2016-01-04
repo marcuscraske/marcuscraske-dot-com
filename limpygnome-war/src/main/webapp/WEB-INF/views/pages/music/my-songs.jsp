@@ -1,5 +1,8 @@
-${append_js("/content/js/music-player.js")}
-${append_css("/content/css/music-player.css")}
+<%@ taglib prefix="c"           uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="lg"          tagdir="/WEB-INF/tags" %>
+
+
+
 
 <section>
     <h1>
@@ -14,36 +17,9 @@ ${append_css("/content/css/music-player.css")}
         I use my own HTML5 audio player below, do <a href="/contact">contact</a> me if you experience any issues.
     </p>
 
-    <h3>Unorganised</h3>
-    <#assign songs_base=''>
-    <#assign songs=[
-        ['goth'],
-        ['liveset'],
-        ['mess'],
-        ['messaround'],
-        ['messaround2'],
-        ['rush'],
-        ['untitled'],
-        ['warmth'],
-        ['whoiusedtobe']
-    ]>
-    <#include "includes/song_player.ftl">
-
-    <h3>Noise</h3>
-    <#assign songs_base='noise'>
-    <#assign songs=[
-        ['Noise - 7', 'noise'],
-        ['Noise - 11', 'noise'],
-        ['Noise - 15', 'noise']
-    ]>
-    <#include "includes/song_player.ftl">
-
-    <h3>Covers</h3>
-    <#assign songs_base='covers'>
-    <#assign songs=[
-        ['Phantogram - Mouthful of Diamonds (instrumental cover)']
-    ]>
-    <#include "includes/song_player.ftl">
+    <c:forEach var="album" items="${albums}">
+        <lg:musicPlayer album="${album}" />
+    </c:forEach>
 
     <script type="text/javascript">
         audioPlayerHookAll();

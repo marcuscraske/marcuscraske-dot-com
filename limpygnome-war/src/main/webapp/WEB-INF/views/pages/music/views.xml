@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+    <!-- Pages (general setup) -->
+    <definition name="pages/music/my-songs" extends="layout">
+        <put-attribute name="pageContent" value="/WEB-INF/views/pages/music/my-songs.jsp" />
+        <put-list-attribute name="headerIncludes">
+            <add-attribute value="/WEB-INF/views/pages/music/music-player-includes.jsp" />
+        </put-list-attribute>
+    </definition>
+
+</tiles-definitions>

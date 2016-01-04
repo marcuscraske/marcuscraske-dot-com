@@ -1,4 +1,4 @@
-package com.limpygnome.website.module.article;
+package com.limpygnome.website.module.article.controller;
 
 /**
  * Created by limpygnome on 27/12/15.
