@@ -4,13 +4,13 @@
 
 <%@ attribute name="album" type="com.limpygnome.website.module.music.model.Album" required="true" %>
 
-<h3>
+<h2>
     <c:out value="${album.title}" />
-</h3>
+</h2>
 
 <div class="music_player" name="music_player">
     <audio controls>
-        <source src="<c:out value='${album.songs[0]}' />" type="audio/mpeg" />
+        <source src="<c:out value='${album.songs[0].songUrl}' />" type="audio/mpeg" />
         <p>
             Your browser does not support HTML5 audio.
         </p>

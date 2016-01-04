@@ -61,10 +61,20 @@ main > article
     border-right: none;
 }
 
+/*
+    Headers
+*/
+
 main h1
 {
     margin: 0.5em;
     color: #333;
+}
+
+main h2
+{
+    margin: 0.5em;
+    color: #666;
 }
 
 

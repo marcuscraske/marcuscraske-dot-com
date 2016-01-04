@@ -71,7 +71,7 @@
                         <span class="icon-cog"></span>
                         Tools
                     </a>
-                    <a href="http://public.limpygnome.com">
+                    <a href="http://files.limpygnome.com">
                         <span class="icon-folder-open"></span>
                         Public Files
                     </a>
