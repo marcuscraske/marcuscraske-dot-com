@@ -20,8 +20,7 @@ public class DocumentRepository
         Cache maps of URLs mapped to documents.
      */
 
-    private static Map<String, Document> cachedMapArticles;
-    private static Map<String, Document> cachedMapProjects;
+    private static Map<String, Document> cachedMapByUrl;
 
     static
     {
@@ -35,9 +34,8 @@ public class DocumentRepository
         Collections.sort(articles, new ArticleCreatedComparator());
         Collections.sort(projects, new ArticleCreatedComparator());
 
-        // Create URL maps
-        cachedMapArticles = createUrlMap(articles);
-        cachedMapProjects = createUrlMap(projects);
+        // Create map of URL <-> documents
+        cachedMapByUrl = createUrlMap();
     }
 
     private static void addArticles()
@@ -48,7 +46,7 @@ public class DocumentRepository
                 "Exploiting a promotional game competition through a replay attack.",
                 new LocalDate(2013, 9, 12),
                 new LocalDate(2016, 1, 8),
-                "hacking_nandos_pong_game"
+                "/articles/hacking_nandos_pong_game"
         ));
 
         articles.add(new Article(
@@ -57,7 +55,7 @@ public class DocumentRepository
                 "Overview of my time at university.",
                 new LocalDate(2014, 6, 1),
                 new LocalDate(2016, 1, 8),
-                "university"
+                "/articles/university"
         ));
     }
 
@@ -70,7 +68,7 @@ public class DocumentRepository
                 new LocalDate(2013, 9, 24),
                 new LocalDate(2016, 1, 8),
                 Project.Status.MAINTAINED,
-                "binary_clock"
+                "/projects/binary_clock"
         ));
 
         projects.add(new Project(
@@ -80,7 +78,7 @@ public class DocumentRepository
                 new LocalDate(2012, 9, 24),
                 new LocalDate(2016, 1, 8),
                 Project.Status.DISCONTINUED,
-                "portable_postgres"
+                "/projects/portable_postgres"
         ));
 
         projects.add(new Project(
@@ -90,7 +88,7 @@ public class DocumentRepository
                 new LocalDate(2014, 6, 20),
                 new LocalDate(2016, 1, 8),
                 Project.Status.DISCONTINUED,
-                "pals"
+                "/projects/pals"
         ));
 
         projects.add(new Project(
@@ -100,14 +98,22 @@ public class DocumentRepository
                 new LocalDate(2014, 1, 12),
                 new LocalDate(2016, 1, 12),
                 Project.Status.MAINTAINED,
-                "build_tv"
+                "/projects/build_tv"
         ));
     }
 
-    private static Map<String, Document> createUrlMap(List<Document> documents)
+    private static Map<String, Document> createUrlMap()
     {
-        Map<String, Document> map = new HashMap<>(documents.size());
+        Map<String, Document> map = new HashMap<>(articles.size() + projects.size());
 
+        addToUrlMap(map, articles);
+        addToUrlMap(map, projects);
+
+        return map;
+    }
+
+    private static void addToUrlMap(Map<String, Document> map, List<Document> documents)
+    {
         for (Document document : documents)
         {
             if (map.containsKey(document.getUrl()))
@@ -117,8 +123,6 @@ public class DocumentRepository
 
             map.put(document.getUrl(), document);
         }
-
-        return map;
     }
 
     public List<Document> getArticles()
@@ -126,19 +130,14 @@ public class DocumentRepository
         return articles;
     }
 
-    public Article getArticleByUrl(String url)
-    {
-        return (Article) cachedMapArticles.get(url);
-    }
-
     public List<Document> getProjects()
     {
         return projects;
     }
 
-    public Project getProjectByUrl(String url)
+    public Document getDocumentByUrl(String url)
     {
-        return (Project) cachedMapProjects.get(url);
+        return cachedMapByUrl.get(url);
     }
 
 }

@@ -10,22 +10,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class ProjectController extends BaseController
+public class DocumentController extends BaseController
 {
     @Autowired
     private DocumentRepository documentRepository;
 
     @RequestMapping({ "/projects", "/projects/home" })
-    public ModelAndView home()
+    public ModelAndView projectsHome()
     {
         return createMV("pages/projects/home", "projects");
     }
 
-    @RequestMapping("/projects/{projectUrl}")
-    public ModelAndView dynamicProject(@PathVariable("projectUrl") String projectUrl)
+    @RequestMapping({ "/articles", "/articles/home" })
+    public ModelAndView articlesHome()
+    {
+        return createMV("pages/articles/home", "articles");
+    }
+
+    @RequestMapping("/projects/{path}")
+    public ModelAndView projectDocument(@PathVariable("path") String path)
+    {
+        return dynamicDocument("/projects/" + path);
+    }
+
+    @RequestMapping("/articles/{path}")
+    public ModelAndView articleDocument(@PathVariable("path") String path)
+    {
+        return dynamicDocument("/articles/" + path);
+    }
+
+    private ModelAndView dynamicDocument(String fullUrl)
     {
         // Fetch document
-        Document document = documentRepository.getProjectByUrl(projectUrl);
+        Document document = documentRepository.getDocumentByUrl(fullUrl);
 
         if (document == null)
         {
@@ -33,7 +50,7 @@ public class ProjectController extends BaseController
         }
 
         // Build model-view
-        ModelAndView modelAndView = createMV("pages/projects/" + document.getUrl(), document.getTitle());
+        ModelAndView modelAndView = createMV("pages" + fullUrl, document.getTitle());
         modelAndView.addObject("document", document);
         return modelAndView;
     }
