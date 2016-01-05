@@ -15,4 +15,9 @@ public abstract class BaseController
         return modelAndView;
     }
 
+    public ModelAndView forwardPageNotFound()
+    {
+        return new ModelAndView("forward:/page-not-found");
+    }
+
 }

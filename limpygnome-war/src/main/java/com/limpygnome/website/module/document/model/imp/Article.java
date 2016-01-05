@@ -6,9 +6,10 @@ import org.joda.time.LocalDate;
 public class Article extends Document
 {
 
-    public Article(String title, String thumbnailUrl, String description, LocalDate created, LocalDate updated)
+    public Article(String title, String thumbnailUrl, String description, LocalDate created, LocalDate updated,
+                   String url)
     {
-        super(title, thumbnailUrl, description, created, updated);
+        super(title, thumbnailUrl, description, created, updated, url);
     }
 
 }

@@ -10,12 +10,22 @@ public class Project extends Document
     {
         MAINTAINED,
         DISCONTINUED,
-        EXPERIMENT
+        EXPERIMENT,
+        PRIVATE
     }
 
-    public Project(String title, String thumbnailUrl, String description, LocalDate created, LocalDate updated)
+    private Status status;
+
+    public Project(String title, String thumbnailUrl, String description, LocalDate created, LocalDate updated,
+                   Status status, String url)
     {
-        super(title, thumbnailUrl, description, created, updated);
+        super(title, thumbnailUrl, description, created, updated, url);
+        this.status = status;
+    }
+
+    public Status getStatus()
+    {
+        return status;
     }
 
 }

@@ -9,14 +9,17 @@ public abstract class Document
     private String description;
     private LocalDate created;
     private LocalDate updated;
+    private String url;
 
-    public Document(String title, String thumbnailUrl, String description, LocalDate created, LocalDate updated)
+    public Document(String title, String thumbnailUrl, String description, LocalDate created, LocalDate updated,
+                    String url)
     {
         this.title = title;
         this.thumbnailUrl = thumbnailUrl;
         this.description = description;
         this.created = created;
         this.updated = updated;
+        this.url = url;
     }
 
     public String getTitle()
@@ -42,6 +45,11 @@ public abstract class Document
     public LocalDate getUpdated()
     {
         return updated;
+    }
+
+    public String getUrl()
+    {
+        return url;
     }
 
 }

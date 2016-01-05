@@ -4,6 +4,11 @@ high priority:
 - move songs to public.limpygnome.com, inflates war by a lot - probably wrong place to live
 - create favicon
 
+medium priority:
+- articles:
+    - devtools (private project) -> state due to IP issues
+    - project sandbox (private project) -> link to functional version
+
 low priority:
 - consider tomcat shared libs
 - update cv with more detail
