@@ -40,10 +40,14 @@ public class DocumentRepository
 
     private static void addArticles()
     {
+        // target description - 120 chars:
+        //      "                                                                                                                          "
+
         articles.add(new Article(
                 "Hacking the Nandos Pong Game",
                 "thumbnail",
-                "Exploiting a promotional game competition through a replay attack.",
+                "Exploiting a Nandos promotional game competition through a replay attack. Using Wireshark for sniffing and sending altered requests.",
+                "hacking,nandos,wireshark,sniffing,replay attack",
                 new LocalDate(2013, 9, 12),
                 new LocalDate(2016, 1, 8),
                 "/articles/hacking_nandos_pong_game"
@@ -53,6 +57,7 @@ public class DocumentRepository
                 "University",
                 "thumbnail",
                 "Overview of my time at university.",
+                "university,limpygnome,uea",
                 new LocalDate(2014, 6, 1),
                 new LocalDate(2016, 1, 8),
                 "/articles/university"
@@ -64,7 +69,8 @@ public class DocumentRepository
         projects.add(new Project(
                 "Binary Clock",
                 "thumbnail",
-                "Version two of a binary clock electronics project, using a Raspberry Pi.",
+                "Version two of a binary clock electronics project, using a Raspberry Pi. Written in C++ with a threaded web server front-end.",
+                "binary,clock,raspberry pi,raspberry,pi,c++,shift,registers,tmp 36,mcp3008,gpio",
                 new LocalDate(2013, 9, 24),
                 new LocalDate(2016, 1, 8),
                 Project.Status.MAINTAINED,
@@ -75,6 +81,7 @@ public class DocumentRepository
                 "Portable Postgres",
                 "thumbnail",
                 "Standalone portable application for managing a Postgres database server for development.",
+                "portable,postgres,application,.net,c#",
                 new LocalDate(2012, 9, 24),
                 new LocalDate(2016, 1, 8),
                 Project.Status.DISCONTINUED,
@@ -84,7 +91,8 @@ public class DocumentRepository
         projects.add(new Project(
                 "PALS",
                 "thumbnail",
-                "Platform for automated and distributed marking of programming assessments.",
+                "An open source platform for automated and distributed marking of programming assessments, completed as an undergraduate project.",
+                "programming,assessment,automated,distributed,java,rmi,sql",
                 new LocalDate(2014, 6, 20),
                 new LocalDate(2016, 1, 8),
                 Project.Status.DISCONTINUED,
@@ -94,7 +102,8 @@ public class DocumentRepository
         projects.add(new Project(
                 "Build TV",
                 "thumbnail",
-                "Multiple daemons and clients used to create a functional build TV / information radiator.",
+                "Multiple daemons and clients used to create a functional build TV / information radiator; integrating Jira, Jenkins and a ws21x LED strip.",
+                "build,tv,raspberry pi,raspberry,pi,notifications,jenkins,jira,automated,ansible",
                 new LocalDate(2014, 1, 12),
                 new LocalDate(2016, 1, 12),
                 Project.Status.MAINTAINED,

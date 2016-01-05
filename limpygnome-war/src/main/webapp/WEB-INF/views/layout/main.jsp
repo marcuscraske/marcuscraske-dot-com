@@ -1,7 +1,7 @@
 <%@taglib prefix="tiles"    uri="http://tiles.apache.org/tags-tiles" %>
 <%@taglib prefix="c"        uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="spring"   uri="http://www.springframework.org/tags" %>
-<%@taglib prefix="wp"       tagdir="/WEB-INF/tags/wp" %>
+<%@taglib prefix="lg"       tagdir="/WEB-INF/tags" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,18 +11,10 @@
         <c:out value="${pageTitle}" /> - limpygnome.com
     </title>
 
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <lg:layoutMetaTags />
+    <lg:layoutResources />
 
-    <link rel="stylesheet" type="text/css" href="/content/fonts/droid-sans/droid-sans.css" />
-    <link rel="stylesheet" type="text/css" href="/content/fonts/icomoon/style.css" />
-
-    <link rel="stylesheet" type="text/css" href="/content/css/layout.css" />
-    <link rel="stylesheet" type="text/css" href="/content/css/layout-responsive.css" />
-
-    <link rel="stylesheet" type="text/css" href="/content/css/content/elements.css" />
-
-    <link rel="stylesheet" type="text/css" href="/content/css/pages/home.css" />
-
+    <%-- Header includes --%>
     <tiles:importAttribute name="headerIncludes" />
     <c:forEach var="item" items="${headerIncludes}">
         <tiles:insertAttribute value="${item}" flush="true" />

@@ -1,5 +1,6 @@
 package com.limpygnome.website.module.document.controller;
 
+import com.limpygnome.website.common.constant.ViewConstants;
 import com.limpygnome.website.common.controller.BaseController;
 import com.limpygnome.website.module.document.model.Document;
 import com.limpygnome.website.module.document.repository.DocumentRepository;
@@ -9,9 +10,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.swing.text.View;
+
 @Controller
 public class DocumentController extends BaseController
 {
+    private static final String DEFAULT_AUTHOR = "limpygnome";
+
     @Autowired
     private DocumentRepository documentRepository;
 
@@ -30,13 +35,13 @@ public class DocumentController extends BaseController
     @RequestMapping("/projects/{path}")
     public ModelAndView projectDocument(@PathVariable("path") String path)
     {
-        return dynamicDocument("/projects/" + path);
+        return dynamicDocument("projects/" + path);
     }
 
     @RequestMapping("/articles/{path}")
     public ModelAndView articleDocument(@PathVariable("path") String path)
     {
-        return dynamicDocument("/articles/" + path);
+        return dynamicDocument("articles/" + path);
     }
 
     private ModelAndView dynamicDocument(String fullUrl)
@@ -50,8 +55,15 @@ public class DocumentController extends BaseController
         }
 
         // Build model-view
-        ModelAndView modelAndView = createMV("pages" + fullUrl, document.getTitle());
+        ModelAndView modelAndView = createMV(fullUrl, document.getTitle());
+
         modelAndView.addObject("document", document);
+
+        // -- Add meta data
+        modelAndView.addObject(ViewConstants.META_AUTHOR, DEFAULT_AUTHOR);
+        modelAndView.addObject(ViewConstants.META_DESCRIPTION, document.getDescription());
+        modelAndView.addObject(ViewConstants.META_KEYWORDS, document.getKeywords());
+
         return modelAndView;
     }
 

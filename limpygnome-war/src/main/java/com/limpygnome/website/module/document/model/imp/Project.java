@@ -16,10 +16,10 @@ public class Project extends Document
 
     private Status status;
 
-    public Project(String title, String thumbnailUrl, String description, LocalDate created, LocalDate updated,
-                   Status status, String url)
+    public Project(String title, String thumbnailUrl, String description, String keywords, LocalDate created,
+                   LocalDate updated, Status status, String url)
     {
-        super(title, thumbnailUrl, description, created, updated, url);
+        super(title, thumbnailUrl, description, keywords, created, updated, url);
         this.status = status;
     }
 
