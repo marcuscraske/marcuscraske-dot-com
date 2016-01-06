@@ -1,0 +1,49 @@
+.projects header
+{
+    border-bottom: solid 0.3em #BBB;
+    margin-bottom: 0.5em;
+    background: #EEE;
+}
+
+.projects header h1
+{
+    display: inline-block;
+}
+
+.projects footer
+{
+    border-top: solid 0.2em #BBB;
+    margin-top: 0.5em;
+    text-align: right;
+}
+
+.projects footer p
+{
+    display: inline-block;
+}
+.projects footer p.created,
+.projects footer p.updated
+{
+    font-style: italic;
+    font-size: 0.9em;
+}
+.projects footer p.print a
+{
+    text-decoration: none;
+}
+
+
+.projects header .status
+{
+    float: right;
+    font-size: 0.9em;
+    padding: 0.4em;
+    border-radius: 0.5em;
+    color: #FFF;
+    margin-top: 0.7em;
+}
+
+.projects header .status.MAINTAINED
+{
+    background: red;
+}

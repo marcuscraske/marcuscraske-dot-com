@@ -92,8 +92,8 @@ main
 /*
     Header
 */
-.header a,
-.header h1
+.sidebar > header a,
+.sidebar >header h1
 {
     color: #FFF;
     font-weight: normal;
@@ -102,12 +102,12 @@ main
     margin: 0 0 0.5em 0;
     padding: 0;
 }
-.header h1
+.sidebar > header h1
 {
     text-shadow: 0em 0em 0.8em #CCC;
 }
-.header a:hover,
-.header a:focus
+.sidebar > header a:hover,
+.sidebar > header a:focus
 {
     color: #CCC;
 }

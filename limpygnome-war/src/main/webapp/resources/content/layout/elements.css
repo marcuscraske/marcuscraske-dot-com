@@ -49,8 +49,8 @@ main .fr
     float: right;
 }
 
-main > section,
-main > article
+main section,
+main article
 {
     color: #333;
     border-radius: 0.4em;

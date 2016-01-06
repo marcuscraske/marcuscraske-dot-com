@@ -35,13 +35,13 @@ public class DocumentController extends BaseController
     @RequestMapping("/projects/{path}")
     public ModelAndView projectDocument(@PathVariable("path") String path)
     {
-        return dynamicDocument("projects/" + path);
+        return dynamicDocument("/projects/" + path);
     }
 
     @RequestMapping("/articles/{path}")
     public ModelAndView articleDocument(@PathVariable("path") String path)
     {
-        return dynamicDocument("articles/" + path);
+        return dynamicDocument("/articles/" + path);
     }
 
     private ModelAndView dynamicDocument(String fullUrl)
@@ -54,8 +54,20 @@ public class DocumentController extends BaseController
             return forwardPageNotFound();
         }
 
+        // Determine view name
+        String viewName;
+
+        if (fullUrl.startsWith("/") && fullUrl.length() > 0)
+        {
+            viewName = fullUrl.substring(1);
+        }
+        else
+        {
+            viewName = fullUrl;
+        }
+
         // Build model-view
-        ModelAndView modelAndView = createMV(fullUrl, document.getTitle());
+        ModelAndView modelAndView = createMV(viewName, document.getTitle());
 
         modelAndView.addObject("document", document);
 

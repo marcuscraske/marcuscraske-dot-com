@@ -11,7 +11,7 @@
 
     <!-- Project pages -->
     <definition name="projects/**" extends="projects_layout">
-        <put-attribute name="projectContent" value="/WEB-INF/views/pages/projects/{1}.jsp" />
+        <put-attribute name="projectContent" value="/WEB-INF/views/pages/projects/{1}.jsp" cascade="true" />
     </definition>
 
 </tiles-definitions>

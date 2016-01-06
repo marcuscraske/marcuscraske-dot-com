@@ -4,7 +4,7 @@
     <title>
         Curriculum Vitae
     </title>
-    <link rel="stylesheet" type="text/css" href="/content/css/cv/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/content/cv/layout.css" />
 </head>
 <body>
     <div class="options">

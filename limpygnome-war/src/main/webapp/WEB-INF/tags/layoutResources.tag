@@ -4,9 +4,12 @@
 <link rel="stylesheet" type="text/css" href="/content/fonts/droid-sans/droid-sans.css" />
 <link rel="stylesheet" type="text/css" href="/content/fonts/icomoon/style.css" />
 
-<link rel="stylesheet" type="text/css" href="/content/css/layout.css" />
-<link rel="stylesheet" type="text/css" href="/content/css/layout-responsive.css" />
+<%-- Styling: layout --%>
+<link rel="stylesheet" type="text/css" href="/content/layout/layout.css" />
+<link rel="stylesheet" type="text/css" href="/content/layout/layout-responsive.css" />
+<link rel="stylesheet" type="text/css" href="/content/layout/layout-print.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/layout/elements.css" />
 
-<link rel="stylesheet" type="text/css" href="/content/css/content/elements.css" />
-
-<link rel="stylesheet" type="text/css" href="/content/css/pages/home.css" />
+<%-- Styling: pages --%>
+<link rel="stylesheet" type="text/css" href="/content/pages/home.css" />
+<link rel="stylesheet" type="text/css" href="/content/pages/projects.css" />

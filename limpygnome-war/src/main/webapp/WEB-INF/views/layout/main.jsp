@@ -25,13 +25,13 @@
     <div class="pwrapper">
 
         <div class="sidebar">
-            <div class="header">
+            <header class="header">
                 <h1>
                     <a href="/">
                         limpygnome
                     </a>
                 </h1>
-            </div>
+            </header>
             <nav>
 
                 <div id="nav_cv">
