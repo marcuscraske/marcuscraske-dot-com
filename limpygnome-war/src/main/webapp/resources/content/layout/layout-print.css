@@ -11,10 +11,29 @@ html, body
 
 .sidebar
 {
-
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
 }
 
 .sidebar header a
 {
-    color: #000;
+    color: #999;
+}
+
+main
+{
+    margin-top: 0em;
+}
+
+
+/*
+    elements.css
+*/
+main section,
+main article
+{
+    background: none !important;
+    border: none !important;
 }

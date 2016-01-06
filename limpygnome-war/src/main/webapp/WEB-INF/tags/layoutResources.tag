@@ -7,7 +7,7 @@
 <%-- Styling: layout --%>
 <link rel="stylesheet" type="text/css" href="/content/layout/layout.css" />
 <link rel="stylesheet" type="text/css" href="/content/layout/layout-responsive.css" />
-<link rel="stylesheet" type="text/css" href="/content/layout/layout-print.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/content/layout/layout-print.css" media="print" />
 <link rel="stylesheet" type="text/css" href="/content/layout/elements.css" />
 
 <%-- Styling: pages --%>
