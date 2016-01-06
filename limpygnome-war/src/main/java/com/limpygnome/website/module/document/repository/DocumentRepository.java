@@ -1,7 +1,7 @@
 package com.limpygnome.website.module.document.repository;
 
 import com.limpygnome.website.module.document.model.Document;
-import com.limpygnome.website.module.document.model.comparator.ArticleCreatedComparator;
+import com.limpygnome.website.module.document.model.comparator.DocumentCreatedComparator;
 import com.limpygnome.website.module.document.model.imp.Article;
 import com.limpygnome.website.module.document.model.imp.Project;
 
@@ -31,8 +31,8 @@ public class DocumentRepository
         addProjects();
 
         // Sort documents
-        Collections.sort(articles, new ArticleCreatedComparator());
-        Collections.sort(projects, new ArticleCreatedComparator());
+        Collections.sort(articles, new DocumentCreatedComparator());
+        Collections.sort(projects, new DocumentCreatedComparator());
 
         // Create map of URL <-> documents
         cachedMapByUrl = createUrlMap();
@@ -104,7 +104,7 @@ public class DocumentRepository
                 "thumbnail",
                 "Multiple daemons and clients used to create a functional build TV / information radiator; integrating Jira, Jenkins and a ws21x LED strip.",
                 "build,tv,raspberry pi,raspberry,pi,notifications,jenkins,jira,automated,ansible",
-                new LocalDate(2014, 1, 12),
+                new LocalDate(2016, 1, 12),
                 new LocalDate(2016, 1, 12),
                 Project.Status.MAINTAINED,
                 "/projects/build_tv"

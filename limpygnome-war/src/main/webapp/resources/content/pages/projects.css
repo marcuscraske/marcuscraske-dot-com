@@ -1,49 +1,102 @@
-.projects header
+/*
+    List of projects page
+*/
+
+.projects ul
+{
+    margin: 0.5em;
+    padding: 0;
+}
+
+.projects ul li a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+.projects ul li > span
+{
+   display: block;
+}
+
+.projects ul li .thumbnail
+{
+    float: left;
+    width: 4em;
+    height: 3.5em;
+}
+
+.projects ul li .title
+{
+    font-size: 2em;
+    color: #06C;
+}
+
+.projects ul li .description
+{
+}
+
+
+/*
+    Individual project page
+*/
+
+.project header
 {
     border-bottom: solid 0.3em #BBB;
     margin-bottom: 0.5em;
     background: #EEE;
 }
 
-.projects header h1
+.project header h1
 {
     display: inline-block;
 }
 
-.projects footer
+.project footer
 {
     border-top: solid 0.2em #BBB;
     margin-top: 0.5em;
     text-align: right;
 }
 
-.projects footer p
+.project footer p
 {
     display: inline-block;
 }
-.projects footer p.created,
-.projects footer p.updated
+.project footer p.created,
+.project footer p.updated
 {
     font-style: italic;
     font-size: 0.9em;
 }
-.projects footer p.print a
+.project footer p.print a
 {
     text-decoration: none;
 }
 
 
-.projects header .status
+.projects .status,
+.project header .status
 {
-    float: right;
     font-size: 0.9em;
     padding: 0.4em;
     border-radius: 0.5em;
     color: #FFF;
+}
+
+.projects .status
+{
+}
+
+.project header .status
+{
+    float: right;
     margin-top: 0.7em;
 }
 
-.projects header .status.MAINTAINED
+.projects .status.MAINTAINED,
+.project header .status.MAINTAINED
 {
     background: red;
 }

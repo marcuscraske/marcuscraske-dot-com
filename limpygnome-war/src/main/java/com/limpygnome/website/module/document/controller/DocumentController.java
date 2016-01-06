@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.swing.text.View;
+import java.util.List;
 
 @Controller
 public class DocumentController extends BaseController
@@ -23,13 +23,22 @@ public class DocumentController extends BaseController
     @RequestMapping({ "/projects", "/projects/home" })
     public ModelAndView projectsHome()
     {
-        return createMV("pages/projects/home", "projects");
+        List<Document> projects = documentRepository.getProjects();
+        return genericDocumentsHome(projects, "pages/projects/home", "projects");
     }
 
     @RequestMapping({ "/articles", "/articles/home" })
     public ModelAndView articlesHome()
     {
-        return createMV("pages/articles/home", "articles");
+        List<Document> articles = documentRepository.getArticles();
+        return genericDocumentsHome(articles, "pages/articles/home", "articles");
+    }
+
+    private ModelAndView genericDocumentsHome(List<Document> documents, String viewName, String title)
+    {
+        ModelAndView modelAndView = createMV(viewName, title);
+        modelAndView.addObject("documents", documents);
+        return modelAndView;
     }
 
     @RequestMapping("/projects/{path}")
