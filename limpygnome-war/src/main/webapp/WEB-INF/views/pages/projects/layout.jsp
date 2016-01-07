@@ -11,7 +11,7 @@
                 -
                 <c:out value="${document.title}" />
             </h1>
-            <p class="status <c:out value='${document.status}' />">
+            <p class="project-status <c:out value='${document.status}' />">
                 <c:out value="${document.status}" />
             </p>
         </header>

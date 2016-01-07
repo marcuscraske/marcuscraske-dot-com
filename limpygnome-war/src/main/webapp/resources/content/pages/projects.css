@@ -1,5 +1,5 @@
 /*
-    List of projects page
+    Reusable styling for documents (articles / projects).
 */
 
 .documents ul
@@ -22,7 +22,8 @@
 
 .document .thumbnail,
 .document .description,
-.document .status
+.document .status,
+.document .created
 {
    display: table-cell;
    vertical-align: middle;
@@ -49,6 +50,11 @@
 .document .status
 {
     text-align: right;
+}
+
+.document .created
+{
+    white-space: nowrap;
 }
 
 
@@ -110,7 +116,7 @@
 }
 
 
-.project-status.ACTIVE,
+.project-status.ACTIVE
 {
     background: #090;
 }

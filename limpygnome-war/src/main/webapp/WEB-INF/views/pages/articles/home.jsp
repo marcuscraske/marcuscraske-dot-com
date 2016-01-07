@@ -3,19 +3,15 @@
 <section class="documents">
 
     <h1>
-        Projects
+        Articles
     </h1>
-
-    <p>
-        Here you can find various things I have done over time, click for more information.
-    </p>
 
     <ul>
         <c:forEach var="document" items="${documents}">
             <li class="document">
                 <span class="thumbnail">
                     <a href="<c:out value='${document.url}' />">
-                        <img alt="Project thumbnail" src="<c:out value='${document.thumbnailUrl}' />" />
+                        <img alt="Article thumbnail" src="<c:out value='${document.thumbnailUrl}' />" />
                     </a>
                 </span>
                 <span class="description">
@@ -26,10 +22,8 @@
                         <c:out value="${document.description}" />
                     </a>
                 </span>
-                <span class="status">
-                    <span class="project-status <c:out value='${document.status}' />">
-                        <c:out value="${document.status}" />
-                    </span>
+                <span class="created">
+                    <c:out value="${document.created}" />
                 </span>
             </li>
         </c:forEach>
