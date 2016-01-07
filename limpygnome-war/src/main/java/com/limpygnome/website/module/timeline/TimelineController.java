@@ -1,8 +1,18 @@
 package com.limpygnome.website.module.timeline;
 
-/**
- * Created by limpygnome on 27/12/15.
- */
-public class TimelineController
+import com.limpygnome.website.common.controller.BaseController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class TimelineController extends BaseController
 {
+
+//    @RequestMapping({ "/timeline", "/timeline/home" })
+//    public ModelAndView home()
+//    {
+//        return createMV("pages/timeline/home", "timeline");
+//    }
+
 }
