@@ -1,6 +1,6 @@
 <%@taglib prefix="c"        uri="http://java.sun.com/jsp/jstl/core" %>
 
-<section class="projects">
+<section class="documents">
 
     <h1>
         Projects
@@ -8,21 +8,25 @@
 
     <ul>
         <c:forEach var="document" items="${documents}">
-            <li>
-                <a href="<c:out value='${document.url}' />">
-                    <span class="thumbnail">
+            <li class="document">
+                <span class="thumbnail">
+                    <a href="<c:out value='${document.url}' />">
                         <img alt="Project thumbnail" src="<c:out value='${document.thumbnailUrl}' />" />
-                    </span>
-                    <span class="title">
-                        <c:out value="${document.title}" />
-                        <span class="status <c:out value='${document.status}' />">
-                            <c:out value="${document.status}" />
-                        </span>
-                    </span>
-                    <span class="descriptioon">
+                    </a>
+                </span>
+                <span class="description">
+                    <a href="<c:out value='${document.url}' />">
+                        <h2>
+                            <c:out value="${document.title}" />
+                        </h2>
                         <c:out value="${document.description}" />
+                    </a>
+                </span>
+                <span class="status">
+                    <span class="project-status <c:out value='${document.status}' />">
+                        <c:out value="${document.status}" />
                     </span>
-                </a>
+                </span>
             </li>
         </c:forEach>
     </ul>

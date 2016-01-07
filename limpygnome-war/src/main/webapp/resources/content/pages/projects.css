@@ -2,38 +2,53 @@
     List of projects page
 */
 
-.projects ul
+.documents ul
 {
+    display: table;
     margin: 0.5em;
     padding: 0;
 }
 
-.projects ul li a
+.documents ul li
+{
+    display: table-row;
+}
+
+.documents ul li a
 {
     text-decoration: none;
     color: inherit;
 }
 
-.projects ul li > span
+.document .thumbnail,
+.document .description,
+.document .status
 {
-   display: block;
+   display: table-cell;
+   vertical-align: middle;
+   padding: 0.5em;
 }
 
-.projects ul li .thumbnail
+.document h2
 {
-    float: left;
-    width: 4em;
-    height: 3.5em;
+    margin: 0;
 }
 
-.projects ul li .title
+.document .thumbnail img
 {
-    font-size: 2em;
-    color: #06C;
+    width: 5.5em;
+    height: 5em;
+    vertical-align: middle;
+    border-radius: 0.5em;
 }
 
-.projects ul li .description
+.document .description
 {
+}
+
+.document .status
+{
+    text-align: right;
 }
 
 
@@ -75,28 +90,37 @@
     text-decoration: none;
 }
 
-
-.projects .status,
-.project header .status
-{
-    font-size: 0.9em;
-    padding: 0.4em;
-    border-radius: 0.5em;
-    color: #FFF;
-}
-
-.projects .status
-{
-}
-
-.project header .status
+.project header .project-status
 {
     float: right;
     margin-top: 0.7em;
 }
 
-.projects .status.MAINTAINED,
-.project header .status.MAINTAINED
+
+/*
+    Project status item
+*/
+
+.project-status
 {
-    background: red;
+    padding: 0.4em;
+    border-radius: 0.5em;
+    color: #FFF;
+    font-size: 0.9em;
+}
+
+
+.project-status.ACTIVE,
+{
+    background: #090;
+}
+
+.project-status.MAINTAINED
+{
+    background: purple;
+}
+
+.project-status.DISCONTINUED
+{
+    background: #C30;
 }

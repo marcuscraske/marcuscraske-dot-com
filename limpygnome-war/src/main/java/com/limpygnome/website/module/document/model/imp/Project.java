@@ -8,6 +8,7 @@ public class Project extends Document
 
     public enum Status
     {
+        ACTIVE,
         MAINTAINED,
         DISCONTINUED,
         EXPERIMENT,

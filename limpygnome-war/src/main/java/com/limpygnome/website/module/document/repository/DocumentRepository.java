@@ -106,7 +106,7 @@ public class DocumentRepository
                 "build,tv,raspberry pi,raspberry,pi,notifications,jenkins,jira,automated,ansible",
                 new LocalDate(2016, 1, 12),
                 new LocalDate(2016, 1, 12),
-                Project.Status.MAINTAINED,
+                Project.Status.ACTIVE,
                 "/projects/build_tv"
         ));
     }
