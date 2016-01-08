@@ -17,6 +17,22 @@
             <h2>
                 Worldpay
             </h2>
+            <p>
+                Primarily working on Hosted Payment Pages (HPP).
+            </p>
+            <p>
+                An online payment page platform used by, at present, corporate merchants to process payments for cards
+                and alternative payment methods (APMS), such as PayPal / Giropay / bank transfers. Supporting multiple
+                languages, countries and multiple integration methods. The purpose of this new platform is to provide
+                enhanced customisation for merchants and a responsive design for shoppers.
+            </p>
+            <p>
+                Technologies include Oracle stack (Weblogic, DB, Coherence), Tomcat, Ansible, Spring, REST/SOAP,
+                HTMl5, AngularJS and JMS/MQs.
+            </p>
+            <p>
+                Also worked on a legacy back-office system for handling orders/payments and merchant configuration.
+            </p>
         </div>
 
         <time>
@@ -24,13 +40,33 @@
         </time>
         <div class="item">
             <h2>
+                Proxama
+            </h2>
+            <p>
+                Continuing some of the design and building a tokenised issuance product, from my internship, using
+                Java EE 7.
+
+                And contactless transaction demo software, using a Verifone VX820, for said product - shown to tier one
+                and two financial institutions and Mobile World Congress 2015.
+            </p>
+        </div>
+        <div class="item">
+            <h2>
                 R&D Internship
             </h2>
+            <p>
+                An internship at Proxama for three months, primarily looking at graph databases for transaction fraud
+                and designing a tokenised card issuance and risk management product for contactless payments.
+            </p>
         </div>
         <div class="item">
             <h2>
                 Graduated
             </h2>
+            <p>
+                With an 83.48% first class (starred) honours degree in computer science  - <i>BSc (Hons)</i>, refer to
+                <a href="/university">university</a> for breakdown of grades.
+            </p>
         </div>
 
         <time>
