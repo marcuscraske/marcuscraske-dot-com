@@ -9,10 +9,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class TimelineController extends BaseController
 {
 
-//    @RequestMapping({ "/timeline", "/timeline/home" })
-//    public ModelAndView home()
-//    {
-//        return createMV("pages/timeline/home", "timeline");
-//    }
+    @RequestMapping({ "/timeline", "/timeline/home" })
+    public ModelAndView home()
+    {
+        return createMV("pages/timeline/home", "timeline");
+    }
 
 }

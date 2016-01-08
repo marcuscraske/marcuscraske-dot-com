@@ -9,6 +9,7 @@ medium priority:
     - devtools (private project) -> state due to IP issues
     - project sandbox (private project) -> link to functional version
 - security: CSP
+- minification + config for tags -> will need development maven profile to disable minify mode
 
 low priority:
 - consider tomcat shared libs

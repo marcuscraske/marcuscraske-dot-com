@@ -14,3 +14,4 @@
 <link rel="stylesheet" type="text/css" href="/content/pages/home.css" />
 <link rel="stylesheet" type="text/css" href="/content/pages/projects.css" />
 <link rel="stylesheet" type="text/css" href="/content/pages/documents.css" />
+<link rel="stylesheet" type="text/css" href="/content/pages/timeline.css" />
