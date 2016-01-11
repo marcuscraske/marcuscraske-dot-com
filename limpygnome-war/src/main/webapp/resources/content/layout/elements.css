@@ -109,3 +109,19 @@ main .button:focus
     border-color: #999;
     color: #333;
 }
+
+/*
+    Thumbnail element
+*/
+
+.thumbnail
+{
+    float: right;
+    margin: 0em 0em 1em 1em;
+}
+.timeline .thumbnail img
+{
+    max-width: 7em;
+    max-height: 7em;
+    border-radius: 0.4em;
+}

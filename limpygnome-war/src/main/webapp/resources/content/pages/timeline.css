@@ -54,14 +54,10 @@
 
 }
 
+/*
+    Overrides for thumbnail element
+*/
 .timeline .thumbnail
 {
-    float: right;
     margin: -3em 0em 1em 1em;
-}
-.timeline .thumbnail img
-{
-    max-width: 7em;
-    max-height: 7em;
-    border-radius: 0.4em;
 }
