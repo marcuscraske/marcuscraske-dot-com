@@ -29,6 +29,12 @@
     border-right-color: #EEE;
     border-width: 1.5em;
 }
+.timeline .item:after
+{
+    display: block;
+    content: "";
+    clear: both;
+}
 
 .timeline time
 {
@@ -46,4 +52,16 @@
 .timeline .item p
 {
 
+}
+
+.timeline .thumbnail
+{
+    float: right;
+    margin: -3em 0em 1em 1em;
+}
+.timeline .thumbnail img
+{
+    max-width: 7em;
+    max-height: 7em;
+    border-radius: 0.4em;
 }

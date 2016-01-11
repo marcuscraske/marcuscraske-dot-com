@@ -23,7 +23,7 @@
             <p>
                 An online payment page platform used by, at present, corporate merchants to process payments for cards
                 and alternative payment methods (APMS), such as PayPal / Giropay / bank transfers. Supporting multiple
-                languages, countries and multiple integration methods. The purpose of this new platform is to provide
+                languages, countries and integration methods. The purpose of this new platform is to provide
                 enhanced customisation for merchants and a responsive design for shoppers.
             </p>
             <p>
@@ -63,6 +63,11 @@
             <h2>
                 Graduated
             </h2>
+            <div class="thumbnail">
+                <a href="/content/timeline/graduation.png">
+                    <img class="thumb" src="/content/timeline/graduation.png" alt="Graduation picture with project advisor and friend" />
+                </a>
+            </div>
             <p>
                 With an 83.48% first class (starred) honours degree in computer science  - <i>BSc (Hons)</i>, refer to
                 <a href="/university">university</a> for breakdown of grades.
@@ -76,12 +81,10 @@
             <h2>
                 Skydiving
             </h2>
-            <div class="me_small">
-                <a href="/content/images/me/skydiving1.png">
-                    <img class="thumb" src="/content/images/me/skydiving1.png" alt="Me, Skydiving." />
+            <div class="thumbnail">
+                <a href="/content/timeline/skydiving.png">
+                    <img class="thumb" src="/content/timeline/skydiving.png" alt="Me, skydiving." />
                 </a>
-                <br />
-                "Landing"...
             </div>
 
             <p>
@@ -113,6 +116,11 @@
             <h2>
                 Web Design Competitions
             </h2>
+            <div class="thumbnail">
+                <a href="/content/timeline/worldskills.jpg">
+                    <img class="thumb" src="/content/timeline/worldskills.jpg" alt="Post-competition press picture for college" />
+                </a>
+            </div>
             <p>
                 I competed in the WorldSkills web design national final in 2010 and 2011. This
                 would initially start as an internal competition in colleges, with the best website

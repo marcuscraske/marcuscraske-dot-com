@@ -20,39 +20,71 @@
     color: inherit;
 }
 
-.document .thumbnail,
-.document .description,
-.document .status,
-.document .created
+.documents .document .thumbnail,
+.documents .document .description,
+.documents .document .status,
+.documents .document .created
 {
    display: table-cell;
    vertical-align: middle;
    padding: 0.5em;
 }
 
-.document h2
+.documents .document h2
 {
     margin: 0;
 }
 
-.document .thumbnail img
+.documents .document .thumbnail
 {
-    width: 5.5em;
-    height: 5em;
+    text-align: center;
+}
+.documents .document .thumbnail img
+{
+    max-width: 5.5em;
+    max-height: 5em;
     vertical-align: middle;
     border-radius: 0.5em;
 }
 
-.document .description
+.documents .document .description
 {
 }
 
-.document .status
+.documents .document .status
 {
     text-align: right;
 }
 
-.document .created
+.documents .document .created
 {
     white-space: nowrap;
+}
+
+
+/*
+    Footer sub-page
+*/
+
+
+.document footer
+{
+    border-top: solid 0.2em #BBB;
+    margin-top: 0.5em;
+    text-align: right;
+}
+
+.document footer p
+{
+    display: inline-block;
+}
+.document footer p.created,
+.document footer p.updated
+{
+    font-style: italic;
+    font-size: 0.9em;
+}
+.document footer p.print a
+{
+    text-decoration: none;
 }

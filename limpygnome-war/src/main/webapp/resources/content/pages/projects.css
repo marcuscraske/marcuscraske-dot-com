@@ -14,28 +14,6 @@
     display: inline-block;
 }
 
-.project footer
-{
-    border-top: solid 0.2em #BBB;
-    margin-top: 0.5em;
-    text-align: right;
-}
-
-.project footer p
-{
-    display: inline-block;
-}
-.project footer p.created,
-.project footer p.updated
-{
-    font-style: italic;
-    font-size: 0.9em;
-}
-.project footer p.print a
-{
-    text-decoration: none;
-}
-
 .project header .project-status
 {
     float: right;

@@ -49,7 +49,7 @@ public class DocumentRepository
                 "Exploiting a Nandos promotional game competition through a replay attack. Using Wireshark for sniffing and sending altered requests.",
                 "hacking,nandos,wireshark,sniffing,replay attack",
                 new LocalDate(2013, 9, 12),
-                new LocalDate(2016, 1, 8),
+                new LocalDate(2016, 1, 15),
                 "/articles/hacking_nandos_pong_game"
         ));
 
@@ -59,8 +59,18 @@ public class DocumentRepository
                 "Overview of my time at university.",
                 "university,limpygnome,uea",
                 new LocalDate(2014, 6, 1),
-                new LocalDate(2016, 1, 8),
+                new LocalDate(2016, 1, 15),
                 "/articles/university"
+        ));
+
+        articles.add(new Article(
+                "Cycling",
+                "/content/articles/cycling/cycling_century.png",
+                "About my bikes and rides.",
+                "cycling,riding,century,bikes,road bikes,personal,records,charity rides,gatorskins",
+                new LocalDate(2014, 6, 1),
+                new LocalDate(2016, 1, 15),
+                "/articles/cycling"
         ));
     }
 

@@ -1,6 +1,7 @@
 main a
 {
     color: #06C;
+    word-wrap: break-word;
 }
 main a:hover, main a:focus
 {

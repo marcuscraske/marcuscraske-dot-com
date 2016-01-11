@@ -4,12 +4,12 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
-    <!-- Project layout -->
+    <!-- Article layout -->
     <definition name="articles_layout" extends="layout">
         <put-attribute name="pageContent" value="/WEB-INF/views/pages/articles/layout.jsp" />
     </definition>
 
-    <!-- Project pages -->
+    <!-- Article pages -->
     <definition name="articles/**" extends="articles_layout">
         <put-attribute name="articleContent" value="/WEB-INF/views/pages/articles/{1}.jsp" cascade="true" />
     </definition>
