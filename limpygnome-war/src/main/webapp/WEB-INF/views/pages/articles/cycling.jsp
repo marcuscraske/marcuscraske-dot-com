@@ -6,10 +6,111 @@
     <h2>
         Specialized Allez 2015 E5
     </h2>
+    <div class="thumbnail">
+        <a href="/content/articles/cycling/allez.jpg">
+            <img class="thumb" src="/content/articles/cycling/allez.jpg" alt="Specialized Allez 2015 E5" />
+        </a>
+    </div>
+    <p>
+        My primary riding and commuting bike, a full alloy frame, bought for Norwich 100 (charity cycling event)
+        around April/May 2015. This was due to my previous primary bike, the Carrera TDF, being damaged from from an
+        accident and the sprockets almost at 100% wear.
+    </p>
+    <p>
+        After a few punctures on both winter and summer tyres from construction debris (concrete/metal/glass/wood) and
+        bad roads around Cambridge, I switched to using Slime tubes, in the hope of self-sealing any micro-punctures.
+        Thus far this has worked well.
+    </p>
+    <table class="data">
+        <tr>
+            <th>
+                Model
+            </th>
+            <td>
+                Specialized Allez 2015 E5
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Material
+            </th>
+            <td>
+                Full alloy
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Gearset
+            </th>
+            <td>
+                Shimano Claris
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Winter Tyres
+            </th>
+            <td>
+                <ul>
+                    <li>
+                        Rear - Continental Four Seasons folding tyre 700x25C
+                    </li>
+                    <li>
+                        Front - Continental Gatorskin 700x25C
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Summer Tyres
+            </th>
+            <td>
+                Continental GatorSkins 700x23c
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Inner Tubes
+            </th>
+            <td>
+                Slime tubes
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Rim Tape
+            </th>
+            <td>
+                Velox
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Cycling Computer
+            </th>
+            <td>
+                to do
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Weight
+            </th>
+            <td>
+                to do
+            </td>
+        </tr>
+    </table>
 
     <h2>
         Carrera Karkinos 2015 Limited Edition
     </h2>
+    <div class="thumbnail">
+        <a href="/content/images/me/karkinos.png">
+            <img class="thumb" src="/content/articles/cycling/karkinos.png" alt="Carrera Karkinos 2015" />
+        </a>
+    </div>
     <p>
         After being in an accident with my primary bike end of 2014, I decided to buy another for
         general commuting. However this has now turned into my primary backup bike.
@@ -23,8 +124,8 @@
         Carrera TDF 2013
     </h2>
     <div class="thumbnail">
-        <a href="/content/images/me/cycling.png">
-            <img class="thumb" src="/content/articles/cycling/tdf.png" alt="My Carrera TDF" />
+        <a href="/content/images/me/tdf.png">
+            <img class="thumb" src="/content/articles/cycling/tdf.png" alt="Carrera TDF 2013" />
         </a>
     </div>
     <p>
@@ -42,9 +143,6 @@
         With around over 1,800 miles using the above tyre and rim tape, at the time of writing this
         page, I have yet to have a puncture.
     </p>
-    <h3>
-        Bike Details
-    </h3>
     <table class="data">
         <tr>
             <th>
@@ -104,12 +202,10 @@
     </h2>
 
     <h3>My First Century</h3>
-    <div class="me_small">
-        <a href="/content/images/me/cycling_century.png">
-            <img class="thumb" src="/content/images/me/cycling_century.png" alt="Me, after my first century." />
+    <div class="thumbnail">
+        <a href="/content/articles/cycling/eating_matters.png">
+            <img class="thumb" src="/content/articles/cycling/eating_matters.png" alt="Me, after my first century." />
         </a>
-        <br />
-        Me, after my first century.
     </div>
 
     <p>
