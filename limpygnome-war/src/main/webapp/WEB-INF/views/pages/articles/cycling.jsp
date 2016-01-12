@@ -27,7 +27,7 @@
                 Model
             </th>
             <td>
-                Specialized Allez 2015 E5
+                Specialized Allez 2015 E5 54cm
             </td>
         </tr>
         <tr>
@@ -90,7 +90,7 @@
                 Cycling Computer
             </th>
             <td>
-                to do
+                Crivit Bike Computer (basic functions: distance, speed, avg, total, max)
             </td>
         </tr>
         <tr>
@@ -98,7 +98,7 @@
                 Weight
             </th>
             <td>
-                to do
+                Unknown (around 10.4kg)
             </td>
         </tr>
     </table>
@@ -106,11 +106,6 @@
     <h2>
         Carrera Karkinos 2015 Limited Edition
     </h2>
-    <div class="thumbnail">
-        <a href="/content/images/me/karkinos.png">
-            <img class="thumb" src="/content/articles/cycling/karkinos.png" alt="Carrera Karkinos 2015" />
-        </a>
-    </div>
     <p>
         After being in an accident with my primary bike end of 2014, I decided to buy another for
         general commuting. However this has now turned into my primary backup bike.
@@ -149,7 +144,7 @@
                 Model
             </th>
             <td>
-                Carrera TDF 2013
+                Carrera TDF 2013 52cm
             </td>
         </tr>
         <tr>
@@ -197,54 +192,73 @@
 </section>
 
 <section>
-    <h2>
+    <h1>
         Notable Journeys
-    </h2>
+    </h1>
 
-    <h3>My First Century</h3>
+    <h2>
+        My First Century
+    </h2>
     <div class="thumbnail">
         <a href="/content/articles/cycling/eating_matters.png">
             <img class="thumb" src="/content/articles/cycling/eating_matters.png" alt="Me, after my first century." />
         </a>
     </div>
-
     <p>
-        On 12th of April 2014, I completed my first century (100 miles) for a local charity,
+        On 12th of April 2014, I completed my first century (100 miles) for a local charity on my TDF,
         <a href="http://www.eatingmatters.org.uk/">Eating Matters</a>, with two fellow friends.
         The route departed from Norwich, headed towards Cromer, then to Great Yarmouth, with a short stop
         outside of Lowestoft and back to Norwich.
     </p>
-
     <p>
         The ride took around 12 hours and we only initially intended aimed for only 60 miles. At the
         time of writing this page, I don't know how much we raised, but probably not a lot. Regardless,
         a lot of posting on Facebook, e-mail and other places; brought awareness to the charity.
     </p>
 
-    <h3>70 Mile Sprint</h3>
+    <h2>
+        70 Mile Sprint
+    </h2>
     <p>
-        On the 1st of July, I completed 70 miles with a 16mph average.
+        On the 1st of July, I completed 70 miles with a 16mph average on my TDF.
     </p>
     <p>
         Stats:
     </p>
 
-    <table class="center">
+    <table class="data">
         <tr>
-            <th class="tal">Distance</th>
-            <td>70.630 miles</td>
+            <th>
+                Distance
+            </th>
+            <td>
+                70.630 miles
+            </td>
         </tr>
         <tr>
-            <th class="tal">Speed Max</th>
-            <td>31.0 mph</td>
+            <th>
+                Speed Max
+            </th>
+            <td>
+                31.0 mph
+            </td>
         </tr>
         <tr>
-            <th class="tal">Speed Avg</th>
-            <td>16.1 mph</td>
+            <th>
+                Speed Avg
+            </th>
+            <td>
+                16.1 mph
+            </td>
         </tr>
         <tr>
-            <th class="tal">Moving Time</th>
-            <td>4:22:37 (hh:mm:ss)</td>
+            <th>
+                Moving Time
+            </th>
+            <td>
+                4:22:37 (hh:mm:ss)
+            </td>
         </tr>
     </table>
+
 </section>
