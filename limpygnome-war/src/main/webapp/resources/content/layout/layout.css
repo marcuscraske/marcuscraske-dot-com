@@ -93,7 +93,7 @@ main
     Header
 */
 .sidebar > header a,
-.sidebar >header h1
+.sidebar > header h1
 {
     color: #FFF;
     font-weight: normal;
@@ -117,7 +117,13 @@ main
     Navigation
 */
 
-nav > div
+nav ul
+{
+    padding: 0;
+    margin: 0;
+}
+
+nav > ul > ul
 {
     border-right: solid 0.4em;
     overflow: hidden;
@@ -126,38 +132,35 @@ nav > div
     border-radius: 0.4em;
     margin-bottom: 1em;
 }
-nav > div a,
-nav > div div
+nav > ul > ul > a
 {
     text-indent: 0.5em;
     line-height: 2.5em;
     color: #FFF;
-}
-nav > div > a
-{
+
     display: block;
     text-decoration: none;
     background-color: #333;
     border-bottom: solid 0.2em #222;
 }
-nav > div > a:last-child
+nav > ul > ul a:last-child
 {
     border-bottom: none;
 }
-nav > div > a:hover,
-nav > div > a:focus
+nav > ul > ul a:hover,
+nav > ul > ul a:focus
 {
     background-color: #444;
 }
 
 /* Icon styling */
-nav > div span
+nav > ul > ul span
 {
     color: #AAA;
     margin-right: 0.7em;
 }
-nav > div:hover span,
-nav > div:focus span
+nav > ul > ul:hover span,
+nav > ul > ul:focus span
 {
     color: #DDD;
 }

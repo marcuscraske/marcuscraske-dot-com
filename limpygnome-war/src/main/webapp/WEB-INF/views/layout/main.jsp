@@ -34,47 +34,49 @@
             </header>
             <nav>
 
-                <div id="nav_cv">
-                    <a href="/cv">
-                        <span class="icon-file-text2"></span>
-                        Curriculum Vitae
-                    </a>
-                </div>
-                <div id="nav_main">
-                    <a href="/articles">
-                        <span class="icon-books"></span>
-                        Articles
-                    </a>
-                    <a href="/projects">
-                        <span class="icon-lab"></span>
-                        Projects
-                    </a>
-                    <a href="/timeline">
-                        <span class="icon-airplane"></span>
-                        Timeline
-                    </a>
-                    <a href="/music">
-                        <span class="icon-music"></span>
-                        Music
-                    </a>
-                </div>
-                <div id="nav_misc">
-                    <a href="/tools">
-                        <span class="icon-cog"></span>
-                        Tools
-                    </a>
-                    <a href="http://files.limpygnome.com">
-                        <span class="icon-folder-open"></span>
-                        Public Files
-                    </a>
-                </div>
+                <ul>
+                    <ul id="nav_cv">
+                        <a href="/cv">
+                            <span class="icon-file-text2"></span>
+                            Curriculum Vitae
+                        </a>
+                    </ul>
+                    <ul id="nav_main">
+                        <a href="/articles">
+                            <span class="icon-books"></span>
+                            Articles
+                        </a>
+                        <a href="/projects">
+                            <span class="icon-lab"></span>
+                            Projects
+                        </a>
+                        <a href="/timeline">
+                            <span class="icon-airplane"></span>
+                            Timeline
+                        </a>
+                        <a href="/music">
+                            <span class="icon-music"></span>
+                            Music
+                        </a>
+                    </ul>
+                    <ul id="nav_misc">
+                        <a href="/tools">
+                            <span class="icon-cog"></span>
+                            Tools
+                        </a>
+                        <a href="http://files.limpygnome.com">
+                            <span class="icon-folder-open"></span>
+                            Public Files
+                        </a>
+                    </ul>
 
-                <div id="nav_contact">
-                    <a href="/contact">
-                        <span class="icon-phone"></span>
-                        Contact
-                    </a>
-                </div>
+                    <ul id="nav_contact">
+                        <a href="/contact">
+                            <span class="icon-phone"></span>
+                            Contact
+                        </a>
+                    </ul>
+                </ul>
 
             </nav>
         </div>
