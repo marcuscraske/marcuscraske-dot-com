@@ -14,4 +14,16 @@
         <put-attribute name="articleContent" value="/WEB-INF/views/pages/articles/{1}.jsp" cascade="true" />
     </definition>
 
+    <!-- Pages with includes -->
+    <definition name="articles/hacking_nandos_pong_game" extends="articles_layout">
+        <put-attribute name="articleContent" value="/WEB-INF/views/pages/articles/hacking_nandos_pong_game.jsp" cascade="true" />
+        <put-list-attribute name="headerIncludes">
+            <add-attribute value="/WEB-INF/views/layout/includes/syntaxhighlighter.jsp" />
+        </put-list-attribute>
+        <put-list-attribute name="pageContentIncludes">
+            <add-attribute value="/WEB-INF/views/layout/includes/syntaxhighlighter_content.jsp" />
+        </put-list-attribute>
+    </definition>
+
+
 </tiles-definitions>

@@ -63,7 +63,7 @@
             <h2>
                 Graduated
             </h2>
-            <div class="thumbnail">
+            <div class="thumbnail-image">
                 <a href="/content/timeline/graduation.png">
                     <img class="thumb" src="/content/timeline/graduation.png" alt="Graduation picture with project advisor and friend" />
                 </a>
@@ -81,7 +81,7 @@
             <h2>
                 Skydiving
             </h2>
-            <div class="thumbnail">
+            <div class="thumbnail-image">
                 <a href="/content/timeline/skydiving.png">
                     <img class="thumb" src="/content/timeline/skydiving.png" alt="Me, skydiving." />
                 </a>
@@ -116,7 +116,7 @@
             <h2>
                 Web Design Competitions
             </h2>
-            <div class="thumbnail">
+            <div class="thumbnail-image">
                 <a href="/content/timeline/worldskills.jpg">
                     <img class="thumb" src="/content/timeline/worldskills.jpg" alt="Post-competition press picture for college" />
                 </a>

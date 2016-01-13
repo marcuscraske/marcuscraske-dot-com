@@ -82,7 +82,12 @@
         </div>
 
         <main>
-            <tiles:insertAttribute name="pageContent" />
+            <tiles:insertAttribute name="pageContent" />#
+
+            <tiles:importAttribute name="pageContentIncludes" />
+            <c:forEach var="item" items="${pageContentIncludes}">
+                <tiles:insertAttribute value="${item}" flush="true" />
+            </c:forEach>
         </main>
 
         <footer class="footer-icons">

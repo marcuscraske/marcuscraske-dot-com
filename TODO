@@ -3,6 +3,7 @@ high priority:
 - convert nav to use ul / li
 - move songs to public.limpygnome.com, inflates war by a lot - probably wrong place to live
 - create favicon
+- cv needs to use section elements
 
 medium priority:
 - articles:
@@ -10,6 +11,7 @@ medium priority:
     - project sandbox (private project) -> link to functional version
 - security: CSP
 - minification + config for tags -> will need development maven profile to disable minify mode
+- create redirects for old URLs
 
 low priority:
 - consider tomcat shared libs

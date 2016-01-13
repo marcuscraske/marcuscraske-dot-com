@@ -9,7 +9,13 @@
             template="/WEB-INF/views/layout/main.jsp"
     >
         <put-attribute name="pageContent" value="No content defined, error?" />
+
+        <!-- Header includes for third-party libs -->
         <put-list-attribute name="headerIncludes">
+        </put-list-attribute>
+
+        <!-- Page content includes for inserting content at the end of the page content/main region -->
+        <put-list-attribute name="pageContentIncludes">
         </put-list-attribute>
     </definition>
 

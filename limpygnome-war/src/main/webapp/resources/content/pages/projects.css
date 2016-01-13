@@ -2,17 +2,6 @@
     Individual project page
 */
 
-.project header
-{
-    border-bottom: solid 0.3em #BBB;
-    margin-bottom: 0.5em;
-    background: #EEE;
-}
-
-.project header h1
-{
-    display: inline-block;
-}
 
 .project header .project-status
 {

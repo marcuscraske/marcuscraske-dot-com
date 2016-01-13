@@ -6,7 +6,7 @@
     <h2>
         Specialized Allez 2015 E5
     </h2>
-    <div class="thumbnail">
+    <div class="thumbnail-image">
         <a href="/content/articles/cycling/allez.jpg">
             <img class="thumb" src="/content/articles/cycling/allez.jpg" alt="Specialized Allez 2015 E5" />
         </a>
@@ -14,7 +14,7 @@
     <p>
         My primary riding and commuting bike, a full alloy frame, bought for Norwich 100 (charity cycling event)
         around April/May 2015. This was due to my previous primary bike, the Carrera TDF, being damaged from from an
-        accident and the sprockets almost at 100% wear.
+        accident and the chain almost at 100% wear.
     </p>
     <p>
         After a few punctures on both winter and summer tyres from construction debris (concrete/metal/glass/wood) and
@@ -118,7 +118,7 @@
     <h2>
         Carrera TDF 2013
     </h2>
-    <div class="thumbnail">
+    <div class="thumbnail-image">
         <a href="/content/images/me/tdf.png">
             <img class="thumb" src="/content/articles/cycling/tdf.png" alt="Carrera TDF 2013" />
         </a>
@@ -199,9 +199,9 @@
     <h2>
         My First Century
     </h2>
-    <div class="thumbnail">
-        <a href="/content/articles/cycling/eating_matters.png">
-            <img class="thumb" src="/content/articles/cycling/eating_matters.png" alt="Me, after my first century." />
+    <div class="thumbnail-image">
+        <a href="/content/articles/cycling/eating-matters.png">
+            <img class="thumb" src="/content/articles/cycling/eating-matters.png" alt="Me, after my first century." />
         </a>
     </div>
     <p>

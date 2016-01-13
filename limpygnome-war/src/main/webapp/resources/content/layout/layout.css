@@ -3,12 +3,12 @@
 */
 ::selection
 {
-    background: #06C;
+    background: #333;
     color: #999;
 }
 ::-moz-selection
 {
-    background: #06C;
+    background: #333;
     color: #999;
 }
 html

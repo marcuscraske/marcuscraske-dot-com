@@ -22,7 +22,7 @@
                         <c:out value="${document.description}" />
                     </a>
                 </span>
-                <span class="created">
+                <span class="created" title="updated: <c:out value='${document.updated}' />">
                     <c:out value="${document.created}" />
                 </span>
             </li>

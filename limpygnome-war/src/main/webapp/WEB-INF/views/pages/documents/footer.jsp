@@ -2,15 +2,15 @@
 
 <footer>
     <p class="created">
-        Created: <c:out value="${document.created}" />
+        Created: <date><c:out value="${document.created}" /></date>
     </p>
     <c:if test="${document.created != document.updated}">
         <p class="updated">
-            Updated: <c:out value="${document.updated}" />
+            Updated: <date><c:out value="${document.updated}" /></date>
         </p>
     </c:if>
     <p class="print">
-        <a href="#" title="Print" onclick="window.print(); return false;">
+        <a rel="canonical" href="#" title="Print" onclick="window.print(); return false;">
             <span class="icon-printer"></span>
             Print
         </a>
