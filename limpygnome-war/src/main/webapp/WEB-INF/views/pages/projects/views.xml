@@ -14,4 +14,16 @@
         <put-attribute name="projectContent" value="/WEB-INF/views/pages/projects/{1}.jsp" cascade="true" />
     </definition>
 
+    <!-- Project documents -->
+    <definition name="projects/binary-clock" extends="projects_layout">
+        <put-attribute name="projectContent" value="/WEB-INF/views/pages/projects/binary-clock.jsp" cascade="true" />
+        <put-list-attribute name="headerIncludes">
+            <add-attribute value="/WEB-INF/views/layout/includes/mathjax.jsp" />
+            <add-attribute value="/WEB-INF/views/layout/includes/syntaxhighlighter.jsp" />
+        </put-list-attribute>
+        <put-list-attribute name="pageContentIncludes">
+            <add-attribute value="/WEB-INF/views/layout/includes/syntaxhighlighter_content.jsp" />
+        </put-list-attribute>
+    </definition>
+
 </tiles-definitions>

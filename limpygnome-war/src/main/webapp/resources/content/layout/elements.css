@@ -109,6 +109,11 @@ main section h2
     font-weight: normal;
 }
 
+main h3
+{
+    margin: 0.5em 1em;
+}
+
 
 /*
     Generic button

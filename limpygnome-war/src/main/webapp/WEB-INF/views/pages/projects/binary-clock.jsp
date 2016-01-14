@@ -24,9 +24,9 @@
 <p>
     Pin layout:
 </p>
-<p class="tac">
-    <a href="/content/articles/binary_clock/shift_registers_pin_layout.png">
-        <img src="/content/articles/binary_clock/shift_registers_pin_layout.png" class="thumb" style="width: 14em; height: 14em;" alt="Shift Registers Pin Layout" />
+<p class="large-image">
+    <a href="/content/articles/binary-clock/shift_registers_pin_layout.png">
+        <img src="/content/articles/binary-clock/shift_registers_pin_layout.png" class="thumb" style="width: 14em; height: 14em;" alt="Shift Registers Pin Layout" />
     </a>
 </p>
 
@@ -81,9 +81,9 @@
     The clock and latch is therefore connected to each shift-register using the same circuit, hence for our 17 LEDs we end-up with the following
     circuit (click to open the image):
 </p>
-<p class="tac">
-    <a href="/content/articles/binary_clock/shift_registers_circuit_diagram.png">
-        <img class="thumb" src="/content/articles/binary_clock/shift_registers_circuit_diagram.png" alt="Shift Registers Circuit Diagram" style="width=; height=;" />
+<p class="large-image">
+    <a href="/content/articles/binary-clock/shift_registers_circuit_diagram.png">
+        <img class="thumb" src="/content/articles/binary-clock/shift_registers_circuit_diagram.png" alt="Shift Registers Circuit Diagram" style="width=; height=;" />
     </a>
 </p>
 
@@ -108,67 +108,74 @@
     <i>shiftOut</i> function of the WiringPi library, which worked something like this:
 </p>
 
-<pre name="code" class="brush: cpp">
-    uint8_t pinData = 0, pinLatch = 2, pinClock = 3;
+<div class="code">
+    <pre class="brush: cpp">
+        uint8_t pinData = 0, pinLatch = 2, pinClock = 3;
 
-    pinMode(pinData, OUTPUT);
-    pinMode(pinLatch, OUTPUT);
-    pinMode(pinClock, OUTPUT);
+        pinMode(pinData, OUTPUT);
+        pinMode(pinLatch, OUTPUT);
+        pinMode(pinClock, OUTPUT);
 
-    while(true)
-    {
-      for(int i = 0; i < 8; i++)
-      {
-        digitalWrite(pinLatch, LOW);
-        shiftOut(pinData, pinClock, MSBFIRST, i);
-        digitalWrite(pinLatch, HIGH);
-        usleep(1000 * 100); // 100 m/s delay
-      }
-    }
-</pre>
+        while(true)
+        {
+          for(int i = 0; i < 8; i++)
+          {
+            digitalWrite(pinLatch, LOW);
+            shiftOut(pinData, pinClock, MSBFIRST, i);
+            digitalWrite(pinLatch, HIGH);
+            usleep(1000 * 100); // 100 m/s delay
+          }
+        }
+    </pre>
+</div>
 
 <p>
     I then improved the code by creating a wrapper to allow for multiple shift-registers:
 </p>
 
-<pre name="code" class="brush: cpp">
-    uint8_t pinData = 0, pinLatch = 2, pinClock = 3;
-    
-    pinMode(pinData, OUTPUT);
-    pinMode(pinLatch, OUTPUT);
-    pinMode(pinClock, OUTPUT);
-    
-    while(true)
-        for(int i = 1; i <= 32768; i*= 2)
-        {
-            IC_74HC595::write(2, pinData, pinLatch, pinClock, i);
-            //std::cout << i << std::endl;
-            usleep(1000 * 10); // 10 m/s delay
-        }
-</pre>
+<div class="code">
+    <pre class="brush: cpp">
+        uint8_t pinData = 0, pinLatch = 2, pinClock = 3;
+
+        pinMode(pinData, OUTPUT);
+        pinMode(pinLatch, OUTPUT);
+        pinMode(pinClock, OUTPUT);
+
+        while(true)
+            for(int i = 1; i <= 32768; i*= 2)
+            {
+                IC_74HC595::write(2, pinData, pinLatch, pinClock, i);
+                //std::cout << i << std::endl;
+                usleep(1000 * 10); // 10 m/s delay
+            }
+    </pre>
+</div>
 
 <p>
     The write member-function:
 </p>
-<pre name="code" class="brush: cpp">
-    inline static void write(uint8_t numberOfShiftRegisters, uint8_t pinData, uint8_t pinClock, uint8_t pinLatch, int value)
-    {
-        // Place latch to low, to write data
-        digitalWrite(pinLatch, LOW);
-        // Write the eight bits
-        for(int i = (8 * numberOfShiftRegisters) - 1; i >= 0; --i)
+
+<div class="code">
+    <pre class="brush: cpp">
+        inline static void write(uint8_t numberOfShiftRegisters, uint8_t pinData, uint8_t pinClock, uint8_t pinLatch, int value)
         {
-            // Set data-pin to on or off
-            digitalWrite(pinData, value & (1 << i));
-            //std::cout << "74HC: " << i << " - " << (value & (1 << i) ? 1 : 0) << "!" << std::endl;
-            // Inform the IC to read the data-pin
-            digitalWrite(pinClock, HIGH);
-            digitalWrite(pinClock, LOW);
+            // Place latch to low, to write data
+            digitalWrite(pinLatch, LOW);
+            // Write the eight bits
+            for(int i = (8 * numberOfShiftRegisters) - 1; i >= 0; --i)
+            {
+                // Set data-pin to on or off
+                digitalWrite(pinData, value & (1 << i));
+                //std::cout << "74HC: " << i << " - " << (value & (1 << i) ? 1 : 0) << "!" << std::endl;
+                // Inform the IC to read the data-pin
+                digitalWrite(pinClock, HIGH);
+                digitalWrite(pinClock, LOW);
+            }
+            // Put the latch back to high
+            digitalWrite(pinLatch, HIGH);
         }
-        // Put the latch back to high
-        digitalWrite(pinLatch, HIGH);
-    }
-</pre>
+    </pre>
+</div>
 
 <h1>
     Analogue Sensors
@@ -192,9 +199,9 @@
 <p>
     Pin layout:
 </p>
-<p class="tac">
-    <a href="/content/articles/binary_clock/adc_pin_layout.png">
-        <img src="/content/articles/binary_clock/adc_pin_layout.png" alt="ADC Pin Layout" class="thumb" style="width: 14em; height: 14em;" />
+<p class="large-image">
+    <a href="/content/articles/binary-clock/adc_pin_layout.png">
+        <img src="/content/articles/binary-clock/adc_pin_layout.png" alt="ADC Pin Layout" class="thumb" style="width: 14em; height: 14em;" />
     </a>
 </p>
 
@@ -227,9 +234,9 @@
     According to the <a href="http://ww1.microchip.com/downloads/en/DeviceDoc/21295d.pdf">data-sheet</a>, the following
     takes place to read a single-pin on the MCP3008 (which has eight analogue inputs):
 </p>
-<p class="tac">
-    <a href="/content/articles/binary_clock/adc_communication.png">
-        <img src="/content/articles/binary_clock/adc_communication.png" alt="ADC Communication" class="thumb" />
+<p class="large-image">
+    <a href="/content/articles/binary-clock/adc_communication.png">
+        <img src="/content/articles/binary-clock/adc_communication.png" alt="ADC Communication" class="thumb" />
     </a>
 </p>
 
@@ -357,54 +364,57 @@
     This is the following function I wrote, with help from a Pastebin entry by Dvanhaeke for transmitting the
     five-bits:
 </p>
-<pre name="code" class="brush: cpp">
-    int IC_MCP3008::read(MCP3008_PINS pin, uint8_t pinDataIn, uint8_t pinDataOut, uint8_t pinClock, uint8_t pinChipSelect)
-    {
-        if(pin < 0 || pin > 7)
-            return -1;
-        // With help from: http://pastebin.com/62rXCzej
-        // Toggle chip-select for the MCP3008 to accept clock low-state
-        digitalWrite(pinChipSelect, HIGH);
-        digitalWrite(pinClock, LOW);
-        digitalWrite(pinChipSelect, LOW);
 
-        // Write 5-bits of data to the MCP3008
-        // Structure:
-        //          < 11 to state start-bit and single-ended input mode >
-        //          < three bits 0-7 to state the pin being read >
-        // Source: http://ww1.microchip.com/downloads/en/DeviceDoc/21295d.pdf, page 19
-        int value = pin;        // Pin (0-7) being read
-        value |= 0x18;          // pin + 11000 (24 / 0x18)
-        value <<= 3;            // Shift three places 11< pin >000
-        for(int i = 0; i < 5; i++)
+<div class="code">
+    <pre class="brush: cpp">
+        int IC_MCP3008::read(MCP3008_PINS pin, uint8_t pinDataIn, uint8_t pinDataOut, uint8_t pinClock, uint8_t pinChipSelect)
         {
-            // 10000000 (0x80 / 128)
-            digitalWrite(pinDataIn, value & 0x80 ? HIGH : LOW);
-            value <<= 1;
-            // Toggle clock to cause the MCP3008 to read the value of the data-in pin
-            digitalWrite(pinClock, HIGH);
+            if(pin < 0 || pin > 7)
+                return -1;
+            // With help from: http://pastebin.com/62rXCzej
+            // Toggle chip-select for the MCP3008 to accept clock low-state
+            digitalWrite(pinChipSelect, HIGH);
             digitalWrite(pinClock, LOW);
-        }
+            digitalWrite(pinChipSelect, LOW);
 
-        // Read 12-bits form the MCP3008 (null bit, empty bit and 10 bits representing the value of the pin being read)
-        value = 0;
-        for(int i = 0; i < 12; i++)
-        {
-            // Toggle clock to cause the MCP3008 to write the next bit of data to data-out pin
-            digitalWrite(pinClock, HIGH);
-            digitalWrite(pinClock, LOW);
-            // Shift the current value by one, ready for the next bit of data to be read
-            value <<= 1;
-            // Read the next bit of data
-            if(digitalRead(pinDataOut) == HIGH)
-                value |= 0x1;
+            // Write 5-bits of data to the MCP3008
+            // Structure:
+            //          < 11 to state start-bit and single-ended input mode >
+            //          < three bits 0-7 to state the pin being read >
+            // Source: http://ww1.microchip.com/downloads/en/DeviceDoc/21295d.pdf, page 19
+            int value = pin;        // Pin (0-7) being read
+            value |= 0x18;          // pin + 11000 (24 / 0x18)
+            value <<= 3;            // Shift three places 11< pin >000
+            for(int i = 0; i < 5; i++)
+            {
+                // 10000000 (0x80 / 128)
+                digitalWrite(pinDataIn, value & 0x80 ? HIGH : LOW);
+                value <<= 1;
+                // Toggle clock to cause the MCP3008 to read the value of the data-in pin
+                digitalWrite(pinClock, HIGH);
+                digitalWrite(pinClock, LOW);
+            }
+
+            // Read 12-bits form the MCP3008 (null bit, empty bit and 10 bits representing the value of the pin being read)
+            value = 0;
+            for(int i = 0; i < 12; i++)
+            {
+                // Toggle clock to cause the MCP3008 to write the next bit of data to data-out pin
+                digitalWrite(pinClock, HIGH);
+                digitalWrite(pinClock, LOW);
+                // Shift the current value by one, ready for the next bit of data to be read
+                value <<= 1;
+                // Read the next bit of data
+                if(digitalRead(pinDataOut) == HIGH)
+                    value |= 0x1;
+            }
+            // Toggle chip-select pin, end of read
+            digitalWrite(pinChipSelect, HIGH);
+            // Get rid of the first bit (null)
+            value /= 2;
         }
-        // Toggle chip-select pin, end of read
-        digitalWrite(pinChipSelect, HIGH);
-        // Get rid of the first bit (null)
-        value /= 2;
-    }
-</pre>
+    </pre>
+</div>
 
 <p>
     If you're still unsure, I would also recommend reading the article by
@@ -420,9 +430,9 @@
     like the following:
 </p>
 
-<p class="tac">
-    <a href="/content/articles/binary_clock/adc_circuit_diagram.png">
-        <img src="/content/articles/binary_clock/adc_circuit_diagram.png" alt="ADC Circuit Diagram" style="width: 20em; height: 20em;" class="thumb" />
+<p class="large-image">
+    <a href="/content/articles/binary-clock/adc_circuit_diagram.png">
+        <img src="/content/articles/binary-clock/adc_circuit_diagram.png" alt="ADC Circuit Diagram" style="width: 20em; height: 20em;" class="thumb" />
     </a>
 </p>
 
@@ -490,12 +500,14 @@ analogue * (3.3 * 1000) / 1024 = analogue~in~millivolts
     The code I wrote to read the TMP36:
 </p>
 
-<pre name="code" class="brush: cpp">
-    inline static double getTemperature_Celcius(double volts, IC_MCP3008::MCP3008_PINS pin, uint8_t pinDataIn, uint8_t pinDataOut, uint8_t pinClock, uint8_t pinChipSelect)
-    {
-            return ((getRaw(pin, pinDataIn, pinDataOut, pinClock, pinChipSelect) * ((volts * 1000) / 1024)) - 500) / 10; // ([voltage in millivolts] - 500) / 10; volts to millivolts = [value] * ([[volts e.g. 3.3 or 5]v * 1000] / 1024)
-    }
-</pre>
+<div class="code">
+    <pre class="brush: cpp">
+        inline static double getTemperature_Celcius(double volts, IC_MCP3008::MCP3008_PINS pin, uint8_t pinDataIn, uint8_t pinDataOut, uint8_t pinClock, uint8_t pinChipSelect)
+        {
+                return ((getRaw(pin, pinDataIn, pinDataOut, pinClock, pinChipSelect) * ((volts * 1000) / 1024)) - 500) / 10; // ([voltage in millivolts] - 500) / 10; volts to millivolts = [value] * ([[volts e.g. 3.3 or 5]v * 1000] / 1024)
+        }
+    </pre>
+</div>
 
 <h1>
     Tips
@@ -507,19 +519,23 @@ analogue * (3.3 * 1000) / 1024 = analogue~in~millivolts
     I did try the following with the WirePi library:
 </p>
 
-<pre name="code" class="brush: plain">
-    sudo chown root binaryclockv2
-    sudo chmod 4755 binaryclockv2
-</pre>
+<div class="code">
+    <pre class="brush: plain">
+        sudo chown root binaryclockv2
+        sudo chmod 4755 binaryclockv2
+    </pre>
+</div>
 
 <p>
     Even though no errors were thrown and the setup was successful, I could not set a GPIO to high; additionally this
     had to be set after every build. Instead I simply did:
 </p>
 
-<pre name="code" class="brush: plain">
-    sudo passwd root
-</pre>
+<div class="code">
+    <pre class="brush: plain">
+        sudo passwd root
+    </pre>
+</div>
 
 <p>
     ...and then I connected, via remote development, using the root account. The above command sets the password for
