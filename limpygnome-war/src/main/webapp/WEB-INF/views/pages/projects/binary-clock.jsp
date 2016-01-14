@@ -25,8 +25,8 @@
     Pin layout:
 </p>
 <p class="large-image">
-    <a href="/content/articles/binary-clock/shift_registers_pin_layout.png">
-        <img src="/content/articles/binary-clock/shift_registers_pin_layout.png" class="thumb" style="width: 14em; height: 14em;" alt="Shift Registers Pin Layout" />
+    <a href="/content/projects/binary-clock/shift_registers_pin_layout.png">
+        <img src="/content/projects/binary-clock/shift_registers_pin_layout.png" class="thumb" style="width: 14em; height: 14em;" alt="Shift Registers Pin Layout" />
     </a>
 </p>
 
@@ -82,8 +82,8 @@
     circuit (click to open the image):
 </p>
 <p class="large-image">
-    <a href="/content/articles/binary-clock/shift_registers_circuit_diagram.png">
-        <img class="thumb" src="/content/articles/binary-clock/shift_registers_circuit_diagram.png" alt="Shift Registers Circuit Diagram" style="width=; height=;" />
+    <a href="/content/projects/binary-clock/shift_registers_circuit_diagram.png">
+        <img class="thumb" src="/content/projects/binary-clock/shift_registers_circuit_diagram.png" alt="Shift Registers Circuit Diagram" style="width=; height=;" />
     </a>
 </p>
 
@@ -200,8 +200,8 @@
     Pin layout:
 </p>
 <p class="large-image">
-    <a href="/content/articles/binary-clock/adc_pin_layout.png">
-        <img src="/content/articles/binary-clock/adc_pin_layout.png" alt="ADC Pin Layout" class="thumb" style="width: 14em; height: 14em;" />
+    <a href="/content/projects/binary-clock/adc_pin_layout.png">
+        <img src="/content/projects/binary-clock/adc_pin_layout.png" alt="ADC Pin Layout" class="thumb" style="width: 14em; height: 14em;" />
     </a>
 </p>
 
@@ -235,8 +235,8 @@
     takes place to read a single-pin on the MCP3008 (which has eight analogue inputs):
 </p>
 <p class="large-image">
-    <a href="/content/articles/binary-clock/adc_communication.png">
-        <img src="/content/articles/binary-clock/adc_communication.png" alt="ADC Communication" class="thumb" />
+    <a href="/content/projects/binary-clock/adc_communication.png">
+        <img src="/content/projects/binary-clock/adc_communication.png" alt="ADC Communication" class="thumb" />
     </a>
 </p>
 
@@ -431,8 +431,8 @@
 </p>
 
 <p class="large-image">
-    <a href="/content/articles/binary-clock/adc_circuit_diagram.png">
-        <img src="/content/articles/binary-clock/adc_circuit_diagram.png" alt="ADC Circuit Diagram" style="width: 20em; height: 20em;" class="thumb" />
+    <a href="/content/projects/binary-clock/adc_circuit_diagram.png">
+        <img src="/content/projects/binary-clock/adc_circuit_diagram.png" alt="ADC Circuit Diagram" style="width: 20em; height: 20em;" class="thumb" />
     </a>
 </p>
 
