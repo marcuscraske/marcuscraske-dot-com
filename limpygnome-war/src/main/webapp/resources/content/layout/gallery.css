@@ -20,8 +20,16 @@
 
 .gallery li a
 {
-
+    color: #666;
+    text-decoration: none;
+    border: none;
 }
 .gallery li a img
 {
+    box-shadow: 0em 0em 1em #AAA;
+}
+.gallery li a span
+{
+    display: block;
+    padding: 0.5em 0.2em;
 }

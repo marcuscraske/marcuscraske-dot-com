@@ -12,6 +12,7 @@ medium priority:
 - security: CSP
 - minification + config for tags -> will need development maven profile to disable minify mode
 - create redirects for old URLs
+- ensure all img elements contain title attribute
 
 low priority:
 - consider tomcat shared libs
