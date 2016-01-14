@@ -1,0 +1,27 @@
+.gallery
+{
+    list-style: none;
+    text-align: center;
+}
+
+.gallery li
+{
+    display: inline-block;
+    max-width: 25em;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.gallery li a,
+.gallery li a img
+{
+    max-width: inherit;
+}
+
+.gallery li a
+{
+
+}
+.gallery li a img
+{
+}

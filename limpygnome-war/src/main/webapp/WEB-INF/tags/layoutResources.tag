@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="/content/layout/layout-responsive.css" />
 <link rel="stylesheet" type="text/css" href="/content/layout/layout-print.css" media="print" />
 <link rel="stylesheet" type="text/css" href="/content/layout/elements.css" />
+<link rel="stylesheet" type="text/css" href="/content/layout/gallery.css" />
 
 <%-- Styling: pages --%>
 <link rel="stylesheet" type="text/css" href="/content/pages/home.css" />
