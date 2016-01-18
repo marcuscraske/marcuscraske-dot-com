@@ -64,6 +64,13 @@
     Gallery
 </h1>
 
-<h1>
-
-</h1>
+<ul class="gallery">
+    <li>
+        <a href="/content/projects/build-tv/jira-wallboard.png">
+            <img src="/content/projects/build-tv/jira-wallboard.png" alt="Build TV showing Jira wallboard" title="Build TV showing Jira wallboard" />
+            <span>
+                Build TV showing Jira wallboard
+            </span>
+        </a>
+    </li>
+</ul>

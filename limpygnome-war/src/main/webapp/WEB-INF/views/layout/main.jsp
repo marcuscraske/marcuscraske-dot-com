@@ -60,10 +60,12 @@
                         </a>
                     </ul>
                     <ul id="nav_misc">
+                        <%--
                         <a href="/tools">
                             <span class="icon-cog"></span>
                             Tools
                         </a>
+                        --%>
                         <a href="http://files.limpygnome.com">
                             <span class="icon-folder-open"></span>
                             Public Files

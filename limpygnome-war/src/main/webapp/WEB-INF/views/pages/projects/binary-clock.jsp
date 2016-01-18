@@ -1,15 +1,138 @@
 <h1>
     Overview
 </h1>
+<p class="tac">
+    <a href="/content/projects/binary-clock/v2/binary-clock.png">
+        <img src="/content/projects/binary-clock/v2/binary-clock.png" alt="Final binary clock" title="Final binary clock" />
+    </a>
+</p>
 <p>
     The purpose of this project was to experiment with the Raspberry Pi, electronics and C++; I also wanted to
     create a new binary-clock with internet-updated time, the ability to set multiple alarms by using a
     web-browser (alarm clock), a multi-threaded custom-written web-server and room automation based on sensor data.
 </p>
+<p>
+    This was a continuation of an older, version one, binary clock (pictures at the very bottom of the page).
+</p>
 
 <h1>
     Gallery
 </h1>
+<ul class="gallery">
+    <li>
+        <a href="/content/projects/binary-clock/v2/shift-registers.png">
+            <img src="/content/projects/binary-clock/v2/shift-registers.png" alt="Shift registers" title="Shift registers" />
+            <span>
+                Shift registers for controlling multiple LEDs with three GPIO inputs
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/side-open.png">
+            <img src="/content/projects/binary-clock/v2/side-open.png" alt="Binary clock with side open" title="Binary clock with side open" />
+            <span>
+                Binary clock with side open
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/website-home.png">
+            <img src="/content/projects/binary-clock/v2/website-home.png" alt="Website home" title="Website home" />
+            <span>
+                Binary clock's homepage, served by the program its self. Written in C++ and multi-threaded using C++ 11.
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/website-options.png">
+            <img src="/content/projects/binary-clock/v2/website-options.png" alt="Website options" title="Website options" />
+            <span>
+                Binary clock options
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/website-guest-book.png">
+            <img src="/content/projects/binary-clock/v2/website-guest-book.png" alt="Website guest book" title="Website guest book" />
+            <span>
+                Guest book with IP geo-location using IP block lists from APNIC
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/website-cache.png">
+            <img src="/content/projects/binary-clock/v2/website-cache.png" alt="Website cache" title="Website cache" />
+            <span>
+                Template and resource caching; assets are kept in memory to reduce I/O for high performance
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/website-database.png">
+            <img src="/content/projects/binary-clock/v2/website-database.png" alt="Website database" title="Website database" />
+            <span>
+                Database test connection page
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/website-services.png">
+            <img src="/content/projects/binary-clock/v2/website-services.png" alt="Binary clock services" title="Binary clock services" />
+            <span>
+                The services within the C++ program, which can be independently controlled and fail
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/website-tools.png">
+            <img src="/content/projects/binary-clock/v2/website-tools.png" alt="Website tools" title="Website tools" />
+            <span>
+                Website tools menu
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/website-system-info.png">
+            <img src="/content/projects/binary-clock/v2/website-system-info.png" alt="System information" title="System information" />
+            <span>
+                System information viewer
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/api.png">
+            <img src="/content/projects/binary-clock/v2/api.png" alt="Binary clock API XML" title="Binary clock API XML" />
+            <span>
+                Website read-only API
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/website-tools-rng.png">
+            <img src="/content/projects/binary-clock/v2/website-tools-rng.png" alt="Website random number generator" title="Website random number generator" />
+            <span>
+                Random number generator, using analogue data as seed
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/website-gpio.png">
+            <img src="/content/projects/binary-clock/v2/website-gpio.png" alt="Website GPIO menu" title="Website GPIO menu" />
+            <span>
+                Binary clock GPIO menu, allowing conditions to turn actual power sockets on/off
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/v2/website-gpio-configure.png">
+            <img src="/content/projects/binary-clock/v2/website-gpio-configure.png" alt="GPIO configuration" title="GPIO configuration" />
+            <span>
+                An example GPIO configurer, which is linked to a power socket and turns it on/off based on the amount
+                of light in the room
+            </span>
+        </a>
+    </li>
+</ul>
 
 <h1>
     Using a Basic Shift Register
@@ -600,3 +723,38 @@ analogue * (3.3 * 1000) / 1024 = analogue~in~millivolts
 <p>
     <a href="https://github.com/limpygnome/binary_clock_v2">https://github.com/limpygnome/binary_clock_v2</a>
 </p>
+
+<h1>
+    History
+</h1>
+<p>
+    The binary clock presented in this article is version two, with the original version created using a Netduino.
+    Below are some historic pictures, before the final binary clock.
+</p>
+
+<ul class="gallery">
+    <li>
+        <a href="/content/projects/binary-clock/history/relays.png">
+            <img src="/content/projects/binary-clock/history/relays.png" alt="Relays" title="Relays" />
+            <span>
+                A picture showing the internal relays used to control actual power sockets, with v2 unpainted
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/history/binary-clock-v1-front.jpg">
+            <img src="/content/projects/binary-clock/history/binary-clock-v1-front.jpg" alt="Front of binary clock v1" title="Front of binary clock v1" />
+            <span>
+                The front of version one, built using a Netduino
+            </span>
+        </a>
+    </li>
+    <li>
+        <a href="/content/projects/binary-clock/history/binary-clock-v1-back.jpg">
+            <img src="/content/projects/binary-clock/history/binary-clock-v1-back.jpg" alt="Back of binary clock v1" title="Back of binary clock v1" />
+            <span>
+                The back of version one, with far more primitive circuitry
+            </span>
+        </a>
+    </li>
+</ul>

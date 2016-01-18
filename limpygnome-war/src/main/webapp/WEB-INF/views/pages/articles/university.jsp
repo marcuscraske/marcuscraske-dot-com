@@ -1,34 +1,32 @@
 <h1>
     Summary
 </h1>
-<div class="me_small">
-    <div class="thumbnail-image">
-        <a href="/content/articles/university/graduation.png">
-            <img class="img" src="/content/articles/university/graduation.png" alt="Graduation day." />
-        </a>
-        <span>
-            Graduation day with my project advisor and BFFL
-        </span>
-    </div>
-    <p>
-        I attended the University of East Anglia (UEA), between 2011 to 2014, and graduated with a first-class starred
-        bachelors of science degree, with honours, in computer science.
-    </p>
-    <p>
-        My modules focused on a broad spectrum of topics, from fields such as: information retrieval, graphics,
-        software engineering, databases, networks, theoretical computing and embedded systems.
-    </p>
-    <p>
-        to do...
-    </p>
+<div class="thumbnail-image">
+    <a href="/content/articles/university/graduation.png">
+        <img class="img" src="/content/articles/university/graduation.png" alt="Graduation day." />
+    </a>
+    <span>
+        Graduation day with my project advisor and BFFL
+    </span>
 </div>
+<p>
+    I attended the University of East Anglia (UEA), between 2011 to 2014, and graduated with a first-class starred
+    bachelors of science degree, with honours, in computer science.
+</p>
+<p>
+    My modules focused on a broad spectrum of topics, from fields such as: information retrieval, graphics,
+    software engineering, databases, networks, theoretical computing and embedded systems.
+</p>
+<p>
+    The department were incredibly supportive, especially my advisor for the duration of the three
+    years, and project advisor.
+</p>
 
 <h1>
-    Work
+    Project
 </h1>
 <p>
-    Read <a href="/articles/university/work">this</a> page for information about my University work,
-    or <a href="/projects/pals">PALS</a> for my third-year project.
+    Read <a href="/projects/pals">PALS</a> for information about my third-year project.
 </p>
 
 <h1>
