@@ -1,9 +1,15 @@
 <h1>
-    Introduction
+    Overview
 </h1>
 <p>
-    The purpose of this project was to experiment with the Raspberry Pi, electronics and C++; I also wanted to create a new binary-clock with internet-updated time, the ability to set multiple alarms by using a web-browser (alarm clock), a multi-threaded custom-written web-server and room automation based on sensor data.
+    The purpose of this project was to experiment with the Raspberry Pi, electronics and C++; I also wanted to
+    create a new binary-clock with internet-updated time, the ability to set multiple alarms by using a
+    web-browser (alarm clock), a multi-threaded custom-written web-server and room automation based on sensor data.
 </p>
+
+<h1>
+    Gallery
+</h1>
 
 <h1>
     Using a Basic Shift Register

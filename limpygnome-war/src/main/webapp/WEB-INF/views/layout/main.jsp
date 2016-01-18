@@ -82,7 +82,7 @@
         </div>
 
         <main>
-            <tiles:insertAttribute name="pageContent" />#
+            <tiles:insertAttribute name="pageContent" />
 
             <tiles:importAttribute name="pageContentIncludes" />
             <c:forEach var="item" items="${pageContentIncludes}">

@@ -154,6 +154,7 @@ main .button:focus
 {
     float: right;
     margin: 0em 1em 0.5em 1em;
+    text-align: center;
 }
 .thumbnail-image img
 {
@@ -161,6 +162,12 @@ main .button:focus
     max-height: 8em;
     border-radius: 0.3em;
     box-shadow: 0em 0em 1em #AAA;
+}
+.thumbnail-image span
+{
+    display: block;
+    max-width: 10em;
+    color: #666;
 }
 
 /*
@@ -179,6 +186,7 @@ table.data th
 {
     text-align: left;
     color: #666;
+    background: #CCC !important;
 }
 
 table.data th,
@@ -191,7 +199,7 @@ table.data td
 table.data tr:nth-child(odd) th,
 table.data tr:nth-child(odd) td
 {
-    background: #DDD;
+    background: #FFF;
 }
 
 /*

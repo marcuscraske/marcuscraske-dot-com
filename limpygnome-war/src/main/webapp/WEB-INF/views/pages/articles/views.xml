@@ -15,8 +15,8 @@
     </definition>
 
     <!-- Pages with includes -->
-    <definition name="articles/hacking_nandos_pong_game" extends="articles_layout">
-        <put-attribute name="articleContent" value="/WEB-INF/views/pages/articles/hacking_nandos_pong_game.jsp" cascade="true" />
+    <definition name="articles/hacking-nandos-pong-game" extends="articles_layout">
+        <put-attribute name="articleContent" value="/WEB-INF/views/pages/articles/hacking-nandos-pong-game.jsp" cascade="true" />
         <put-list-attribute name="headerIncludes">
             <add-attribute value="/WEB-INF/views/layout/includes/syntaxhighlighter.jsp" />
         </put-list-attribute>
