@@ -52,11 +52,11 @@
     Download, Documentation &amp; Setup
 </h1>
 <p>
-    The code, along with markup documentation, can be found at:
+    The code, along with markup documentation and releases, can be found at:
 </p>
 <p>
-    <a href="https://github.com/limpygnome/rpi-misc">
-        https://github.com/limpygnome/rpi-misc
+    <a href="https://github.com/limpygnome/build-tv">
+        https://github.com/limpygnome/build-tv
     </a>
 </p>
 
