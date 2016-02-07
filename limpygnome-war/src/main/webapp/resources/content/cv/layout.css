@@ -6,6 +6,10 @@ body
 }
 @media all
 {
+    body
+    {
+        min-width: 900px;
+    }
     .wrapper
     {
         background: #FFF;

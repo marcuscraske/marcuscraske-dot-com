@@ -22,7 +22,7 @@ html, body
     font: normal 14px Droid Sans, Arial, Verdana;
     margin: 0em;
     background: #111;
-    background: url('../images/background.jpg') no-repeat center center fixed;
+    background: #222 url('../images/background.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

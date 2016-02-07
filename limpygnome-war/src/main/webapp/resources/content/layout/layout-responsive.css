@@ -1,8 +1,17 @@
-@media all and (max-width: 768px)
+@media screen and (min-width: 800px) and (max-width: 1200px)
+{
+    html, body
+    {
+        font-size: 20px !important;
+    }
+}
+
+@media screen and (max-width: 1200px), screen and (max-device-width: 768px)
 {
     html, body
     {
         min-width: 0;
+        font-size: 40px;
     }
     .pwrapper
     {
@@ -19,23 +28,37 @@
     {
         margin-top: 1em;
     }
-    .nav > div
+    nav > ul > ul
     {
         margin-bottom: 0;
         border-radius: 0;
         border-right: solid 1em;
         box-shadow: none;
     }
-    .nav > div > a:last-child
+    nav > ul > ul > a:last-child
     {
         border-bottom: solid 0.2em #222;
-    }
-    .nav div a
-    {
-        padding: 0.5em;
     }
     main
     {
         margin-top: 0em;
+    }
+
+    /*
+        Overrides for generic listing of documents i.e. projects/articles page
+    */
+    section.documents .document > span
+    {
+        display: block !important;
+        text-align: center !important;
+    }
+    section.documents .document
+    {
+        display: block;
+        border-bottom: solid 0.2em #AAA;
+    }
+    section.documents .document:last-child
+    {
+        border-bottom: 0;
     }
 }
