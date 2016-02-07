@@ -2,7 +2,7 @@
 {
     html, body
     {
-        font-size: 20px !important;
+        font-size: 18px !important;
     }
 }
 
@@ -11,7 +11,7 @@
     html, body
     {
         min-width: 0;
-        font-size: 40px;
+        font-size: 24px;
     }
     .pwrapper
     {
