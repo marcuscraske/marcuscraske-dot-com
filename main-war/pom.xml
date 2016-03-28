@@ -9,10 +9,10 @@
         <artifactId>limpygnome-dot-com</artifactId>
         <version>1.0</version>
     </parent>
-    <artifactId>limpygnome-war</artifactId>
+    <artifactId>main-war</artifactId>
     <packaging>war</packaging>
 
-    <name>Limpygnome.com Website</name>
+    <name>Main Website</name>
 
     <dependencies>
     
@@ -20,7 +20,7 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
-            <version>7.0</version>
+            <version>${versions.javax.javaee-web-api}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -28,7 +28,7 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
-            <version>1.2</version>
+            <version>${versions.javax.servlet.jstl}</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -36,74 +36,61 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${versions.spring.core}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${versions.spring.core}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>4.1.6.RELEASE</version>
+            <version>${versions.spring.core}</version>
         </dependency>
 
         <!-- Apache Tiles - Template Engine -->
         <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-core</artifactId>
-            <version>3.0.5</version>
+            <version>${versions.apache.tiles}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-servlet</artifactId>
-            <version>3.0.5</version>
+            <version>${versions.apache.tiles}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-jsp</artifactId>
-            <version>3.0.5</version>
+            <version>${versions.apache.tiles}</version>
         </dependency>
 
         <!-- Joda (datetime) -->
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
-            <version>2.9.1</version>
+            <version>${versions.joda-time}</version>
         </dependency>
 
         <!-- Logging -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.3</version>
+            <version>${versions.apache.log4j}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.3</version>
+            <version>${versions.apache.log4j}</version>
         </dependency>
 
     </dependencies>
     
     <build>
 
-        <finalName>limpygnome-dot-com</finalName>
+        <finalName>limpygnome-dot-com_main</finalName>
 
-        <plugins>
-
-            <!-- Java Configuration -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-            
-        </plugins>
     </build>
     
 </project>

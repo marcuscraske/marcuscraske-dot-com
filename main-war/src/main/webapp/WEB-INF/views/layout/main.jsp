@@ -105,14 +105,8 @@
             <a title="LinkedIn" class="ficon li" href="http://www.linkedin.com/in/marcuscraske">
                 LinkedIn
             </a>
-            <a title="Google Plus" class="ficon gp" href="https://plus.google.com/102279851938943898719">
-                Google Plus
-            </a>
-            <a title="Twitter" class="ficon twt" href="https://twitter.com/Limpygnome">
-                Twitter
-            </a>
-            <a title="Facebook" class="ficon fb" href="https://www.facebook.com/marcus.craske">
-                Facebook
+            <a title="Strava" class="ficon strava" href="https://www.strava.com/athletes/limpygnome">
+                Strava
             </a>
             <a title="E-mail" class="ficon gm" href="mailto:limpygnome@gmail.com">
                 E-mail

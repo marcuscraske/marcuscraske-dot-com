@@ -273,17 +273,6 @@ nav > ul > ul:focus span
     background-image: url('../images/footer/sc_h.png');
 }
 
-/* Gmail */
-.footer-icons .gm
-{
-    background-image: url('../images/footer/gm.png');
-}
-.footer-icons .gm:hover,
-.footer-icons .gm:focus
-{
-    background-image: url('../images/footer/gm_h.png');
-}
-
 /* LinkedIn */
 .footer-icons .li
 {
@@ -295,35 +284,24 @@ nav > ul > ul:focus span
     background-image: url('../images/footer/li_h.png');
 }
 
-/* G+ */
-.footer-icons .gp
+/* Strava */
+.footer-icons .strava
 {
-    background-image: url('../images/footer/gp.png');
+    background-image: url('../images/footer/strava.png');
 }
-.footer-icons .gp:hover,
-.footer-icons .gp:focus
+.footer-icons .strava:hover,
+.footer-icons .strava:focus
 {
-    background-image: url('../images/footer/gp_h.png');
-}
-
-/* TWT */
-.footer-icons .twt
-{
-    background-image: url('../images/footer/twt.png');
-}
-.footer-icons .twt:hover,
-.footer-icons .twt:focus
-{
-    background-image: url('../images/footer/twt_h.png');
+    background-image: url('../images/footer/strava_h.png');
 }
 
-/* FB */
-.footer-icons .fb
+/* Gmail */
+.footer-icons .gm
 {
-    background-image: url('../images/footer/fb.png');
+    background-image: url('../images/footer/gm.png');
 }
-.footer-icons .fb:hover,
-.footer-icons .fb:focus
+.footer-icons .gm:hover,
+.footer-icons .gm:focus
 {
-    background-image: url('../images/footer/fb_h.png');
+    background-image: url('../images/footer/gm_h.png');
 }
