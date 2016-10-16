@@ -90,6 +90,7 @@ nav ul
     border-right: solid 0.4em;
     background: #333;
     border-radius: 6px;
+    overflow: hidden;
 }
 
 nav ul a
@@ -104,6 +105,18 @@ nav ul a span
 {
     margin-right: 0.5em;
 }
+
+nav ul a span
+{
+    color: #ccc;
+}
+
+nav ul a:hover span,
+nav ul a:focus span
+{
+    color: #FFF;
+}
+
 
 /*
     Navigation section colouring
