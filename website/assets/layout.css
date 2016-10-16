@@ -150,16 +150,6 @@ main
 
 
 /*
-main ul li
-{
-    position: relative;
-    left: 2em;
-    padding-right: 2em;
-}
-*/
-
-
-/*
     Footer
 */
 
@@ -170,4 +160,39 @@ footer
     border-top: solid 0.5em #EEE;
     clear: both;
     text-align: center;
+}
+
+/*
+    Home
+*/
+
+#home article time
+{
+    float: left;
+    padding: 0.1em 1em 0.2em 0em;
+}
+
+/*
+    Pagination
+*/
+
+.pagination
+{
+    text-align: center;
+}
+
+.pagination span.previous,
+.pagination span.next
+{
+    color: #999;
+}
+
+
+/*
+    Posts/Articles
+*/
+
+main article time
+{
+    font-weight: bold;
 }
