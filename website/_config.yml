@@ -1,0 +1,30 @@
+# Site location
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://limpygnome.com" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+gems:
+  - jekyll-feed
+  - jekyll-assets
+  - jekyll-paginate
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - run.sh
+
+# Assets
+assets:
+  compress:
+    css: true
+  autowrite: true
+  prefix: "/assets"
+  assets:
+    - "layout.css"
+    - "icomoon/style.css"
+  sources:
+    - assets
+
+# Posts
+permalink: pretty
+paginate: 3

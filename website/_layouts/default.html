@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            {{ page.title }} - limpygnome.com
+        </title>
+        <meta name="description" content="Personal blog, projects and things by limpygnome. Hack the planet.">
+        {% css layout %}
+        {% css icomoon/style %}
+    </head>
+    <body>
+
+        <header>
+            <h1>
+                <a href="/">
+                    limpygnome
+                </a>
+            </h1>
+            <p>
+                <a href="https://www.youtube.com/watch?v=Cipc8EowshY">
+                    hack the planet.
+                </a>
+            </p>
+        </header>
+
+        <div class="wrapper">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/">
+                            <span class="icon-home"></span>
+                            Home
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="/cv">
+                            <span class="icon-file-text2"></span>
+                            Curriculum Vitae
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/projects">
+                            <span class="icon-lab"></span>
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/timeline">
+                            <span class="icon-airplane"></span>
+                            Timeline
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/music">
+                            <span class="icon-music"></span>
+                            Music
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blogs">
+                            <span class="icon-books"></span>
+                            Blogs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contact">
+                            <span class="icon-phone"></span>
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="https://public.limpygnome.com">
+                            <span class="icon-folder-open"></span>
+                            Public Files
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <main>
+                {{ content }}
+            </main>
+        </div>
+
+        <footer>
+            <a title="Github" href="https://www.github.com/limpygnome">
+                Github
+            </a>
+            <a title="YouTube" href="https://www.youtube.com/user/limpygnome">
+                YouTube
+            </a>
+            <a title="SoundCloud" href="https://www.soundcloud.com/limpygnome">
+                SoundCloud
+            </a>
+            <a title="LinkedIn" href="http://www.linkedin.com/in/marcuscraske">
+                LinkedIn
+            </a>
+            <a title="Strava" href="https://www.strava.com/athletes/limpygnome">
+                Strava
+            </a>
+            <a title="E-mail" href="mailto:limpygnome@gmail.com" target="_blank">
+                E-mail
+            </a>
+        </footer>
+
+    </body>
+</html>

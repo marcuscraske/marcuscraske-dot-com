@@ -5,3 +5,10 @@ nb-configuration.xml
 
 # Compiled files
 target/
+
+# Static website
+website/_site
+website/.sass-cache
+website/.jekyll-metadata
+website/.*cache
+website/_site

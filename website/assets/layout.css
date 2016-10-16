@@ -1,0 +1,173 @@
+/*
+    Page
+*/
+
+@font-face
+{
+    font-family: "Open Sans";
+    src: url("/assets/OpenSans-Regular.ttf");
+}
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font: normal 14px "Open Sans", sans-serif;
+}
+
+
+/*
+    Header
+*/
+
+body > header
+{
+    background: #333;
+    height: 4em;
+}
+
+body > header h1
+{
+    float: left;
+    margin: 0;
+    padding: 0.3em 0.5em;
+}
+
+body > header h1 a
+{
+    color: #FFF;
+}
+
+
+/*
+    Sub-header
+*/
+
+body > header p
+{
+    float: right;
+    margin: 0;
+    padding: 0.8em 0.5em;
+    font-size: 1.5em;
+}
+body > header p a
+{
+    color: #CCC;
+    text-decoration: none;
+}
+
+
+/*
+    Wrapper
+*/
+
+.wrapper
+{
+    display: flex;
+}
+
+
+/*
+    Navigation
+*/
+
+nav
+{
+    width: 13em;
+    margin: 0.5em 2em 0.5em 1em;
+    padding: 0.5em;
+}
+
+nav ul
+{
+    margin: 0em 0em 1em;
+    padding: 0;
+    list-style: none;
+    border-right: solid 0.4em;
+    background: #333;
+    border-radius: 6px;
+}
+
+nav ul a
+{
+    display: block;
+    text-decoration: none;
+    padding: 0.6em 1em 0.6em 0.8em;
+    color: #FFF;
+}
+
+nav ul a span
+{
+    margin-right: 0.5em;
+}
+
+/*
+    Navigation section colouring
+*/
+
+nav ul:nth-child(1)
+{
+    border-color: #2e97e8;
+}
+nav ul:nth-child(1) a:hover,
+nav ul:nth-child(1) a:focus
+{
+    background: #2e97e8;
+}
+
+nav ul:nth-child(2)
+{
+    border-color: #61bf4a;
+}
+nav ul:nth-child(2) a:hover,
+nav ul:nth-child(2) a:focus
+{
+    background: #61bf4a;
+}
+
+nav ul:nth-child(3)
+{
+    border-color: #f33;
+}
+nav ul:nth-child(3) a:hover,
+nav ul:nth-child(3) a:focus
+{
+    background: #f33;
+}
+
+/*
+    Content region
+*/
+
+main
+{
+    flex: 1;
+}
+
+
+/*
+main ul li
+{
+    position: relative;
+    left: 2em;
+    padding-right: 2em;
+}
+*/
+
+
+/*
+    Footer
+*/
+
+footer
+{
+    margin: 2em auto 1em;
+    width: 80%;
+    border-top: solid 0.5em #EEE;
+    clear: both;
+    text-align: center;
+}
