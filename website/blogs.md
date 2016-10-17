@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: blogs
 selected: blogs
 ---
@@ -12,4 +12,4 @@ A list of blogs I can recommend:
 - [Imgur Engineering](http://blog.imgur.com/category/eng)
 - [Garry Newman](https://garry.tv)
 
-Got a suggestion? [Drop](/contact) me a message.
+Got a suggestion? [Drop](/contact) me a message, or comment below.

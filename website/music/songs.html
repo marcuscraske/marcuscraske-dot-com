@@ -1,0 +1,73 @@
+---
+layout: post
+title: Music - Songs
+selected: music
+---
+
+<p>
+    Below are songs I have written, with the exception of covers, which may be used in both commercial and non-commercial work, as long as credit is given.
+    Usage of covered songs requires permission from the original authors. Most of the work below has been made for fun and is experimental.
+</p>
+<p>
+    I use my own HTML5 audio player below, made for a bit of fun, so do <a href="/contact">contact</a> me if you experience any issues.
+</p>
+
+<h1>
+    Unorganised
+</h1>
+
+{% include music-player.html playerid="player-unorganised" %}
+
+<script type="text/javascript">
+{
+    var songs = [
+        "goth",
+        "liveset",
+        "mess",
+        "messaround",
+        "messaround2",
+        "rush",
+        "untitled",
+        "warmth",
+        "whoiusedtobe"
+    ];
+
+    limpygnome.audio.player.setup("player-unorganised", songs);
+}
+</script>
+
+
+<h1>
+    Noise
+</h1>
+
+{% include music-player.html playerid="player-noise" %}
+
+<script type="text/javascript">
+{
+    var songs = [
+        ["Noise - 7", "noise"],
+        ["Noise - 11", "noise"],
+        ["Noise - 15", "noise"]
+    ];
+
+    limpygnome.audio.player.setup("player-noise", songs);
+}
+</script>
+
+
+<h1>
+    Covers
+</h1>
+
+{% include music-player.html playerid="player-covers" %}
+
+<script type="text/javascript">
+{
+    var songs = [
+        ["Phantogram - Mouthful of Diamonds (instrumental cover)"]
+    ];
+
+    limpygnome.audio.player.render("player-covers", songs);
+}
+</script>

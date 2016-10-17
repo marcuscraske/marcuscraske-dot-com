@@ -1,0 +1,23 @@
+<div class="music_player" id="">
+    <audio controls>
+        <source src="" type="audio/mpeg">
+        <p>Your browser does not support HTML5 audio.</p>
+    </audio>
+    <div class="player">
+        <div class="controls">
+            <img alt="Play/Pause" src="/content/images/music-player/play.png" id="play" onclick="audioPlayerPlayToggle(this);" />
+            <img alt="Restart" src="/content/images/music-player/restart.png" id="restart" onclick="audioPlayerRestart(this);" />
+            <img alt="Next" src="/content/images/music-player/next.png" id="next" onclick="audioPlayerNext(this);" />
+        </div>
+        <input type="range" class="seeker" min="0" max="100" value="0" id="seeker" onchange="audioPlayerSeek(this);" />
+        <div class="volume">
+            <img alt="Volume" src="/content/images/music-player/unmuted.png" id="volume" onclick="audioPlayerMuteToggle(this);" />
+            <input type="range" min="0" max="100" value="100" id="volume_seeker" onchange="audioPlayerVolume(this);" />
+        </div>
+    </div>
+    <ul>
+        <!--
+            Append <a href='songurl' onclick='handler'><img />text</a> here
+        -->
+    </ul>
+</div>

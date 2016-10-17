@@ -8,6 +8,8 @@
         <meta name="description" content="Personal blog, projects and things by limpygnome. Hack the planet.">
         {% css layout %}
         {% css icomoon/style %}
+        {% css timeline/style %}
+        {% js music/music-player %}
     </head>
     <body>
 
@@ -50,13 +52,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/timeline">
+                        <a href="/timeline" {% if page.selected == 'timeline' %} class="selected" {% endif %}>
                             <span class="icon-airplane"></span>
                             Timeline
                         </a>
                     </li>
                     <li>
-                        <a href="/music">
+                        <a href="/music" {% if page.selected == 'music' %} class="selected" {% endif %}>
                             <span class="icon-music"></span>
                             Music
                         </a>

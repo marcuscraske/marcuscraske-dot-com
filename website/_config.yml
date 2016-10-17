@@ -22,6 +22,8 @@ assets:
   assets:
     - "layout.css"
     - "icomoon/style.css"
+    - "timeline/style.css"
+    - "music/music-player.js"
   sources:
     - assets
 

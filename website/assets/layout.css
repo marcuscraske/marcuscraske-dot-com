@@ -334,6 +334,27 @@ main a:focus
     color: #315923;
 }
 
+main .center
+{
+    text-align: center;
+}
+
+main .button
+{
+    background: #333;
+    color: #fff;
+    padding: 0.5em 0.8em;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+main .button:hover,
+main .button:focus
+{
+    background: #ccc;
+    color: #333;
+}
+
 
 /*
     Home
