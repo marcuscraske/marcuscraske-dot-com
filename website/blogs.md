@@ -1,6 +1,7 @@
 ---
 layout: page
 title: blogs
+selected: blogs
 ---
 
 A list of blogs I can recommend:

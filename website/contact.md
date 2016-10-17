@@ -1,6 +1,7 @@
 ---
 layout: page
 title: contact
+selected: contact
 ---
 
 Ways to contact me:

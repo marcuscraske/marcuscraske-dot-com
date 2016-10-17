@@ -62,13 +62,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/blogs">
+                        <a href="/blogs" {% if page.selected == 'blogs' %} class="selected" {% endif %}>
                             <span class="icon-books"></span>
                             Blogs
                         </a>
                     </li>
                     <li>
-                        <a href="/contact">
+                        <a href="/contact" {% if page.selected == 'contact' %} class="selected" {% endif %}>
                             <span class="icon-phone"></span>
                             Contact
                         </a>
