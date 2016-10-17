@@ -19,6 +19,18 @@ body
     font: normal 14px "Open Sans", sans-serif;
 }
 
+::selection
+{
+    color: #FFF;
+    background: #000;
+}
+
+::-moz-selection
+{
+    color: #FFF;
+    background: #000;
+}
+
 
 /*
     Header
@@ -347,3 +359,26 @@ main article time
 {
     font-weight: bold;
 }
+
+
+/*
+    Responsiveness
+*/
+
+@media only screen and (max-width: 768px)
+{
+    .wrapper
+    {
+        display: block;
+        padding: 0.5em;
+    }
+
+    nav
+    {
+        width: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+}
+
