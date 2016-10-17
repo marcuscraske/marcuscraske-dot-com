@@ -129,25 +129,35 @@ nav ul:nth-child(1)
 nav ul:nth-child(1) a:hover,
 nav ul:nth-child(1) a:focus
 {
-    background: #2e97e8;
+    background: #2f98e8;
 }
 
 nav ul:nth-child(2)
 {
-    border-color: #61bf4a;
+    border-color: #c77e00;
 }
 nav ul:nth-child(2) a:hover,
 nav ul:nth-child(2) a:focus
 {
-    background: #61bf4a;
+    background: #c77e00;
 }
 
 nav ul:nth-child(3)
 {
-    border-color: #f33;
+    border-color: #02a866;
 }
 nav ul:nth-child(3) a:hover,
 nav ul:nth-child(3) a:focus
+{
+    background: #02a866;
+}
+
+nav ul:nth-child(4)
+{
+    border-color: #f33;
+}
+nav ul:nth-child(4) a:hover,
+nav ul:nth-child(4) a:focus
 {
     background: #f33;
 }
@@ -175,6 +185,134 @@ footer
     text-align: center;
 }
 
+footer ul
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer ul li
+{
+    display: inline-block;
+    padding: 0.4em 1em;
+}
+
+footer ul li,
+footer ul li a
+{
+    color: #666;
+}
+
+
+/*
+    Footer icons
+*/
+footer > a
+{
+    display: inline-block;
+    text-indent: -9999em;
+    width: 2.8em;
+    height: 2.8em;
+    background-size: 100%;
+    margin: 0.5em;
+    text-decoration: none;
+    -webkit-transition:    width .4s,    height .4s ease;
+    -moz-transition:     width .4s,    height .4s ease;
+    -o-transition:        width .4s,    height .4s ease;
+    -ms-transition:        width .4s,    height .4s ease;
+    transition:            width .4s,    height .4s ease;
+}
+footer > a:hover,
+footer > a:focus
+{
+    width: 3.8em;
+    height: 3.8em;
+}
+
+/* Github */
+footer a[title=Github]
+{
+    background-image: url('/assets/footer/gh.png');
+}
+footer a[title=Github]:hover,
+footer a[title=Github]:focus
+{
+    background-image: url('/assets/footer/gh_h.png');
+}
+
+/* YouTube */
+footer a[title=YouTube]
+{
+    background-image: url('/assets/footer/yt.png');
+}
+footer a[title=YouTube]:hover,
+footer a[title=YouTube]:focus
+{
+    background-image: url('/assets/footer/yt_h.png');
+}
+
+/* SoundCloud */
+footer a[title=SoundCloud]
+{
+    background-image: url('/assets/footer/sc.png');
+}
+footer a[title=SoundCloud]:hover,
+footer a[title=SoundCloud]:focus
+{
+    background-image: url('/assets/footer/sc_h.png');
+}
+
+/* LinkedIn */
+footer a[title=LinkedIn]
+{
+    background-image: url('/assets/footer/li.png');
+}
+footer a[title=LinkedIn]:hover,
+footer a[title=LinkedIn]:focus
+{
+    background-image: url('/assets/footer/li_h.png');
+}
+
+/* Strava */
+footer a[title=Strava]
+{
+    background-image: url('/assets/footer/strava.png');
+}
+footer a[title=Strava]:hover,
+footer a[title=Strava]:focus
+{
+    background-image: url('/assets/footer/strava_h.png');
+}
+
+/* Gmail */
+footer a[title=E-mail]
+{
+    background-image: url('/assets/footer/gm.png');
+}
+footer a[title=E-mail]:hover,
+footer a[title=E-mail]:focus
+{
+    background-image: url('/assets/footer/gm_h.png');
+}
+
+
+/*
+    Generic Elements
+*/
+
+main a
+{
+    color: #10578d;
+}
+
+main a:hover,
+main a:focus
+{
+    color: #315923;
+}
+
+
 /*
     Home
 */
@@ -194,10 +332,10 @@ footer
     text-align: center;
 }
 
-.pagination span.previous,
-.pagination span.next
+.pagination .previous,
+.pagination .next
 {
-    color: #999;
+    color: #10578d;
 }
 
 
