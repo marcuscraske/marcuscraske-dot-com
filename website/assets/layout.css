@@ -334,9 +334,26 @@ main a:focus
     color: #315923;
 }
 
-main .center
+main p.center
 {
     text-align: center;
+}
+
+main table.center
+{
+    margin: 0 auto;
+}
+
+main table th,
+main table td
+{
+    padding: 0.4em 0.8em;
+}
+
+main table th
+{
+    background: #333;
+    color: #fff;
 }
 
 main .button
@@ -413,3 +430,27 @@ main article time
 
 }
 
+
+/*
+    Projects
+*/
+
+#projects
+{
+    list-style: none;
+}
+
+#projects li
+{
+    padding-bottom: 1em;
+}
+
+#projects img
+{
+    max-width: 4.5em;
+    max-height: 4.5em;
+    float: left;
+    border: none;
+    vertical-align: middle;
+    margin: 0em 1em 0em 0em;
+}
