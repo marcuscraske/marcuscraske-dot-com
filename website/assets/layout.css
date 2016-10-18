@@ -372,6 +372,12 @@ main .button:focus
     color: #333;
 }
 
+main img
+{
+    max-width: 60%;
+    max-height: 40%;
+}
+
 
 /*
     Home
