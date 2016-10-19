@@ -3,88 +3,54 @@ layout: post
 title: Hacking the Nandos Pong Game
 ---
 
-<p>
-    As apart of a promotion between the 1st of September until the 31st of October 2012, the game allows students to win
-    Nando's Gift Cards worth £600 - with three of them up for grabs, hence £1,800 of value. To win the prize, one must
-    simply play the game and fill-in their details, with three random people selected by the closing date. I was sent
-    this game by a friend after telling him that Adobe Flash games in competitions are often poorly written or/and
-    secured, with him asking me to prove my point with this game.
-</p>
-<p>
-    The purpose of this article is to show you the methodology I used to enter fake details into the system (as well as
-    wipe them), discuss strategies to secure a system against this attack and with the hope that <b>future developers
-    learn something and do not repeat the same mistakes</b>. Even though this article is published during the
-    competition, I doubt many people will read it; you're also legally liable for your own actions. I also believe the
-    legality of my actions have been ethical, please contact <a href="/contact">me</a> if you believe otherwise.
-</p>
-<p>
-    The score-board is also most likely being watched now, after my previous high-score of 38 million was removed
-    recently - so it would be really stupid to misuse the knowledge from this article.
-</p>
+As apart of a promotion between the 1st of September until the 31st of October 2012, the game allows students to win
+Nando's Gift Cards worth £600 - with three of them up for grabs, hence £1,800 of value. To win the prize, one must
+simply play the game and fill-in their details, with three random people selected by the closing date. I was sent
+this game by a friend after telling him that Adobe Flash games in competitions are often poorly written or/and
+secured, with him asking me to prove my point with this game.
+   
+The purpose of this article is to show you the methodology I used to enter fake details into the system (as well as
+wipe them), discuss strategies to secure a system against this attack and with the hope that <b>future developers
+learn something and do not repeat the same mistakes</b>. Even though this article is published during the
+competition, I doubt many people will read it; you're also legally liable for your own actions. I also believe the
+legality of my actions have been ethical, please contact <a href="/contact">me</a> if you believe otherwise.
+   
+The score-board is also most likely being watched now, after my previous high-score of 38 million was removed
+recently - so it would be really stupid to misuse the knowledge from this article.
 
-<h1>
-    Step 1 - Reading  &amp; Understanding the Data Exchanged
-</h1>
-<p>
-    The first step was to begin recording exchanged packet data between the client (my browser running this game) and
-    the server (nandos.co.uk); this was accomplished by using <a href="http://www.wireshark.org/">Wireshark</a>:
-</p>
-<p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/wireshark.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/wireshark.png" alt="Wireshark" />
-    </a>
-</p>
+# Step 1 - Reading  &amp; Understanding the Data Exchanged
+The first step was to begin recording exchanged packet data between the client (my browser running this game) and
+the server (nandos.co.uk); this was accomplished by using <a href="http://www.wireshark.org/">Wireshark</a>:
 
-<p>
-    Next I began playing the game and kept a watch on Wireshark for activity, however no exchange of data occurred
-    until the end of the game when I submitted my score:
-</p>
-<p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/game_submit.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/game_submit.png" alt="Game Submit" />
-    </a>
-</p>
+![Wireshark](/assets/posts/hacking-nandos-pong-game/wireshark.png)
 
-<p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/wireshark_activity.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/wireshark_activity.png" alt="Wireshark Activity" />
-    </a>
-</p>
+Next I began playing the game and kept a watch on Wireshark for activity, however no exchange of data occurred
+until the end of the game when I submitted my score:
 
-<p>
-    If we look through the packets, we eventually find fragments of the data we just sent from the game:
-</p>
+![Game Submit](/assets/posts/hacking-nandos-pong-game/game_submit.png)
 
-<p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/packet_data.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/packet_data.png" alt="Packet Data" />
-    </a>
-</p>
+![Wireshark Activity](/assets/posts/hacking-nandos-pong-game/wireshark_activity.png)
 
-<p>
-    The hex responsible for the header has been highlighted in red, with the hex for the data highlighted in green. From
-    the header we can tell the request uses a HTTP/1.1 POST request, with the data sent to the host <i>nandos.co.uk</i>
-    at the path <i>/sites/all/modules/blonde/peripong/libs/amfphp/gateway.php</i> - this will be useful for step 2
-    later. Highlighted in green, we can see fragments of our score submission in the data area with our e-mail,
-    university and name etc.
-</p>
-<p>
-    We can therefore assume the above data was used to submit our score. The thing we need to do next is begin decoding
-    what the data means by taking each hex value/byte and checking what the character represents; to do this I used a
-    Wikipdedia article on <a href="http://en.wikipedia.org/wiki/ASCII">ASCII (American Standard Code for Information
-    Interchange)</a>, which has a giant table of characters in many formats. The reason I assume the encoding uses
-    ASCII is because Wireshark revealed chunks of the submitted data above, with the data only using one byte per
-    a character.
-</p>
-<p>
-    Once we begin checking what the characters mean in the data area, a pattern becomes obvious:
-</p>
+If we look through the packets, we eventually find fragments of the data we just sent from the game:
 
-<p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/wireshark_data.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/wireshark_data.png" alt="Wireshark Data" />
-    </a>
-</p>
+![Packet Data](/assets/posts/hacking-nandos-pong-game/packet_data.png)
+
+The hex responsible for the header has been highlighted in red, with the hex for the data highlighted in green. From
+the header we can tell the request uses a HTTP/1.1 POST request, with the data sent to the host <i>nandos.co.uk</i>
+at the path <i>/sites/all/modules/blonde/peripong/libs/amfphp/gateway.php</i> - this will be useful for step 2
+later. Highlighted in green, we can see fragments of our score submission in the data area with our e-mail,
+university and name etc.
+
+We can therefore assume the above data was used to submit our score. The thing we need to do next is begin decoding
+what the data means by taking each hex value/byte and checking what the character represents; to do this I used a
+Wikipdedia article on <a href="http://en.wikipedia.org/wiki/ASCII">ASCII (American Standard Code for Information
+Interchange)</a>, which has a giant table of characters in many formats. The reason I assume the encoding uses
+ASCII is because Wireshark revealed chunks of the submitted data above, with the data only using one byte per
+a character.
+
+Once we begin checking what the characters mean in the data area, a pattern becomes obvious:
+
+![Wireshark Data](/assets/posts/hacking-nandos-pong-game/wireshark_data.png)
 
 <p>
     I've put rectangles around areas:
