@@ -22,18 +22,34 @@ recently - so it would be really stupid to misuse the knowledge from this articl
 The first step was to begin recording exchanged packet data between the client (my browser running this game) and
 the server (nandos.co.uk); this was accomplished by using <a href="http://www.wireshark.org/">Wireshark</a>:
 
-![Wireshark](/assets/posts/hacking-nandos-pong-game/wireshark.png)
+<p class="center">
+    <a href="/assets/posts/hacking-nandos-pong-game/wireshark.png">
+        <img src="/assets/posts/hacking-nandos-pong-game/wireshark.png" alt="Wireshark" />
+    </a>
+</p>
 
 Next I began playing the game and kept a watch on Wireshark for activity, however no exchange of data occurred
 until the end of the game when I submitted my score:
 
-![Game Submit](/assets/posts/hacking-nandos-pong-game/game_submit.png)
+<p class="center">
+    <a href="/assets/posts/hacking-nandos-pong-game/game_submit.png">
+        <img src="/assets/posts/hacking-nandos-pong-game/game_submit.png" alt="Game Submit" />
+    </a>
+</p>
 
-![Wireshark Activity](/assets/posts/hacking-nandos-pong-game/wireshark_activity.png)
+<p class="center">
+    <a href="/assets/posts/hacking-nandos-pong-game/wireshark_activity.png">
+        <img src="/assets/posts/hacking-nandos-pong-game/wireshark_activity.png" alt="Wireshark Activity" />
+    </a>
+</p>
 
 If we look through the packets, we eventually find fragments of the data we just sent from the game:
 
-![Packet Data](/assets/posts/hacking-nandos-pong-game/packet_data.png)
+<p class="center">
+    <a href="/assets/posts/hacking-nandos-pong-game/packet_data.png">
+        <img src="/assets/posts/hacking-nandos-pong-game/packet_data.png" alt="Packet Data" />
+    </a>
+</p>
 
 The hex responsible for the header has been highlighted in red, with the hex for the data highlighted in green. From
 the header we can tell the request uses a HTTP/1.1 POST request, with the data sent to the host <i>nandos.co.uk</i>
@@ -50,11 +66,14 @@ a character.
 
 Once we begin checking what the characters mean in the data area, a pattern becomes obvious:
 
-![Wireshark Data](/assets/posts/hacking-nandos-pong-game/wireshark_data.png)
-
-<p>
-    I've put rectangles around areas:
+<p class="center">
+    <a href="/assets/posts/hacking-nandos-pong-game/wireshark_data.png">
+        <img src="/assets/posts/hacking-nandos-pong-game/wireshark_data.png" alt="Wireshark Data" />
+    </a>
 </p>
+
+I've put rectangles around areas:
+
 <ul>
     <li>
         <span style="color: #F00;">Red for unknown, we'll assume, header of the data.</span>
@@ -70,18 +89,15 @@ Once we begin checking what the characters mean in the data area, a pattern beco
     </li>
 </ul>
 
-<p>
-    The pattern we notice is that before each brown rectangle, data we recognize, there are three bytes/hex values:
-    usually 02 00 {another here but it changes}, before being proceeded with data - time for research!
-</p>
-<p>
-    The data actually sent in the request seems to be encoded in application/x-amf, as we saw in the header earlier; a
-    quick Google tells us AMF is an acronym for <i>Action Message Format</i> - a binary format used for serializing
-    objects, with a <a href="http://en.wikipedia.org/wiki/Action_Message_Format">Wikipedia page</a> telling us about
-    how the format is structured; therefore <i>play.submit_score</i> must be a function. But also the pattern before
-    each piece of data comes before a string, and apparently 02 indicates a string parameter...but 00 means a number?
-    Lets take a closer look at a piece of data:
-</p>
+The pattern we notice is that before each brown rectangle, data we recognize, there are three bytes/hex values:
+usually 02 00 {another here but it changes}, before being proceeded with data - time for research!
+
+The data actually sent in the request seems to be encoded in application/x-amf, as we saw in the header earlier; a
+quick Google tells us AMF is an acronym for <i>Action Message Format</i> - a binary format used for serializing
+objects, with a <a href="http://en.wikipedia.org/wiki/Action_Message_Format">Wikipedia page</a> telling us about
+how the format is structured; therefore <i>play.submit_score</i> must be a function. But also the pattern before
+each piece of data comes before a string, and apparently 02 indicates a string parameter...but 00 means a number?
+Lets take a closer look at a piece of data:
 
 <p class="center">
     <a href="/assets/posts/hacking-nandos-pong-game/wireshark_data_closer.png">
@@ -89,29 +105,24 @@ Once we begin checking what the characters mean in the data area, a pattern beco
     </a>
 </p>
 
-<p>
-    If 00 indicates a number parameter, 04 (hex) means 4 (numerically); is it a co-incidence our data is four bytes in
-    length? Therefore this mystery three byte pattern would indicate:
-</p>
+If 00 indicates a number parameter, 04 (hex) means 4 (numerically); is it a co-incidence our data is four bytes in
+length? Therefore this mystery three byte pattern would indicate:
+
 <p>
     <i>[02 for string] [00 for number] [length of string]</i>
 </p>
-<p>
-    Now take a look at the previous image with all the data; we can take every piece of data e.g. johnny@derp.com is
-    15 characters, with the following pattern before it:
-</p>
-<p>
-    02 00 0f
-</p>
-<p>
-    Convert the last byte of 0f from hex to base 2 (a normal number), you'll get 15 - the same length as our e-mail!
-    We now understand enough about how the data is encoded and we should be able to change the length of data. But what
-    about our score?
-</p>
-<p>
-    I can't remember my original score. However, below are the last line of bytes captured from the packet from the
-    above capture and two new captures:
-</p>
+
+Now take a look at the previous image with all the data; we can take every piece of data e.g. johnny@derp.com is
+15 characters, with the following pattern before it:
+
+02 00 0f
+
+Convert the last byte of 0f from hex to base 2 (a normal number), you'll get 15 - the same length as our e-mail!
+We now understand enough about how the data is encoded and we should be able to change the length of data. But what
+about our score?
+
+I can't remember my original score. However, below are the last line of bytes captured from the packet from the
+above capture and two new captures:
 
 {% highlight plain linenos %}
     00 40 82 68 00 00 00 00 00 = unknown - old capture
@@ -119,38 +130,31 @@ Once we begin checking what the characters mean in the data area, a pattern beco
     00 40 88 00 00 00 00 00 00 = 768
 {% endhighlight %}
 
-<p>
-    This area is most likely our score since 00 indicates a number, and from trial and error I was able to confirm it
-    by changing the two bytes after 00 to random hex values - which led to a new high-score of 38 million:
-</p>
+This area is most likely our score since 00 indicates a number, and from trial and error I was able to confirm it
+by changing the two bytes after 00 to random hex values - which led to a new high-score of 38 million:
+
 <p class="center">
     <a href="/assets/posts/hacking-nandos-pong-game/highscore.png">
         <img src="/assets/posts/hacking-nandos-pong-game/highscore.png" alt="Highscore" />
     </a>
 </p>
-<p>
-    I also found changing <i>00 40 82</i> to <i>00 FF FF</i> would also wipe my old scores. According to the Wikipedia
-    article referenced above, numbers are encoded as doubles - hence eight bytes/64 bits
-    (<a href="http://en.wikipedia.org/wiki/Double_precision_floating-point_format">info</a>). I have no idea how to
-    convert numbers to double-points like this in C#, however this is something you could find out yourself, and
-    possibly submit.
-</p>
 
-<h1>
-    Step 2 - Emulating the Data Exchanged
-</h1>
-<p>
-    We'll begin emulating by first copying the hex values for the packet from Wireshark; you can do this by
-    right-clicking a packet, "Follow TCP Stream" and a new window will appear. Next click the <i>C Arrays</i> radio
-    button and copy-and-paste the stream content to e.g. Visual Studio. You can emulate the data by writing out the
-    entire packet yourself, however I found this method far easier.
-</p>
-<p>
-    Next we'll need to compile the data into a single byte-array, since the TCP stream for me was provided in two
-    arrays - we'll need to split it up further later-on as well. I combined the byte arrays by using a List array,
-    since it provides a <a href="http://msdn.microsoft.com/en-us/library/x303t819.aspx">ToArray</a> method; therefore
-    you could do e.g.:
-</p>
+I also found changing <i>00 40 82</i> to <i>00 FF FF</i> would also wipe my old scores. According to the Wikipedia
+article referenced above, numbers are encoded as doubles - hence eight bytes/64 bits
+(<a href="http://en.wikipedia.org/wiki/Double_precision_floating-point_format">info</a>). I have no idea how to
+convert numbers to double-points like this in C#, however this is something you could find out yourself, and
+possibly submit.
+
+# Step 2 - Emulating the Data Exchanged
+We'll begin emulating by first copying the hex values for the packet from Wireshark; you can do this by
+right-clicking a packet, "Follow TCP Stream" and a new window will appear. Next click the <i>C Arrays</i> radio
+button and copy-and-paste the stream content to e.g. Visual Studio. You can emulate the data by writing out the
+entire packet yourself, however I found this method far easier.
+
+Next we'll need to compile the data into a single byte-array, since the TCP stream for me was provided in two
+arrays - we'll need to split it up further later-on as well. I combined the byte arrays by using a List array,
+since it provides a <a href="http://msdn.microsoft.com/en-us/library/x303t819.aspx">ToArray</a> method; therefore
+you could do e.g.:
 
 {% highlight c# linenos %}
     int[] peer0 = new int[]{ 0x00, 0x02 };
@@ -167,9 +171,7 @@ Once we begin checking what the characters mean in the data area, a pattern beco
     }
 {% endhighlight %}
 
-<p>
-    Next we'll need to send our payload; we can do this by importing <b>System.Net.Sockets</b> and using:
-</p>
+Next we'll need to send our payload; we can do this by importing <b>System.Net.Sockets</b> and using:
 
 {% highlight c# linenos %}
     Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -179,9 +181,7 @@ Once we begin checking what the characters mean in the data area, a pattern beco
         );
 {% endhighlight %}
 
-<p>
-    Then we'll want to read the response from the server, to check our payload has been sent successfully:
-</p>
+Then we'll want to read the response from the server, to check our payload has been sent successfully:
 
 {% highlight c# linenos %}
     int mainBufferSize = 819200; // The desired size of the buffer 800 kb 
@@ -210,24 +210,18 @@ Once we begin checking what the characters mean in the data area, a pattern beco
         );
 {% endhighlight %}
 
-<p>
-    Now you should be able to run your program, deliver your payload and get a response from the target; I recommend
-    you run Wireshark to check your data is being sent correctly.
-</p>
+Now you should be able to run your program, deliver your payload and get a response from the target; I recommend
+you run Wireshark to check your data is being sent correctly.
 
-<h1>
-    Step 3 - Complete Emulation
-</h1>
-<p>
-    In-order to change data, you'll need to split-up the hex arrays into more smaller arrays; if you remember from
-    step 1, each piece of data had three bytes before it:
-</p>
+# Step 3 - Complete Emulation
+In-order to change data, you'll need to split-up the hex arrays into more smaller arrays; if you remember from
+step 1, each piece of data had three bytes before it:
+
 <p>
     <i>[02 for string] [00 for number] [length of string]</i>
 </p>
-<p>
-    For forename you could do:
-</p>
+
+For forename you could do:
 
 {% highlight c# linenos %}
     string forename = "Johnny";
@@ -242,10 +236,8 @@ Once we begin checking what the characters mean in the data area, a pattern beco
             }
 {% endhighlight %}
 
-<p>
-    <b>You'll also need to modify the content-length of the packet</b>; here is my complete program, demonstrating how
-    to do that and all of the above:
-</p>
+<b>You'll also need to modify the content-length of the packet</b>; here is my complete program, demonstrating how
+to do that and all of the above:
 
 {% highlight c# linenos %}
     namespace johnny_derp
@@ -428,8 +420,7 @@ Once we begin checking what the characters mean in the data area, a pattern beco
     0x75, 0x74, 0x6d, 0x63, 0x63, 0x6e, 0x3d, 0x28 };
 
 
-                int[]
-     peer0_2 = new int[]{
+    int[] peer0_2 = new int[]{
     0x64, 0x69, 0x72, 0x65, 0x63, 0x74, 0x29, 0x7c, 
     0x75, 0x74, 0x6d, 0x63, 0x6d, 0x64, 0x3d, 0x28, 
     0x6e, 0x6f, 0x6e, 0x65, 0x29, 0x0d, 0x0a, 0x0d, 
@@ -550,43 +541,26 @@ Once we begin checking what the characters mean in the data area, a pattern beco
     }
 {% endhighlight %}
 
-<h1>
-    Implications &amp; Resolutions
-</h1>
-<p>
-    Such an attack could be used in a DDOS attack to put heavy strain on both the database and web server; plus if the
-    table has an auto-incrementing primary key, the database could be spammed until the primary key's index is too
-    large to generate any new records - again rendering the service unavailable. Someone could also use a domain, make
-    their own e-mail server (which accepts any e-mails), spam the attack using a dictionary of names for fake e-mail
-    addresses based at the owned domain and essentially enter a few thousand fake users; if the competition involves
-    random draws, it's highly likely a fake user would be picked. 
-</p>
-<p>
-    Such attacks may seem far-fetched, but they're relatively cheap and could result in a major profit. For instance
-    this competition involves £600 prizes, whereas other competitions in the past have offered brand-new computers
-    worth a few thousand pounds; therefore a .com domain that costs only e.g. £8.39 from Godaddy (22/09/2012 at 09:17)
-    per a year, which could be used for multiple competitions, is incredibly cheap if such an attack is successful at
-    least once.
-</p>
-<p>
-    Very simple resolutions:
-</p>
+# Implications &amp; Resolutions
+Such an attack could be used in a DDOS attack to put heavy strain on both the database and web server; plus if the
+table has an auto-incrementing primary key, the database could be spammed until the primary key's index is too
+large to generate any new records - again rendering the service unavailable. Someone could also use a domain, make
+their own e-mail server (which accepts any e-mails), spam the attack using a dictionary of names for fake e-mail
+addresses based at the owned domain and essentially enter a few thousand fake users; if the competition involves
+random draws, it's highly likely a fake user would be picked. 
 
-<ul>
-    <li>
-        Add a captcha verification image.
-    </li>
-    <li>
-        Check the session cookie being sent; with the above attack, the session cookie would eventually be invalid and
-        hence the request could be ignored if checked; you could still add code to get around this issue, but it
-        wouldn't make the attack as easy.
-    </li>
-    <li>
-        Require the user to be signed-in to an account, which has to be verified before being allowed to login; again
-        an automated email server could automatically verify users, so a white-list could be enforced.
-    </li>
-    <li>
-        Check the number of entries being submitted from an IP, with a threshold and automatic banning - again this is
-        very simple and should have been implemented.
-    </li>
-</ul>
+Such attacks may seem far-fetched, but they're relatively cheap and could result in a major profit. For instance
+this competition involves £600 prizes, whereas other competitions in the past have offered brand-new computers
+worth a few thousand pounds; therefore a .com domain that costs only e.g. £8.39 from Godaddy (22/09/2012 at 09:17)
+per a year, which could be used for multiple competitions, is incredibly cheap if such an attack is successful at
+least once.
+
+Very simple resolutions:
+- Add a captcha verification image.
+- Check the session cookie being sent; with the above attack, the session cookie would eventually be invalid and
+  hence the request could be ignored if checked; you could still add code to get around this issue, but it
+  wouldn't make the attack as easy.
+- Require the user to be signed-in to an account, which has to be verified before being allowed to login; again
+  an automated email server could automatically verify users, so a white-list could be enforced.
+- Check the number of entries being submitted from an IP, with a threshold and automatic banning - again this is
+  very simple and should have been implemented.
