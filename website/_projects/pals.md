@@ -8,7 +8,7 @@ priority: 2014
 A platform for automated and distributed marking of programming assessments, completed as an undergraduate project.
 
 # Overview
-PALS is an <a href="https://github.com/limpygnome/pals">open source</a> assessment system for programming assignments,
+PALS is an [open source](https://github.com/limpygnome/pals) assessment system for programming assignments,
 which uses dynamic and static analysis techniques for automated marking. Its architecture allows for multiple nodes to
 process work simultaneously, with dynamic analysis executing student code within a sandboxed environment. Plugins can also
 be hotswapped and automatically reloaded across all nodes, allowing for extended functionality to be added and changed without
@@ -48,7 +48,8 @@ For a more detailed technial explanation of the system, refer to the project rep
 
 # Download
 Releases can be found at:
-[https://github.com/limpygnome/pals/releases]
+
+<https://github.com/limpygnome/pals/releases>
 
 # Project Report
 <p>
