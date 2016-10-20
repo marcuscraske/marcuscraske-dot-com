@@ -476,3 +476,28 @@ main article time
         width: 100%;
     }
 }
+
+
+/*
+    Gallery (generic container styling)
+*/
+
+.gallery
+{
+    text-align: center;
+    list-style: none;
+}
+
+.gallery li
+{
+    display: inline-block;
+    width: 48%;
+}
+
+@media only screen and (max-width: 768px)
+{
+    .gallery li
+    {
+        width: 100%;
+    }
+}
