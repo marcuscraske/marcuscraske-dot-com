@@ -164,70 +164,64 @@ In this video, a simple binary count is performed to test the circuit on a bread
 I do not have the actual code available for the above test, due to corruption with the Debian image; however the code used the
 <i>shiftOut</i> function of the WiringPi library, which worked something like this:
 
-<div class="code">
-    <pre class="brush: cpp">
-        uint8_t pinData = 0, pinLatch = 2, pinClock = 3;
+<pre class="brush: cpp">
+    uint8_t pinData = 0, pinLatch = 2, pinClock = 3;
 
-        pinMode(pinData, OUTPUT);
-        pinMode(pinLatch, OUTPUT);
-        pinMode(pinClock, OUTPUT);
+    pinMode(pinData, OUTPUT);
+    pinMode(pinLatch, OUTPUT);
+    pinMode(pinClock, OUTPUT);
 
-        while(true)
-        {
-          for(int i = 0; i < 8; i++)
-          {
-            digitalWrite(pinLatch, LOW);
-            shiftOut(pinData, pinClock, MSBFIRST, i);
-            digitalWrite(pinLatch, HIGH);
-            usleep(1000 * 100); // 100 m/s delay
-          }
-        }
-    </pre>
-</div>
+    while(true)
+    {
+      for(int i = 0; i < 8; i++)
+      {
+        digitalWrite(pinLatch, LOW);
+        shiftOut(pinData, pinClock, MSBFIRST, i);
+        digitalWrite(pinLatch, HIGH);
+        usleep(1000 * 100); // 100 m/s delay
+      }
+    }
+</pre>
 
 I then improved the code by creating a wrapper to allow for multiple shift-registers:
 
-<div class="code">
-    <pre class="brush: cpp">
-        uint8_t pinData = 0, pinLatch = 2, pinClock = 3;
+<pre class="brush: cpp">
+    uint8_t pinData = 0, pinLatch = 2, pinClock = 3;
 
-        pinMode(pinData, OUTPUT);
-        pinMode(pinLatch, OUTPUT);
-        pinMode(pinClock, OUTPUT);
+    pinMode(pinData, OUTPUT);
+    pinMode(pinLatch, OUTPUT);
+    pinMode(pinClock, OUTPUT);
 
-        while(true)
-            for(int i = 1; i <= 32768; i*= 2)
-            {
-                IC_74HC595::write(2, pinData, pinLatch, pinClock, i);
-                //std::cout << i << std::endl;
-                usleep(1000 * 10); // 10 m/s delay
-            }
-    </pre>
-</div>
+    while(true)
+        for(int i = 1; i <= 32768; i*= 2)
+        {
+            IC_74HC595::write(2, pinData, pinLatch, pinClock, i);
+            //std::cout << i << std::endl;
+            usleep(1000 * 10); // 10 m/s delay
+        }
+</pre>
 
 The write member-function:
 
-<div class="code">
-    <pre class="brush: cpp">
-        inline static void write(uint8_t numberOfShiftRegisters, uint8_t pinData, uint8_t pinClock, uint8_t pinLatch, int value)
+<pre class="brush: cpp">
+    inline static void write(uint8_t numberOfShiftRegisters, uint8_t pinData, uint8_t pinClock, uint8_t pinLatch, int value)
+    {
+        // Place latch to low, to write data
+        digitalWrite(pinLatch, LOW);
+        // Write the eight bits
+        for(int i = (8 * numberOfShiftRegisters) - 1; i >= 0; --i)
         {
-            // Place latch to low, to write data
-            digitalWrite(pinLatch, LOW);
-            // Write the eight bits
-            for(int i = (8 * numberOfShiftRegisters) - 1; i >= 0; --i)
-            {
-                // Set data-pin to on or off
-                digitalWrite(pinData, value & (1 << i));
-                //std::cout << "74HC: " << i << " - " << (value & (1 << i) ? 1 : 0) << "!" << std::endl;
-                // Inform the IC to read the data-pin
-                digitalWrite(pinClock, HIGH);
-                digitalWrite(pinClock, LOW);
-            }
-            // Put the latch back to high
-            digitalWrite(pinLatch, HIGH);
+            // Set data-pin to on or off
+            digitalWrite(pinData, value & (1 << i));
+            //std::cout << "74HC: " << i << " - " << (value & (1 << i) ? 1 : 0) << "!" << std::endl;
+            // Inform the IC to read the data-pin
+            digitalWrite(pinClock, HIGH);
+            digitalWrite(pinClock, LOW);
         }
-    </pre>
-</div>
+        // Put the latch back to high
+        digitalWrite(pinLatch, HIGH);
+    }
+</pre>
 
 # Analogue Sensors
 Since my new binary clock will be responsible for partial room-automation, I wanted to add sensors; using sensor data and specified

@@ -505,6 +505,9 @@ main article time
 {
     display: inline-block;
     width: 48%;
+    vertical-align: middle;
+    box-sizing: border-box;
+    padding: 1em;
 }
 
 @media only screen and (max-width: 768px)
