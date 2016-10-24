@@ -159,14 +159,14 @@ you could do e.g.:
 <pre class="brush: csharp">
     int[] peer0 = new int[]{ 0x00, 0x02 };
     int[] peer1 = new int[]{ 0x04, 0x05 };
-    List<byte> payload = new List<byte>();
+    List&lt;byte&gt; payload = new List&lt;byte&gt;();
     addInts(ref payload, ref peer0);
     addInts(ref payload, ref peer1);
     byte[] payloadCompiled = payload.ToArray();
 
-    static void addInts(ref List<byte> bytes, ref int[] intarray)
+    static void addInts(ref List&lt;byte&gt; bytes, ref int[] intarray)
     {
-       for (int i = 0; i < intarray.Length; i++)
+       for (int i = 0; i &lt; intarray.Length; i++)
            bytes.Add((byte)intarray[i]);
     }
 </pre>
@@ -189,11 +189,11 @@ Then we'll want to read the response from the server, to check our payload has b
     byte[] buff = new byte[4096]; // Temporary buffer to receive small chunks at a time
     int payloadSize; // The size of each chunk being received in each iteration
     int currentOffset = 0; // Number of bytes received so far from the target
-    while ((payloadSize = sock.Receive(buff)) > 0) // Receive data from the target
+    while ((payloadSize = sock.Receive(buff)) &gt; 0) // Receive data from the target
     {
         Console.WriteLine("Received chunk of " + payloadSize + " bytes...");
         // Check our main buffer won't overflow, else stop receiving data and inform us
-        if (currentOffset + payloadSize > mainBufferSize)
+        if (currentOffset + payloadSize &gt; mainBufferSize)
         {
             Console.WriteLine("Overflow of " + (currentOffset + payloadSize) + " bytes!");
             break;
@@ -229,7 +229,7 @@ For forename you could do:
     addInts(ref payload, ref peer0_3);
     addText(ref payload, forename);
 
-            static void addText(ref List<byte> bytes, string data)
+            static void addText(ref List&lt;byte&gt; bytes, string data)
             {
                 foreach (char c in data)
                     bytes.Add((byte)((int)c));
@@ -259,7 +259,7 @@ to do that and all of the above:
                 // line 6: 6e75617279203139 3930020016556e69 date uni
                 // line 7: 7665727369747920 6f66204162657264
                 // line 8: 65656e0200043230 3132020003796573
-                // line 9: 0040826800000000 00 <- score is encoded at col 2 and 3; set to FF FF to reset score for user
+                // line 9: 0040826800000000 00 &lt;- score is encoded at col 2 and 3; set to FF FF to reset score for user
 
                 string email = "johnny@derp.com";
                 string forename = "Johnny";
@@ -306,7 +306,7 @@ to do that and all of the above:
     0x43, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 
     // t   -      l    e     n     g      t    h
     0x74, 0x2d, 0x4c, 0x65, 0x6e, 0x67, 0x74, 0x68, 
-    // :   sp    1      3    7  <-- keep 1, it wont ever change
+    // :   sp    1      3    7  &lt;-- keep 1, it wont ever change
     0x3a, 0x20, 0x31, (48 + (((totalBytes % 100) - (totalBytes % 10)) / 10)), (48 + (totalBytes % 10)), 0x0d, 0x0a, 0x4f, 
     0x72, 0x69, 0x67, 0x69, 0x6e, 0x3a, 0x20, 0x68, 
     0x74, 0x74, 0x70, 0x3a, 0x2f, 0x2f, 0x6e, 0x61, 
@@ -466,7 +466,7 @@ to do that and all of the above:
                 int[] peer0_10 = new int[]{ 0x68, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
 
-                List<byte> payload = new List<byte>();
+                List&lt;byte&gt; payload = new List&lt;byte&gt;();
                 addInts(ref payload, ref peer0_1);
                 addInts(ref payload, ref peer0_2);
                 // email
@@ -508,10 +508,10 @@ to do that and all of the above:
                 byte[] buff = new byte[4096];
                 int payloadSize;
                 int currentOffset = 0;
-                while ((payloadSize = sock.Receive(buff)) > 0) // We now receive data from the target until they send no moar (or an overflow occurs)
+                while ((payloadSize = sock.Receive(buff)) &gt; 0) // We now receive data from the target until they send no moar (or an overflow occurs)
                 {
                     Console.WriteLine("Received chunk of " + payloadSize + " bytes...");
-                    if (currentOffset + payloadSize > mainBufferSize)
+                    if (currentOffset + payloadSize &gt; mainBufferSize)
                     {
                         Console.WriteLine("Overflow of " + (currentOffset + payloadSize) + " bytes!");
                         break;
@@ -527,12 +527,12 @@ to do that and all of the above:
                     System.Text.Encoding.UTF8.GetString(mainBuffer)
                     );
             }
-            static void addInts(ref List<byte> bytes, ref int[] intarray)
+            static void addInts(ref List&lt;byte&gt; bytes, ref int[] intarray)
             {
-                for (int i = 0; i < intarray.Length; i++)
+                for (int i = 0; i &lt; intarray.Length; i++)
                     bytes.Add((byte)intarray[i]);
             }
-            static void addText(ref List<byte> bytes, string data)
+            static void addText(ref List&lt;byte&gt; bytes, string data)
             {
                 foreach (char c in data)
                     bytes.Add((byte)((int)c));
