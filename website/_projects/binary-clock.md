@@ -376,7 +376,7 @@ percentage using very basic maths:
 (input value / 1023) * 100
 \end{align}
 
-# TMP36 - Temperature Sensor
+### TMP36 - Temperature Sensor
 The wiring of pins on the TMP36 [b]does matter[/b]; with the flat-side of the TMP36 facing you, the pins should be
 wired in the following order:
 
@@ -454,8 +454,9 @@ articles written more towards your learning-style or contain more technical info
 - A freeware application used for the circuit-drawings in this article:<br />
   <http://fritzing.org>
 
-## Source-Code
+# Source-Code
 The source-code for this project can be found at Github:
+
 <https://github.com/limpygnome/binary_clock_v2>
 
 # History

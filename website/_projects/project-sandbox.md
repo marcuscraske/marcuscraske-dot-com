@@ -17,4 +17,5 @@ Coming soon! watch this page, unless I forget to update it...
 - Stats system, leaderboard, etc.
 
 # Gallery
+Coming soon.
 

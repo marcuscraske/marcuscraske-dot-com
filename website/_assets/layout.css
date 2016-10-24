@@ -381,7 +381,7 @@ main img
 {
     display: block;
     margin: auto;
-    max-width: 60%;
+    max-width: 40%;
     max-height: 40%;
 }
 
@@ -508,6 +508,11 @@ main article time
     vertical-align: middle;
     box-sizing: border-box;
     padding: 1em;
+}
+
+.gallery li img
+{
+    padding: 0.5em;
 }
 
 @media only screen and (max-width: 768px)

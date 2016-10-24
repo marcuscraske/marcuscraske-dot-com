@@ -37,7 +37,8 @@ daily standup.
 
 # Download, Documentation &amp; Setup
 The code, along with markup documentation and releases, can be found at:
-[https://github.com/limpygnome/build-tv]
+
+<https://github.com/limpygnome/build-tv>
 
 # Gallery
 
