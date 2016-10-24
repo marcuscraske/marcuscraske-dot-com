@@ -9,10 +9,33 @@ limpygnome.audio.player = (function(){
 
     var setup = function(id, songs)
     {
-        // Add songs to player
+        var player = document.getElementById(id);
+
+        // Add songs to container
+        var songsContainer = document.getElementsByTagName("ul");
+        var songElement;
+        var songElementThumbnail;
+
+        for (var i = 0; i < songs.length; i++)
+        {
+            songElement = document.createElement("a");
+            songElementThumbnail = document.createElement("img");
+
+            // Setup item
+            songElement.text = songs[i];
+
+            // Setup thumbnail
+
+            // Append thumbnail to item
+            songElement.appendChild(songElementThumbnail);
+
+            // Append item to container
+            songsContainer.appendChild(songElement);
+        }
 
         // Add hooks
     };
+
 
 //    function audioPlayerHookAll()
 //    {
