@@ -1,0 +1,112 @@
+main .music-player
+{
+    padding: 0.5em;
+}
+main .music-player audio
+{
+    display: none;
+}
+
+main .music-player .player
+{
+    background: #BBB;
+    border-radius: 0.5em;
+    overflow: hidden;
+    height: 3em;
+    line-height: 3em;
+    text-align: center;
+}
+main .music-player .player .controls
+{
+    float: left;
+}
+main .music-player .player .volume
+{
+    float: right;
+    margin-right: 0.5em;
+}
+main .music-player .player img
+{
+    width: 2em;
+    height: 2em;
+    vertical-align: middle;
+    margin-left: 0.5em;
+    cursor: pointer;
+    border-radius: 0.3em;
+}
+main .music-player .player img:hover, main .music-player .player img:focus
+{
+    background: #DDD;
+}
+main .music-player .player .seeker
+{
+    width: 35em;
+}
+main .music-player .player input[type=range]
+{
+    display: inline-block;
+    padding: 0em;
+    margin: 0em;
+    vertical-align: middle;
+}
+main .music-player .player .volume input[type=range]
+{
+    width: 6em;
+    height: 1em;
+}
+
+main .music-player ul
+{
+    margin: 0.5em;
+    padding: 0em;
+    margin-top: 0em;
+    background: #CCC;
+    border: solid 0.1em #BBB;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 8em;
+    
+    -webkit-transition:	all 1.6s ease;
+    -moz-transition: 	all 1.6s ease;
+    -o-transition:	all 1.6s ease;
+    -ms-transition:	all 1.6s ease;
+    transition:		all 1.6s ease;
+}
+main .music-player ul:hover, main .music-player ul:focus
+{
+    max-height: 20em;
+}
+main .music-player ul li
+{
+    background: #DDD;
+    padding: 0.5em;
+    list-style: none;
+    margin: 0.5em;
+    border-radius: 0.25em;
+}
+main .music-player ul li:last-child
+{
+    border-bottom: none;
+}
+main .music-player ul li.playing
+{
+    background: #09F !important;
+}
+main .music-player ul li:focus, main .music-player ul li:hover
+{
+    background: #AAA;
+}
+main .music-player ul li a
+{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+main .music-player ul li a img
+{
+    margin-right: 0.5em;
+    width: 4em;
+    height: 3.2em;
+    vertical-align: middle;
+    border: none;
+}

@@ -7,33 +7,64 @@ limpygnome.audio = { };
 
 limpygnome.audio.player = (function(){
 
-    var setup = function(id, songs)
+    var htmlPlayer = [
+        '<div class="music-player">' +
+            '<audio controls>' +
+                '<source src="" type="audio/mpeg">' +
+                '<p>Your browser does not support HTML5 audio.</p>' +
+            '</audio>' +
+            '<div class="player">' +
+                '<div class="controls">' +
+                    '<img alt="Play/Pause" src="/assets/music/player/play.png" id="play" onclick="limpygnome.audio.player.audioPlayerPlayToggle(this);" />' +
+                    '<img alt="Restart" src="/assets/music/player/restart.png" id="restart" onclick="limpygnome.audio.player.audioPlayerRestart(this);" />' +
+                    '<img alt="Next" src="/assets/music/player/next.png" id="next" onclick="limpygnome.audio.player.audioPlayerNext(this);" />' +
+                '</div>' +
+                '<input type="range" class="seeker" min="0" max="100" value="0" id="seeker" onchange="limpygnome.audio.player.audioPlayerSeek(this);" />' +
+                '<div class="volume">' +
+                    '<img alt="Volume" src="/assets/music/player/unmuted.png" id="volume" onclick="limpygnome.audio.player.audioPlayerMuteToggle(this);" />' +
+                    '<input type="range" min="0" max="100" value="100" id="volume_seeker" onchange="limpygnome.audio.player.audioPlayerVolume(this);" />' +
+                '</div>' +
+            '</div>' +
+            '<ul>' +
+                '%SONGS%' +
+            '</ul>' +
+        '</div>'
+    ];
+
+    var htmlItem = [
+        '<li>' +
+            '<a href="%URL%" onclick="return limpygnome.audio.player.audioPlayerChange(this);">' +
+                '<img src="%THUMBNAIL%" alt="Album thumbnail" />' +
+                '<span>%TITLE%</span>' +
+            '</a>' +
+        '</li>'
+    ];
+
+    var setup = function(config)
     {
-        var player = document.getElementById(id);
+        // Build list of songs
+        var songs = "";
+        var song;
+        var songItem;
 
-        // Add songs to container
-        var songsContainer = document.getElementsByTagName("ul");
-        var songElement;
-        var songElementThumbnail;
-
-        for (var i = 0; i < songs.length; i++)
+        for (var i = 0; i < config.songs.length; i++)
         {
-            songElement = document.createElement("a");
-            songElementThumbnail = document.createElement("img");
+            song = config.songs[i];
+            songItem = htmlItem.join("")
+                               .replace("%TITLE%", song.title)
+                               .replace("%THUMBNAIL%", config.thumb)
+                               .replace("%URL%", config.base + "/" + (song.fileName != null ? song.fileName : song.title));
 
-            // Setup item
-            songElement.text = songs[i];
-
-            // Setup thumbnail
-
-            // Append thumbnail to item
-            songElement.appendChild(songElementThumbnail);
-
-            // Append item to container
-            songsContainer.appendChild(songElement);
+            songs += songItem;
         }
 
-        // Add hooks
+        var player = htmlPlayer.join("");
+
+        // Insert songs HTML
+        player = player.replace("%SONGS%", songs);
+
+        // Write HTML to page
+        document.write(player);
     };
 
 

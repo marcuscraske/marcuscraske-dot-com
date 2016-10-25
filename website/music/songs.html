@@ -16,23 +16,25 @@ selected: music
     Unorganised
 </h1>
 
-{% include music-player.html playerid="player-unorganised" %}
-
 <script type="text/javascript">
 {
-    var songs = [
-        "goth",
-        "liveset",
-        "mess",
-        "messaround",
-        "messaround2",
-        "rush",
-        "untitled",
-        "warmth",
-        "whoiusedtobe"
-    ];
+    var config = {
+        thumb: "/assets/music/thumbs/nolabel.png",
+        base: "https://public.limpygnome.com/music/unorganised",
+        songs: [
+            { title: "goth" },
+            { title: "liveset" },
+            { title: "mess" },
+            { title: "messaround" },
+            { title: "messaround2" },
+            { title: "rush" },
+            { title: "untitled" },
+            { title: "warmth" },
+            { title: "whoiusedtobe" }
+        ]
+    };
 
-    limpygnome.audio.player.setup("player-unorganised", songs);
+    limpygnome.audio.player.setup(config);
 }
 </script>
 
@@ -41,17 +43,19 @@ selected: music
     Noise
 </h1>
 
-{% include music-player.html playerid="player-noise" %}
-
 <script type="text/javascript">
 {
-    var songs = [
-        ["Noise - 7", "noise"],
-        ["Noise - 11", "noise"],
-        ["Noise - 15", "noise"]
-    ];
+    var config = {
+        thumb: "/assets/music/thumbs/noise.png",
+        base: "https://public.limpygnome.com/music/noise",
+        songs: [
+            { title: "Noise - 7" },
+            { title: "Noise - 11" },
+            { title: "Noise - 15" }
+        ]
+    };
 
-    limpygnome.audio.player.setup("player-noise", songs);
+    limpygnome.audio.player.setup(config);
 }
 </script>
 
@@ -60,14 +64,16 @@ selected: music
     Covers
 </h1>
 
-{% include music-player.html playerid="player-covers" %}
-
 <script type="text/javascript">
 {
-    var songs = [
-        ["Phantogram - Mouthful of Diamonds (instrumental cover)"]
-    ];
+    var config = {
+        thumb: "/assets/music/thumbs/nolabel.png",
+        base: "https://public.limpygnome.com/music/covers",
+        songs: [
+            { title: "Phantogram - Mouthful of Diamonds (instrumental cover)", fileName: "phantogram_mouthful_of_diamonds.mp3" }
+        ]
+    };
 
-    limpygnome.audio.player.render("player-covers", songs);
+    limpygnome.audio.player.setup(config);
 }
 </script>

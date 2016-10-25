@@ -377,7 +377,8 @@ main .button:focus
     color: #333;
 }
 
-main img
+main p > a > img,
+main .gallery img
 {
     display: block;
     margin: auto;
