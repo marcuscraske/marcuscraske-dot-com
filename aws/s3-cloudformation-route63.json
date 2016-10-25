@@ -1,0 +1,117 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description" : "Creates an S3 bucket configured for hosting a static website, and a Route 53 DNS record pointing to the bucket",
+  "Parameters" : {
+    "DomainName" : {
+      "Type" : "String",
+      "Description" : "The DNS name of an existing Amazon Route 53 hosted zone",
+      "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
+      "ConstraintDescription" : "must be a valid DNS zone name."
+    }
+  },
+  "Mappings" : {
+    "RegionMap" : {
+      "eu-central-1" : { "S3hostedzoneID" : "Z21DNDUVLTQW6Q", "websiteendpoint" : "s3-website-eu-central-1.amazonaws.com" },
+      "eu-central-1" : { "S3hostedzoneID" : "Z1BKCTXD74EZPE", "websiteendpoint" : "s3-website-eu-west-1.amazonaws.com" }
+    }
+  },
+  "Resources" : {
+    "WebsiteBucket" : {
+      "Type" : "AWS::S3::Bucket",
+      "Properties" : {
+        "BucketName": { "Ref" : "DomainName" },
+        "AccessControl" : "PublicRead",
+        "WebsiteConfiguration" : {
+          "IndexDocument" : "index.html",
+          "ErrorDocument" : "error.html"
+        }
+      }
+    },
+    "WWWRedirectBucket": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": {
+          "Fn::Join": [".", ["www", {"Ref":"DomainName"}]]
+        },
+        "AccessControl": "BucketOwnerFullControl",
+        "WebsiteConfiguration": {
+          "RedirectAllRequestsTo": {
+            "HostName": {"Ref": "DomainName"}
+          }
+        }
+      }
+    },
+    "WebsiteCDN" : {
+      "Type" : "AWS::CloudFront::Distribution",
+      "Properties" : {
+        "DistributionConfig" : {
+          "Comment" : "Cloudfront Distribution pointing to S3 bucket",
+          "Origins" : [ {
+            "DomainName": {
+              "Fn::Join" : [".", [
+                {"Ref" : "DomainName"},
+                {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
+              ]]
+            },
+            "Id" : "S3Origin",
+            "CustomOriginConfig": {
+              "HTTPPort": "80",
+              "HTTPSPort": "443",
+              "OriginProtocolPolicy": "http-only"
+            }
+          }],
+          "Enabled" : "true",
+          "DefaultRootObject" : "index.html",
+          "Aliases" : [
+            { "Ref": "DomainName" }
+          ],
+          "DefaultCacheBehavior" : {
+            "AllowedMethods" : [ "GET", "HEAD" ],
+            "Compress": "true",
+            "TargetOriginId" : "S3Origin",
+            "ForwardedValues" : {
+              "QueryString" : "true"
+            },
+            "ViewerProtocolPolicy" : "allow-all"
+          }
+        }
+      }
+    },
+    "WebsiteDNSName" : {
+      "Type" : "AWS::Route53::RecordSetGroup",
+      "Properties" : {
+        "HostedZoneName" : { "Fn::Join" : [ "", [{ "Ref" : "DomainName" }, "."]]},
+        "RecordSets" : [
+          {
+            "Name" : { "Ref" : "DomainName" },
+            "Type" : "A",
+            "AliasTarget" : {
+              "HostedZoneId": "Z2FDTNDATAQYW2",
+              "DNSName": {"Fn::GetAtt" : [ "WebsiteCDN", "DomainName"] }
+            }
+          },
+          {
+            "Name": {
+              "Fn::Join": ["", ["www.", {"Ref":"DomainName"}]]
+            },
+            "Type": "CNAME",
+            "TTL" : "900",
+            "ResourceRecords" : [
+              { "Fn::Join" : [".", [
+                "www", {"Ref" : "DomainName"},
+                {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
+              ]]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "Outputs" : {
+    "BucketName" : {
+      "Value" : { "Ref" : "WebsiteBucket" },
+      "Description" : "Name of S3 bucket to hold website content"
+    }
+  }
+}
