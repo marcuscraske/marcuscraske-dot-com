@@ -5,7 +5,7 @@
         "AlarmThreshold" : {
             "Type" : "Number",
             "Description" : "The upper-limit threshold for billing.",
-            "Default" : "10"
+            "Default" : "1"
         },
         "OperatorEmail" : {
             "Type" : "String",
@@ -31,7 +31,7 @@
             "Type": "AWS::CloudWatch::Alarm",
             "Properties": {
                 "AlarmDescription": { "Fn::Join": ["", [
-                    "Billing - 28 days - alarm if AWS spending is over $",
+                    "Billing - 1 day - alarm if AWS spending is over $",
                     { "Ref": "AlarmThreshold" }
                 ]]},
                 "Namespace": "AWS/Billing",
@@ -41,7 +41,7 @@
                     "Value" : "USD"
                 }],
                 "Statistic": "Maximum",
-                "Period": "2419200",
+                "Period": "86400",
                 "EvaluationPeriods": "1",
                 "Threshold": { "Ref": "AlarmThreshold" },
                 "ComparisonOperator": "GreaterThanThreshold",
