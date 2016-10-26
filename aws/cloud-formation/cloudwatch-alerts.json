@@ -1,0 +1,58 @@
+{
+    "AWSTemplateFormatVersion" : "2010-09-09",
+    "Description" : "CloudWatch alerts.",
+    "Parameters" : {
+        "AlarmThreshold" : {
+            "Type" : "Number",
+            "Description" : "The upper-limit threshold for billing.",
+            "Default" : "10"
+        },
+        "OperatorEmail" : {
+            "Type" : "String",
+            "Description" : "The e-mail to receive alerts",
+            "Default" : "limpygnome@gmail.com"
+        }
+    },
+    "Resources" : {
+
+        "AlarmNotificationTopic": {
+            "Type": "AWS::SNS::Topic",
+            "Properties": {
+                "Subscription": [
+                    {
+                        "Endpoint": { "Ref": "OperatorEmail" },
+                        "Protocol": "email"
+                    }
+                ]
+            }
+        },
+
+        "SpendingAlarm": {
+            "Type": "AWS::CloudWatch::Alarm",
+            "Properties": {
+                "AlarmDescription": { "Fn::Join": ["", [
+                    "Billing - 28 days - alarm if AWS spending is over $",
+                    { "Ref": "AlarmThreshold" }
+                ]]},
+                "Namespace": "AWS/Billing",
+                "MetricName": "EstimatedCharges",
+                "Dimensions": [{
+                    "Name": "Currency",
+                    "Value" : "USD"
+                }],
+                "Statistic": "Maximum",
+                "Period": "2419200",
+                "EvaluationPeriods": "1",
+                "Threshold": { "Ref": "AlarmThreshold" },
+                "ComparisonOperator": "GreaterThanThreshold",
+                "AlarmActions": [{
+                    "Ref": "AlarmNotificationTopic"
+                }],
+                "InsufficientDataActions": [{
+                    "Ref": "AlarmNotificationTopic"
+                }]
+            }
+        }
+
+    }
+}

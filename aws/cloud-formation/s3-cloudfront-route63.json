@@ -11,8 +11,8 @@
   },
   "Mappings" : {
     "RegionMap" : {
-      "eu-central-1" : { "S3hostedzoneID" : "Z21DNDUVLTQW6Q", "websiteendpoint" : "s3-website-eu-central-1.amazonaws.com" },
-      "eu-central-1" : { "S3hostedzoneID" : "Z1BKCTXD74EZPE", "websiteendpoint" : "s3-website-eu-west-1.amazonaws.com" }
+      "eu-central-1" : { "S3hostedzoneID" : "Z21DNDUVLTQW6Q", "websiteendpoint" : "s3-website.eu-central-1.amazonaws.com" },
+      "eu-west-1" : { "S3hostedzoneID" : "Z1BKCTXD74EZPE", "websiteendpoint" : "s3-website.eu-west-1.amazonaws.com" }
     }
   },
   "Resources" : {
