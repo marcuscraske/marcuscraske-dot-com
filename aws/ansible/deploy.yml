@@ -1,0 +1,7 @@
+- hosts: all
+
+  gather_facts: no
+
+  roles:
+    - { role: setup, tags: ["all", "setup"] }
+    - { role: copy-files, tags: ["all", "copy-files"] }
