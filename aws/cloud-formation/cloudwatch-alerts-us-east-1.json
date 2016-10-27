@@ -16,6 +16,10 @@
             "Type" : "String",
             "Description" : "The e-mail to receive alerts",
             "Default" : "limpygnome@gmail.com"
+        },
+        "DistributionId" : {
+            "Type" : "String",
+            "Description" : "The DistributionId of the CloudFront instance to monitor."
         }
     },
     "Resources" : {
@@ -69,6 +73,17 @@
 
                 "Namespace" : "AWS/CloudFront",
                 "MetricName" : "Requests",
+                "Dimensions" :
+                [
+                    {
+                        "Name" : "Region",
+                        "Value" : "Global",
+                    },
+                    {
+                        "Name" : "DistributionId",
+                        "Value" : { "Ref" : "DistributionId" }
+                    }
+                ],
 
                 "Statistic" : "Sum",
                 "Period" : 1800,
