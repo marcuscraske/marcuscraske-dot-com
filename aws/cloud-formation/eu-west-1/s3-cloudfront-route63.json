@@ -11,7 +11,6 @@
     },
     "Mappings" : {
         "RegionMap" : {
-            "eu-central-1" : { "S3hostedzoneID" : "Z21DNDUVLTQW6Q", "websiteendpoint" : "s3-website.eu-central-1.amazonaws.com" },
             "eu-west-1" : { "S3hostedzoneID" : "Z1BKCTXD74EZPE", "websiteendpoint" : "s3-website.eu-west-1.amazonaws.com" }
         }
     },
@@ -112,6 +111,11 @@
         "BucketName" : {
             "Value" : { "Ref" : "WebsiteBucket" },
             "Description" : "Name of S3 bucket to hold website content"
+        },
+
+        "DistributionId" : {
+            "Value" : { "Ref" : "WebsiteCDN" },
+            "Description" : "The DistributionId of the CloudFront CDN instance"
         }
     }
 }
