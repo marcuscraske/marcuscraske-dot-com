@@ -1,11 +1,16 @@
 {
     "AWSTemplateFormatVersion" : "2010-09-09",
-    "Description" : "CloudWatch alerts.",
+    "Description" : "CloudWatch alerts for billing and CloudFront.",
     "Parameters" : {
-        "AlarmThreshold" : {
+        "BillingThreshold" : {
             "Type" : "Number",
-            "Description" : "The upper-limit threshold for billing.",
+            "Description" : "The upper-limit threshold for billing (1 day).",
             "Default" : "1"
+        },
+        "RequestsThreshold" : {
+            "Type" : "Number",
+            "Description" : "The upper-limit threshold of requests for CloudFront (30 mins).",
+            "Default" : "1000"
         },
         "OperatorEmail" : {
             "Type" : "String",
@@ -32,7 +37,7 @@
             "Properties": {
                 "AlarmDescription": { "Fn::Join": ["", [
                     "Billing - 1 day - alarm if AWS spending is over $",
-                    { "Ref": "AlarmThreshold" }
+                    { "Ref": "BillingThreshold" }
                 ]]},
                 "Namespace": "AWS/Billing",
                 "MetricName": "EstimatedCharges",
@@ -43,8 +48,33 @@
                 "Statistic": "Maximum",
                 "Period": "86400",
                 "EvaluationPeriods": "1",
-                "Threshold": { "Ref": "AlarmThreshold" },
+                "Threshold": { "Ref": "BillingThreshold" },
                 "ComparisonOperator": "GreaterThanThreshold",
+                "AlarmActions": [{
+                    "Ref": "AlarmNotificationTopic"
+                }],
+                "InsufficientDataActions": [{
+                    "Ref": "AlarmNotificationTopic"
+                }]
+            }
+        },
+
+        "CloudFrontRequestsAlarm" : {
+            "Type" : "AWS::CloudWatch::Alarm",
+            "Properties" : {
+                "AlarmDescription" : { "Fn::Join": ["", [
+                    "CloudFront - 30 mins - alarm if requests is over ",
+                    { "Ref": "RequestsThreshold" }
+                ]]},
+
+                "Namespace" : "AWS/CloudFront",
+                "MetricName" : "Requests",
+
+                "Statistic" : "Sum",
+                "Period" : 1800,
+                "EvaluationPeriods" : 1,
+                "Threshold" : { "Ref" : "RequestsThreshold" },
+                "ComparisonOperator" : "GreaterThanThreshold",
                 "AlarmActions": [{
                     "Ref": "AlarmNotificationTopic"
                 }],
