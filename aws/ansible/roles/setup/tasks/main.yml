@@ -1,0 +1,23 @@
+- name: Create S3 bucket, CloudFront (CDN) and Route53 (DNS)
+  connection: local
+  cloudformation:
+    stack_name: "staging-website"
+    state: "present"
+    region: "eu-west-1"
+    template: "{{ aws_root }}/cloud-formation/eu-west-1/s3-cloudfront-route53.json"
+  register: stack_website
+
+- name: Create alarms
+  connection: local
+  cloudformation:
+    stack_name: "staging-alarms"
+    state: "present"
+    region: "us-east-1"
+    template: "{{ aws_root }}/cloud-formation/us-east-1/alarms-billing-cloudfront.json"
+  args:
+    template_parameters:
+      DistributionId: "{{ stack_website.stack_outputs.DistributionId }}"
+  register: stack_alarms
+
+- name: Outputs from website
+  debug: msg="{{ stack_website.stack_outputs }}"
