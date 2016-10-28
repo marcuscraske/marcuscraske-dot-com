@@ -2,18 +2,15 @@
 This directory is used for AWS deployments.
 
 ## Credentials
-You will need to put the following vars:
+You will need to put the following vars into `ansible/group_vars/all`:
 ````
-AWS_ACCESS_KEY_ID
-AWS_ACCESS_KEY
-````
-
-In a vault file:
-````
-(cd ansible/roles/setup/vars && ansible-vault create key.yml)
+aws_access_key
+aws_secret_key
 ````
 
-This is ignored by Git.
+Or just run `setup.sh`.
+
+Your newly created file is ignored by Git.
 
 ## Dependencies
 ````
