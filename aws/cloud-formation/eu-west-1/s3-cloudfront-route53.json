@@ -7,6 +7,10 @@
             "Description" : "The DNS name of an existing Amazon Route 53 hosted zone",
             "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
             "ConstraintDescription" : "must be a valid DNS zone name."
+        },
+        "AcmCertificateArn" : {
+            "Type" : "String",
+            "Description" : "The ARN / AWS resource URI for the certificate applied to CloudFront for SSL."
         }
     },
     "Mappings" : {
@@ -72,6 +76,10 @@
                             "QueryString" : "true"
                         },
                         "ViewerProtocolPolicy" : "allow-all"
+                    },
+                    "ViewerCertificate": {
+                        "SslSupportMethod": "sni-only",
+                        "AcmCertificateArn": { "Ref" : "AcmCertificateArn" }
                     }
                 }
             }

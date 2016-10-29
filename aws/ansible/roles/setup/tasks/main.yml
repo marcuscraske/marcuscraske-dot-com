@@ -10,6 +10,7 @@
   args:
     template_parameters:
       DomainName: "limpygnome.co.uk"
+      AcmCertificateArn: "arn:aws:acm:us-east-1:377402336124:certificate/5a0bfc8a-2201-4af4-aab2-1f7345c89ddc"
   register: stack_website
 
 - name: Create alarms
