@@ -1,7 +1,7 @@
 - name: Create S3 bucket, CloudFront (CDN) and Route53 (DNS)
   connection: local
   cloudformation:
-    stack_name: "staging-website"
+    stack_name: "website-limpygnome"
     state: "present"
     region: "eu-west-1"
     template: "{{ aws_root }}/cloud-formation/eu-west-1/s3-cloudfront-route53.json"
@@ -15,7 +15,7 @@
 - name: Create alarms
   connection: local
   cloudformation:
-    stack_name: "staging-alarms"
+    stack_name: "website-limpygnome-alarms"
     state: "present"
     region: "us-east-1"
     template: "{{ aws_root }}/cloud-formation/us-east-1/alarms-billing-cloudfront.json"
