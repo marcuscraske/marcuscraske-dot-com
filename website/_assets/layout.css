@@ -4,8 +4,11 @@
 
 @font-face
 {
-    font-family: "Open Sans";
-    src: url("/assets/OpenSans-Regular.ttf");
+    font-family: "OpenSans-Regular";
+    src:    local("OpenSans-Regular"),
+            url("/assets/open-sans/font.woff2"),
+            url("/assets/open-sans/font.woff"),
+            url("/assets/open-sans/font.ttf");
 }
 
 html, body
@@ -16,7 +19,7 @@ html, body
 
 body
 {
-    font: normal 14px "Open Sans", sans-serif;
+    font: normal 14px "OpenSans-Regular", sans-serif;
 }
 
 ::selection
@@ -52,6 +55,7 @@ body > header h1
 body > header h1 a
 {
     color: #FFF;
+    text-decoration: none;
 }
 
 
