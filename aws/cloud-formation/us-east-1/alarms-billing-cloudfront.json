@@ -92,9 +92,6 @@
                 "ComparisonOperator" : "GreaterThanThreshold",
                 "AlarmActions": [{
                     "Ref": "AlarmNotificationTopic"
-                }],
-                "InsufficientDataActions": [{
-                    "Ref": "AlarmNotificationTopic"
                 }]
             }
         }

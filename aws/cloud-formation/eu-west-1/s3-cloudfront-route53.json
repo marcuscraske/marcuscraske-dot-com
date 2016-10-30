@@ -75,7 +75,7 @@
                         "ForwardedValues" : {
                             "QueryString" : "true"
                         },
-                        "ViewerProtocolPolicy" : "allow-all"
+                        "ViewerProtocolPolicy" : "redirect-to-https"
                     },
                     "ViewerCertificate": {
                         "SslSupportMethod": "sni-only",

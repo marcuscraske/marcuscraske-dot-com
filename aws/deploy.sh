@@ -34,6 +34,7 @@ if [[ -z "${1}" ]]; then
 
     if [[ -z "${1}" ]]; then
         echo "Available tags:"
+        echo ""
         echo "$(ls ansible/roles)"
         echo ""
         echo "...or use tag 'all'."
