@@ -50,6 +50,7 @@ body > header h1
     float: left;
     margin: 0;
     padding: 0.3em 0.5em;
+    font-size: 2em;
 }
 
 body > header h1 a
@@ -69,6 +70,7 @@ body > header p
     margin: 0;
     padding: 0.8em 0.5em;
     font-size: 1.5em;
+    line-height: 1.5em;
 }
 body > header p a
 {
@@ -104,7 +106,7 @@ nav ul
     margin: 0em 0em 1em;
     padding: 0;
     list-style: none;
-    border-right: solid 0.4em;
+    border-left: solid 0.4em;
     background: #333;
     border-radius: 6px;
     overflow: hidden;
@@ -119,9 +121,13 @@ nav ul li a
     border-bottom: solid 1px #666;
 }
 
-nav ul li:last-child a
+@media screen and (min-device-width: 768px),
+       screen and (orientation: landscape)
 {
-    border-bottom: none;
+    nav ul li:last-child a
+    {
+        border-bottom: none;
+    }
 }
 
 nav ul a span
@@ -247,11 +253,11 @@ footer > a
     background-size: 100%;
     margin: 0.5em;
     text-decoration: none;
-    -webkit-transition:    width .4s,    height .4s ease;
-    -moz-transition:     width .4s,    height .4s ease;
-    -o-transition:        width .4s,    height .4s ease;
-    -ms-transition:        width .4s,    height .4s ease;
-    transition:            width .4s,    height .4s ease;
+    -webkit-transition:     width .4s,    height .4s ease;
+    -moz-transition:        width .4s,    height .4s ease;
+    -o-transition:          width .4s,    height .4s ease;
+    -ms-transition:         width .4s,    height .4s ease;
+    transition:             width .4s,    height .4s ease;
 }
 footer > a:hover,
 footer > a:focus
@@ -381,8 +387,7 @@ main .button:focus
     color: #333;
 }
 
-main p > a > img,
-main .gallery img
+main img
 {
     display: block;
     margin: auto;
@@ -390,7 +395,7 @@ main .gallery img
     max-height: 40%;
 }
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-device-width: 768px)
 {
     main > h1,
     main > article > header > h1
@@ -440,20 +445,49 @@ main article time
     Responsiveness
 */
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-device-width: 768px) and (orientation: portrait)
 {
     .wrapper
     {
         display: block;
         width: auto;
-        padding: 0.5em;
+        padding: 0;
+    }
+
+    body > header
+    {
+        font-size: 0.8em;
     }
 
     nav
     {
         width: auto;
-        margin: 0;
+        margin: 0 0 0.5em 0;
         padding: 0;
+    }
+
+    nav ul
+    {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    nav ul li
+    {
+        background: #444;
+    }
+
+    nav ul li:last-child a
+    {
+        border-bottom: auto;
+    }
+
+    footer ul li
+    {
+        display: block;
     }
 
 }
@@ -487,7 +521,7 @@ main article time
     margin: 0em 1em 0em 0em;
 }
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-device-width: 768px)
 {
     #projects li
     {
@@ -520,7 +554,7 @@ main article time
     padding: 0.5em;
 }
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-device-width: 768px)
 {
     .gallery li
     {
