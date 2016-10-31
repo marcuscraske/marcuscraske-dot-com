@@ -1,5 +1,7 @@
 /*
     Simple HTML5 audio player, with play-lists and thumbnails.
+
+    Does not use jQuery, or equivalent, since this would not be reused elsewhere.
 */
 
 limpygnome = { };
@@ -111,7 +113,7 @@ limpygnome.audio.player = (function(){
                     {
                         var player = e.target;
                         var button = getPlayerControl(player, "IMG", "volume");
-                        button.src = "/content/music/player/" + (player.muted ? "muted" : "unmuted") + ".png";
+                        button.src = "/assets/music/player/" + (player.muted ? "muted" : "unmuted") + ".png";
                         var volumeSeeker = getPlayerControl(player, "INPUT", "volume_seeker");
                         volumeSeeker.value = player.volume * 100.0;
                     };
@@ -173,49 +175,6 @@ limpygnome.audio.player = (function(){
         return null;
     };
 
-    var getFirstSong = function(player)
-    {
-        var container = player.parentNode;
-        var firstSong = null;
-
-        // Find song list
-        var songList = null;
-        for (var i = 0; songList == null && i < container.childNodes.length; i++)
-        {
-            if (container.childNodes[i].tagName.toLowerCase() == 'ul')
-            {
-                songList = container.childNodes[i];
-            }
-        }
-
-        // Find first song container
-        if (songList != null)
-        {
-            var firstSongContainer = null;
-            for (var i = 0; firstSongContainer != null && i < songList.childNodes.length; i++)
-            {
-                if (songList.childNodes[i].tagName.toLowerCase() == 'li')
-                {
-                    firstSongContainer = songList.childNodes[i];
-                }
-            }
-
-            // Now fetch the actual first song (hyper-link)
-            if (firstSongContainer != null)
-            {
-                for (var i = 0; firstSong != null && i < firstSongContainer.childNodes.length; i++)
-                {
-                    if (firstSongContainer.childNodes[i].tagName.toLowerCase() == 'a')
-                    {
-                        firstSong = firstSongContainer.childNodes[i];
-                    }
-                }
-            }
-        }
-
-        return firstSong;
-    };
-
     var seek = function(element)
     {
         var value = element.value;
@@ -227,29 +186,17 @@ limpygnome.audio.player = (function(){
     {
         var player = getPlayer(element);
 
-        // Check if we have a current song
-        if (player.currentSong == null)
+        // Toggle player
+        if(player.paused)
         {
-            // Fetch first song
-            var firstSong = getFirstSong(player);
+            player.play();
 
-            // Change to first item
-            if (firstSong != null)
-            {
-                change(firstSong);
-            }
+            // Ensure song selected
+            player.currentSong.parentNode.className = "playing";
         }
         else
         {
-            // Toggle player
-            if(player.paused)
-            {
-                player.play();
-            }
-            else
-            {
-                player.pause();
-            }
+            player.pause();
         }
     };
 
@@ -365,6 +312,9 @@ limpygnome.audio.player = (function(){
             // Save element to player
             player.currentSong = element;
             player.currentSong.parentNode.className = "playing";
+
+            // Scroll to current song
+            player.currentSong.parentNode.scrollIntoView();
         }
 
     };
