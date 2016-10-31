@@ -94,7 +94,7 @@ limpygnome.audio.player = (function(){
                     // Hook for auto-play of playlist
                     player.onended = function(e)
                     {
-                        audioPlayerNext(e.target);
+                        next(e.target);
                     };
 
                     // Hook for seeker update
@@ -121,7 +121,7 @@ limpygnome.audio.player = (function(){
                     {
                         var player = e.target;
                         var button = getPlayerControl(player, "IMG", "play");
-                        button.src = "/content/music/player/" + (player.paused ? "play" : "pause") + ".png";
+                        button.src = "/assets/music/player/" + (player.paused ? "play" : "pause") + ".png";
                     };
                 }
 
@@ -173,6 +173,49 @@ limpygnome.audio.player = (function(){
         return null;
     };
 
+    var getFirstSong = function(player)
+    {
+        var container = player.parentNode;
+        var firstSong = null;
+
+        // Find song list
+        var songList = null;
+        for (var i = 0; songList == null && i < container.childNodes.length; i++)
+        {
+            if (container.childNodes[i].tagName.toLowerCase() == 'ul')
+            {
+                songList = container.childNodes[i];
+            }
+        }
+
+        // Find first song container
+        if (songList != null)
+        {
+            var firstSongContainer = null;
+            for (var i = 0; firstSongContainer != null && i < songList.childNodes.length; i++)
+            {
+                if (songList.childNodes[i].tagName.toLowerCase() == 'li')
+                {
+                    firstSongContainer = songList.childNodes[i];
+                }
+            }
+
+            // Now fetch the actual first song (hyper-link)
+            if (firstSongContainer != null)
+            {
+                for (var i = 0; firstSong != null && i < firstSongContainer.childNodes.length; i++)
+                {
+                    if (firstSongContainer.childNodes[i].tagName.toLowerCase() == 'a')
+                    {
+                        firstSong = firstSongContainer.childNodes[i];
+                    }
+                }
+            }
+        }
+
+        return firstSong;
+    };
+
     var seek = function(element)
     {
         var value = element.value;
@@ -183,13 +226,30 @@ limpygnome.audio.player = (function(){
     var playPause = function(element)
     {
         var player = getPlayer(element);
-        if(player.paused)
+
+        // Check if we have a current song
+        if (player.currentSong == null)
         {
-            player.play();
+            // Fetch first song
+            var firstSong = getFirstSong(player);
+
+            // Change to first item
+            if (firstSong != null)
+            {
+                change(firstSong);
+            }
         }
         else
         {
-            player.pause();
+            // Toggle player
+            if(player.paused)
+            {
+                player.play();
+            }
+            else
+            {
+                player.pause();
+            }
         }
     };
 
@@ -280,7 +340,7 @@ limpygnome.audio.player = (function(){
             return;
         }
 
-        audioPlayerChange(nextNode);
+        change(nextNode);
     };
 
     var change = function(element)
@@ -310,7 +370,14 @@ limpygnome.audio.player = (function(){
     };
 
     return {
-        setup : setup
+        setup       : setup,
+        change      : change,
+        playPause   : playPause,
+        seek        : seek,
+        next        : next,
+        restart     : restart,
+        muteToggle  : muteToggle,
+        volume      : volume
     };
 
 })();
