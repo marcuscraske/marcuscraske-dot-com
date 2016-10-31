@@ -4,9 +4,17 @@
     "Parameters" : {
         "DomainName" : {
             "Type" : "String",
-            "Description" : "The DNS name of an existing Amazon Route 53 hosted zone",
+            "Description" : "The primary domain for the website.",
             "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
-            "ConstraintDescription" : "must be a valid DNS zone name."
+            "ConstraintDescription" : "must be a valid DNS zone name.",
+            "Default" : "limpygnome.co.uk"
+        },
+        "SecondaryDomainName" : {
+            "Type" : "String",
+            "Description" : "Auxiliary domain used as mirror.",
+            "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
+            "ConstraintDescription" : "must be a valid DNS zone name.",
+            "Default" : "limpygnome.com"
         },
         "AcmCertificateArn" : {
             "Type" : "String",
@@ -36,6 +44,18 @@
                 "BucketName": {
                     "Fn::Join": [".", ["www", {"Ref":"DomainName"}]]
                 },
+                "AccessControl": "BucketOwnerFullControl",
+                "WebsiteConfiguration": {
+                    "RedirectAllRequestsTo": {
+                        "HostName": {"Ref": "DomainName"}
+                    }
+                }
+            }
+        },
+        "SecondaryDomainRedirectBucket" : {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketName": { "Ref" : "SecondaryDomainName" },
                 "AccessControl": "BucketOwnerFullControl",
                 "WebsiteConfiguration": {
                     "RedirectAllRequestsTo": {
@@ -102,6 +122,7 @@
             "Properties" : {
                 "HostedZoneName" : { "Fn::Join" : [ "", [{ "Ref" : "DomainName" }, "."]]},
                 "RecordSets" : [
+
                     {
                         "Name" : { "Ref" : "DomainName" },
                         "Type" : "A",
@@ -147,7 +168,35 @@
                         "ResourceRecords" : [
                             "178.62.63.16"
                         ]
+                    },
+
+
+                    {
+                        "Name" : { "Ref" : "SecondaryDomainName" },
+                        "Type" : "A",
+                        "ResourceRecords" : [
+                            { "Fn::Join" : [".", [
+                                {"Ref" : "SecondaryDomainName"},
+                                {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
+                            ]]
+                            }
+                        ]
+                    },
+                    {
+                        "Name": {
+                            "Fn::Join": ["", ["www.", {"Ref":"SecondaryDomainName"}]]
+                        },
+                        "Type": "CNAME",
+                        "TTL" : "900",
+                        "ResourceRecords" : [
+                            { "Fn::Join" : [".", [
+                                {"Ref" : "SecondaryDomainName"},
+                                {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
+                            ]]
+                            }
+                        ]
                     }
+
                 ]
             }
         }
