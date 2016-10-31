@@ -44,6 +44,19 @@
                 }
             }
         },
+        "PublicFilesBucket" : {
+            "Type" : "AWS::S3::Bucket",
+            "Properties" : {
+                "BucketName": {
+                    "Fn::Join": [".", ["public", {"Ref":"DomainName"}]]
+                },
+                "AccessControl" : "PublicRead",
+                "WebsiteConfiguration" : {
+                    "IndexDocument" : "index.html",
+                    "ErrorDocument" : "error.html"
+                }
+            }
+        },
         "WebsiteCDN" : {
             "Type" : "AWS::CloudFront::Distribution",
             "Properties" : {
@@ -110,6 +123,20 @@
                             ]]
                             }
                         ]
+                    },
+                    {
+                        "Name": {
+                            "Fn::Join": ["", ["public.", {"Ref":"DomainName"}]]
+                        },
+                        "Type": "CNAME",
+                        "TTL" : "900",
+                        "ResourceRecords" : [
+                            { "Fn::Join" : [".", [
+                                "public", {"Ref" : "DomainName"},
+                                {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
+                            ]]
+                            }
+                        ]
                     }
                 ]
             }
@@ -118,7 +145,12 @@
     "Outputs" : {
         "BucketName" : {
             "Value" : { "Ref" : "WebsiteBucket" },
-            "Description" : "Name of S3 bucket to hold website content"
+            "Description" : "Website bucket"
+        },
+
+        "BucketName" : {
+            "Value" : { "Ref" : "PublicFilesBucket" },
+            "Description" : "Public files bucket"
         },
 
         "DistributionId" : {
