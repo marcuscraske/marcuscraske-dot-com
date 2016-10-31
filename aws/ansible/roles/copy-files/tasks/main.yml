@@ -14,6 +14,6 @@
   connection: local
   shell: >
        s3cmd sync "{{ aws_root }}/../public-files/" "s3://public.limpygnome.co.uk/"
-       --acl-public --no-mime-magic --guess-mime-type --cf-invalidate
+       --acl-public --no-mime-magic --guess-mime-type
        --bucket-location=eu-west-1
        --access_key={{ aws_access_key }} --secret_key={{ aws_secret_key }}

@@ -137,6 +137,16 @@
                             ]]
                             }
                         ]
+                    },
+                    {
+                        "Name": {
+                            "Fn::Join": ["", ["cerberus.", {"Ref":"DomainName"}]]
+                        },
+                        "Type": "A",
+                        "TTL" : "900",
+                        "ResourceRecords" : [
+                            "178.62.63.16"
+                        ]
                     }
                 ]
             }
