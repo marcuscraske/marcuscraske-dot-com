@@ -428,8 +428,16 @@ main .gallery img
     text-align: center;
 }
 
-.pagination .previous,
-.pagination .next
+/* No page item */
+.pagination span.previous,
+.pagination span.next
+{
+    visibility: hidden;
+}
+
+/* Linked item */
+.pagination a.previous,
+.pagination a.next
 {
     color: #10578d;
 }
