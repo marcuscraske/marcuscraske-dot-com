@@ -10,8 +10,8 @@ this game by a friend after telling him that Adobe Flash games in competitions a
 secured, with him asking me to prove my point with this game.
    
 The purpose of this article is to show you the methodology I used to enter fake details into the system (as well as
-wipe them), discuss strategies to secure a system against this attack and with the hope that <b>future developers
-learn something and do not repeat the same mistakes</b>. Even though this article is published during the
+wipe them), discuss strategies to secure a system against this attack and with the hope that **future developers
+learn something and do not repeat the same mistakes**. Even though this article is published during the
 competition, I doubt many people will read it; you're also legally liable for your own actions. I also believe the
 legality of my actions have been ethical, please contact <a href="/contact">me</a> if you believe otherwise.
    
@@ -171,7 +171,7 @@ you could do e.g.:
     }
 </pre>
 
-Next we'll need to send our payload; we can do this by importing <b>System.Net.Sockets</b> and using:
+Next we'll need to send our payload; we can do this by importing **System.Net.Sockets** and using:
 
 <pre class="brush: csharp">
     Socket sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -236,7 +236,7 @@ For forename you could do:
             }
 </pre>
 
-<b>You'll also need to modify the content-length of the packet</b>; here is my complete program, demonstrating how
+**You'll also need to modify the content-length of the packet**; here is my complete program, demonstrating how
 to do that and all of the above:
 
 <pre class="brush: csharp">

@@ -1,23 +1,20 @@
+---
+layout: compress
+---
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Curriculum Vitae</title>
-    <link rel="stylesheet" type="text/css" href="/assets/cv.css" />
+    {% css_asset_tag bundle %}
+    - /_assets/cv.css
+    {% endcss_asset_tag bundle %}
 </head>
 <body>
     <div class="options">
-        <a href="/">
-            Back
-        </a>
-        <a href="/cv" onclick="window.print();">
-            Print
-        </a>
-        <a href="/assets/cv.pdf">
-            Download as PDF
-        </a>
-        <a href="mailto:?subject=Curriculum Vitae - Marcus Craske&amp;body=Available at: https://www.limpygnome.com/cv">
-            E-mail
-        </a>
+        <a href="/">Back</a>
+        <a href="/cv" onclick="window.print();">Print</a>
+        <a href="/assets/cv.pdf">Download as PDF</a>
+        <a href="mailto:?subject=Curriculum Vitae - Marcus Craske&amp;body=Available at: https://www.limpygnome.com/cv">E-mail</a>
     </div>
     <div id="wrapper" class="wrapper">
         <h1>

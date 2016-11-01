@@ -116,7 +116,7 @@ output ports on the Raspberry Pi.
 
 The following section is about the 74HC595, an integrated-circuit with 16 pins; the 74HC595 is practical because eight pins can be
 utilized as output's and multiple IC's can be connected in series - it's also very cheap. To control 17 LEDs to display binary time, we
-shall use three shift registers (allowing for up to 24 outputs)...which requires <b>only three output pins</b> from our Raspberry Pi.
+shall use three shift registers (allowing for up to 24 outputs)...which requires **only three output pins** from our Raspberry Pi.
 
 Pin layout:
 <a href="/assets/projects/binary-clock/shift_registers_pin_layout.png">
@@ -125,9 +125,9 @@ Pin layout:
 
 To control each of the eight output pins (O1-O8), we must communicate using three pins (which are connected to our Raspberry Pi):
 
-- <b>Latch</b> - we set the latch to low when we want to write new data to our shift register; we then put it back to high when we're finished.
-- <b>Data</b> - specifies if an output pin is enabled.
-- <b>Clock</b> - we toggle the clock, by setting it to high and then low, to get the shift register to read the value of the data-pin.
+- **Latch** - we set the latch to low when we want to write new data to our shift register; we then put it back to high when we're finished.
+- **Data** - specifies if an output pin is enabled.
+- **Clock** - we toggle the clock, by setting it to high and then low, to get the shift register to read the value of the data-pin.
 
 Therefore to set the eight outputs of a shift register to on/off, we would do the following:
 
@@ -242,12 +242,12 @@ Pin layout:
 
 The MCP3008 requires four pins on the Raspberry Pi:
 
-- <b>Clock</b> - used to specify when the data-in pin has been set; the same principal as the clock from the shift-registers
+- **Clock** - used to specify when the data-in pin has been set; the same principal as the clock from the shift-registers
   previously mentioned; this will also be used to read bits out as well.
-- <b>Data-out</b> - used for reading bits, or rather high's and/or low's, which represent the numeric value of a
+- **Data-out** - used for reading bits, or rather high's and/or low's, which represent the numeric value of a
   pin (from 0 to 1023 due to being analogue).
-- <b>Data-in</b> - used to specify which pin's value to output on the data-out pin.
-- <b>Chip-select</b> - a similar function to the latch of a shift-register in this context, click
+- **Data-in** - used to specify which pin's value to output on the data-out pin.
+- **Chip-select** - a similar function to the latch of a shift-register in this context, click
   [here](http://en.wikipedia.org/wiki/Chip_select) for more information.
 
 ## Software Communication
