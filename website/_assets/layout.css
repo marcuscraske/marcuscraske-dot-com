@@ -88,8 +88,9 @@ body > header p a
 
 .wrapper
 {
-    display: flex;
-    width: 100%;
+    position: relative;
+    width: 60em;
+    margin: auto;
 }
 
 
@@ -99,9 +100,10 @@ body > header p a
 
 nav
 {
+    position: absolute;
+    top: 1em;
+    left: -14em;
     width: 13em;
-    margin: 0.5em 0.5em 0.5em 1em;
-    padding: 0.5em;
 }
 
 nav ul
@@ -205,8 +207,6 @@ nav ul:nth-child(4) a.selected
 
 main
 {
-    max-width: 60em;
-    flex: 1;
     overflow-x: hidden;
     padding: 0em 1em;
 }
