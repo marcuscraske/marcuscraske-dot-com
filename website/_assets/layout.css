@@ -22,6 +22,8 @@ body
     font: normal 14px "OpenSans-Regular", sans-serif;
 }
 
+/*
+Got to wait until CSS 4...
 ::selection
 {
     color: #FFF;
@@ -33,6 +35,7 @@ body
     color: #FFF;
     background: #000;
 }
+*/
 
 
 /*
@@ -480,11 +483,6 @@ main article time
     nav ul li
     {
         background: #444;
-    }
-
-    nav ul li:last-child a
-    {
-        border-bottom: auto;
     }
 
     footer ul li
