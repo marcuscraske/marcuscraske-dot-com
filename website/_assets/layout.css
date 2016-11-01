@@ -415,7 +415,8 @@ main .gallery img
 #home article time
 {
     float: left;
-    padding: 0.1em 1em 0.2em 0em;
+    padding: 0.2em 1em 0.2em 0em;
+    font-size: 1.2em;
 }
 
 /*
