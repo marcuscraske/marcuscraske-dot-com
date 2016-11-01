@@ -5,22 +5,25 @@ layout: default
 <article>
 
     <header>
-        <h1>
+
+        <h2>
             {{ page.title }}
-        </h1>
+        </h2>
+
+        {% if page.date != null %}
         <time datetime="{{page.date|date:"%F"}}">
             {{page.date|date:"%b %d, %Y"}}
         </time>
+        {% endif %}
+
     </header>
 
-    <section id="content">
-        {{ content }}
-    </section>
+    {{ content }}
 
     <section id="comments">
-        <h1>
+        <h2>
             Comments
-        </h1>
+        </h2>
 
         {% include disqus-comments.html %}
     </section>

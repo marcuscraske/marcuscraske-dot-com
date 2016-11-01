@@ -39,6 +39,29 @@ Got to wait until CSS 4...
 
 
 /*
+    Skip to main content (accessibility)
+*/
+
+#skip-to-content
+{
+    position: absolute;
+    top: -10em;
+    text-align: center;
+    padding: 0.4em;
+    font-size: 1.5em;
+    background: red;
+    color: #fff;
+}
+
+#skip-to-content:focus,
+#skip-to-content:active,
+#skip-to-content:hover
+{
+    top: 0;
+}
+
+
+/*
     Header
 */
 
@@ -415,9 +438,9 @@ main .gallery img
 #home article time
 {
     float: left;
-    padding: 0.2em 1em 0.2em 0em;
-    font-size: 1.2em;
+    padding: 0.1em 1em 0.2em 0em;
 }
+
 
 /*
     Pagination

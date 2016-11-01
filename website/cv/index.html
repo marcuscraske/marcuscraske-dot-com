@@ -2,19 +2,20 @@
 layout: compress
 ---
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <title>Curriculum Vitae</title>
+    <meta name="description" content="My curriculum vitae, a record of personal achievements and progress.">
     {% css_asset_tag bundle %}
     - /_assets/cv.css
     {% endcss_asset_tag bundle %}
 </head>
 <body>
     <div class="options">
-        <a href="/">Back</a>
+        <a href="/">Home</a>
         <a href="/cv" onclick="window.print();">Print</a>
         <a href="/assets/cv.pdf">Download as PDF</a>
-        <a href="mailto:?subject=Curriculum Vitae - Marcus Craske&amp;body=Available at: https://www.limpygnome.com/cv">E-mail</a>
+        <a href="mailto:limpygnome@gmail.com">E-mail</a>
     </div>
     <div id="wrapper" class="wrapper">
         <h1>
@@ -282,5 +283,12 @@ layout: compress
         </div>
 
     </div>
+
+    <div class="options">
+        <a href="http://get.adobe.com/reader">
+            Download PDF reader
+        </a>
+    </div>
+
 </body>
 </html>
