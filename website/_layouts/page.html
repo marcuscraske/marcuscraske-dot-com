@@ -2,8 +2,12 @@
 layout: default
 ---
 
-<h1>
-    {{ page.title }}
-</h1>
+<section {% if page.sectionid != null %} id="{{ page.sectionid }}" {% endif %}>
 
-{{ content }}
+    <h1>
+        {{ page.title }}
+    </h1>
+
+    {{ content }}
+
+</section>
