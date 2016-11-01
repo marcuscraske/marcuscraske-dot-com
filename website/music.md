@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Music
+title: music
 selected: music
 ---
 
 <p class="center">
     <a class="button" href="/music/songs">
-        Songs
+        songs
     </a>
 </p>
 

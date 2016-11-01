@@ -42,13 +42,19 @@ Got to wait until CSS 4...
     Header
 */
 
-body > header
+.wrapper-header
 {
     background: #333;
     height: 4em;
 }
 
-body > header h1
+.wrapper-header header
+{
+    width: 60em;
+    margin: auto;
+}
+
+.wrapper-header h1
 {
     float: left;
     margin: 0;
@@ -56,28 +62,18 @@ body > header h1
     font-size: 2em;
 }
 
-body > header h1 a
-{
-    color: #FFF;
-    text-decoration: none;
-}
-
-
-/*
-    Sub-header
-*/
-
-body > header p
+.wrapper-header p
 {
     float: right;
     margin: 0;
-    padding: 0.8em 0.5em;
+    padding: 0.6em 0.5em 0 0;
     font-size: 1.5em;
     line-height: 1.5em;
 }
-body > header p a
+
+.wrapper-header a
 {
-    color: #CCC;
+    color: #ccc;
     text-decoration: none;
 }
 
@@ -91,6 +87,7 @@ body > header p a
     position: relative;
     width: 60em;
     margin: auto;
+    clear: both;
 }
 
 
@@ -453,21 +450,27 @@ main article time
 
 @media only screen and (max-device-width: 768px) and (orientation: portrait)
 {
+    .wrapper-header,
     .wrapper
     {
         display: block;
         width: auto;
+        height: 3.2em;
         padding: 0;
     }
 
-    body > header
+    .wrapper-header header
     {
+        width: auto;
         font-size: 0.8em;
     }
 
     nav
     {
         width: auto;
+        position: inherit;
+        top: 0;
+        left: 0;
         margin: 0 0 0.5em 0;
         padding: 0;
     }
@@ -485,6 +488,7 @@ main article time
     {
         background: #444;
     }
+
 
     footer ul li
     {
