@@ -180,8 +180,17 @@
                         "ResourceRecords" : [
                             "178.62.63.16"
                         ]
-                    },
+                    }
 
+                ]
+            }
+        },
+
+        "SecondaryWebsiteDNSName" : {
+            "Type" : "AWS::Route53::RecordSetGroup",
+            "Properties" : {
+                "HostedZoneName" : { "Fn::Join" : [ "", [{ "Ref" : "SecondaryDomainName" }, "."]]},
+                "RecordSets" : [
 
                     {
                         "Name" : { "Ref" : "SecondaryDomainName" },
@@ -202,7 +211,7 @@
                         "TTL" : "900",
                         "ResourceRecords" : [
                             { "Fn::Join" : [".", [
-                                {"Ref" : "SecondaryDomainName"},
+                                "www", {"Ref" : "SecondaryDomainName"},
                                 {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
                             ]]
                             }
@@ -212,6 +221,8 @@
                 ]
             }
         }
+
+
     },
     "Outputs" : {
         "BucketName" : {
