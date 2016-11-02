@@ -7,14 +7,14 @@
             "Description" : "The primary domain for the website.",
             "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
             "ConstraintDescription" : "must be a valid DNS zone name.",
-            "Default" : "limpygnome.co.uk"
+            "Default" : "limpygnome.com"
         },
         "SecondaryDomainName" : {
             "Type" : "String",
             "Description" : "Auxiliary domain used as mirror.",
             "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
             "ConstraintDescription" : "must be a valid DNS zone name.",
-            "Default" : "limpygnome.com"
+            "Default" : "limpygnome.co.uk"
         },
         "AcmCertificateArn" : {
             "Type" : "String",
@@ -56,6 +56,20 @@
             "Type": "AWS::S3::Bucket",
             "Properties": {
                 "BucketName": { "Ref" : "SecondaryDomainName" },
+                "AccessControl": "BucketOwnerFullControl",
+                "WebsiteConfiguration": {
+                    "RedirectAllRequestsTo": {
+                        "HostName": {"Ref": "DomainName"}
+                    }
+                }
+            }
+        },
+        "SecondaryDomainWWWRedirectBucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketName": {
+                    "Fn::Join": [".", ["www", {"Ref":"SecondaryDomainName"}]]
+                },
                 "AccessControl": "BucketOwnerFullControl",
                 "WebsiteConfiguration": {
                     "RedirectAllRequestsTo": {
