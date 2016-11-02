@@ -4,6 +4,30 @@ body
     padding: 0em;
     margin: 0em;
 }
+
+/*
+    Skip to main content (accessibility)
+*/
+
+#skip-to-content
+{
+    position: absolute;
+    top: -10em;
+    text-align: center;
+    padding: 0.4em;
+    font-size: 1.5em;
+    background: red;
+    color: #fff;
+}
+
+#skip-to-content:focus,
+#skip-to-content:active,
+#skip-to-content:hover
+{
+    top: 0;
+}
+
+
 @media all
 {
     body
