@@ -1,4 +1,4 @@
-<!--
+/*
     Amazon S3 Bucket listing.
 
     Copyright (C) 2008 Francesco Pasqualini
@@ -16,7 +16,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
--->
+*/
 
 // fetch list when document loaded
 document.body.onload = getList;
@@ -31,68 +31,68 @@ function getSpace(s,l){
 
 
 location.querystring = (function() {
-	// The return is a collection of key/value pairs
-	var result = {};
+    // The return is a collection of key/value pairs
+    var result = {};
 
-	// Gets the query string with a preceeding '?'
-	var querystring = location.search;
+    // Gets the query string with a preceeding '?'
+    var querystring = location.search;
 
-	// document.location.search is empty if a query string is absent
-	if (!querystring)
-		return result;
+    // document.location.search is empty if a query string is absent
+    if (!querystring)
+        return result;
 
-	// substring(1) to remove the '?'
-	var pairs = querystring.substring(1).split("&");
-	var splitPair;
+    // substring(1) to remove the '?'
+    var pairs = querystring.substring(1).split("&");
+    var splitPair;
 
-	// Load the key/values of the return collection
-	for (var i = 0; i < pairs.length; i++) {
-		splitPair = pairs[i].split("=");
-		result[splitPair[0]] = splitPair[1];
-	}
+    // Load the key/values of the return collection
+    for (var i = 0; i < pairs.length; i++) {
+        splitPair = pairs[i].split("=");
+        result[splitPair[0]] = splitPair[1];
+    }
 
-	return result;
+    return result;
 })();
 
 function createRequestObject(){
-	var request_o; //declare the variable to hold the object.
-	var browser = navigator.appName; //find the browser name
-	if(browser == "Microsoft Internet Explorer"){
-		/* Create the object using MSIE's method */
-		request_o = new ActiveXObject("Microsoft.XMLHTTP");
-	}else{
-		/* Create the object using other browser's method */
-		request_o = new XMLHttpRequest();
-	}
-	return request_o; //return the object
+    var request_o; //declare the variable to hold the object.
+    var browser = navigator.appName; //find the browser name
+    if(browser == "Microsoft Internet Explorer"){
+        /* Create the object using MSIE's method */
+        request_o = new ActiveXObject("Microsoft.XMLHTTP");
+    }else{
+        /* Create the object using other browser's method */
+        request_o = new XMLHttpRequest();
+    }
+    return request_o; //return the object
 }
 
 /* You can get more specific with version information by using
-	parseInt(navigator.appVersion)
-	Which will extract an integer value containing the version
-	of the browser being used.
+    parseInt(navigator.appVersion)
+    Which will extract an integer value containing the version
+    of the browser being used.
 */
 /* The variable http will hold our new XMLHttpRequest object. */
 var http = createRequestObject();
 function getList(){
-	http.open('get', location.protocol+'//'+location.hostname);
-	http.onreadystatechange = handleList;
-	http.send(null);
+    http.open('get', location.protocol+'//'+location.hostname);
+    http.onreadystatechange = handleList;
+    http.send(null);
 }
 
 function handleList(){
-	/* Make sure that the transaction has finished. The XMLHttpRequest object
-		has a property called readyState with several states:
-		0: Uninitialized
-		1: Loading
-		2: Loaded
-		3: Interactive
-		4: Finished */
-	if(http.readyState == 4){ //Finished loading the response
-		/* We have got the response from the server-side script,
-			let's see just what it was. using the responseText property of
-			the XMLHttpRequest object. */
-		var response = http.responseXML;
+    /* Make sure that the transaction has finished. The XMLHttpRequest object
+        has a property called readyState with several states:
+        0: Uninitialized
+        1: Loading
+        2: Loaded
+        3: Interactive
+        4: Finished */
+    if(http.readyState == 4){ //Finished loading the response
+        /* We have got the response from the server-side script,
+            let's see just what it was. using the responseText property of
+            the XMLHttpRequest object. */
+        var response = http.responseXML;
 
 filex = response.getElementsByTagName('Contents');
 
@@ -102,9 +102,9 @@ fileList = new Array();
 for(i=0; i<filex.length; i++){
         fileData =new Array();
         fileList[i] = fileData;
-	size = filex[i].getElementsByTagName('Size')[0].firstChild.data;
-	name = filex[i].getElementsByTagName('Key')[0].firstChild.data;
-	lastmod = filex[i].getElementsByTagName('LastModified')[0].firstChild.data;
+    size = filex[i].getElementsByTagName('Size')[0].firstChild.data;
+    name = filex[i].getElementsByTagName('Key')[0].firstChild.data;
+    lastmod = filex[i].getElementsByTagName('LastModified')[0].firstChild.data;
         link = "<A HREF=\""+name+"\">"+name+"</A>";
         fileData[0] = name;
         fileData[1] = size;
@@ -126,8 +126,8 @@ for(i=0; i<fileList.length; i++){ //length is the same as count($array)
 }
 
 
-		document.getElementById('bucket_list').innerHTML = "<PRE>"+getLink()+"<BR>"+res+"</PRE>"  ;
-	}
+        document.getElementById('bucket_list').innerHTML = "<PRE>"+getLink()+"<BR>"+res+"</PRE>"  ;
+    }
 }
 
 
