@@ -1,7 +1,7 @@
 - name: Create S3 bucket, CloudFront (CDN) and Route53 (DNS)
   connection: local
   cloudformation:
-    stack_name: "website-limpygnome"
+    stack_name: "website-limpygnome-v2"
     state: "present"
     region: "eu-west-1"
     template: "{{ aws_root }}/cloud-formation/eu-west-1/s3-cloudfront-route53.json"
@@ -9,14 +9,15 @@
     aws_secret_key: "{{ aws_secret_key }}"
   args:
     template_parameters:
-      DomainName: "limpygnome.co.uk"
+      DomainName: "limpygnome.com"
+      SecondaryDomainName: "limpygnome.co.uk"
       AcmCertificateArn: "arn:aws:acm:us-east-1:377402336124:certificate/5a0bfc8a-2201-4af4-aab2-1f7345c89ddc"
   register: stack_website
 
 - name: Create alarms
   connection: local
   cloudformation:
-    stack_name: "website-limpygnome-alarms"
+    stack_name: "website-limpygnome-alarms-v2"
     state: "present"
     region: "us-east-1"
     template: "{{ aws_root }}/cloud-formation/us-east-1/alarms-billing-cloudfront.json"

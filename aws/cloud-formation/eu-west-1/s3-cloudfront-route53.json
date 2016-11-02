@@ -7,14 +7,12 @@
             "Description" : "The primary domain for the website.",
             "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
             "ConstraintDescription" : "must be a valid DNS zone name.",
-            "Default" : "limpygnome.com"
         },
         "SecondaryDomainName" : {
             "Type" : "String",
             "Description" : "Auxiliary domain used as mirror.",
             "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
             "ConstraintDescription" : "must be a valid DNS zone name.",
-            "Default" : "limpygnome.co.uk"
         },
         "AcmCertificateArn" : {
             "Type" : "String",
