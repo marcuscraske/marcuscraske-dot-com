@@ -15,6 +15,20 @@
       SecondaryDomainAcmCertificateArn: "{{ SecondaryDomainAcmCertificateArn }}"
   register: stack_website
 
+- name: Create redirect for secondary domain
+  connection: local
+  cloudformation:
+    stack_name: "website-limpygnome-redirect"
+    state: "present"
+    region: "eu-west-1"
+    template: "{{ aws_root }}/cloud-formation/eu-west-1/s3-limpygnome.co.uk-redirect.json"
+    aws_access_key: "{{ aws_access_key }}"
+    aws_secret_key: "{{ aws_secret_key }}"
+  args:
+    template_parameters:
+      DomainName: "{{ SecondaryDomainName }}"
+  register: stack_website
+
 - name: Create alarms
   connection: local
   cloudformation:

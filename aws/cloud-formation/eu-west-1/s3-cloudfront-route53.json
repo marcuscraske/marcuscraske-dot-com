@@ -2,23 +2,13 @@
     "AWSTemplateFormatVersion" : "2010-09-09",
     "Description" : "S3 bucket, with Cloud Front at the front as CDN, using Route 53 pointing to Cloud Front.",
     "Parameters" : {
-        "PrimaryDomainName" : {
+        "DomainName" : {
             "Type" : "String",
             "Description" : "The primary domain for the website.",
             "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
             "ConstraintDescription" : "must be a valid DNS zone name.",
         },
-        "PrimaryDomainAcmCertificateArn" : {
-            "Type" : "String",
-            "Description" : "The ARN / AWS resource URI for the certificate applied to CloudFront for SSL."
-        },
-        "SecondaryDomainName" : {
-            "Type" : "String",
-            "Description" : "Auxiliary domain used as mirror.",
-            "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
-            "ConstraintDescription" : "must be a valid DNS zone name.",
-        },
-        "SecondaryDomainAcmCertificateArn" : {
+        "DomainAcmCertificateArn" : {
             "Type" : "String",
             "Description" : "The ARN / AWS resource URI for the certificate applied to CloudFront for SSL."
         }
@@ -29,10 +19,11 @@
         }
     },
     "Resources" : {
+
         "WebsiteBucket" : {
             "Type" : "AWS::S3::Bucket",
             "Properties" : {
-                "BucketName": { "Ref" : "PrimaryDomainName" },
+                "BucketName": { "Ref" : "DomainName" },
                 "AccessControl" : "PublicRead",
                 "WebsiteConfiguration" : {
                     "IndexDocument" : "index.html",
@@ -44,38 +35,12 @@
             "Type": "AWS::S3::Bucket",
             "Properties": {
                 "BucketName": {
-                    "Fn::Join": [".", ["www", {"Ref":"PrimaryDomainName"}]]
+                    "Fn::Join": [".", ["www", {"Ref":"DomainName"}]]
                 },
                 "AccessControl": "BucketOwnerFullControl",
                 "WebsiteConfiguration": {
                     "RedirectAllRequestsTo": {
-                        "HostName": {"Ref": "PrimaryDomainName"}
-                    }
-                }
-            }
-        },
-        "SecondaryDomainRedirectBucket" : {
-            "Type": "AWS::S3::Bucket",
-            "Properties": {
-                "BucketName": { "Ref" : "SecondaryDomainName" },
-                "AccessControl": "BucketOwnerFullControl",
-                "WebsiteConfiguration": {
-                    "RedirectAllRequestsTo": {
-                        "HostName": {"Ref": "PrimaryDomainName"}
-                    }
-                }
-            }
-        },
-        "SecondaryDomainWWWRedirectBucket": {
-            "Type": "AWS::S3::Bucket",
-            "Properties": {
-                "BucketName": {
-                    "Fn::Join": [".", ["www", {"Ref":"SecondaryDomainName"}]]
-                },
-                "AccessControl": "BucketOwnerFullControl",
-                "WebsiteConfiguration": {
-                    "RedirectAllRequestsTo": {
-                        "HostName": {"Ref": "PrimaryDomainName"}
+                        "HostName": {"Ref": "DomainName"}
                     }
                 }
             }
@@ -84,7 +49,7 @@
             "Type" : "AWS::S3::Bucket",
             "Properties" : {
                 "BucketName": {
-                    "Fn::Join": [".", ["public", {"Ref":"PrimaryDomainName"}]]
+                    "Fn::Join": [".", ["public", {"Ref":"DomainName"}]]
                 },
                 "AccessControl" : "PublicRead",
                 "WebsiteConfiguration" : {
@@ -101,7 +66,7 @@
                     "Origins" : [ {
                         "DomainName": {
                             "Fn::Join" : [".", [
-                                {"Ref" : "PrimaryDomainName"},
+                                {"Ref" : "DomainName"},
                                 {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
                             ]]
                         },
@@ -115,7 +80,7 @@
                     "Enabled" : "true",
                     "DefaultRootObject" : "index.html",
                     "Aliases" : [
-                        { "Ref": "PrimaryDomainName" }
+                        { "Ref": "DomainName" }
                     ],
                     "DefaultCacheBehavior" : {
                         "AllowedMethods" : [ "GET", "HEAD" ],
@@ -128,7 +93,7 @@
                     },
                     "ViewerCertificate": {
                         "SslSupportMethod": "sni-only",
-                        "AcmCertificateArn": { "Ref" : "PrimaryDomainAcmCertificateArn" }
+                        "AcmCertificateArn": { "Ref" : "DomainAcmCertificateArn" }
                     }
                 }
             }
@@ -137,11 +102,11 @@
         "WebsiteDNSName" : {
             "Type" : "AWS::Route53::RecordSetGroup",
             "Properties" : {
-                "HostedZoneName" : { "Fn::Join" : [ "", [{ "Ref" : "PrimaryDomainName" }, "."]]},
+                "HostedZoneName" : { "Fn::Join" : [ "", [{ "Ref" : "DomainName" }, "."]]},
                 "RecordSets" : [
 
                     {
-                        "Name" : { "Ref" : "PrimaryDomainName" },
+                        "Name" : { "Ref" : "DomainName" },
                         "Type" : "A",
                         "AliasTarget" : {
                             "HostedZoneId": "Z2FDTNDATAQYW2",
@@ -150,13 +115,13 @@
                     },
                     {
                         "Name": {
-                            "Fn::Join": ["", ["www.", {"Ref":"PrimaryDomainName"}]]
+                            "Fn::Join": ["", ["www.", {"Ref":"DomainName"}]]
                         },
                         "Type": "CNAME",
                         "TTL" : "900",
                         "ResourceRecords" : [
                             { "Fn::Join" : [".", [
-                                "www", {"Ref" : "PrimaryDomainName"},
+                                "www", {"Ref" : "DomainName"},
                                 {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
                             ]]
                             }
@@ -164,13 +129,13 @@
                     },
                     {
                         "Name": {
-                            "Fn::Join": ["", ["public.", {"Ref":"PrimaryDomainName"}]]
+                            "Fn::Join": ["", ["public.", {"Ref":"DomainName"}]]
                         },
                         "Type": "CNAME",
                         "TTL" : "900",
                         "ResourceRecords" : [
                             { "Fn::Join" : [".", [
-                                "public", {"Ref" : "PrimaryDomainName"},
+                                "public", {"Ref" : "DomainName"},
                                 {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
                             ]]
                             }
@@ -178,49 +143,12 @@
                     },
                     {
                         "Name": {
-                            "Fn::Join": ["", ["cerberus.", {"Ref":"PrimaryDomainName"}]]
+                            "Fn::Join": ["", ["cerberus.", {"Ref":"DomainName"}]]
                         },
                         "Type": "A",
                         "TTL" : "900",
                         "ResourceRecords" : [
                             "178.62.63.16"
-                        ]
-                    }
-
-                ]
-            }
-        },
-
-        "WebsiteSecondaryDNSName" : {
-            "Type" : "AWS::Route53::RecordSetGroup",
-            "Properties" : {
-                "HostedZoneName" : { "Fn::Join" : [ "", [{ "Ref" : "SecondaryDomainName" }, "."]]},
-                "RecordSets" : [
-
-                    {
-                        "Name" : { "Ref" : "SecondaryDomainName" },
-                        "Type" : "A",
-                        "AliasTarget" : {
-                            "HostedZoneId": "Z1BKCTXD74EZPE",
-                            "DNSName": { "Fn::Join" : [".", [
-                                {"Ref" : "SecondaryDomainName"},
-                                {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
-                            ]]
-                            }
-                        }
-                    },
-                    {
-                        "Name": {
-                            "Fn::Join": ["", ["www.", {"Ref":"SecondaryDomainName"}]]
-                        },
-                        "Type": "CNAME",
-                        "TTL" : "900",
-                        "ResourceRecords" : [
-                            { "Fn::Join" : [".", [
-                                "www", {"Ref" : "SecondaryDomainName"},
-                                {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
-                            ]]
-                            }
                         ]
                     }
 

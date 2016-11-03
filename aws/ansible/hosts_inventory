@@ -5,4 +5,3 @@ localhost
 PrimaryDomainName=limpygnome.com
 PrimaryDomainAcmCertificateArn=arn:aws:acm:us-east-1:377402336124:certificate/eefde664-1695-44af-aac8-d4ebd52c2586
 SecondaryDomainName=limpygnome.co.uk
-SecondaryDomainAcmCertificateArn=arn:aws:acm:us-east-1:377402336124:certificate/5a0bfc8a-2201-4af4-aab2-1f7345c89ddc
