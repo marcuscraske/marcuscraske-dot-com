@@ -2,11 +2,15 @@
     "AWSTemplateFormatVersion" : "2010-09-09",
     "Description" : "S3 bucket, with Cloud Front at the front as CDN, using Route 53 pointing to Cloud Front.",
     "Parameters" : {
-        "DomainName" : {
+        "PrimaryDomainName" : {
             "Type" : "String",
             "Description" : "The primary domain for the website.",
             "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
             "ConstraintDescription" : "must be a valid DNS zone name.",
+        },
+        "PrimaryDomainAcmCertificateArn" : {
+            "Type" : "String",
+            "Description" : "The ARN / AWS resource URI for the certificate applied to CloudFront for SSL."
         },
         "SecondaryDomainName" : {
             "Type" : "String",
@@ -14,7 +18,7 @@
             "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
             "ConstraintDescription" : "must be a valid DNS zone name.",
         },
-        "AcmCertificateArn" : {
+        "SecondaryDomainAcmCertificateArn" : {
             "Type" : "String",
             "Description" : "The ARN / AWS resource URI for the certificate applied to CloudFront for SSL."
         }
@@ -28,7 +32,7 @@
         "WebsiteBucket" : {
             "Type" : "AWS::S3::Bucket",
             "Properties" : {
-                "BucketName": { "Ref" : "DomainName" },
+                "BucketName": { "Ref" : "PrimaryDomainName" },
                 "AccessControl" : "PublicRead",
                 "WebsiteConfiguration" : {
                     "IndexDocument" : "index.html",
@@ -40,12 +44,12 @@
             "Type": "AWS::S3::Bucket",
             "Properties": {
                 "BucketName": {
-                    "Fn::Join": [".", ["www", {"Ref":"DomainName"}]]
+                    "Fn::Join": [".", ["www", {"Ref":"PrimaryDomainName"}]]
                 },
                 "AccessControl": "BucketOwnerFullControl",
                 "WebsiteConfiguration": {
                     "RedirectAllRequestsTo": {
-                        "HostName": {"Ref": "DomainName"}
+                        "HostName": {"Ref": "PrimaryDomainName"}
                     }
                 }
             }
@@ -57,7 +61,7 @@
                 "AccessControl": "BucketOwnerFullControl",
                 "WebsiteConfiguration": {
                     "RedirectAllRequestsTo": {
-                        "HostName": {"Ref": "DomainName"}
+                        "HostName": {"Ref": "PrimaryDomainName"}
                     }
                 }
             }
@@ -71,7 +75,7 @@
                 "AccessControl": "BucketOwnerFullControl",
                 "WebsiteConfiguration": {
                     "RedirectAllRequestsTo": {
-                        "HostName": {"Ref": "DomainName"}
+                        "HostName": {"Ref": "PrimaryDomainName"}
                     }
                 }
             }
@@ -80,7 +84,7 @@
             "Type" : "AWS::S3::Bucket",
             "Properties" : {
                 "BucketName": {
-                    "Fn::Join": [".", ["public", {"Ref":"DomainName"}]]
+                    "Fn::Join": [".", ["public", {"Ref":"PrimaryDomainName"}]]
                 },
                 "AccessControl" : "PublicRead",
                 "WebsiteConfiguration" : {
@@ -97,7 +101,7 @@
                     "Origins" : [ {
                         "DomainName": {
                             "Fn::Join" : [".", [
-                                {"Ref" : "DomainName"},
+                                {"Ref" : "PrimaryDomainName"},
                                 {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
                             ]]
                         },
@@ -111,7 +115,7 @@
                     "Enabled" : "true",
                     "DefaultRootObject" : "index.html",
                     "Aliases" : [
-                        { "Ref": "DomainName" }
+                        { "Ref": "PrimaryDomainName" }
                     ],
                     "DefaultCacheBehavior" : {
                         "AllowedMethods" : [ "GET", "HEAD" ],
@@ -124,19 +128,20 @@
                     },
                     "ViewerCertificate": {
                         "SslSupportMethod": "sni-only",
-                        "AcmCertificateArn": { "Ref" : "AcmCertificateArn" }
+                        "AcmCertificateArn": { "Ref" : "PrimaryDomainAcmCertificateArn" }
                     }
                 }
             }
         },
+
         "WebsiteDNSName" : {
             "Type" : "AWS::Route53::RecordSetGroup",
             "Properties" : {
-                "HostedZoneName" : { "Fn::Join" : [ "", [{ "Ref" : "DomainName" }, "."]]},
+                "HostedZoneName" : { "Fn::Join" : [ "", [{ "Ref" : "PrimaryDomainName" }, "."]]},
                 "RecordSets" : [
 
                     {
-                        "Name" : { "Ref" : "DomainName" },
+                        "Name" : { "Ref" : "PrimaryDomainName" },
                         "Type" : "A",
                         "AliasTarget" : {
                             "HostedZoneId": "Z2FDTNDATAQYW2",
@@ -145,13 +150,13 @@
                     },
                     {
                         "Name": {
-                            "Fn::Join": ["", ["www.", {"Ref":"DomainName"}]]
+                            "Fn::Join": ["", ["www.", {"Ref":"PrimaryDomainName"}]]
                         },
                         "Type": "CNAME",
                         "TTL" : "900",
                         "ResourceRecords" : [
                             { "Fn::Join" : [".", [
-                                "www", {"Ref" : "DomainName"},
+                                "www", {"Ref" : "PrimaryDomainName"},
                                 {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
                             ]]
                             }
@@ -159,13 +164,13 @@
                     },
                     {
                         "Name": {
-                            "Fn::Join": ["", ["public.", {"Ref":"DomainName"}]]
+                            "Fn::Join": ["", ["public.", {"Ref":"PrimaryDomainName"}]]
                         },
                         "Type": "CNAME",
                         "TTL" : "900",
                         "ResourceRecords" : [
                             { "Fn::Join" : [".", [
-                                "public", {"Ref" : "DomainName"},
+                                "public", {"Ref" : "PrimaryDomainName"},
                                 {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
                             ]]
                             }
@@ -173,7 +178,7 @@
                     },
                     {
                         "Name": {
-                            "Fn::Join": ["", ["cerberus.", {"Ref":"DomainName"}]]
+                            "Fn::Join": ["", ["cerberus.", {"Ref":"PrimaryDomainName"}]]
                         },
                         "Type": "A",
                         "TTL" : "900",
@@ -186,7 +191,7 @@
             }
         },
 
-        "SecondaryWebsiteDNSName" : {
+        "WebsiteSecondaryDNSName" : {
             "Type" : "AWS::Route53::RecordSetGroup",
             "Properties" : {
                 "HostedZoneName" : { "Fn::Join" : [ "", [{ "Ref" : "SecondaryDomainName" }, "."]]},
@@ -195,13 +200,14 @@
                     {
                         "Name" : { "Ref" : "SecondaryDomainName" },
                         "Type" : "A",
-                        "ResourceRecords" : [
-                            { "Fn::Join" : [".", [
+                        "AliasTarget" : {
+                            "HostedZoneId": "Z1BKCTXD74EZPE",
+                            "DNSName": { "Fn::Join" : [".", [
                                 {"Ref" : "SecondaryDomainName"},
                                 {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
                             ]]
                             }
-                        ]
+                        }
                     },
                     {
                         "Name": {
@@ -221,7 +227,6 @@
                 ]
             }
         }
-
 
     },
     "Outputs" : {
