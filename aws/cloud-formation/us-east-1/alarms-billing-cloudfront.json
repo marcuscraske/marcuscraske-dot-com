@@ -10,7 +10,7 @@
         "RequestsThreshold" : {
             "Type" : "Number",
             "Description" : "The upper-limit threshold of requests for CloudFront (30 mins).",
-            "Default" : "1000"
+            "Default" : "1500"
         },
         "OperatorEmail" : {
             "Type" : "String",
