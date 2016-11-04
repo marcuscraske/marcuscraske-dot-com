@@ -29,7 +29,7 @@
                 "AccessControl": "BucketOwnerFullControl",
                 "WebsiteConfiguration": {
                     "RedirectAllRequestsTo": {
-                        "HostName": {"Ref": "DomainName"}
+                        "HostName": {"Ref": "RedirectUrl"}
                     }
                 }
             }
@@ -58,10 +58,10 @@
                     {
                         "Name" : { "Ref" : "DomainName" },
                         "Type" : "A",
-                        "TTL" : "900",
-                        "ResourceRecords" : [
-                            {"Ref" : "DomainName"}
-                        ]
+                        "AliasTarget" : {
+                            "HostedZoneId" : {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "S3hostedzoneID"]},
+                            "DNSName" : {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
+                        }
                     },
                     {
                         "Name": {

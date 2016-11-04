@@ -26,7 +26,6 @@
     template_parameters:
       DomainName: "{{ SecondaryDomainName }}"
       RedirectUrl: "{{ PrimaryDomainName }}"
-  register: stack_website
 
 - name: Create alarms
   connection: local
