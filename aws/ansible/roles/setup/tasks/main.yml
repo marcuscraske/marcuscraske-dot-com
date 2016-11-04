@@ -9,10 +9,8 @@
     aws_secret_key: "{{ aws_secret_key }}"
   args:
     template_parameters:
-      PrimaryDomainName: "{{ PrimaryDomainName }}"
-      PrimaryDomainAcmCertificateArn: "{{ PrimaryDomainAcmCertificateArn }}"
-      SecondaryDomainName: "{{ SecondaryDomainName }}"
-      SecondaryDomainAcmCertificateArn: "{{ SecondaryDomainAcmCertificateArn }}"
+      DomainName: "{{ PrimaryDomainName }}"
+      AcmCertificateArn: "{{ PrimaryDomainAcmCertificateArn }}"
   register: stack_website
 
 - name: Create redirect for secondary domain
@@ -27,6 +25,7 @@
   args:
     template_parameters:
       DomainName: "{{ SecondaryDomainName }}"
+      RedirectUrl: "{{ PrimaryDomainName }}"
   register: stack_website
 
 - name: Create alarms

@@ -58,14 +58,10 @@
                     {
                         "Name" : { "Ref" : "DomainName" },
                         "Type" : "A",
-                        "AliasTarget" : {
-                            "HostedZoneId": "Z1BKCTXD74EZPE",
-                            "DNSName": { "Fn::Join" : [".", [
-                                {"Ref" : "DomainName"},
-                                {"Fn::FindInMap" : [ "RegionMap", { "Ref" : "AWS::Region" }, "websiteendpoint"]}
-                            ]]
-                            }
-                        }
+                        "TTL" : "900",
+                        "ResourceRecords" : [
+                            {"Ref" : "DomainName"}
+                        ]
                     },
                     {
                         "Name": {
