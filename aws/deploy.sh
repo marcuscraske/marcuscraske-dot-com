@@ -41,7 +41,7 @@ if [[ -z "${1}" ]]; then
         echo ""
         echo "Example usages:"
         echo "./deploy.sh all"
-        echo "./deploy.sh copy-files"
+        echo "./deploy.sh files"
 
         exit 1
     fi
