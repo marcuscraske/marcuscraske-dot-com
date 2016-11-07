@@ -13,6 +13,7 @@
     padding: 0.5em;
     margin-bottom: 2em;
     box-shadow: 0em 0em 1em #BBB;
+    overflow: hidden;
 }
 
 .timeline .item:before

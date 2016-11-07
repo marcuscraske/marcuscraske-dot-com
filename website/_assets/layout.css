@@ -146,8 +146,7 @@ nav ul li a
     border-bottom: solid 1px #666;
 }
 
-@media screen and (min-device-width: 768px),
-       screen and (orientation: landscape)
+@media screen and (min-device-width: 768px)
 {
     nav ul li:last-child a
     {
@@ -413,7 +412,8 @@ main .button:focus
 
 main > img,
 main p img,
-main .gallery img
+main .gallery img,
+main img.thumb
 {
     display: block;
     margin: auto;
@@ -480,7 +480,7 @@ main article time
     Responsiveness
 */
 
-@media only screen and (max-device-width: 768px) and (orientation: portrait)
+@media only screen and (max-device-width: 768px)
 {
     .wrapper-header,
     .wrapper
