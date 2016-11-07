@@ -4,4 +4,5 @@
 
   roles:
     - { role: setup, tags: ["all", "setup"] }
-    - { role: copy-files, tags: ["all", "copy-files"] }
+    - { role: website-files, tags: ["all", "files", "website-files"] }
+    - { role: public-files, tags: ["all", "files", "public-files"] }
