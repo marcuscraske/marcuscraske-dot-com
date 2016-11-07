@@ -32,10 +32,24 @@ Some of the major advantages to using AWS:
 - Easily added automated monitoring of infrastructure through CloudWatch - alarms for cost, sudden spikes in traffic.
 
 ## Ansible
-previously automated, but far less and easier now
+Even though my last site was automated through Ansible, far less has to be done now. Since Ansible its self
+supports CloudFormation out of the box, I can just give it a json file and it'll create or update my infrastructure.
+
+For uploading the site as static resources, to an S3 bucket, I use [s3cmd](https://s3tools.org). This is capable of
+recursively checking for file changes, almost like rsync, and invalidating CloudFront for changed resources.
 
 ## Other Things
-general tidy up, cmpliance wcag/css/html, minification/optimization
+The site has been generally improved, as apart of this migration process:
+- Resources are minified into a single file for each CSS and JavaScript.
+- General resources such as fonts and images optimised. Just loading the home-page is equal to the same size of
+  a single image on other sites. Since costs are utility based, it makes sense to cut-down on bandwidth.
+- Use of font icons to support higher resolutions (vector-based / lossless).
+- Site is accessibility friendly, following WCAG 2.0 AA friendly guidelines. It's important for everyone to be able to
+  use the internet. And with HTML5 tags almost eliminating the need for any ARIA attributes, this does not require too
+  much effort. The only real slight change was compromising on colours to have greater contrast and improving
+  page structure. If you also happen to press tab when first loading the page, you'll also notice a red box. But the
+  majority of non-accessibility users would never see this.
 
 ## Summary
-
+Website is cheaper, less infrastructure maintenance, reduced complexity and attack vectors, site is easier to maintain
+and extend. And got to do a few improvements.
