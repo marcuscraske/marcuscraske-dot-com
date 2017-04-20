@@ -3,6 +3,7 @@ layout: page
 title: "welcome"
 selected: "home"
 sectionid: "home"
+hideHeader: true
 ---
 
 {% for post in site.posts %}
@@ -19,7 +20,7 @@ sectionid: "home"
                 </a>
             </h3>
             <p>
-                {{ post.excerpt | remove: '<p>' | remove: '</p>' }} ...
+                {{ post.excerpt }} ...
             </p>
         </article>
 

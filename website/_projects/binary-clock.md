@@ -8,6 +8,7 @@ priority: 2013
 Version two of my binary clock electronics project, using a Raspberry Pi. Written in C++ with a threaded web server for
 front-end configuration.
 
+# Purpose
 <a href="/assets/projects/binary-clock/v2/binary-clock.png">
     <img src="/assets/projects/binary-clock/v2/binary-clock.png" alt="Final binary clock" title="Final binary clock" />
 </a>
