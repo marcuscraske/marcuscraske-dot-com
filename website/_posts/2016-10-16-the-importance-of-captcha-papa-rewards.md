@@ -26,10 +26,12 @@ And as a result, a bot could mine large pizzas instead:
 
 <p class="center">
     <a href="/assets/posts/importance-of-captcha-papa-rewards/workers.png">
-        <img src="/assets/posts/importance-of-captcha-papa-rewards/workers.png" alt="Automated bots" />
+        <img src="/assets/posts/importance-of-captcha-papa-rewards/workers-thumb.png" alt="Automated bots" />
     </a>
 </p>
 
-Source code:
 
+Source code:
 <https://github.com/limpygnome/papa-rewards-bot>
+
+Nom nom nom...

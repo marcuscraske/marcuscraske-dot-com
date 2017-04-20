@@ -7,7 +7,8 @@ priority: 2016
 
 Quick project to convert a piggy-bank to have glowing eyes, which warns of train cancellations.
 
-This, unofficially, uses an open API on the Abellio Greater Anglia website for train arrivals and departures.
+# Disclaimer
+This, unofficially, uses an API from the Abellio Greater Anglia website for train arrivals and departures.
 
 # Gallery
 

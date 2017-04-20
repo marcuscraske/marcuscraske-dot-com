@@ -26,6 +26,7 @@ assets:
 # Posts
 permalink: pretty
 paginate: 5
+excerpt_separator: "#"
 
 # Collections
 collections:

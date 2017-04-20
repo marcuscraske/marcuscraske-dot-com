@@ -3,12 +3,15 @@ layout: post
 title: Hacking the Nandos Pong Game
 ---
 
+<img src="/assets/posts/hacking-nandos-pong-game/thumb.png" alt="Thumbnail" class="left" />
+
 As apart of a promotion between the 1st of September until the 31st of October 2012, the game allows students to win
 Nando's Gift Cards worth £600 - with three of them up for grabs, hence £1,800 of value. To win the prize, one must
 simply play the game and fill-in their details, with three random people selected by the closing date. I was sent
 this game by a friend after telling him that Adobe Flash games in competitions are often poorly written or/and
 secured, with him asking me to prove my point with this game.
-   
+
+# Purpose   
 The purpose of this article is to show you the methodology I used to enter fake details into the system (as well as
 wipe them), discuss strategies to secure a system against this attack and with the hope that **future developers
 learn something and do not repeat the same mistakes**. Even though this article is published during the

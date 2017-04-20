@@ -37,6 +37,13 @@ Got to wait until CSS 4...
 }
 */
 
+.left
+{
+    float: left;
+    margin: 0 1em 1em 0;
+    max-height: 8em;
+}
+
 
 /*
     Skip to main content (accessibility)

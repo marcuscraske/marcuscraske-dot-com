@@ -5,19 +5,12 @@ title: University
 
 This post contains a summary of my time at university.
 
-<h3>
-    Work
-</h3>
-<p>
-    Read <a href="/articles/university/work">this</a> page for information about my University work, or <a href="/projects/pals">PALS</a> for my third year project.
-</p>
 
-<h3>    
-    Grades
-</h3>
-<p>
-    The grades below have been copied from my academic transcript.
-</p>
+# Project
+Read [PALS](/projects/pals) for my third year project.
+
+# Grades
+The grades below have been copied from my academic transcript.
 
 <table class="center">
     <tr>
