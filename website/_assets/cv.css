@@ -1,6 +1,15 @@
+@font-face
+{
+    font-family: "OpenSans-Regular";
+    src:    local("OpenSans-Regular"),
+            url("/assets/open-sans/font.woff2"),
+            url("/assets/open-sans/font.woff"),
+            url("/assets/open-sans/font.ttf");
+}
+
 body
 {
-    font: normal 14px Arial;
+    font: normal 14px "OpenSans-Regular", sans-serif;
     padding: 0em;
     margin: 0em;
 }
@@ -39,11 +48,13 @@ body
         background: #FFF;
     }
 }
+
 @media screen
 {
     body
     {
-        background: #000;
+        background: #333;
+        margin: 1em;
     }
     .options
     {
@@ -63,10 +74,12 @@ body
     {
         width: 8.27in;
         margin: 1em auto;
-        padding: 0.5em;
-        border-radius: 0.4em;
+        padding: 2em;
+        border-radius: 0.8em;
+        box-shadow: 0em 0em 3em #111;
     }
 }
+
 @media print
 {
     .options
@@ -89,9 +102,8 @@ h1
     padding: 0em;
     text-align: center;
     color: #333;
-    font-size: 1.5em;
-    margin-bottom: 0.25em;
-    border-bottom: solid 0.2em #CCC;
+    font-size: 2em;
+    font-weight: normal;
 }
 a
 {
@@ -100,36 +112,52 @@ a
 
 .contact
 {
-    border-bottom: solid 0.3em #CCC;
-    padding-bottom: 0.5em;
+    display: table;
+    width: 100%;
+    border-top: solid 4px #CCC;
+    border-bottom: solid 4px #CCC;
+    padding: 0.5em 0;
+    margin: 1em 0;
 }
+
+.contact .address,
+.contact .info,
+.contact .internet
+{
+    display: table-cell;
+    vertical-align: middle;
+    width: 33%;
+}
+
+.contact .th,
+.contact .td
+{
+    display: inline-block;
+}
+
 .contact .th
 {
-    float: left;
-    width: 5em;
+    width: 1.5em;
     font-weight: bold;
     color: #369;
     margin: 0em 0.25em;
-    text-align: right;
 }
 .contact .td
 {
-    float: right;
 }
 .contact .address
 {
-    float: left;
+    text-align: right;
 }
 .contact .internet
 {
-    width: 14em;
     margin: 0em auto;
     text-align: center;
 }
 .contact .info
 {
-    float: right;
 }
+
 
 .section .header
 {
@@ -138,7 +166,7 @@ a
 }
 .section
 {
-    margin: 1.0em 0em 0.25em 0em;
+    margin: 1em;
 }
 .wrapper .section.first
 {
@@ -147,6 +175,7 @@ a
 .section .header h2
 {
     margin: 0em;
+    margin-top: -0.1em;
     padding: 0em 0.5em 0em 0em;
     color: #369;
 }

@@ -22,6 +22,14 @@ body
     font: normal 14px "OpenSans-Regular", sans-serif;
 }
 
+@media only screen and (min-device-width: 769px)
+{
+    body
+    {
+        min-width: 90em;
+    }
+}
+
 /*
 Got to wait until CSS 4...
 ::selection
