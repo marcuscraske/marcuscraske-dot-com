@@ -13,6 +13,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - run.sh
+  - README.md
 
 # Assets
 assets:
