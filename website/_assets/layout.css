@@ -282,6 +282,12 @@ footer ul li a
     color: #ccc;
 }
 
+footer ul li a:hover,
+footer ul li a:focus
+{
+    color: #51A8EC;
+}
+
 
 /*
     Footer icons

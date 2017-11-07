@@ -29,9 +29,9 @@ problems.
 ## Step 1 - Create Slack Inbound Webhook
 Go to the following page, whilst logged-in to your Slack workspace:
 
-<https://worldpay-cambridge.slack.com/apps/A0F7XDUAZ-incoming-webhooks?page=1>
+<https://slack.com/apps/A0F7XDUAZ-incoming-webhooks?page=1>
 
-Or alternatively, from Slack:
+Or alternatively, from Slack's website:
 - Configure apps
 - Custom integrations (sidebar)
 - Incoming WebHooks
@@ -128,14 +128,28 @@ exports.handler = (event, context, callback) => {
 </pre>
 
 Towards the end is the JSON object `message`, which is the Slack message written to the Slack inbound webhook. This can
-be heavily customised; some useful docs:
+be heavily customised.
+
+Docs on Slack message format:
 - <https://api.slack.com/docs/message-formatting>
 - <https://api.slack.com/docs/message-attachments>
 - <https://api.slack.com/docs/messages/builder>
 
-Once you're happy with your Lambda, publish it:
+Once you're happy with your Lambda, publish it. At the top, go to <i>Actions</i> and select <i>Publish new version</i>.
 
 ## Step 3 - Create AWS API Gateway Trigger
+On your AWS Lambda function page, go to the <i>Triggers</i> tab and add a trigger.
+
+You will then see a dotted box, click it and select <i>API Gateway</i>.
+
+Then will in the form with an <i>API name</i> (such as <i>splunk-alerts</i>) and set the <i>Security</i> to
+<i>Open</i> (although you may want to change this later):
+
+<a href="/assets/posts/2017-11-06-splunk-alerts-on-slack/add-trigger-aws.png">
+    <img src="/assets/posts/2017-11-06-splunk-alerts-on-slack/add-trigger-aws.png" alt="Add trigger dialogue on AWS" />
+</a>
+
+You should now have API Gateway available as a trigger. Click the arrow icon to show the endpoint's URL.
 
 
 ## Step 4 - Test Trigger
@@ -167,7 +181,7 @@ echo "{  \"result\": {\"test\" : \"value\"\"count\" : \"8\",\"host\": \"xyz\"  }
 </pre>
 
 ## Step 4 - Splunk Alert
-
+TODO...
 
 ## Summary
 You should now have <i>monkeyboy</i> to save the day:
