@@ -8,6 +8,10 @@ layout: default
     <h2>
         {{ page.title }}
     </h2>
+{% else %}
+    <h2 class="sr-only">
+        {{ page.title }}
+    </h2>
 {% endif %}
 
     {{ content }}

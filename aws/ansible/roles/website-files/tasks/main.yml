@@ -1,6 +1,6 @@
 - name: Build static site
   connection: local
-  shell: cd "{{ aws_root }}/../website" && jekyll build
+  shell: cd "{{ aws_root }}/../website" && bundle exec jekyll build
 
 - name: Sync website files with s3 bucket
   connection: local

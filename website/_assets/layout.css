@@ -53,6 +53,11 @@ Got to wait until CSS 4...
     max-height: 8em;
 }
 
+.sr-only
+{
+    display: none;
+}
+
 
 /*
     Skip to main content (accessibility)
