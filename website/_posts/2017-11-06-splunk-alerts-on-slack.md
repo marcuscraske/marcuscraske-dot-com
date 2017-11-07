@@ -16,11 +16,11 @@ messages.
 
 
 ## Reasons
-You can find applications on the Splunk app store to post alerts to Slack. however you may have issues when running
+You can find applications on the Splunk app store to post alerts to Slack. However you may have issues when running
 such apps on a cluster. Or you may have permission issues in an enterprise environment. In my situation, I ran into both
 problems.
 
-## Summary of Flow
+## Flow
 - Splunk invokes an AWS API Gateway endpoint.
 - The AWS API Gateway endpoint invokes an AWS Lambda function.
 - The AWS Lambda function sends a message to a Slack inbound web hook (and delivers the message your own desired Slack channel).
@@ -40,7 +40,8 @@ More information about inbound web hooks can be found here:
 
 <https://api.slack.com/incoming-webhooks>
 
-Once you've setup an inbound webhook, copy the <i>Webhook URL</i> for the next step. Lets pretend it's:
+Once you've setup an inbound webhook, copy the <i>Webhook URL</i> for the next step. Let's pretend it's:
+
 <https://hooks.slack.com/services/XXXXX/YYYY/ZZZZZZZZZZZZZZ>
 
 
@@ -153,7 +154,8 @@ You should now have API Gateway available as a trigger. Click the arrow icon to 
 
 
 ## Step 4 - Test Trigger
-Lets say the trigger URL is:
+Let's say the trigger URL is:
+
 <https://xyz.execute-api.us-east-1.amazonaws.com/prod/splunk-alerts>
 
 Just make a POST request with the following test payload:
@@ -181,7 +183,14 @@ echo "{  \"result\": {\"test\" : \"value\"\"count\" : \"8\",\"host\": \"xyz\"  }
 </pre>
 
 ## Step 4 - Splunk Alert
-TODO...
+Run a desired search as normal, but select <i>Save As</i> and then <i>Alert</i>.
+
+Configure the alert as needed; useful docs:
+
+<https://docs.splunk.com/Documentation/SplunkCloud/6.6.3/Alert/Alertexamples>
+
+After the alert is setup, add a <i>Webhook</i> action and set the URL to the endpoint created earlier.
+
 
 ## Summary
 You should now have <i>monkeyboy</i> to save the day:
