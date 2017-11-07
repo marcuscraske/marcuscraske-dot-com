@@ -3,18 +3,22 @@ layout: post
 title: Splunk Alerts on Slack
 ---
 
-<img src="/assets/posts/2017-11-06-splunk-alerts-on-slack.png" alt="Splunk, AWS and Slack" />
+<a href="/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png">
+    <img src="/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png" alt="Splunk, AWS and Slack" class="left" />
+</a>
 
 For those using log tools such as [Splunk](https://splunk.com), you can setup alerts. These will run queries every so
 often and trigger actions when conditions are met e.g. count of events surpasses a threshold.
 
-
-You can find applications on the Splunk app store to post alerts to Slack. however you may have issues when running
-such apps on a cluster. Or you may have permission issues in an enterprise environment.
-
-This post is about using a webhook action as an alternative to post Splunk alerts to Slack. When an alarm is triggered,
+This post is about using a webhook action to post Splunk alerts to Slack. When an alarm is triggered,
 a JSON request is made by Splunk to a URL you provide. This gives the benefit of your own customisation of
 messages.
+
+
+## Reasons
+You can find applications on the Splunk app store to post alerts to Slack. however you may have issues when running
+such apps on a cluster. Or you may have permission issues in an enterprise environment. In my situation, I ran into both
+problems.
 
 ## Summary of Flow
 - Splunk invokes an AWS API Gateway endpoint.
@@ -168,5 +172,6 @@ echo "{  \"result\": {\"test\" : \"value\"\"count\" : \"8\",\"host\": \"xyz\"  }
 ## Summary
 You should now have <i>monkeyboy</i> to save the day:
 
-<img src="/assets/posts/2017-11-06-splunk-alerts-on-slack2.png" alt="monkeyboy on Slack" />
-
+<a href="/assets/posts/2017-11-06-splunk-alerts-on-slack2.png">
+    <img src="/assets/posts/2017-11-06-splunk-alerts-on-slack/monkey-boy.png" alt="monkeyboy on Slack" />
+</a>

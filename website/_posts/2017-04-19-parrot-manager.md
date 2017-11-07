@@ -3,11 +3,14 @@ layout: post
 title: Parrot Manager
 ---
 
-<img src="/assets/posts/parrot-manager/parrot-icon.png" alt="Parrot manager logo" />
+<a href="/assets/posts/parrot-manager/parrot-icon.png">
+    <img src="/assets/posts/parrot-manager/parrot-icon.png" alt="Parrot manager logo" class="left" />
+</a>
 
-My side project for the last few months. A simple cross-platform modern password manager for multiple platforms.
-Main features include the ability to synchronize password databases over SSH and make automatic backups.
+My side project for the last few months.
 
+A simple cross-platform modern password manager, with the ability to synchronize a password database over SSH
+and make automatic backups.
 
 # Reasons &amp; Purpose
 Many pre-existing password managers do provide the ability to synchronize over SSH very well, or at all, nor offer a
@@ -31,7 +34,7 @@ cryptography.
   communicates with the application through POJOs injected as JavaScript objects at a global scope. These POJOs are
   just services, which are wrapped within Angular services and used within components.
 
-# Download &amp; Contribute
+# Screenshots, Download &amp; Contribute
 Want to give it a try or contribute?
 
 <https://github.com/limpygnome/parrot-manager>

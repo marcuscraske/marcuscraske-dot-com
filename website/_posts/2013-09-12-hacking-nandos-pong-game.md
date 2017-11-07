@@ -3,7 +3,9 @@ layout: post
 title: Hacking the Nandos Pong Game
 ---
 
-<img src="/assets/posts/hacking-nandos-pong-game/thumb.png" alt="Thumbnail" class="left" />
+<a href="/assets/posts/hacking-nandos-pong-game/thumb.png">
+    <img src="/assets/posts/hacking-nandos-pong-game/thumb.png" alt="Thumbnail" class="left" />
+</a>
 
 As apart of a promotion between the 1st of September until the 31st of October 2012, the game allows students to win
 Nando's Gift Cards worth £600 - with three of them up for grabs, hence £1,800 of value. To win the prize, one must

@@ -85,6 +85,8 @@ Got to wait until CSS 4...
 {
     background: #333;
     height: 4em;
+    margin-bottom: 1.5em;
+    border-bottom: solid 4px #666;
 }
 
 .wrapper-header header
@@ -243,8 +245,9 @@ nav ul:nth-child(4) a.selected
 main
 {
     overflow-x: hidden;
-    padding: 0em 1em;
+    padding: 0em 1em 1em;
     background: #fff;
+    border-radius: 12px;
 }
 
 
@@ -254,16 +257,15 @@ main
 
 footer
 {
-    margin: 2em auto 1em;
+    margin: 2em auto;
     width: 80%;
-    border-top: solid 0.5em #EEE;
     clear: both;
     text-align: center;
 }
 
 footer ul
 {
-    margin: 0;
+    margin: 0.5em;
     padding: 0;
     list-style: none;
 }
@@ -277,7 +279,7 @@ footer ul li
 footer ul li,
 footer ul li a
 {
-    color: #666;
+    color: #ccc;
 }
 
 
@@ -438,6 +440,12 @@ main img.thumb
     max-height: 40%;
 }
 
+main .gallery.larger img
+{
+    max-width: 80%;
+    max-height: 80%;
+}
+
 @media only screen and (max-device-width: 768px)
 {
     main > h1,
@@ -452,10 +460,30 @@ main img.thumb
     Home
 */
 
+#home article
+{
+    margin-bottom: 0.5em;
+    border-bottom: dotted 1px #666;
+}
+
 #home article time
 {
-    float: left;
+    float: right;
+    color: #666;
     padding: 0.1em 1em 0.2em 0em;
+    font-weight: normal;
+}
+
+#home article .post-url
+{
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#home article p:last-child
+{
+    clear: both;
 }
 
 
@@ -465,6 +493,7 @@ main img.thumb
 
 .pagination
 {
+    padding: 0.5em;
     text-align: center;
 }
 
@@ -480,6 +509,7 @@ main img.thumb
 .pagination a.next
 {
     color: #10578d;
+    margin: 0 1em;
 }
 
 
@@ -492,6 +522,11 @@ main article time
     font-weight: bold;
 }
 
+main article h2
+{
+    clear: both;
+}
+
 
 /*
     Responsiveness
@@ -499,13 +534,17 @@ main article time
 
 @media only screen and (max-device-width: 768px)
 {
+    .wrapper-header
+    {
+        height: 3.2em;
+    }
     .wrapper-header,
     .wrapper
     {
         display: block;
         width: auto;
-        height: 3.2em;
         padding: 0;
+        margin-bottom: 0;
     }
 
     .wrapper-header header
@@ -520,7 +559,7 @@ main article time
         position: inherit;
         top: 0;
         left: 0;
-        margin: 0 0 0.5em 0;
+        margin: 0;
         padding: 0;
     }
 
@@ -538,6 +577,10 @@ main article time
         background: #444;
     }
 
+    main
+    {
+        border-radius: 0;
+    }
 
     footer ul li
     {
