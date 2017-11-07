@@ -27,7 +27,7 @@ assets:
 
 # Posts
 permalink: pretty
-paginate: 5
+paginate: 8
 paginate_path: "page:num"
 excerpt_separator: "#"
 

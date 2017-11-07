@@ -6,9 +6,13 @@ layout: compress
     <head>
         <meta charset="utf-8">
         <title>
-            {{ page.title }} - limpygnome.com
+        {% if page.hideHeader == null %}
+            {{ page.title }} - limpygnome's blog
+        {% else %}
+            limpygnome's blog
+        {% endif %}
         </title>
-        <meta name="description" content="Personal blog, projects and things by limpygnome. Hack the planet.">
+        <meta name="description" content="Personal blog, projects and things of Marcus Craske. Software engineer. Hack the planet! (͡ ° ͜ʖ ͡ °)">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         {% css_asset_tag bundle %}
