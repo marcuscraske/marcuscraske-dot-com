@@ -5,9 +5,8 @@ thumbnail: /assets/projects/build-tv/thumb.png
 priority: 2015
 ---
 
-A build TV project, which allows a Raspberry Pi 2 to serve as an information radiator for a development environment.
-Display information from Jira, continuous integration systems and display time-based notifications for events such as
-daily standup.
+A build TV project, which allows a Raspberry Pi to serve as an information radiator for a development environment.
+
 
 # Features
 - **Monitor Jenkins** - poll multiple Jenkins views/instances/jobs, useful in a large development environment.
@@ -35,8 +34,7 @@ daily standup.
 - **Stats** - a remote daemon service, running on each build TV, can report back statistics on its
   environment.
 
-# Download, Documentation &amp; Setup
-The code, along with markup documentation and releases, can be found at:
+# Info &amp; Download
 
 <https://github.com/limpygnome/build-tv>
 
@@ -47,6 +45,24 @@ The code, along with markup documentation and releases, can be found at:
         <a href="/assets/projects/build-tv/jira-wallboard.png">
             <img src="/assets/projects/build-tv/jira-wallboard.png" alt="Build TV showing Jira wallboard" title="Build TV showing Jira wallboard" />
             Build TV showing Jira wallboard
+        </a>
+    </li>
+    <li>
+        <a href="/assets/projects/build-tv/build-status-dashboard.jpg">
+            <img src="/assets/projects/build-tv/build-status-dashboard.jpg" alt="Build status dashboard" />
+            Build status dashboard
+        </a>
+    </li>
+    <li>
+        <a href="/assets/projects/build-tv/share-price-dashboard.jpg">
+            <img src="/assets/projects/build-tv/share-price-dashboard.jpg" alt="Share price dashboard" />
+            Share price dashboard
+        </a>
+    </li>
+    <li>
+        <a href="/assets/projects/build-tv/standup-notification.jpg">
+            <img src="/assets/projects/build-tv/standup-notification.jpg" alt="Standup notification" />
+            Standup notification
         </a>
     </li>
 </ul>

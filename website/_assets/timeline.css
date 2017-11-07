@@ -1,7 +1,7 @@
 .timeline
 {
     margin: 1em 2em;
-    border-left: solid 0.5em #999;
+    border-left: solid 0.5em #EEE;
     padding: 0.5em 0em 2em 0em;
 }
 .timeline .item
@@ -10,9 +10,8 @@
     background: #EEE;
     border-radius: 0.5em;
     margin-left: 1.5em;
-    padding: 0.5em;
+    padding: 0.5em 1em;
     margin-bottom: 2em;
-    box-shadow: 0em 0em 1em #BBB;
     overflow: hidden;
 }
 
@@ -40,9 +39,10 @@
 .timeline time
 {
     display: block;
+    margin-left: -1.5em;
     font-size: 1.5em;
-    padding: 0.5em 0.2em;
-    color: #999;
+    padding: 0.5em 0.5em 0.7em;
+    color: #333;
 }
 
 .timeline .item h2

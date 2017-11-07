@@ -380,6 +380,18 @@ footer a[title=E-mail]:focus
     background-image: url('/assets/footer/gm_h.png');
 }
 
+/* Instagram */
+footer a[title=Instagram]
+{
+    background-image: url('/assets/footer/ig.png');
+}
+footer a[title=Instagram]:hover,
+footer a[title=Instagram]:focus
+{
+    background-image: url('/assets/footer/ig_h.png');
+}
+
+
 
 /*
     Generic Elements
@@ -639,7 +651,6 @@ main article h2
 
 .gallery
 {
-    text-align: center;
     list-style: none;
 }
 
@@ -650,6 +661,7 @@ main article h2
     vertical-align: middle;
     box-sizing: border-box;
     padding: 1em;
+    text-align: center;
 }
 
 .gallery li img

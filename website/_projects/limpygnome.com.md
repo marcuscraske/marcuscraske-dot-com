@@ -14,10 +14,11 @@ This website is entirely static, written in HTML and Markdown, using [Jekyll](ht
 - WCAG 2.0 AA friendly
 - Assets combined and Minified (JS and CSS)
 
-# Source Code
+# Source
 <https://github.com/limpygnome/limpygnome-dot-com>
 
 # History
-- Oct 2016: [moved to Jekyll and AWS](/blog/2016/10/26/moving-to-jekyll-and-aws).
+- Nov 2017: design slightly changed
+- Oct 2016: [moved to Jekyll and AWS](/blog/2016/11/02/moving-to-jekyll-and-aws).
 - Oct 2014: using Tomcat 7 / Spring / Apache Tiles.
 

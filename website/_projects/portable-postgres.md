@@ -5,9 +5,8 @@ thumbnail: /assets/projects/portable-postgres/thumb.png
 priority: 2012
 ---
 
-A Windows application allowing for creating and managing a portable Postgres (PostgreSQL) database server, for development purposes.
+A Windows application allowing for creating and managing a portable Postgres (PostgreSQL) database server, for development.
 
-[Github](https://github.com/limpygnome/Portable-Postgres)
 
 # Features
 - Automated download, install and setup of Postgres.
@@ -17,9 +16,15 @@ A Windows application allowing for creating and managing a portable Postgres (Po
 - Detection of runtime issues, such as multiple instances of Postgres running and port binding.
 - Wipe and reinstall within a few clicks, useful for development.
 
+
 # Download
 The latest binary can be found at:
-[http://public.limpygnome.com/software/portable_postgres]
+<http://public.limpygnome.com/software/portable_postgres>
+
+
+# Source
+<https://github.com/limpygnome/Portable-Postgres>
+
 
 # Screenshots
 <ul class="gallery">
