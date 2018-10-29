@@ -31,20 +31,17 @@ body
     }
 }
 
-/*
-Got to wait until CSS 4...
 ::selection
 {
-    color: #FFF;
-    background: #000;
+    background: #f33;
+    color: #fff;
 }
 
 ::-moz-selection
 {
-    color: #FFF;
-    background: #000;
+    background: #f33;
+    color: #fff;
 }
-*/
 
 .left
 {
@@ -141,12 +138,20 @@ Got to wait until CSS 4...
     Navigation
 */
 
-nav
+@media screen and (min-device-width: 768px)
 {
-    position: absolute;
-    top: 1em;
-    left: -14em;
-    width: 13em;
+    nav
+    {
+        position: fixed;
+        top: 6em;
+        width: 13em;
+        margin-left: -14em;
+    }
+
+    nav ul li:last-child a
+    {
+        border-bottom: none;
+    }
 }
 
 nav ul
@@ -167,14 +172,6 @@ nav ul li a
     padding: 0.6em 1em 0.6em 0.8em;
     color: #FFF;
     border-bottom: solid 1px #666;
-}
-
-@media screen and (min-device-width: 768px)
-{
-    nav ul li:last-child a
-    {
-        border-bottom: none;
-    }
 }
 
 nav ul a span
@@ -251,8 +248,8 @@ main
 {
     overflow-x: hidden;
     padding: 0em 1em 1em;
-    background: #fff;
     border-radius: 12px;
+    color: #eee;
 }
 
 
@@ -404,13 +401,13 @@ footer a[title=Instagram]:focus
 
 main a
 {
-    color: #10578d;
+    color: #ccc;
 }
 
 main a:hover,
 main a:focus
 {
-    color: #315923;
+    color: #4286f4;
 }
 
 main p.center,
@@ -461,6 +458,7 @@ main img.thumb
     margin: auto;
     max-width: 40%;
     max-height: 40%;
+    border-radius: 4px;
 }
 
 main .gallery.larger img
@@ -486,13 +484,13 @@ main .gallery.larger img
 #home article
 {
     margin-bottom: 0.5em;
-    border-bottom: dotted 1px #666;
+    border-bottom: dashed 2px #666;
 }
 
 #home article time
 {
     float: right;
-    color: #666;
+    color: #ccc;
     padding: 0.1em 1em 0.2em 0em;
     font-weight: normal;
 }
@@ -507,6 +505,12 @@ main .gallery.larger img
 #home article p:last-child
 {
     clear: both;
+}
+
+#home article h3 a
+{
+    font-size: 1.4em;
+    text-decoration: none;
 }
 
 
@@ -681,3 +685,14 @@ main article h2
         width: 100%;
     }
 }
+
+/*
+    SyntaxHighlighter / code highlighting
+*/
+
+.syntaxhighlighter
+{
+    border: solid 2px #333;
+    padding: 0.5em;
+}
+
