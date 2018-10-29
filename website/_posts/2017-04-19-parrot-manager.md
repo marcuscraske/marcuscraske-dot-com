@@ -3,8 +3,8 @@ layout: post
 title: Parrot Manager
 ---
 
-<a href="/assets/posts/parrot-manager/parrot-icon.png">
-    <img src="/assets/posts/parrot-manager/parrot-icon.png" alt="Parrot manager logo" class="left" />
+<a href="/assets/posts/2017-04-19-parrot-manager/parrot-icon.png">
+    <img src="/assets/posts/2017-04-19-parrot-manager/parrot-icon.png" alt="Parrot manager logo" class="left" />
 </a>
 
 My side project for the last few months.

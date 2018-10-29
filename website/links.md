@@ -1,7 +1,7 @@
 ---
 layout: post
-title: blogs
-selected: blogs
+title: Links
+selected: links
 ---
 
 A list of blogs and sites I can recommend:

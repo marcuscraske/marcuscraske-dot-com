@@ -3,8 +3,8 @@ layout: post
 title: Hacking the Nandos Pong Game
 ---
 
-<a href="/assets/posts/hacking-nandos-pong-game/thumb.png">
-    <img src="/assets/posts/hacking-nandos-pong-game/thumb.png" alt="Thumbnail" class="left" />
+<a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/thumb.png">
+    <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/thumb.png" alt="Thumbnail" class="left" />
 </a>
 
 As apart of a promotion between the 1st of September until the 31st of October 2012, the game allows students to win
@@ -28,8 +28,8 @@ The first step was to begin recording exchanged packet data between the client (
 the server (nandos.co.uk); this was accomplished by using <a href="http://www.wireshark.org/">Wireshark</a>:
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/wireshark.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/wireshark.png" alt="Wireshark" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark.png" alt="Wireshark" />
     </a>
 </p>
 
@@ -37,22 +37,22 @@ Next I began playing the game and kept a watch on Wireshark for activity, howeve
 until the end of the game when I submitted my score:
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/game_submit.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/game_submit.png" alt="Game Submit" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/game_submit.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/game_submit.png" alt="Game Submit" />
     </a>
 </p>
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/wireshark_activity.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/wireshark_activity.png" alt="Wireshark Activity" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_activity.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_activity.png" alt="Wireshark Activity" />
     </a>
 </p>
 
 If we look through the packets, we eventually find fragments of the data we just sent from the game:
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/packet_data.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/packet_data.png" alt="Packet Data" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/packet_data.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/packet_data.png" alt="Packet Data" />
     </a>
 </p>
 
@@ -72,8 +72,8 @@ a character.
 Once we begin checking what the characters mean in the data area, a pattern becomes obvious:
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/wireshark_data.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/wireshark_data.png" alt="Wireshark Data" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data.png" alt="Wireshark Data" />
     </a>
 </p>
 
@@ -105,8 +105,8 @@ each piece of data comes before a string, and apparently 02 indicates a string p
 Lets take a closer look at a piece of data:
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/wireshark_data_closer.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/wireshark_data_closer.png" alt="Wireshark Data Closer" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data_closer.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data_closer.png" alt="Wireshark Data Closer" />
     </a>
 </p>
 
@@ -139,8 +139,8 @@ This area is most likely our score since 00 indicates a number, and from trial a
 by changing the two bytes after 00 to random hex values - which led to a new high-score of 38 million:
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/highscore.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/highscore.png" alt="Highscore" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/highscore.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/highscore.png" alt="Highscore" />
     </a>
 </p>
 

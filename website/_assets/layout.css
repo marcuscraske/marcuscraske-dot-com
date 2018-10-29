@@ -15,7 +15,7 @@ html, body
 {
     margin: 0;
     padding: 0;
-    background: #222;
+    background: #fff;
 }
 
 body
@@ -85,10 +85,10 @@ body
 
 .wrapper-header
 {
-    background: #333;
+    background: #000;
     height: 4em;
     margin-bottom: 1.5em;
-    border-bottom: solid 4px #666;
+    padding: 1em;
 }
 
 .wrapper-header header
@@ -114,10 +114,24 @@ body
     line-height: 1.5em;
 }
 
+.wrapper-header p .terminal
+{
+    animation: blink-animation 1s steps(2, start) infinite;
+    position: relative;
+    top: -0.1em;
+}
+@keyframes blink-animation { to { visibility: hidden; } }
+
 .wrapper-header a
 {
-    color: #ccc;
+    color: #fff;
     text-decoration: none;
+}
+
+.wrapper-header a:hover,
+.wrapper-header a:focus
+{
+    color: #4286f4;
 }
 
 
@@ -133,6 +147,14 @@ body
     clear: both;
 }
 
+@media only screen and (min-device-width: 769px)
+{
+    .wrapper
+    {
+        min-height: 30em;
+    }
+}
+
 
 /*
     Navigation
@@ -143,9 +165,9 @@ body
     nav
     {
         position: fixed;
-        top: 6em;
+        top: 9em;
         width: 13em;
-        margin-left: -14em;
+        margin-left: -15em;
     }
 
     nav ul li:last-child a
@@ -159,8 +181,8 @@ nav ul
     margin: 0em 0em 1em;
     padding: 0;
     list-style: none;
-    border-left: solid 0.4em;
-    background: #333;
+    border: solid 1px;
+    border-left: solid 6px;
     border-radius: 6px;
     overflow: hidden;
 }
@@ -170,8 +192,15 @@ nav ul li a
     display: block;
     text-decoration: none;
     padding: 0.6em 1em 0.6em 0.8em;
-    color: #FFF;
-    border-bottom: solid 1px #666;
+    color: #000;
+    border-bottom: dotted 1px #666;
+}
+
+nav ul li a:hover,
+nav ul li a:focus,
+nav ul li a.selected
+{
+    color: #fff;
 }
 
 nav ul a span
@@ -249,7 +278,7 @@ main
     overflow-x: hidden;
     padding: 0em 1em 1em;
     border-radius: 12px;
-    color: #eee;
+    color: #000;
 }
 
 
@@ -281,13 +310,13 @@ footer ul li
 footer ul li,
 footer ul li a
 {
-    color: #ccc;
+    color: #333;
 }
 
 footer ul li a:hover,
 footer ul li a:focus
 {
-    color: #51A8EC;
+    color: #4286f4;
 }
 
 
@@ -401,7 +430,12 @@ footer a[title=Instagram]:focus
 
 main a
 {
-    color: #ccc;
+    color: #666;
+}
+
+main p
+{
+    text-align: justify;
 }
 
 main a:hover,
@@ -490,7 +524,7 @@ main .gallery.larger img
 #home article time
 {
     float: right;
-    color: #ccc;
+    color: #999;
     padding: 0.1em 1em 0.2em 0em;
     font-weight: normal;
 }
@@ -509,7 +543,7 @@ main .gallery.larger img
 
 #home article h3 a
 {
-    font-size: 1.4em;
+    font-size: 1.3em;
     text-decoration: none;
 }
 
@@ -597,11 +631,13 @@ main article h2
         border-radius: 0;
         box-sizing: border-box;
         overflow: visible;
+        border-top: none;
+        border-bottom: none;
+        border-right: none;
     }
 
     nav ul li
     {
-        background: #444;
     }
 
     main
@@ -630,7 +666,6 @@ main article h2
 {
     display: inline-block;
     vertical-align: top;
-    width: 49%;
     margin: 0;
     padding: 0em 0em 1em 0em;
 }

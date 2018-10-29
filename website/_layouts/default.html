@@ -56,7 +56,7 @@ layout: compress
                 </h1>
                 <p>
                     <a href="https://www.youtube.com/watch?v=Cipc8EowshY">
-                        hack the planet.
+                        hack the planet<span class="terminal">|</span>
                     </a>
                 </p>
             </header>
@@ -82,6 +82,12 @@ layout: compress
                 </ul>
                 <ul>
                     <li>
+                        <a href="/" {% if page.selected == 'home' %} class="selected" {% endif %}>
+                        <span class="icon-lab"></span>
+                            Blog
+                        </a>
+                    </li>
+                    <li>
                         <a href="/projects" {% if page.selected == 'projects' %} class="selected" {% endif %}>
                             <span class="icon-lab"></span>
                             Projects
@@ -100,9 +106,9 @@ layout: compress
                         </a>
                     </li>
                     <li>
-                        <a href="/blogs" {% if page.selected == 'blogs' %} class="selected" {% endif %}>
+                        <a href="/links" {% if page.selected == 'links' %} class="selected" {% endif %}>
                             <span class="icon-books"></span>
-                            Blogs
+                            Links
                         </a>
                     </li>
                     <li>

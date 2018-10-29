@@ -10,7 +10,11 @@ selected: projects
     {% for project in sortedProjects %}
     <li>
         <h2>
+            {% if project.pageUrl != null %}
+            <a href="{{ project.pageUrl }}">
+            {% else %}
             <a href="{{ project.url }}">
+            {% endif %}
                 <img src="{{ project.thumbnail }}" alt="{{ project.title }} project thumbnail" />
                 {{ project.title }}
             </a>
