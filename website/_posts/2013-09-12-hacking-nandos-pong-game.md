@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Hacking the Nandos Pong Game
+selected: blog
 ---
 
 <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/thumb.png">
@@ -13,7 +14,7 @@ simply play the game and fill-in their details, with three random people selecte
 this game by a friend after telling him that Adobe Flash games in competitions are often poorly written or/and
 secured, with him asking me to prove my point with this game.
 
-# Purpose   
+## Purpose
 The purpose of this article is to show you the methodology I used to enter fake details into the system (as well as
 wipe them), discuss strategies to secure a system against this attack and with the hope that **future developers
 learn something and do not repeat the same mistakes**. Even though this article is published during the
@@ -23,7 +24,7 @@ legality of my actions have been ethical, please contact <a href="/contact">me</
 The score-board is also most likely being watched now, after my previous high-score of 38 million was removed
 recently - so it would be really stupid to misuse the knowledge from this article.
 
-# Step 1 - Reading  &amp; Understanding the Data Exchanged
+## Step 1 - Reading  &amp; Understanding the Data Exchanged
 The first step was to begin recording exchanged packet data between the client (my browser running this game) and
 the server (nandos.co.uk); this was accomplished by using <a href="http://www.wireshark.org/">Wireshark</a>:
 
@@ -218,7 +219,7 @@ Then we'll want to read the response from the server, to check our payload has b
 Now you should be able to run your program, deliver your payload and get a response from the target; I recommend
 you run Wireshark to check your data is being sent correctly.
 
-# Step 3 - Complete Emulation
+## Step 3 - Complete Emulation
 In-order to change data, you'll need to split-up the hex arrays into more smaller arrays; if you remember from
 step 1, each piece of data had three bytes before it:
 
@@ -546,7 +547,7 @@ to do that and all of the above:
     }
 </pre>
 
-# Implications &amp; Resolutions
+## Implications &amp; Resolutions
 Such an attack could be used in a DDOS attack to put heavy strain on both the database and web server; plus if the
 table has an auto-incrementing primary key, the database could be spammed until the primary key's index is too
 large to generate any new records - again rendering the service unavailable. Someone could also use a domain, make

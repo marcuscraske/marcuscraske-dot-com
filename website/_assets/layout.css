@@ -200,7 +200,6 @@ nav ul li a:hover,
 nav ul li a:focus,
 nav ul li a.selected
 {
-    color: #fff;
 }
 
 nav ul a span
@@ -217,7 +216,7 @@ nav ul a:hover span,
 nav ul a:focus span,
 nav ul a.selected span
 {
-    color: #fff;
+    color: #000;
 }
 
 
@@ -233,7 +232,8 @@ nav ul:nth-child(1) a:hover,
 nav ul:nth-child(1) a:focus,
 nav ul:nth-child(1) a.selected
 {
-    background: #2f98e8;
+    background: #c4f2f9;
+    color: #000;
 }
 
 nav ul:nth-child(2)
@@ -244,7 +244,7 @@ nav ul:nth-child(2) a:hover,
 nav ul:nth-child(2) a:focus,
 nav ul:nth-child(2) a.selected
 {
-    background: #c77e00;
+    background: #ffe0a9;
 }
 
 nav ul:nth-child(3)
@@ -255,7 +255,7 @@ nav ul:nth-child(3) a:hover,
 nav ul:nth-child(3) a:focus,
 nav ul:nth-child(3) a.selected
 {
-    background: #02a866;
+    background: #c0ffe6;
 }
 
 nav ul:nth-child(4)
@@ -266,7 +266,7 @@ nav ul:nth-child(4) a:hover,
 nav ul:nth-child(4) a:focus,
 nav ul:nth-child(4) a.selected
 {
-    background: #f33;
+    background: #ffd3d3;
 }
 
 /*
@@ -316,7 +316,7 @@ footer ul li a
 footer ul li a:hover,
 footer ul li a:focus
 {
-    color: #4286f4;
+    color: #186BF2;
 }
 
 
@@ -441,7 +441,7 @@ main p
 main a:hover,
 main a:focus
 {
-    color: #4286f4;
+    color: #186BF2;
 }
 
 main p.center,

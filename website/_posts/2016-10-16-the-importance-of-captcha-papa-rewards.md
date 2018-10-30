@@ -1,6 +1,7 @@
 ---
 layout: post
 title: The Importance of Captcha - Papa Rewards
+selected: blog
 ---
 
 <a href="/assets/posts/2016-10-16-importance-of-captcha-papa-rewards/thumb.png">

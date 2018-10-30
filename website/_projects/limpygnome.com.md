@@ -3,6 +3,7 @@ layout: post
 title: limpygnome.com
 thumbnail: /assets/projects/limpygnome.com/thumb.png
 priority: 2016
+selected: projects
 ---
 
 This website is entirely static, written in HTML and Markdown, using [Jekyll](https://jekyllrb.com/).

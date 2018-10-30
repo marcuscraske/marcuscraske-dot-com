@@ -3,6 +3,7 @@ layout: post
 title: Portable Postgres
 thumbnail: /assets/projects/portable-postgres/thumb.png
 priority: 2012
+selected: projects
 ---
 
 A Windows application allowing for creating and managing a portable Postgres (PostgreSQL) database server, for development.

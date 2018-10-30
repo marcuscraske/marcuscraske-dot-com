@@ -3,6 +3,7 @@ layout: post
 title: Build TV
 thumbnail: /assets/projects/build-tv/thumb.png
 priority: 2015
+selected: projects
 ---
 
 A build TV project, which allows a Raspberry Pi to serve as an information radiator for a development environment.

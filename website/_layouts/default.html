@@ -66,9 +66,9 @@ layout: compress
             <nav>
                 <ul>
                     <li>
-                        <a href="/">
-                            <span class="icon-home"></span>
-                            Blog
+                        <a href="/" {% if page.selected == 'blog' %} class="selected" {% endif %}>
+                        <span class="icon-home"></span>
+                        Blog
                         </a>
                     </li>
                 </ul>
@@ -81,12 +81,6 @@ layout: compress
                     </li>
                 </ul>
                 <ul>
-                    <li>
-                        <a href="/" {% if page.selected == 'home' %} class="selected" {% endif %}>
-                        <span class="icon-lab"></span>
-                            Blog
-                        </a>
-                    </li>
                     <li>
                         <a href="/projects" {% if page.selected == 'projects' %} class="selected" {% endif %}>
                             <span class="icon-lab"></span>

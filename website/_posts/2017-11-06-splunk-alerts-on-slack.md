@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Splunk Alerts on Slack
+selected: blog
 ---
 
 <a href="/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png">
@@ -10,7 +11,7 @@ title: Splunk Alerts on Slack
 For those using log tools such as [Splunk](https://splunk.com), you can setup alerts. These will run queries every so
 often and trigger actions when conditions are met e.g. count of events surpasses a threshold.
 
-This post is about using a webhook action to post Splunk alerts to Slack. When an alarm is triggered,
+This post is about pushing those alerts from Splunk to Slack. When an alarm is triggered,
 a JSON request is made by Splunk to a URL you provide. This gives the benefit of your own customisation of
 messages.
 
@@ -21,9 +22,9 @@ such apps on a cluster. Or you may have permission issues in an enterprise envir
 problems.
 
 ## Flow
-- Splunk invokes an AWS API Gateway endpoint.
-- The AWS API Gateway endpoint invokes an AWS Lambda function.
-- The AWS Lambda function sends a message to a Slack inbound web hook (and delivers the message your own desired Slack channel).
+1. Splunk invokes an AWS API Gateway endpoint.
+2. The AWS API Gateway endpoint invokes an AWS Lambda function.
+3. The AWS Lambda function sends a message to a Slack inbound web hook (and delivers the message your own desired Slack channel).
 
 
 ## Step 1 - Create Slack Inbound Webhook
@@ -182,8 +183,8 @@ echo "{  \"result\": {\"test\" : \"value\"\"count\" : \"8\",\"host\": \"xyz\"  }
 | curl -d @- "https://xyz.execute-api.us-east-1.amazonaws.com/prod/splunk-alerts"
 </pre>
 
-## Step 4 - Splunk Alert
-Run a desired search as normal, but select <i>Save As</i> and then <i>Alert</i>.
+## Step 5 - Splunk Alert
+Run a query on the Splunk search application. Once it has finished loading, select <i>Save As</i> and then <i>Alert</i>.
 
 Configure the alert as needed; useful docs:
 

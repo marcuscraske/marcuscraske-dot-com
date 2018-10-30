@@ -5,13 +5,13 @@ layout: default
 <section {% if page.sectionid != null %} id="{{ page.sectionid }}" {% endif %}>
 
 {% if page.hideHeader == null %}
-    <h2>
+    <h1>
         {{ page.title }}
-    </h2>
+    </h1>
 {% else %}
-    <h2 class="sr-only">
+    <h1 class="sr-only">
         {{ page.title }}
-    </h2>
+    </h1>
 {% endif %}
 
     {{ content }}
