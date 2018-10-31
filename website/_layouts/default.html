@@ -60,27 +60,20 @@ layout: compress
                     </a>
                 </p>
             </header>
-        </div>
-
-        <div class="wrapper">
             <nav>
                 <ul>
                     <li>
                         <a href="/" {% if page.selected == 'blog' %} class="selected" {% endif %}>
-                        <span class="icon-home"></span>
-                        Blog
+                            <span class="icon-home"></span>
+                            Blog
                         </a>
                     </li>
-                </ul>
-                <ul>
                     <li>
                         <a href="/cv">
                             <span class="icon-file-text2"></span>
                             Curriculum Vitae
                         </a>
                     </li>
-                </ul>
-                <ul>
                     <li>
                         <a href="/projects" {% if page.selected == 'projects' %} class="selected" {% endif %}>
                             <span class="icon-lab"></span>
@@ -111,8 +104,6 @@ layout: compress
                             Contact
                         </a>
                     </li>
-                </ul>
-                <ul>
                     <li>
                         <a href="http://public.limpygnome.com">
                             <span class="icon-folder-open"></span>
@@ -121,7 +112,9 @@ layout: compress
                     </li>
                 </ul>
             </nav>
+        </div>
 
+        <div class="wrapper">
             <main id="main">
                 {{ content }}
             </main>

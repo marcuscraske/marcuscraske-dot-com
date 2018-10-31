@@ -23,11 +23,11 @@ body
     font: normal 14px "OpenSans-Regular", sans-serif;
 }
 
-@media only screen and (min-device-width: 769px)
+@media screen and (min-width: 769px)
 {
     body
     {
-        min-width: 90em;
+        min-width: 62em;
     }
 }
 
@@ -86,12 +86,11 @@ body
 .wrapper-header
 {
     background: #000;
-    height: 4em;
-    margin-bottom: 1.5em;
     padding: 1em;
 }
 
-.wrapper-header header
+.wrapper-header header,
+.wrapper-header nav
 {
     width: 60em;
     margin: auto;
@@ -129,7 +128,8 @@ body
 }
 
 .wrapper-header a:hover,
-.wrapper-header a:focus
+.wrapper-header a:focus,
+.wrapper-header a.selected
 {
     color: #4286f4;
 }
@@ -147,53 +147,66 @@ body
     clear: both;
 }
 
-@media only screen and (min-device-width: 769px)
-{
-    .wrapper
-    {
-        min-height: 30em;
-    }
-}
-
 
 /*
     Navigation
 */
 
-@media screen and (min-device-width: 768px)
+@media screen and (min-width: 769px)
+{
+    nav ul
+    {
+        display: table;
+        width: 100%;
+    }
+
+    nav ul li
+    {
+        display: table-cell;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px)
 {
     nav
     {
-        position: fixed;
-        top: 9em;
-        width: 13em;
-        margin-left: -15em;
+        display: block;
     }
 
-    nav ul li:last-child a
+    nav ul li
     {
-        border-bottom: none;
+        display: block;
+    }
+
+    .wrapper-header,
+    .wrapper
+    {
+        display: block;
+        width: auto;
+    }
+
+    .wrapper-header header
+    {
+        width: auto;
+        font-size: 0.8em;
     }
 }
 
 nav ul
 {
-    margin: 0em 0em 1em;
+    clear: both;
+    margin: 0;
     padding: 0;
     list-style: none;
-    border: solid 1px;
-    border-left: solid 6px;
-    border-radius: 6px;
     overflow: hidden;
 }
 
 nav ul li a
 {
-    display: block;
+    display: inline-block;
     text-decoration: none;
     padding: 0.6em 1em 0.6em 0.8em;
-    color: #000;
-    border-bottom: dotted 1px #666;
 }
 
 nav ul li a:hover,
@@ -204,70 +217,10 @@ nav ul li a.selected
 
 nav ul a span
 {
-    margin-right: 0.5em;
-}
-
-nav ul a span
-{
     color: #999;
 }
 
-nav ul a:hover span,
-nav ul a:focus span,
-nav ul a.selected span
-{
-    color: #000;
-}
 
-
-/*
-    Navigation section colouring
-*/
-
-nav ul:nth-child(1)
-{
-    border-color: #2e97e8;
-}
-nav ul:nth-child(1) a:hover,
-nav ul:nth-child(1) a:focus,
-nav ul:nth-child(1) a.selected
-{
-    background: #c4f2f9;
-    color: #000;
-}
-
-nav ul:nth-child(2)
-{
-    border-color: #c77e00;
-}
-nav ul:nth-child(2) a:hover,
-nav ul:nth-child(2) a:focus,
-nav ul:nth-child(2) a.selected
-{
-    background: #ffe0a9;
-}
-
-nav ul:nth-child(3)
-{
-    border-color: #02a866;
-}
-nav ul:nth-child(3) a:hover,
-nav ul:nth-child(3) a:focus,
-nav ul:nth-child(3) a.selected
-{
-    background: #c0ffe6;
-}
-
-nav ul:nth-child(4)
-{
-    border-color: #f33;
-}
-nav ul:nth-child(4) a:hover,
-nav ul:nth-child(4) a:focus,
-nav ul:nth-child(4) a.selected
-{
-    background: #ffd3d3;
-}
 
 /*
     Content region
@@ -501,7 +454,7 @@ main .gallery.larger img
     max-height: 80%;
 }
 
-@media only screen and (max-device-width: 768px)
+@media only screen and (max-width: 768px)
 {
     main > h1,
     main > article > header > h1
@@ -593,53 +546,8 @@ main article h2
     Responsiveness
 */
 
-@media only screen and (max-device-width: 768px)
+@media only screen and (max-width: 768px)
 {
-    .wrapper-header
-    {
-        height: 3.2em;
-    }
-    .wrapper-header,
-    .wrapper
-    {
-        display: block;
-        width: auto;
-        padding: 0;
-        margin-bottom: 0;
-    }
-
-    .wrapper-header header
-    {
-        width: auto;
-        font-size: 0.8em;
-    }
-
-    nav
-    {
-        width: auto;
-        position: inherit;
-        top: 0;
-        left: 0;
-        margin: 0;
-        padding: 0;
-    }
-
-    nav ul
-    {
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
-        box-sizing: border-box;
-        overflow: visible;
-        border-top: none;
-        border-bottom: none;
-        border-right: none;
-    }
-
-    nav ul li
-    {
-    }
-
     main
     {
         border-radius: 0;
@@ -680,7 +588,7 @@ main article h2
     margin: 0em 1em 0em 0em;
 }
 
-@media only screen and (max-device-width: 768px)
+@media only screen and (max-width: 768px)
 {
     #projects li
     {
@@ -713,7 +621,7 @@ main article h2
     padding: 0.5em;
 }
 
-@media only screen and (max-device-width: 768px)
+@media only screen and (max-width: 768px)
 {
     .gallery li
     {
