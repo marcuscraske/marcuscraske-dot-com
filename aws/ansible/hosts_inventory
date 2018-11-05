@@ -2,6 +2,7 @@
 localhost
 
 [aws:vars]
+ObjectAlias=limpygnome
 PrimaryDomainName=limpygnome.com
 PrimaryDomainAcmCertificateArn=arn:aws:acm:us-east-1:377402336124:certificate/eefde664-1695-44af-aac8-d4ebd52c2586
 SecondaryDomainName=limpygnome.co.uk

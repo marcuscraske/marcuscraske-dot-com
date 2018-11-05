@@ -20,7 +20,7 @@ A Windows application allowing for creating and managing a portable Postgres (Po
 
 # Download
 The latest binary can be found at:
-<http://public.limpygnome.com/software/portable_postgres>
+<https://public.limpygnome.com/software/portable_postgres>
 
 
 # Source

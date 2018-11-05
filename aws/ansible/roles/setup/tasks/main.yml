@@ -9,6 +9,7 @@
     aws_secret_key: "{{ aws_secret_key }}"
   args:
     template_parameters:
+      ObjectAlias: "{{ ObjectAlias }}"
       DomainName: "{{ PrimaryDomainName }}"
       AcmCertificateArn: "{{ PrimaryDomainAcmCertificateArn }}"
   register: stack_website
@@ -39,6 +40,7 @@
   args:
     template_parameters:
       DistributionId: "{{ stack_website.stack_outputs.DistributionId }}"
+      FilesDistributionId: "{{ stack_website.stack_outputs.FilesDistributionId }}"
   register: stack_alarms
 
 - name: Outputs from website

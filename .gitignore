@@ -12,3 +12,6 @@ website/.sass-cache
 website/.jekyll-metadata
 website/.*cache
 website/_site
+
+# OS files
+.DS_Store
