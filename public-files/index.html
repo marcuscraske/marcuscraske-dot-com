@@ -109,13 +109,13 @@
             var MB = 1000000;
             var GB = 1000000000;
 
-        // replace last /index.html to get bucket root
-          //var bucketUrl = document.location.href.replace(/\/[^\/]+$/, '');
-        var bucketUrl = "//public.limpygnome.com.s3.amazonaws.com";
-        var maskUrl = "//public.limpygnome.com"
-            var compiledTemplate;
+          // replace last /index.html to get bucket root
+          // var bucketUrl = document.location.href.replace(/\/[^\/]+$/, '');
+          var bucketUrl = "//public-limpygnome.s3.amazonaws.com";
+          var maskUrl = "//public.limpygnome.com"
+          var compiledTemplate;
 
-        // return e.g. 1.2KB, 1.3MB, 2GB, etc.
+          // return e.g. 1.2KB, 1.3MB, 2GB, etc.
           function toFriendlySizeName(size){
             if (size === 0) {
               return '';

@@ -5,7 +5,7 @@
 - name: Sync website files with s3 bucket
   connection: local
   shell: >
-       s3cmd sync "{{ aws_root }}/../website/_site/" "s3://{{ PrimaryDomainName }}/"
+       s3cmd sync "{{ aws_root }}/../website/_site/" "s3://{{ ObjectAlias }}/"
        --acl-public --no-mime-magic --guess-mime-type --cf-invalidate
        --bucket-location=eu-west-1
        --access_key={{ aws_access_key }} --secret_key={{ aws_secret_key }}

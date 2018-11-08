@@ -6,9 +6,9 @@ layout: default
 
     <header>
 
-        <h2>
-            {{ page.title }}
-        </h2>
+        <h1>
+            <span class="icon icon-arrow"></span> {{ page.title }}
+        </h1>
 
         {% if page.date != null %}
         <time datetime="{{page.date|date:"%F"}}">

@@ -1,8 +1,13 @@
 ---
 layout: page
-title: projects
+title: Projects
 selected: projects
 ---
+
+<p>
+    Collection of larger projects from my free time, refer to my
+    <a href="https://github.com/limpygnome?tab=repositories">Github</a> for the complete list.
+</p>
 
 <ul id="projects">
 
@@ -10,7 +15,11 @@ selected: projects
     {% for project in sortedProjects %}
     <li>
         <h2>
+            {% if project.pageUrl != null %}
+            <a href="{{ project.pageUrl }}">
+            {% else %}
             <a href="{{ project.url }}">
+            {% endif %}
                 <img src="{{ project.thumbnail }}" alt="{{ project.title }} project thumbnail" />
                 {{ project.title }}
             </a>

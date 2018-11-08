@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Hacking the Nandos Pong Game
+selected: blog
 ---
 
-<a href="/assets/posts/hacking-nandos-pong-game/thumb.png">
-    <img src="/assets/posts/hacking-nandos-pong-game/thumb.png" alt="Thumbnail" class="left" />
+<a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/thumb.png">
+    <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/thumb.png" alt="Thumbnail" class="left" />
 </a>
 
 As apart of a promotion between the 1st of September until the 31st of October 2012, the game allows students to win
@@ -13,7 +14,7 @@ simply play the game and fill-in their details, with three random people selecte
 this game by a friend after telling him that Adobe Flash games in competitions are often poorly written or/and
 secured, with him asking me to prove my point with this game.
 
-# Purpose   
+## Purpose
 The purpose of this article is to show you the methodology I used to enter fake details into the system (as well as
 wipe them), discuss strategies to secure a system against this attack and with the hope that **future developers
 learn something and do not repeat the same mistakes**. Even though this article is published during the
@@ -23,13 +24,13 @@ legality of my actions have been ethical, please contact <a href="/contact">me</
 The score-board is also most likely being watched now, after my previous high-score of 38 million was removed
 recently - so it would be really stupid to misuse the knowledge from this article.
 
-# Step 1 - Reading  &amp; Understanding the Data Exchanged
+## Step 1 - Reading  &amp; Understanding the Data Exchanged
 The first step was to begin recording exchanged packet data between the client (my browser running this game) and
 the server (nandos.co.uk); this was accomplished by using <a href="http://www.wireshark.org/">Wireshark</a>:
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/wireshark.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/wireshark.png" alt="Wireshark" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark.png" alt="Wireshark" />
     </a>
 </p>
 
@@ -37,22 +38,22 @@ Next I began playing the game and kept a watch on Wireshark for activity, howeve
 until the end of the game when I submitted my score:
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/game_submit.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/game_submit.png" alt="Game Submit" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/game_submit.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/game_submit.png" alt="Game Submit" />
     </a>
 </p>
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/wireshark_activity.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/wireshark_activity.png" alt="Wireshark Activity" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_activity.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_activity.png" alt="Wireshark Activity" />
     </a>
 </p>
 
 If we look through the packets, we eventually find fragments of the data we just sent from the game:
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/packet_data.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/packet_data.png" alt="Packet Data" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/packet_data.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/packet_data.png" alt="Packet Data" />
     </a>
 </p>
 
@@ -72,8 +73,8 @@ a character.
 Once we begin checking what the characters mean in the data area, a pattern becomes obvious:
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/wireshark_data.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/wireshark_data.png" alt="Wireshark Data" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data.png" alt="Wireshark Data" />
     </a>
 </p>
 
@@ -105,8 +106,8 @@ each piece of data comes before a string, and apparently 02 indicates a string p
 Lets take a closer look at a piece of data:
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/wireshark_data_closer.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/wireshark_data_closer.png" alt="Wireshark Data Closer" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data_closer.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data_closer.png" alt="Wireshark Data Closer" />
     </a>
 </p>
 
@@ -139,8 +140,8 @@ This area is most likely our score since 00 indicates a number, and from trial a
 by changing the two bytes after 00 to random hex values - which led to a new high-score of 38 million:
 
 <p class="center">
-    <a href="/assets/posts/hacking-nandos-pong-game/highscore.png">
-        <img src="/assets/posts/hacking-nandos-pong-game/highscore.png" alt="Highscore" />
+    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/highscore.png">
+        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/highscore.png" alt="Highscore" />
     </a>
 </p>
 
@@ -218,7 +219,7 @@ Then we'll want to read the response from the server, to check our payload has b
 Now you should be able to run your program, deliver your payload and get a response from the target; I recommend
 you run Wireshark to check your data is being sent correctly.
 
-# Step 3 - Complete Emulation
+## Step 3 - Complete Emulation
 In-order to change data, you'll need to split-up the hex arrays into more smaller arrays; if you remember from
 step 1, each piece of data had three bytes before it:
 
@@ -546,7 +547,7 @@ to do that and all of the above:
     }
 </pre>
 
-# Implications &amp; Resolutions
+## Implications &amp; Resolutions
 Such an attack could be used in a DDOS attack to put heavy strain on both the database and web server; plus if the
 table has an auto-incrementing primary key, the database could be spammed until the primary key's index is too
 large to generate any new records - again rendering the service unavailable. Someone could also use a domain, make

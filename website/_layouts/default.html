@@ -13,7 +13,7 @@ layout: compress
         {% endif %}
         </title>
         <meta name="description" content="Personal blog, projects and things of Marcus Craske. Software engineer. Hack the planet! (͡ ° ͜ʖ ͡ °)">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
 
         {% css_asset_tag bundle %}
         - /_assets/layout.css
@@ -22,7 +22,7 @@ layout: compress
         - /_assets/icomoon/style.css
 
         - /_assets/syntaxhighlighter/styles/shCore.css
-        - /_assets/syntaxhighlighter/styles/shThemeDefault.css
+        - /_assets/syntaxhighlighter/styles/shThemeRDark.css
         {% endcss_asset_tag %}
 
         {% javascript_asset_tag bundle %}
@@ -56,31 +56,24 @@ layout: compress
                 </h1>
                 <p>
                     <a href="https://www.youtube.com/watch?v=Cipc8EowshY">
-                        hack the planet.
+                        hack the planet<span class="terminal">|</span>
                     </a>
                 </p>
             </header>
-        </div>
-
-        <div class="wrapper">
             <nav>
                 <ul>
                     <li>
-                        <a href="/">
+                        <a href="/" {% if page.selected == 'blog' %} class="selected" {% endif %}>
                             <span class="icon-home"></span>
-                            Home
+                            Blog
                         </a>
                     </li>
-                </ul>
-                <ul>
                     <li>
                         <a href="/cv">
                             <span class="icon-file-text2"></span>
                             Curriculum Vitae
                         </a>
                     </li>
-                </ul>
-                <ul>
                     <li>
                         <a href="/projects" {% if page.selected == 'projects' %} class="selected" {% endif %}>
                             <span class="icon-lab"></span>
@@ -100,9 +93,9 @@ layout: compress
                         </a>
                     </li>
                     <li>
-                        <a href="/blogs" {% if page.selected == 'blogs' %} class="selected" {% endif %}>
+                        <a href="/links" {% if page.selected == 'links' %} class="selected" {% endif %}>
                             <span class="icon-books"></span>
-                            Blogs
+                            Links
                         </a>
                     </li>
                     <li>
@@ -111,17 +104,17 @@ layout: compress
                             Contact
                         </a>
                     </li>
-                </ul>
-                <ul>
                     <li>
-                        <a href="http://public.limpygnome.com">
+                        <a href="https://public.limpygnome.com">
                             <span class="icon-folder-open"></span>
                             Public Files
                         </a>
                     </li>
                 </ul>
             </nav>
+        </div>
 
+        <div class="wrapper">
             <main id="main">
                 {{ content }}
             </main>

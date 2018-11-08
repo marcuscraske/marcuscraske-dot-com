@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Moving to Jekyll and AWS
-category: blog
+selected: blog
 ---
 
 Recently I have transitioned my website to be statically generated, using Jekyll, and moved hosting to Amazon Web
 Services (AWS). Not only does it load faster, due to being distributed around the world using AWS CloudFront, but it
-but it's easier to maintain and reduces the potential to be attacked.
+but it's easier to maintain and reduces the potential to be attacked. And costs less!
 
 ## Jekyll
 The pages of this site are now either written in HTML, Markdown files or a combination of both. Previously I had used

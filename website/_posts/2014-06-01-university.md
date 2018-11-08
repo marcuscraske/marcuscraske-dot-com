@@ -1,15 +1,16 @@
 ---
 layout: post
 title: University
+selected: blog
 ---
 
 This post contains a summary of my time at university.
 
 
-# Project
+## Project
 Read [PALS](/projects/pals) for my third year project.
 
-# Grades
+## Grades
 The grades below have been copied from my academic transcript.
 
 <table class="center">

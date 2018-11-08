@@ -15,7 +15,8 @@ html, body
 {
     margin: 0;
     padding: 0;
-    background: #222;
+    background: #fff;
+    overflow-x: hidden;
 }
 
 body
@@ -23,28 +24,25 @@ body
     font: normal 14px "OpenSans-Regular", sans-serif;
 }
 
-@media only screen and (min-device-width: 769px)
+@media screen and (min-width: 769px)
 {
     body
     {
-        min-width: 90em;
+        min-width: 62em;
     }
 }
 
-/*
-Got to wait until CSS 4...
 ::selection
 {
-    color: #FFF;
-    background: #000;
+    background: #f33;
+    color: #fff;
 }
 
 ::-moz-selection
 {
-    color: #FFF;
-    background: #000;
+    background: #f33;
+    color: #fff;
 }
-*/
 
 .left
 {
@@ -88,13 +86,12 @@ Got to wait until CSS 4...
 
 .wrapper-header
 {
-    background: #333;
-    height: 4em;
-    margin-bottom: 1.5em;
-    border-bottom: solid 4px #666;
+    background: #000;
+    padding: 1em;
 }
 
-.wrapper-header header
+.wrapper-header header,
+.wrapper-header nav
 {
     width: 60em;
     margin: auto;
@@ -117,10 +114,25 @@ Got to wait until CSS 4...
     line-height: 1.5em;
 }
 
+.wrapper-header p .terminal
+{
+    animation: blink-animation 1s steps(2, start) infinite;
+    position: relative;
+    top: -0.1em;
+}
+@keyframes blink-animation { to { visibility: hidden; } }
+
 .wrapper-header a
 {
-    color: #ccc;
+    color: #fff;
     text-decoration: none;
+}
+
+.wrapper-header a:hover,
+.wrapper-header a:focus,
+.wrapper-header a.selected
+{
+    color: #4286f4;
 }
 
 
@@ -141,45 +153,67 @@ Got to wait until CSS 4...
     Navigation
 */
 
-nav
+@media screen and (min-width: 769px)
 {
-    position: absolute;
-    top: 1em;
-    left: -14em;
-    width: 13em;
+    nav ul
+    {
+        display: table;
+        width: 100%;
+    }
+
+    nav ul li
+    {
+        display: table-cell;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px)
+{
+    nav
+    {
+        display: block;
+    }
+
+    nav ul li
+    {
+        display: block;
+    }
+
+    .wrapper-header,
+    .wrapper
+    {
+        display: block;
+        width: auto;
+    }
+
+    .wrapper-header header
+    {
+        width: auto;
+        font-size: 0.8em;
+    }
 }
 
 nav ul
 {
-    margin: 0em 0em 1em;
+    clear: both;
+    margin: 0;
     padding: 0;
     list-style: none;
-    border-left: solid 0.4em;
-    background: #333;
-    border-radius: 6px;
     overflow: hidden;
 }
 
 nav ul li a
 {
-    display: block;
+    display: inline-block;
     text-decoration: none;
     padding: 0.6em 1em 0.6em 0.8em;
-    color: #FFF;
-    border-bottom: solid 1px #666;
 }
 
-@media screen and (min-device-width: 768px)
+nav ul li a:hover,
+nav ul li a:focus,
+nav ul li a.selected
 {
-    nav ul li:last-child a
-    {
-        border-bottom: none;
-    }
-}
-
-nav ul a span
-{
-    margin-right: 0.5em;
 }
 
 nav ul a span
@@ -187,61 +221,7 @@ nav ul a span
     color: #999;
 }
 
-nav ul a:hover span,
-nav ul a:focus span,
-nav ul a.selected span
-{
-    color: #fff;
-}
 
-
-/*
-    Navigation section colouring
-*/
-
-nav ul:nth-child(1)
-{
-    border-color: #2e97e8;
-}
-nav ul:nth-child(1) a:hover,
-nav ul:nth-child(1) a:focus,
-nav ul:nth-child(1) a.selected
-{
-    background: #2f98e8;
-}
-
-nav ul:nth-child(2)
-{
-    border-color: #c77e00;
-}
-nav ul:nth-child(2) a:hover,
-nav ul:nth-child(2) a:focus,
-nav ul:nth-child(2) a.selected
-{
-    background: #c77e00;
-}
-
-nav ul:nth-child(3)
-{
-    border-color: #02a866;
-}
-nav ul:nth-child(3) a:hover,
-nav ul:nth-child(3) a:focus,
-nav ul:nth-child(3) a.selected
-{
-    background: #02a866;
-}
-
-nav ul:nth-child(4)
-{
-    border-color: #f33;
-}
-nav ul:nth-child(4) a:hover,
-nav ul:nth-child(4) a:focus,
-nav ul:nth-child(4) a.selected
-{
-    background: #f33;
-}
 
 /*
     Content region
@@ -251,8 +231,8 @@ main
 {
     overflow-x: hidden;
     padding: 0em 1em 1em;
-    background: #fff;
     border-radius: 12px;
+    color: #000;
 }
 
 
@@ -284,13 +264,13 @@ footer ul li
 footer ul li,
 footer ul li a
 {
-    color: #ccc;
+    color: #333;
 }
 
 footer ul li a:hover,
 footer ul li a:focus
 {
-    color: #51A8EC;
+    color: #186BF2;
 }
 
 
@@ -404,13 +384,18 @@ footer a[title=Instagram]:focus
 
 main a
 {
-    color: #10578d;
+    color: #666;
+}
+
+main p
+{
+    text-align: justify;
 }
 
 main a:hover,
 main a:focus
 {
-    color: #315923;
+    color: #186BF2;
 }
 
 main p.center,
@@ -461,21 +446,13 @@ main img.thumb
     margin: auto;
     max-width: 40%;
     max-height: 40%;
+    border-radius: 4px;
 }
 
 main .gallery.larger img
 {
     max-width: 80%;
     max-height: 80%;
-}
-
-@media only screen and (max-device-width: 768px)
-{
-    main > h1,
-    main > article > header > h1
-    {
-        margin-top: 0;
-    }
 }
 
 
@@ -486,13 +463,13 @@ main .gallery.larger img
 #home article
 {
     margin-bottom: 0.5em;
-    border-bottom: dotted 1px #666;
+    border-bottom: dashed 2px #666;
 }
 
 #home article time
 {
     float: right;
-    color: #666;
+    color: #999;
     padding: 0.1em 1em 0.2em 0em;
     font-weight: normal;
 }
@@ -507,6 +484,12 @@ main .gallery.larger img
 #home article p:last-child
 {
     clear: both;
+}
+
+#home article h3 a
+{
+    font-size: 1.3em;
+    text-decoration: none;
 }
 
 
@@ -555,51 +538,8 @@ main article h2
     Responsiveness
 */
 
-@media only screen and (max-device-width: 768px)
+@media only screen and (max-width: 768px)
 {
-    .wrapper-header
-    {
-        height: 3.2em;
-    }
-    .wrapper-header,
-    .wrapper
-    {
-        display: block;
-        width: auto;
-        padding: 0;
-        margin-bottom: 0;
-    }
-
-    .wrapper-header header
-    {
-        width: auto;
-        font-size: 0.8em;
-    }
-
-    nav
-    {
-        width: auto;
-        position: inherit;
-        top: 0;
-        left: 0;
-        margin: 0;
-        padding: 0;
-    }
-
-    nav ul
-    {
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
-        box-sizing: border-box;
-        overflow: visible;
-    }
-
-    nav ul li
-    {
-        background: #444;
-    }
-
     main
     {
         border-radius: 0;
@@ -624,11 +564,7 @@ main article h2
 
 #projects li
 {
-    display: inline-block;
-    vertical-align: top;
-    width: 49%;
-    margin: 0;
-    padding: 0em 0em 1em 0em;
+    padding: 0.5em;
 }
 
 #projects img
@@ -639,14 +575,6 @@ main article h2
     border: none;
     vertical-align: middle;
     margin: 0em 1em 0em 0em;
-}
-
-@media only screen and (max-device-width: 768px)
-{
-    #projects li
-    {
-        width: 100%;
-    }
 }
 
 
@@ -674,10 +602,21 @@ main article h2
     padding: 0.5em;
 }
 
-@media only screen and (max-device-width: 768px)
+@media only screen and (max-width: 768px)
 {
     .gallery li
     {
         width: 100%;
     }
 }
+
+/*
+    SyntaxHighlighter / code highlighting
+*/
+
+.syntaxhighlighter
+{
+    border: solid 2px #333;
+    padding: 0.5em;
+}
+

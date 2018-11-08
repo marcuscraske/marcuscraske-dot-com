@@ -1,7 +1,12 @@
 ---
 layout: post
 title: The Importance of Captcha - Papa Rewards
+selected: blog
 ---
+
+<a href="/assets/posts/2016-10-16-importance-of-captcha-papa-rewards/thumb.png">
+    <img src="/assets/posts/2016-10-16-importance-of-captcha-papa-rewards/thumb.png" alt="Splunk, AWS and Slack" class="left" />
+</a>
 
 During October 2016, Papa Johns held a competition to promote their Papa Rewards system, whereby users could
 enter an e-mail and potentially win Papa Reward points, or receive a £10 discount.
@@ -31,8 +36,8 @@ any form of human verification, such as a captcha, or limit the volume of reques
 And as a result, a bot could mine large pizzas instead:
 
 <p class="center">
-    <a href="/assets/posts/importance-of-captcha-papa-rewards/workers.png">
-        <img src="/assets/posts/importance-of-captcha-papa-rewards/workers-thumb.png" alt="Automated bots" />
+    <a href="/assets/posts/2016-10-16-importance-of-captcha-papa-rewards/workers.png">
+        <img src="/assets/posts/2016-10-16-importance-of-captcha-papa-rewards/workers-thumb.png" alt="Automated bots" />
     </a>
 </p>
 
