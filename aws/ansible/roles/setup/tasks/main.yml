@@ -17,7 +17,7 @@
 - name: Create redirect for secondary domain
   connection: local
   cloudformation:
-    stack_name: "website-limpygnome-redirect"
+    stack_name: "website-limpygnome-co-uk-redirect"
     state: "present"
     region: "eu-west-1"
     template: "{{ aws_root }}/cloud-formation/eu-west-1/s3-limpygnome.co.uk-redirect.json"
