@@ -6,8 +6,10 @@ priority: 2016
 selected: projects
 ---
 
-A 2D WebGL multi-player game, using websockets, with: basic AI, inventories, large open worlds, tile worlds,
+A 2D WebGL multi-player engine and game, using websockets, with: basic AI, inventories, large open worlds, tile worlds,
 player-persistence, map-editor and more.
+
+This project was about solving various challenges, and was never intended to produce a playable game unfortunately!
 
 
 # Features
@@ -15,7 +17,6 @@ player-persistence, map-editor and more.
 - Inventory system, with weapons and actions.
 - Stats system, leaderboard, etc.
 - Bullet collisions.
-
 
 # Source Code
 <https://github.com/limpygnome/project-sandbox>

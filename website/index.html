@@ -20,11 +20,10 @@ hideHeader: true
                 </a>
             </h3>
 
-            {{ post.excerpt }}
+            {{ post.excerpt | truncatewords: 60 }}
 
-            <p>
-                <a class="post-url" href="{{ post.url }}">Read more</a>
-            </p>
+            <div class="clearfix"></div>
+
         </article>
 
     {% endif %}

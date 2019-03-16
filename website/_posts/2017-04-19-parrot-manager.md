@@ -5,7 +5,7 @@ selected: blog
 ---
 
 <a href="/assets/posts/2017-04-19-parrot-manager/parrot-icon.png">
-    <img src="/assets/posts/2017-04-19-parrot-manager/parrot-icon.png" alt="Parrot manager logo" class="left" />
+    <img src="/assets/posts/2017-04-19-parrot-manager/parrot-icon.png" alt="Parrot manager logo" class="post-thumb" />
 </a>
 
 My side project for the last few months.
@@ -23,7 +23,7 @@ want a new project to play with the new Angular.
 
 ## How It Works
 It uses the following stack:
-* AngularJS - modular JavaScript single page application for user interface. At the time of starting parrot, Angular
+* Angular - modular JavaScript single page application for user interface. At the time of starting parrot, Angular
 had just released v2 and were working on v4. This was probably quite risky, given the major changes compared to v1,
 such as a heavily dependency on TypeScript and moving to everything being a component. This initially turned out to be
 a slight learning curve, mainly unlearning the first version of AngularJS, which then turned into the ability to

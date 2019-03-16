@@ -5,7 +5,7 @@ selected: blog
 ---
 
 <a href="/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png">
-    <img src="/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png" alt="Splunk, AWS and Slack" class="left" />
+    <img src="/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png" alt="Splunk, AWS and Slack" class="post-thumb" />
 </a>
 
 For those using log tools such as [Splunk](https://splunk.com), you can setup alerts. These will run queries every so

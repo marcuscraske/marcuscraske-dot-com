@@ -5,7 +5,7 @@ selected: blog
 ---
 
 <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/thumb.png">
-    <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/thumb.png" alt="Thumbnail" class="left" />
+    <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/thumb.png" alt="Thumbnail" class="post-thumb" />
 </a>
 
 As apart of a promotion between the 1st of September until the 31st of October 2012, the game allows students to win

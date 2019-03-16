@@ -4,11 +4,15 @@ title: University
 selected: blog
 ---
 
-This post contains a summary of my time at university.
-
+This page contains a summary of my achievements whilst at the University of East Anglia, studying Computer Science.
 
 ## Project
 Read [PALS](/projects/pals) for my third year project.
+
+## Awards
+
+- Douglas Lewin Memorial Prize for Final Year Project
+- The Pearson Education Prize in Computer Science
 
 ## Grades
 The grades below have been copied from my academic transcript.

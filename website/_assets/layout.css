@@ -4,12 +4,41 @@
 
 @font-face
 {
-    font-family: "OpenSans-Regular";
-    src:    local("OpenSans-Regular"),
+    font-family: "Open Sans";
+    src:    local("Open Sans"),
             url("/assets/open-sans/font.woff2"),
             url("/assets/open-sans/font.woff"),
             url("/assets/open-sans/font.ttf");
 }
+@font-face
+{
+    font-family: "Open Sans";
+    font-weight: bold;
+    src:    local("Open Sans"),
+            url("/assets/open-sans/font-bold.woff2"),
+            url("/assets/open-sans/font-bold.woff"),
+            url("/assets/open-sans/font-bold.ttf");
+}
+@font-face
+{
+    font-family: "Open Sans";
+    font-style: italic;
+    src:    local("Open Sans"),
+            url("/assets/open-sans/font-italic.woff2"),
+            url("/assets/open-sans/font-italic.woff"),
+            url("/assets/open-sans/font-italic.ttf");
+}
+@font-face
+{
+    font-family: "Open Sans";
+    font-weight: bold;
+    font-style: italic;
+    src:    local("Open Sans"),
+            url("/assets/open-sans/font-bold-italic.woff2"),
+            url("/assets/open-sans/font-bold-italic.woff"),
+            url("/assets/open-sans/font-bold-italic.ttf");
+}
+
 
 html, body
 {
@@ -21,10 +50,10 @@ html, body
 
 body
 {
-    font: normal 14px "OpenSans-Regular", sans-serif;
+    font: normal 16px "Open Sans", sans-serif;
 }
 
-@media screen and (min-width: 769px)
+@media screen and (min-width: 1000px)
 {
     body
     {
@@ -44,10 +73,15 @@ body
     color: #fff;
 }
 
-.left
+.clearfix
 {
-    float: left;
-    margin: 0 1em 1em 0;
+    clear: both;
+}
+
+.post-thumb
+{
+    float: right;
+    margin: 0 0 1em 1em;
     max-height: 8em;
 }
 
@@ -153,7 +187,7 @@ body
     Navigation
 */
 
-@media screen and (min-width: 769px)
+@media screen and (min-width: 1000px)
 {
     nav ul
     {
@@ -168,7 +202,7 @@ body
     }
 }
 
-@media screen and (max-width: 768px)
+@media screen and (max-width: 1000px)
 {
     nav
     {
@@ -246,6 +280,11 @@ footer
     width: 80%;
     clear: both;
     text-align: center;
+}
+
+footer .disclaimer
+{
+    font-style: italic;
 }
 
 footer ul
@@ -457,41 +496,49 @@ main .gallery.larger img
 
 
 /*
-    Home
+    Home (and shared)
 */
 
 #home article
 {
     margin-bottom: 0.5em;
-    border-bottom: dashed 2px #666;
+    border-bottom: solid 3px #999;
 }
 
-#home article time
+#home article time,
+article time
 {
-    float: right;
+    display: block;
+    margin: 1em 1em 0 0;
     color: #999;
-    padding: 0.1em 1em 0.2em 0em;
-    font-weight: normal;
-}
-
-#home article .post-url
-{
-    text-decoration: none;
-    font-size: 1.2em;
     font-weight: bold;
 }
 
-#home article p:last-child
+#home article h3,
+h1
 {
-    clear: both;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+h1
+{
+    margin: 0.5em 0 0 0;
 }
 
 #home article h3 a
 {
-    font-size: 1.3em;
     text-decoration: none;
 }
 
+@media only screen and (min-width: 1000px)
+{
+    #home article .post-thumb
+    {
+        margin-top: -2em;
+    }
+}
 
 /*
     Pagination
@@ -538,7 +585,7 @@ main article h2
     Responsiveness
 */
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-width: 1000px)
 {
     main
     {
@@ -602,7 +649,7 @@ main article h2
     padding: 0.5em;
 }
 
-@media only screen and (max-width: 768px)
+@media only screen and (max-width: 1000px)
 {
     .gallery li
     {

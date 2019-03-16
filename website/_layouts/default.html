@@ -87,12 +87,6 @@ layout: compress
                         </a>
                     </li>
                     <li>
-                        <a href="/music" {% if page.selected == 'music' %} class="selected" {% endif %}>
-                            <span class="icon-headphones"></span>
-                            Music
-                        </a>
-                    </li>
-                    <li>
                         <a href="/links" {% if page.selected == 'links' %} class="selected" {% endif %}>
                             <span class="icon-books"></span>
                             Links
@@ -122,6 +116,10 @@ layout: compress
 
         <footer>
 
+            <p class="disclaimer">
+                Disclaimer: this is a personal blog, any opinions and actions are my own and do not represent my employer.
+            </p>
+
             <ul>
                 <li>
                     <a href="https://opensource.org/licenses/MIT">
@@ -129,7 +127,9 @@ layout: compress
                     </a>
                 </li>
                 <li>
-                    WCAG 2.0 AA Friendly
+                    <a href="https://www.w3.org/WAI/standards-guidelines/wcag">
+                        WCAG 2.1 AA Friendly
+                    </a>
                 </li>
                 <li>
                     <a href="https://github.com/limpygnome/limpygnome-dot-com">

@@ -6,15 +6,15 @@ layout: default
 
     <header>
 
+        {% if page.date != null %}
+        <time datetime="{{page.date|date:"%F"}}">
+        {{page.date|date:"%b %d, %Y"}}
+        </time>
+        {% endif %}
+
         <h1>
             <span class="icon icon-arrow"></span> {{ page.title }}
         </h1>
-
-        {% if page.date != null %}
-        <time datetime="{{page.date|date:"%F"}}">
-            {{page.date|date:"%b %d, %Y"}}
-        </time>
-        {% endif %}
 
     </header>
 
