@@ -27,7 +27,7 @@ assets:
 
 # Posts
 permalink: pretty
-paginate: 8
+paginate: 10
 paginate_path: "page:num"
 excerpt_separator: "#"
 
@@ -35,3 +35,5 @@ excerpt_separator: "#"
 collections:
   projects:
     output: true
+
+highlighter: rouge

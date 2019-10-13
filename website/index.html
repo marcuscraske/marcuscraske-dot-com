@@ -15,7 +15,11 @@ hideHeader: true
                 {{ post.date | date:"%b %d, %Y" }}
             </time>
             <h3>
+                {% if post.pageUrl != null %}
+                <a href="{{ post.pageUrl }}">
+                {% else %}
                 <a href="{{ post.url }}">
+                {% endif %}
                     {{ post.title }}
                 </a>
             </h3>
