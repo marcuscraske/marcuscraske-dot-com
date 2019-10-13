@@ -1,15 +1,43 @@
 @font-face
 {
-    font-family: "OpenSans-Regular";
-    src:    local("OpenSans-Regular"),
+    font-family: "Open Sans";
+    src:    local("Open Sans"),
             url("/assets/open-sans/font.woff2"),
             url("/assets/open-sans/font.woff"),
             url("/assets/open-sans/font.ttf");
 }
+@font-face
+{
+    font-family: "Open Sans";
+    font-weight: bold;
+    src:    local("Open Sans"),
+            url("/assets/open-sans/font-bold.woff2"),
+            url("/assets/open-sans/font-bold.woff"),
+            url("/assets/open-sans/font-bold.ttf");
+}
+@font-face
+{
+    font-family: "Open Sans";
+    font-style: italic;
+    src:    local("Open Sans"),
+            url("/assets/open-sans/font-italic.woff2"),
+            url("/assets/open-sans/font-italic.woff"),
+            url("/assets/open-sans/font-italic.ttf");
+}
+@font-face
+{
+    font-family: "Open Sans";
+    font-weight: bold;
+    font-style: italic;
+    src:    local("Open Sans"),
+            url("/assets/open-sans/font-bold-italic.woff2"),
+            url("/assets/open-sans/font-bold-italic.woff"),
+            url("/assets/open-sans/font-bold-italic.ttf");
+}
 
 body
 {
-    font: normal 14px "OpenSans-Regular", sans-serif;
+    font: normal 14px "Open Sans", sans-serif;
     padding: 0em;
     margin: 0em;
 }
@@ -36,7 +64,6 @@ body
     top: 0;
 }
 
-
 @media all
 {
     body
@@ -45,7 +72,7 @@ body
     }
     .wrapper
     {
-        background: #FFF;
+        background: #fff;
     }
 }
 
@@ -68,7 +95,7 @@ body
     }
     .options a:hover, .options a:focus
     {
-        color: #FFF;
+        color: #fff;
     }
     .wrapper
     {
@@ -114,8 +141,8 @@ a
 {
     display: table;
     width: 100%;
-    border-top: solid 4px #CCC;
-    border-bottom: solid 4px #CCC;
+    border-top: solid 4px #ccc;
+    border-bottom: solid 4px #ccc;
     padding: 0.5em 0;
     margin: 1em 0;
 }

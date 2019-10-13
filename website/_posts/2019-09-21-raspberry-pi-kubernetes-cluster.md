@@ -115,7 +115,7 @@ Based on steps from [official guide](https://kubernetes.io/docs/setup/production
 
 I've named my control plane node _k8-master1_.
 
-- SSH onto the Pi you want to be the master e.g. ssh `pi@k8-master`.
+- SSH onto the Pi you want to be the master e.g. `ssh pi@k8-master`.
 
 - Init cluster, with defined CIDR / network range for pods and a non-expiring token for slaves to join the cluster later:
     ````
@@ -140,10 +140,11 @@ I've named my control plane node _k8-master1_.
 The node(s), responsible for later running our application deployments.
 
 Run the command from earlier to join the node to the cluster, either as root or prefix the command with `sudo`, for example:
-    ````
-    sudo kubeadm join 192.168.1.100:6443 --token xxxxxx.xxxxxxxxxxxxxxxxx \
-        --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    ````
+
+````
+sudo kubeadm join 192.168.1.100:6443 --token xxxxxx.xxxxxxxxxxxxxxxxx \
+    --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+````
 
 This may take a few minutes.
 
@@ -203,7 +204,8 @@ This will:
 - Print out a token we can use to login to the dashboard.
 
 Save the following script as `dashboard.sh`:
-````
+
+````bash
 MASTER="pi@192.168.1.100"
 
 # Print token for login
@@ -382,9 +384,65 @@ Once config has been setup, apply it:
 kubectl apply -f metallb-config.yaml
 ````
 
+Ingress is now setup.
+
+### Ingress Example
+You can now define an ingress to a service.
+
+An example which forwards traffic for _limpygnome.com/uptime/**_ to the service _uptime_.
+
+````
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  namespace: home-network
+  name: uptime-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: limpygnome.com
+    http:
+      paths:
+      - path: /uptime
+        backend:
+          serviceName: uptime
+          servicePort: 80
+````
+
+Using the Kubernetes dashboard, or _kubeadm_ tool, you can find the local network
+IP address allocated.
+
+Then port forward traffic on your router for the IP address, so that it's exposed to the internet.
+
+If you want multiple ingress points to share the same IP address, you can add config to your
+services to get a defined IP address allocated.
+
+Take note of the annotations section, `type` and `loadBalancerIP` params in this example:
+
+````
+kind: Service
+apiVersion: v1
+metadata:
+  name: uptime
+  annotations:
+    metallb.universe.tf/allow-shared-ip: home-network
+spec:
+  selector:
+    app: uptime
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  sessionAffinity: None
+  type: LoadBalancer
+  loadBalancerIP: 192.168.1.240
+````
+
+You can then front your router's WAN / public internet IP address with a CDN such as
+[CloudFlare](https://www.cloudflare.com), which is free and offers DDOS protection (useful for a home network).
+This will also provide valid SSL certificates.
 
 ## Summary
 In this article we setup a simple cluster capable of deployments and taking
 external traffic.
-
-For more details on my own cluster, see my later [post](/2019/10/13/home-automation).

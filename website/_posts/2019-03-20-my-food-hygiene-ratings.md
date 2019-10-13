@@ -9,4 +9,4 @@ pageUrl: /projects/my-food-hygiene-ratings
     <img alt="App icon" src="/assets/projects/my-food-hygiene-ratings/thumb.png" class="post-thumb" />
 </a>
 
-My new simple Android and iOS app to allow users to find hygiene ratings of establishments (restaurants, bars, shops etc).
+My Android and iOS app to allow users to find hygiene ratings of establishments (restaurants, bars, shops etc).

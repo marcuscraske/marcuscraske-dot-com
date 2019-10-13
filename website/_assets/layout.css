@@ -666,3 +666,12 @@ main article h2
     padding: 0.5em;
 }
 
+/*
+    App store download badges, used on articles for linking mobile app store
+    downloads
+*/
+.app-store-badge
+{
+    display: inline-block;
+    height: 3.5em;
+}
