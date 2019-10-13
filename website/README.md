@@ -13,3 +13,12 @@ Run from current directory:
 ````
 bundle install
 ````
+
+Install Node package manager, as per official instructions.
+
+And with a terminal in this directory:
+````
+npm install
+````
+
+This will pull down a few third-party modules.

@@ -38,6 +38,9 @@ layout: compress
         - /_assets/syntaxhighlighter/scripts/shBrushJScript.js
 
         - /_assets/music-player.js
+
+        - /node_modules/jquery/dist/jquery.min.js
+        - /node_modules/jscroll/dist/jquery.jscroll.min.js
         {% endjavascript_asset_tag %}
 
         {% include google-analytics.html %}
@@ -166,6 +169,10 @@ layout: compress
 
         <script type="text/javascript">
             SyntaxHighlighter.all();
+            $('section').jscroll({
+                contentSelector: "section",
+                nextSelector: ".next"
+            });
         </script>
 
     </body>
