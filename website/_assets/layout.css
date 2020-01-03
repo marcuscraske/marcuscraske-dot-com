@@ -674,4 +674,6 @@ main article h2
 {
     display: inline-block;
     height: 3.5em;
+    max-width: none;
+    max-height: none;
 }

@@ -22,3 +22,6 @@ sudo pip install boto
 Much credit owed to the following for CloudFormation:
 
 <https://raw.githubusercontent.com/mikery/aws-system-administration/master/cloudformation_stacks/s3_static_website_with_cloudfront_and_route_53/s3_static_website_with_cloudfront_and_route_53.template>
+
+## Deployment
+Run `./deploy.sh`.
