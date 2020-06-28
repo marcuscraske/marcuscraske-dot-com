@@ -1,7 +1,6 @@
 /*
-    Page
+    Font: Open Sans
 */
-
 @font-face
 {
     font-family: "Open Sans";
@@ -39,6 +38,10 @@
             url("/assets/open-sans/font-bold-italic.ttf");
 }
 
+
+/*
+    Page
+*/
 
 html, body
 {
@@ -339,82 +342,44 @@ footer > a:focus
 }
 
 /* Github */
+footer a
+{
+    filter: grayscale(100%);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+footer a:hover,
+footer a:focus
+{
+    filter: none;
+}
+
 footer a[title=Github]
 {
-    background-image: url('/assets/footer/gh.png');
-}
-footer a[title=Github]:hover,
-footer a[title=Github]:focus
-{
-    background-image: url('/assets/footer/gh_h.png');
+    background-image: url('/assets/footer/github.png');
 }
 
-/* YouTube */
-footer a[title=YouTube]
-{
-    background-image: url('/assets/footer/yt.png');
-}
-footer a[title=YouTube]:hover,
-footer a[title=YouTube]:focus
-{
-    background-image: url('/assets/footer/yt_h.png');
-}
-
-/* SoundCloud */
-footer a[title=SoundCloud]
-{
-    background-image: url('/assets/footer/sc.png');
-}
-footer a[title=SoundCloud]:hover,
-footer a[title=SoundCloud]:focus
-{
-    background-image: url('/assets/footer/sc_h.png');
-}
-
-/* LinkedIn */
 footer a[title=LinkedIn]
 {
-    background-image: url('/assets/footer/li.png');
-}
-footer a[title=LinkedIn]:hover,
-footer a[title=LinkedIn]:focus
-{
-    background-image: url('/assets/footer/li_h.png');
+    background-image: url('/assets/footer/linkedin.png');
 }
 
-/* Strava */
 footer a[title=Strava]
 {
     background-image: url('/assets/footer/strava.png');
 }
-footer a[title=Strava]:hover,
-footer a[title=Strava]:focus
-{
-    background-image: url('/assets/footer/strava_h.png');
-}
 
-/* Gmail */
 footer a[title=E-mail]
 {
-    background-image: url('/assets/footer/gm.png');
-}
-footer a[title=E-mail]:hover,
-footer a[title=E-mail]:focus
-{
-    background-image: url('/assets/footer/gm_h.png');
+    background-image: url('/assets/footer/email.png');
 }
 
-/* Instagram */
 footer a[title=Instagram]
 {
-    background-image: url('/assets/footer/ig.png');
+    background-image: url('/assets/footer/instagram.png');
 }
-footer a[title=Instagram]:hover,
-footer a[title=Instagram]:focus
-{
-    background-image: url('/assets/footer/ig_h.png');
-}
-
 
 
 /*
@@ -502,7 +467,7 @@ main .gallery.larger img
 #home article
 {
     margin-bottom: 0.5em;
-    border-bottom: solid 3px #999;
+    border-bottom: solid 3px #eee;
 }
 
 #home article time,
@@ -525,6 +490,11 @@ h1
 h1
 {
     margin: 0.5em 0 0 0;
+}
+
+article h1
+{
+    margin: 0;
 }
 
 #home article h3 a

@@ -1,0 +1,279 @@
+QCON 2020 NOTES
+------------------------------
+Day 3
+--------------
+16:10 microservices at Monzo:
+- they use golang
+- Cassandra, kubernetes
+- they're their own MasterCard payment processor
+- bounded context services
+- -- single responsibility principal strictly followed
+- shared core library for logging, database etc
+-- avoids wasting time rewriting common code
+- RPC calls for service to service
+- they avoid abstraction, avoid premature optimisation, easier to extend or add new services
+- split, combine or replace/retire services over time
+- built own tool called "shipper" to handle release process, rather than k8 yaml etc
+- services are 500 to 1000 lines of business logic
+- really simple project structure, very flat and few files e.g. main.go, Makefile, README.md
+- endpoints documented in gRPC proto buffer files
+- grafana dashboards and alerts out of the box
+- each team has to own a service, written in file in git
+- Jaeger ui to see time spent on a request across boundaries
+- trace id to aggregate logs across boundaries
+- paved road to get things done easily and fast
+- engineers focus on business problems, rather than underlying infra and platform etc
+- engineering principals such as making code debugging and easy to read
+- they use a monorepo - lolwat
+- using Cassandra since able to horizontally scale, rather than two big databases with failing over
+
+
+14:55 microservices for growth:
+- used brown bags and cop to spread knowledge
+- not worth running own platform
+- mhmm missing detail on struggles
+
+13:40 Java in containers:
+- by oracle employee
+- !!! latest openjdk can see actual container resources !!!
+- should just use openjdk container image
+- [INTERNAL] we should look for dead code
+- jlink to just include "java --list"
+- more jlink args in alive to go from 316mb to 34mb, impressive
+- recommends alpine due to security orientated and slim
+- project portola in future
+- "dive" command to look into image???
+- !!! startup slower in 9, fixed in 11 !!!
+- CDS - class data sharing - should speedup startup time
+-- major improvements around 200ms between 8 and 13
+- graalvm mentioned
+-- many talks this year mentioning this vm
+-- by oracle labs
+-- aot compiler (lol for Java?!? Crazy)
+-- demo provided 8mb executable and 13ms startup Vs 143/83ms w/o, dayuuuum
+-- doesn't support jmx and serialisation, lack of g1 gc
+- major g1 improvements in Java 14
+- -XX:+UseContainerSupport no longer required
+- 8u199 onwards has container support
+
+11:50 preparing for the unexpected:
+- major incident: 10 people involved, conducted on slack, but 20 or so people online just to observe and learn as things
+  took place. Interesting transparency. Focused on recovery rather than cause, but in their case the issue was DNS loss.
+- "ops cops" for on call: tech lead rotated every six months, two engineers rotated weekly.
+- using bro model, but still operations for monitoring
+- people volunteer to do on call , no shifts.
+- monitoring "capabilities" with synthetic requests, internal tool called "Heimdall"
+- no sre's or DevOps
+- started on call process by surveying how many people would do on call and why not
+- ran incident workshops
+-- [INTERNAL] like our clinics
+- wrote generic runbook for all of their microservices
+-- using fastly, splunk etc
+-- demo of tools, graphs during incident etc are reviewed
+-- discussion of deadends during incident investigation etc
+-- people in incident split into small teams (e.g. three people), with someone as "incident manager" running session
+-- people in teams discuss and work out what they'd do, people write notes
+-- teams get back together after 10 mins and discuss openly together. Mascot passed around so only one person talks at a
+   time. Avoids dominant voices.
+- they write up a summary page of their incidents, very useful to go back over
+-- [INTERNAL] similar to us
+- dedicated repo "FT incident toolbelt"
+- people would practice actions to resolve incidents in production, giving people confidence
+- after running training and workshops, survey of people wanting to do on-call was much much greater
+- started learning from old incidents and focusing initially on customer comms, then technical
+- ft.com/qcon
+- Samuel.parkinson@ft.com
+
+10:35 machine learning and fraud detection:
+- alot of technical detail, interesting but could have done with more war stories
+- mentioned it took about a year with a team of three people to get to production
+
+0900 keynote:
+- introduction of machine and machineset for (somewhat) agnostic cloud resource provision of a cluster looks interesting
+
+
+Day 2
+--------------
+17:25 optimising time:
+- start-off with: how hard are the simple things?
+- "if you're not investing in moving faster, you'll move slower"
+- what would improve people's job / increase their time?
+- what would the do-nothing-scenario outcome be?
+- [INTERNAL] Should stop p1 manual testing, should be automated or two devices only. Huge dump of time vs reward.
+- should respect people's time. People won't be committed and will find new jobs if time is wasted.
+- decisions need to be constructive and inclusive, otherwise people won't work together
+- time is the most precious gift you can give
+- misuse of time will destroy trust
+- reduce feedback loops
+-- otherwise people will work around it
+- don't interrupt people unless absolutely necessary
+- be ruthless about time
+- understanding value, ask these questions: what problem? What value? Who with?
+- keep sub-teams small
+- don't do things where you can't see value
+- plan for failure, plan is not the outcome, plan to fail cheaply
+
+16:10 Tesla virtual power plant:
+- using Akka, postgres, influxdb, kafka, alpakka for talking to Kafka, primarily using scala, kubernetes
+- gRPC for service comms since able to enforce contracts
+- bounding pressure?
+- bounding resource
+- cool slides
+
+14:50 how to supercharge a team with delegation:
+- James stanier
+- Accountability Vs responsibility. Delegating responsibility, but remaining accountable.
+- delegation and control are polar opposites on a spectrum
+- delegate to challenge people, but retain just enough control
+- delegate tasks too easy to more junior members of team, opportunity for mentorship and guidance
+- as one wants to go higher, such as running teams etc, need to be comfortable with losing control e.g. not writing the
+  code
+-"a guide to the good life" William Irvine - good book on worrying less about owning bigger and bigger things
+- be comfortable with being uncomfortable
+- when delegating, ensure you've provided an environment for success and set goals
+- "zone of proximal development", between too hard and too easy
+- "become an effective software manager" book presenter is writing
+
+13:40 micro-frontends:
+- four key decisions: define, compose, route, communicate
+- Comms: custom js events or central point at the top joining everything
+- dazn (company) implementation: split by business domain, technology agnostic.
+- recommended sentry for observability
+- recommends duplication over abstraction. Interesting point seen in backend microservice Dev as trend, outside this
+  presentation.
+
+11:50 how to debug your team:
+- "Drive - Daniel h pink"
+- motivation: autonomy, purpose, safety
+- use cycle time to measure delivery, not velocity - cycle time being time from starting dev to delivery
+- "nemawashi": laying subtle small changes, engage main stakeholders
+- important to admit when wrong as leader
+- "you can't have autonomy without purpose", important team feels they're building something with users
+- setting kaizens / small experiments / incremental change towards larger goal e.g. reduce 10% cycle time, long term 50%
+- ended aub-tasks at meetup.com with solutions, instead a junior would solve the problem and run it by senior/architect
+- everyone including non-technical on call, on team, to push realisation/priority of fixing production issues
+- progression.fyi
+
+1035 quarkus:
+- problem: Java in cloud is slow to warmup, problem for elastic scaling
+- optimised for graalvm
+- container first: low memory, fast startup, small images
+- -XX:MaxRAM jvm param? Didn't know about this.
+- basic endpoint: graalvm+quarkus 13mb memory usage Vs typical stack of 150mb
+- complicated service: 35mb Vs 218mb
+- time for first request - simple: 14ms Vs 4.3s, impressive, complex (db connections etc): 55ms/10ms Vs 9.5s
+- using "jandex" class loader library to avoid class initialisation
+- Dev mode able to reload entire app, but not jvm, impressively fast. Thus able to change anything in app.
+- Doing heap dump during compilation, speeding up start time. Creates executable, 17ms app start in demo (holy shit).
+- Need to look at Java native images
+
+0900 keynote:
+- "crossing the chasm" book
+- "prepare incentives before they're needed", e.g. time to work on own projects.
+- "bold actions set the tone": important to set expectations and change early when leading a team.
+- "don't let your experience bias you": let the team pick what's best for them e.g. tools, frameworks, practices etc.
+- "embrace continuous solving"
+- "you're a leader of leaders": empower team to make decisions and solve problems.
+- don't fear failure, e.g. team disliking decisions etc
+- have the courage to fight the oppressive system (context in talk: American slavery), such as toxic culture
+- as leader, need to have emathy and think: if we don't help them, what happens to them? Rather than thinking what will
+  happen to us.
+
+
+Day 1
+-------------
+0900 keynote:
+- cheetah speech to text framework
+- sparkfun edge
+
+Decomposing monoliths:
+- Sam Newman
+- reduce coordination and handoffs for throughput
+- release train is supposed to be a short term interim stepping stone whilst organisation changes to ci/cd
+- if not changed, it'll increase the distributed monolith
+- mentions safe (bad)
+- could start with domain driven design exercise and create a dependencies graph, shouldn't be cyclic dependencies. Can
+  be used to help determine service boundaries. Obvious but not done well in practice.
+- just start pulling small areas out into services and get them into production asap to gauge the feel of running
+  microservices
+- patterns...
+- strangler: start with asset capture (what are we moving? / Scope). Moving functionality can be copypasta of code, or
+  might be total or partial rewrite (usually common). Divert calls to new service by initially setting up existing calls
+  to go thru http proxy, then start diverting.
+- branch by abstraction: create abstraction point e.g. new interface where other areas of code base call into, which
+  then calls down to existing code. Then start creating new area, which calls out to new service. Then use feature
+  toggles to switch implementation from old to new. Then clean out old code. Seems similar to strangler, what's real
+  difference? Guess it's putting the pivot point in the code, rather than http proxy.
+- parallel run: call both old and new code and compare output, and check they're the same. Similar/same to twitter's
+  approach with diffy.
+- mentioned progressive delivery
+-- what's dark launching?
+- [INFERNAL] we should prioritise pulling out customisation as it's only consumer of database. This would allow spinning
+  up payment pages faster, and allow db toggling and caching in another service. Could use above approaches as interim
+  for safety.
+- mention of not sharing databases between services
+- microservices shouldn't be default choice
+
+Building engineering culture focusing on business impact:
+- Mariah G
+- "shipping is your companies heart beat"
+- road mapping every quarter, with focus on : product gap, commercial success, product health, strategic direction.
+  Could we define such four streams/pillars of work? Would it make impact, vision and direction clear?
+- clear goals/pillars for technical direction e.g. keep it simple. "Engineering principles"
+- their team white board is divided in rows by person, with columns for daily, weekly and cycle goals.
+- optimise for momentum / "processes slowing down aren't working" - easy for small/medium company, what about corporate?
+- technically conservative, try to avoid lots of time spent on learning and maintaining lots of different stacks.
+- teams rotated often as people hired, neat idea where lunch canteen y'all sit in first seat available to mix
+  people / getting to know everyone.
+- important to have team included / inclusivity
+
+Should we run it if we build it:
+- Paul hammant
+- three line Vs slackops/bro model
+- three line could charge-back time spent on issues to customer, not sure this is applicable in our case
+- "customer experience" / CX modern name for level 2 app support
+- "make it safe to fail", otherwise team pads work, begins to become too risk averse and slow, and malfunction
+- success is people staying, L2 (app support) and L3 (devs) socialising and treating each other as equals
+- main take away is that L3 (devs) are on call, but protected by L2.
+- [INTERNAL] suggests we should always have SMS triage our inbound tickets from customers. Prolly makes sense with
+  multiple gateways, otherwise very difficult to scale. And alerts managed by team.
+- [INTERNAL] we should have "hpp-cicd" environment, rather than nightly, with dedicated Jenkins environment folder
+
+To microservices and back again:
+- started monolith to microservices with just four engineers.
+- microservices had shared libraries, had 50 services each with repo, thus 50 deployments to patch version of shared
+  library in each repo. Services over time have diverging shared library version, thus very difficult to change version
+  without major changes.
+- fire alarm rip
+- continued
+- operational overhead bites into productivity
+- microservices reduced blast radius of changes, but didn't solve their throughout problems
+- moved code back into monorepo
+- created "traffic recorder" to dump requests and responses and used them to compare/check behaviour unchanged
+- GC pauses graph, should adopt it
+- used sysdig to debug OOM (out of memory) problem, but failed, thus used node heap dumper.
+- had event where monolith, running as thousands of instances, crashed due to single worker which would have been own
+  microservice in past. Thus had cascading failure, where event retried on another instance, and killed it.
+- partially solved issue by high level exception wrapper, dumping the exception, quicker than unexpected exit and
+  restart of instance. Doesn't reduce blast radius though.
+- using small amount of microservices, but mostly monolith
+
+Monitoring all the things:
+- lots of legacy and new systems
+- lots of monitoring systems
+- ended up having all the monitoring systems feed into Prometheus
+- built custom frontend dashboard on top, with each service represented by a box with a colour
+- focus on human reactions to alerts, P1-5 doesn't matter. If ops needs to take action, what action? That's most
+  important.
+- FT have a graph of services connected to teams who own them, each team gets own filter of dashboard. Thus teams would
+  complain and fix the graph themselves, where services were missing or present (when not owned by them), thus
+  increasing the quality.
+- "focus on the interface, not on the implementation"
+- think capabilities, not microservices. E.g. can we publish? Can we make payments? They (FT) achieve this by synthetic
+  requests testing end to end in prod by publishing article.
+
+DevOps is harder than you think:
+- "people come for features, but stay for support"
+- openness with customers and speed is important
+- "thin book of trust - building trust at work"
+- cicd not really about the pipeline, it's about changing organisations

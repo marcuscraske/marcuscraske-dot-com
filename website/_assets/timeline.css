@@ -2,7 +2,7 @@
 {
     margin: 1em 2em;
     border-left: solid 0.5em #EEE;
-    padding: 0.5em 0em 2em 0em;
+    padding: 1.5em 0em 2em 0em;
 }
 .timeline .item
 {
@@ -40,10 +40,12 @@
 {
     display: block;
     margin-left: -1.5em;
+    margin-bottom: 0.5em;
     font-size: 1.5em;
-    padding: 0.5em 0.5em 0.7em;
+    padding: 0.25em;
     color: #666;
     font-weight: bold;
+    background: #fff;
 }
 
 .timeline .item h2
@@ -62,4 +64,9 @@
 .timeline .thumbnail
 {
     margin: -3em 0em 0.5em 1em;
+}
+
+.timeline img.thumb
+{
+    border-radius: 8px;
 }

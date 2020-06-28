@@ -80,30 +80,30 @@ body
 {
     body
     {
-        background: #333;
+        background: #eee;
         margin: 1em;
     }
     .options
     {
-        margin: 0.5em;
+        margin: 0.5em 0.5em 1.25em 0.5em;
         text-align: center;
+        font-size: 1.1em;
     }
     .options a
     {
         padding: 0.25em;
-        color: #999;
+        color: #666;
     }
     .options a:hover, .options a:focus
     {
-        color: #fff;
+        color: #369;
     }
     .wrapper
     {
         width: 8.27in;
-        margin: 1em auto;
+        margin: 1em auto 3em auto;
         padding: 2em;
-        border-radius: 0.8em;
-        box-shadow: 0em 0em 3em #111;
+        box-shadow: 0em 0em 3em #999;
     }
 }
 
