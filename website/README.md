@@ -1,10 +1,16 @@
 # Website
-This is a simple Jekyll website, thus refer to official docs.
+This is a simple Jekyll website, thus refer to the
+[official docs](https://jekyllrb.com/docs/).
 
 ## Prerequisites
+Linux:
 
 ````
 sudo apt-get install ruby ruby-dev
+````
+
+Linux/MacOS:
+````
 sudo gem install bundler jekyll
 ````
 

@@ -11,7 +11,7 @@
         },
         "DomainName" : {
             "Type" : "String",
-            "Default" : "limpygnome.com",
+            "Default" : "marcuscraske.com",
             "Description" : "The primary domain for the website.",
             "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
             "ConstraintDescription" : "Must be a valid DNS zone name."

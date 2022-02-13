@@ -479,6 +479,11 @@ article time
     font-weight: bold;
 }
 
+article time
+{
+    margin-bottom: -1em;
+}
+
 #home article h3,
 h1
 {
@@ -490,11 +495,6 @@ h1
 h1
 {
     margin: 0.5em 0 0 0;
-}
-
-article h1
-{
-    margin: 0;
 }
 
 #home article h3 a

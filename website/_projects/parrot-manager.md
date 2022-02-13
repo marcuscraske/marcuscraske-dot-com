@@ -3,7 +3,7 @@ layout: post
 title: Parrot Manager
 thumbnail: /assets/projects/parrot/thumb.png
 priority: 2017
-pageUrl: https://limpygnome.github.io/parrot-manager
+pageUrl: https://github.com/limpygnome/parrot-manager
 selected: projects
 ---
 

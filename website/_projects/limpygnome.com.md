@@ -1,7 +1,7 @@
 ---
 layout: post
-title: limpygnome.com
-thumbnail: /assets/projects/limpygnome.com/thumb.png
+title: marcuscraske.com
+thumbnail: /assets/projects/marcuscraske.com/thumb.png
 priority: 2016
 selected: projects
 ---
@@ -22,15 +22,15 @@ This website is entirely static, written in HTML and Markdown, using [Jekyll](ht
 ### 2018 - Nov
 Design changed.
 
-<a href="/assets/projects/limpygnome.com/2018-nov.png">
-    <img src="/assets/projects/limpygnome.com/2018-nov.png" alt="Screenshot of landing page" />
+<a href="/assets/projects/marcuscraske.com/2018-nov.png">
+    <img src="/assets/projects/marcuscraske.com/2018-nov.png" alt="Screenshot of landing page" />
 </a>
 
 ### 2017 - Nov
 Design slightly changed.
 
-<a href="/assets/projects/limpygnome.com/2017-nov.png">
-    <img src="/assets/projects/limpygnome.com/2017-nov.png" alt="Screenshot of landing page" />
+<a href="/assets/projects/marcuscraske.com/2017-nov.png">
+    <img src="/assets/projects/marcuscraske.com/2017-nov.png" alt="Screenshot of landing page" />
 </a>
 
 ### 2016 - Oct

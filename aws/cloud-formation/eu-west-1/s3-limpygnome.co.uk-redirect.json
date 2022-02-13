@@ -11,7 +11,7 @@
         },
         "RedirectUrl" : {
             "Type" : "String",
-            "Default": "limpygnome.com",
+            "Default": "marcuscraske.com",
             "Description" : "Auxiliary domain used as mirror.",
             "AllowedPattern" : "(?!-)[a-zA-Z0-9-.]{1,63}(?<!-)",
             "ConstraintDescription" : "Must be a valid DNS zone name."

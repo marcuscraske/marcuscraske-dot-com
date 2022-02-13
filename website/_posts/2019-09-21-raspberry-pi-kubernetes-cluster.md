@@ -389,7 +389,7 @@ Ingress is now setup.
 ### Ingress Example
 You can now define an ingress to a service.
 
-An example which forwards traffic for _limpygnome.com/uptime/**_ to the service _uptime_.
+An example which forwards traffic for _marcuscraske.com/uptime/**_ to the service _uptime_.
 
 ````
 apiVersion: networking.k8s.io/v1beta1
@@ -401,7 +401,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: limpygnome.com
+  - host: marcuscraske.com
     http:
       paths:
       - path: /uptime
