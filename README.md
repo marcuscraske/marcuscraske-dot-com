@@ -8,5 +8,5 @@ This repository hosts the source code behind my personal website.
 
 - *asset-sources* - the source files behind assets
 - *deployment* - configuration for deploying the website.
-- *public-files* - the files hosted at `public.marcuscraske.com`
+- *public-files* - the files hosted at `files.marcuscraske.com`
 - *website* - the actual website, using Jekyll (statically generated)

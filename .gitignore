@@ -15,3 +15,9 @@ website/_site
 
 # OS files
 .DS_Store
+
+# Terraform
+.terraform
+.terraform*
+terraform.tfstate
+terraform.tfstate.backup

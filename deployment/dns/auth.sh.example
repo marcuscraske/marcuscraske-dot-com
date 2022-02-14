@@ -1,0 +1,2 @@
+export TF_VAR_cloudflare_email="xxx"
+export TF_VAR_cloudflare_api_key="yyy"
