@@ -40,24 +40,3 @@ resource "aws_s3_bucket_policy" "marcuscraske-dot-com" {
         ]
     })
 }
-
-########################################################################################################################
-## Copying files
-########################################################################################################################
-
-module "template_files" {
-    source = "hashicorp/dir/template"
-    base_dir = "${path.module}/../../website/_site"
-    template_vars = {
-    }
-}
-
-resource "aws_s3_object" "marcuscraske-dot-com" {
-    for_each        = module.template_files.files
-    bucket          = aws_s3_bucket.marcuscraske-dot-com.id
-    key             = each.key
-    source          = each.value.source_path
-    content         = each.value.content
-    content_type    = each.value.content_type
-    etag            = each.value.digests.md5
-}
