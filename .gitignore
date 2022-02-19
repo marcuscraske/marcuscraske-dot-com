@@ -13,6 +13,8 @@ website/.jekyll-metadata
 website/.*cache
 website/_site
 
+public-files/output/
+
 # OS files
 .DS_Store
 

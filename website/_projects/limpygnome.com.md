@@ -2,11 +2,12 @@
 layout: post
 title: marcuscraske.com
 thumbnail: /assets/projects/marcuscraske.com/thumb.png
-priority: 2016
+priority: 2021
 selected: projects
 ---
 
-This website is entirely static, written in HTML and Markdown, using [Jekyll](https://jekyllrb.com/).
+Static website [Jekyll](https://jekyllrb.com/) website, written in HTML and Markdown, using: Terraform, AWS S3
+and Cloudflare.
 
 ## Features
 - Using Amazon Web Services (AWS) CloudFront, as content distribution network (CDN)
@@ -19,22 +20,30 @@ This website is entirely static, written in HTML and Markdown, using [Jekyll](ht
 <https://github.com/limpygnome/limpygnome-dot-com>
 
 ## History
-### 2018 - Nov
+### 2021
+Migrated to marcuscraske.com, using CloudFlare for CDN and Terraform for deployment.
+
+### 2019
+<a href="/assets/projects/marcuscraske.com/2019-early.png">
+    <img src="/assets/projects/marcuscraske.com/2019-early.png" alt="Screenshot of landing page" />
+</a>
+
+### 2018
 Design changed.
 
 <a href="/assets/projects/marcuscraske.com/2018-nov.png">
     <img src="/assets/projects/marcuscraske.com/2018-nov.png" alt="Screenshot of landing page" />
 </a>
 
-### 2017 - Nov
+### 2017
 Design slightly changed.
 
 <a href="/assets/projects/marcuscraske.com/2017-nov.png">
     <img src="/assets/projects/marcuscraske.com/2017-nov.png" alt="Screenshot of landing page" />
 </a>
 
-### 2016 - Oct
-[Moved to Jekyll and AWS](/blog/2016/11/02/moving-to-jekyll-and-aws).
+### 2016
+[Moved to Jekyll and AWS](/2016/11/02/moving-to-jekyll-and-aws), using: AWS S3, AWS CloudFront and AWS CloudFormation.
 
-### 2014 - Oct
+### 2014
 Using Tomcat 7 / Spring / Apache Tiles.

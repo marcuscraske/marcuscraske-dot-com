@@ -31,6 +31,19 @@ resource "cloudflare_page_rule" "https" {
     }
 }
 
+########################################################################################################################
+# Public files
+########################################################################################################################
+
+resource "cloudflare_record" "files-marcuscraske-dot-com" {
+    zone_id     = cloudflare_zone.marcuscraske-dot-com.id
+    name        = "files"
+    value       = data.terraform_remote_state.public-files.outputs.endpoint
+    type        = "CNAME"
+    proxied     = true
+    ttl         = 1
+}
+
 
 ########################################################################################################################
 # E-mail
