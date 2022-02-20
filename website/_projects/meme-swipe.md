@@ -2,7 +2,7 @@
 layout: post
 title: Meme Swipe
 thumbnail: /assets/projects/memeswipe/thumb.png
-priority: 2020
+priority: 2021
 selected: projects
 pageUrl: https://danksloth.com/apps/memeswipe/
 ---

@@ -18,14 +18,30 @@ resource "cloudflare_record" "marcuscraske-dot-com" {
 resource "cloudflare_record" "www-marcuscraske-dot-com" {
     zone_id     = cloudflare_zone.marcuscraske-dot-com.id
     name        = "www"
-    value       = "marcuscraske.com"
-    type        = "CNAME"
+    value       = "1.2.3.4"
+    type        = "A"
     proxied     = true
+    ttl         = 1
+}
+
+resource "cloudflare_page_rule" "www-redirect" {
+    zone_id     = cloudflare_zone.marcuscraske-dot-com.id
+    target      = "*www.marcuscraske.com/*"
+    priority    = 1
+    status      = "active"
+
+    actions {
+        forwarding_url {
+            url         = "https://marcuscraske.com/$2"
+            status_code = 301
+        }
+    }
 }
 
 resource "cloudflare_page_rule" "https" {
     zone_id     = cloudflare_zone.marcuscraske-dot-com.id
-    target      = "*.marcuscraske.com/*"
+    target      = "http://marcuscraske.com/*"
+    priority    = 2
     actions {
         always_use_https = true
     }
@@ -52,7 +68,7 @@ resource "cloudflare_record" "files-marcuscraske-dot-com" {
 resource "cloudflare_record" "txt-marcuscraske-dot-com" {
     zone_id     = cloudflare_zone.marcuscraske-dot-com.id
     name        = "marcuscraske.com"
-    value       = "google-site-verification=DBcgfpteK4PkrKkQ4QxIW-IzOoM5qfhV5rM_4iSRKlg"
+    value       = "google-site-verification=p7_591zKvA5fykDvqTX8jRD35_LDT9GnKSmi69JJh3I"
     type        = "TXT"
 }
 

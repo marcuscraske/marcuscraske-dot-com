@@ -1,6 +1,6 @@
 <a href="{{ include.path }}">
     <picture>
         <source srcset="{{ include.path | replace:'.png','.webp' | replace:'.jpg','.webp' }}" type="image/webp">
-        <img src="{{ include.path }}" alt="{{ include.alt }}" class="{{ include.class }}" />
-    </picture>
+        <img src="{{ include.path }}" alt="{{ include.alt }}{{ include.description }}" class="{{ include.class }}" />
+    </picture>{% if include.description != null %}<span>{{ include.description }}</span>{% endif %}
 </a>

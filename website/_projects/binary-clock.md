@@ -160,7 +160,7 @@ the primary/first shift-register is the right-most shift-register.
 In this video, a simple binary count is performed to test the circuit on a bread-board:
 
 <div class="center">
-    <iframe width="420" height="315" src="//www.youtube.com/embed/bl5ir-yKsBQ" frameborder="0" allowfullscreen></iframe>
+    <iframe width="420" height="315" src="//www.youtube.com/embed/AT6XALTF6Xw" frameborder="0" allowfullscreen></iframe>
 </div>
 
 I do not have the actual code available for the above test, due to corruption with the Debian image; however the code used the

@@ -2,7 +2,7 @@
 layout: post
 title: marcuscraske.com
 thumbnail: /assets/projects/marcuscraske.com/thumb.png
-priority: 2021
+priority: 2022
 selected: projects
 ---
 

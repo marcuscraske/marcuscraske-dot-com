@@ -5,8 +5,8 @@ selected: projects
 ---
 
 <p>
-    Collection of larger projects from my free time, refer to my
-    <a href="https://github.com/limpygnome?tab=repositories">Github</a> for the complete list.
+    Below are some of my public projects, from my free time, and a few others can be found on my
+    <a href="https://github.com/marcuscraske?tab=repositories">Github</a>.
 </p>
 
 <ul id="projects">
@@ -22,6 +22,9 @@ selected: projects
             {% endif %}
                 <img src="{{ project.thumbnail }}" alt="{{ project.title }} project thumbnail" />
                 {{ project.title }}
+                <span class="year">
+                    {{ project.priority }}
+                </span>
             </a>
         </h2>
         <p>
