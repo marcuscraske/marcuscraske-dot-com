@@ -10,7 +10,16 @@ selected: projects
     <img alt="App icon" src="/assets/projects/my-food-hygiene-ratings/thumb.png" class="post-thumb" />
 </a>
 
-My Android and iOS app to allow users to find hygiene ratings of establishments (restaurants, bars, shops etc).
+My hobby Android and iOS app to allow users to find hygiene ratings of establishments (restaurants, bars, shops etc).
+
+## Download
+<p>
+  <a href="https://danksloth.com/apps/myfoodhygieneratings/">Product landing page</a>, under Dank Sloth Apps.
+</p>
+
+<p class="center">
+  <img src="/assets/projects/my-food-hygiene-ratings/app.png" />
+</p>
 
 <p class="center">
     <a href="https://apps.apple.com/us/app/my-food-hygiene-ratings/id1455030045?ls=1">

@@ -9,6 +9,7 @@ gems:
   - jekyll-assets
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-webp
 
 exclude:
   - Gemfile
@@ -37,3 +38,16 @@ collections:
     output: true
 
 highlighter: rouge
+
+# Compress images to webp
+webp:
+  enabled: true
+  quality: 75
+  img_dir: ["/assets/", "/_assets/"]
+  nested: true
+  formats: [".jpeg", ".jpg", ".png"]
+  gifs: [".gifs"]
+  regenerate: false
+  webp_path: nil
+  exclude: []
+  append_ext: false

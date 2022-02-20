@@ -14,7 +14,7 @@ resource "aws_s3_bucket_website_configuration" "marcuscraske-dot-com" {
     }
 
     error_document {
-        key = "error.html"
+        key = "error/index.html"
     }
 
 }

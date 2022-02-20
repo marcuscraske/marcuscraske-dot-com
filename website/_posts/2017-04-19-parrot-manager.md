@@ -4,9 +4,7 @@ title: Parrot Manager
 selected: blog
 ---
 
-<a href="/assets/posts/2017-04-19-parrot-manager/parrot-icon.png">
-    <img src="/assets/posts/2017-04-19-parrot-manager/parrot-icon.png" alt="Parrot manager logo" class="post-thumb" />
-</a>
+{% include image.html path="/assets/posts/2017-04-19-parrot-manager/parrot-icon.png" alt="Parrot manager logo" class="post-thumb" %}
 
 My side project for the last few months.
 

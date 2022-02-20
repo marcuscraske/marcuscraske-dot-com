@@ -41,6 +41,7 @@ GEM
       jekyll (~> 3.3)
     jekyll-watch (1.5.1)
       listen (~> 3.0)
+    jekyll-webp (1.0.0)
     kramdown (1.17.0)
     liquid (3.0.6)
     listen (3.7.1)
@@ -78,6 +79,7 @@ DEPENDENCIES
   jekyll-feed (~> 0.6)
   jekyll-paginate
   jekyll-sitemap
+  jekyll-webp
   minima (~> 2.0)
   yui-compressor
 

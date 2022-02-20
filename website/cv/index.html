@@ -3,272 +3,276 @@ layout: compress
 ---
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Curriculum Vitae</title>
-    <meta name="robots" content="noindex">
-    <meta name="description" content="My curriculum vitae, a record of personal achievements and progress.">
-    {% css_asset_tag bundle %}
-    - /_assets/cv.css
-    {% endcss_asset_tag bundle %}
-</head>
-<body>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Curriculum Vitae - Marcus Craske
+        </title>
+        <meta name="robots" content="noindex">
+        <meta name="description" content="My curriculum vitae, a record of personal achievements and progress.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, minimum-scale=1">
+        {% css_asset_tag bundle %}
+        - /_assets/cv.css
+        {% endcss_asset_tag bundle %}
+    </head>
+    <body>
 
-    <a id="skip-to-content" href="#wrapper">
-        Skip to main content
-    </a>
+        <a id="skip-to-content" href="#wrapper">
+            Skip to main content
+        </a>
 
-    <div class="options">
-        <a href="/">Back</a>
-        <a href="/cv" onclick="window.print();">Print</a>
-        <a href="/cv/marcus-craske.pdf">Download as PDF</a>
-        <a href="mailto:contact@marcuscraske.com?subject=Marcus%20Craske%20CV&body=https%3A%2F%2Fmarcuscraske.com%2Fcv">E-mail</a>
-    </div>
+        <div class="options">
+            <a href="/">Back</a>
+            <a href="/cv" onclick="window.print();">Print</a>
+            <a href="/cv/marcus-craske.pdf">Download as PDF</a>
+            <a href="mailto:contact@marcuscraske.com?subject=Marcus%20Craske%20CV&body=https%3A%2F%2Fmarcuscraske.com%2Fcv">E-mail</a>
+        </div>
 
-    <div id="wrapper" class="wrapper">
-        <h1>
-            Marcus Craske
-        </h1>
-        <div class="contact">
-            <div class="info">
-                <div class="th">
-                    m:
+        <div id="wrapper" class="wrapper">
+            <h1>
+                Marcus Craske
+            </h1>
+            <div class="contact">
+                <div class="info">
+                    <div class="th">
+                        m:
+                    </div>
+                    <div class="td">
+                        (+44) 079 066 868 57
+                    </div>
+                    <div class="clear"></div>
                 </div>
-                <div class="td">
-                    (+44) 079 066 868 57
+                <div class="internet">
+                    <a href="mailto:contact@marcuscraske.com">contact@marcuscraske.com</a>
+                </div>
+                <div class="address">
+                    <a href="https://marcus.engineer">https://marcus.engineer</a>
                 </div>
                 <div class="clear"></div>
             </div>
-            <div class="internet">
-                <a href="mailto:contact@marcuscraske.com">contact@marcuscraske.com</a>
-            </div>
-            <div class="address">
-                <a href="https://marcus.engineer">https://marcus.engineer</a>
-            </div>
-            <div class="clear"></div>
-        </div>
 
-        <div class="section first">
-            <div class="header">
-                <h2>Experience</h2>
-            </div>
-            <div class="content">
-                <div class="item">
-                    <div class="time">
-                        March 2015 - Present
-                    </div>
-                    <div class="text">
-                        <b>Worldpay / FIS</b> - <i>Principal Software Engineer - promoted December 2019,</i><br />
-                        <i>Senior Software Engineer - promoted November 2015,</i><br />
-                        <i>Software Engineer</i><br />
-                        Working on HPP (Hosted Payment Pages) platform, the next generation of payment pages for online
-                        commerce. Supporting multiple languages, currencies, international alternative payment methods
-                        and card schemes. Processing high volumes of transactions, in the billions annually. Used by
-                        well-known retailers, corporates, government agencies and smaller businesses.<br />
-                        <br />
-                        Technical lead working with the business (product manager, project owner, service owners,
-                        enterprise architecture, enterprise security, other teams, etc) to implement projects, release
-                        lead, defining release process and SDLC, mentoring, department presentations, shifting
-                        platform from proprietary licensing to save costs, code reviews, high-level designs,
-                        platform security, interviewing candidates, improving interview process,
-                        running training sessions with various teams, platform architecture, on-call production support.<br />
-                        <br />
-                        Using Java 11, Spring Boot, Kubernetes, Docker containers, AWS, OpenShift, Ansible, historically
-                        Oracle stack (Weblogic, DB, Coherence), Fastly, Angular and much more.<br />
-                        <br />
-                        Experience with working on legacy gateway, mission critical, high-throughput systems. Migrating
-                        legacy systems. Based in team using Scaled Agile (SaFE), transformed from Scrum to Kanban,
-                        using Jira / Rally, physical whiteboards / walls.
-                    </div>
+            <div class="section first">
+                <div class="header">
+                    <h2>Experience</h2>
                 </div>
-                <div class="item">
-                    <div class="time">
-                        Nov 2014 - March 2015
-                    </div>
-                    <div class="text">
-                        <b>Proxama</b> - <i>Software Engineer</i><br />
-                        Working on a PCI-compliant product, CardGateway, to provide token and risk management of
-                        contactless payments for Visa and MasterCard. Using JEE6, Glassfish and C#.
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="time">
-                        Aug 2014 - Oct 2014
-                    </div>
-                    <div class="text">
-                        <b>Proxama</b> - <i>Research &amp; Development</i><br />
-                        Design of the CardGateway Issuer System product, graph databases for risk analysis, EMVTT / PoS solution.
-                        Software for demos presented to tier one/two clients, including major banks.
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="time">
-                        2013
-                    </div>
-                    <div class="text">
-                        <b>University of East Anglia</b> - <i>Teaching Lab Assistant</i> - helped with <i>Discover Computing</i> school visit.
-                    </div>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-
-        <div class="section">
-            <div class="header">
-                <h2>Technical Skills</h2>
-            </div>
-            <div class="content">
-                <div class="item">
-                    <div class="text">
-                        <b>Languages</b> - Java, JavaScript, TypeScript, C#, C/C++ (inc. 11), Matlab.
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="text">
-                        <b>Platforms</b> - Mac, Linux (Arch, Debian, Ubuntu), Windows, Raspberry Pi, ARM Cortex M, Verifone VX 820 PoS PED.
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="text">
-                        <b>Fintech</b> - PCI-DSS, Card Schemes, PSD2 / SCA, ISO 8583, Four Corner Model, Alternative
-                        Payment Methods (APMs), Digital Wallets, EMVCo.
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="text">
-                        <b>Web</b> - WCAG, Web Accessibility, OWASP, HTML5, CSS3, JavaScript, TypeScript, ReactJS, Redux,
-                        Angular, AngularJS, ASP.NET, PHP, Gulp, Grunt.
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="text">
-                        <b>Misc.</b> - Amazon Web Services (AWS), Git, Jenkins,
-                        SQL (Oracle, MySQL, Postgres, MS SQL), Mongo, Spring Boot, JVisualVM,
-                        OpenGL, Java EE, Glassfish, Tomcat, Resource Adapters, JMS, Hibernate,
-                        JUnit, Mockito, Docker, Maven, Checkstyle, Ant, dependency injection,
-                        Agile / Scrum / Kanban / Scaled Agile / SaFE,
-                        WSDL, SOAP, REST, LDAP / Active Directory, design patterns, Jira, Rally,
-                        NodeJS, NPM, Android, iOS, React Native.
-                    </div>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-
-        <div class="section">
-            <div class="header">
-                <h2>Education</h2>
-            </div>
-            <div class="content">
-                <div class="item">
-                    <div class="time">
-                        2014
-                    </div>
-                    <div class="text">
-                        <b>Bachelor of Science (BSc)</b> - Computer Science<br />
-                        First Class (Honours) Starred (I*) - 83.48% weighted average<br />
-                        University of East Anglia<br />
-                        <br />
-                        Year 1: 90.71% - <i>Computing Fundamentals, Computing Revolution,
-                        Mathematics for Computing A, Computing Systems 1, Computing Systems 2,
-                        Programming 1.</i><br />
-                        Year 2: 81.77% - <i>Theoretical Computing, Database Systems, Graphics 1,
-                        Architectures & Operating Systems, Data Structures & Algorithms,
-                        Programming 2.</i><br />
-                        Year 3: 82.66% - <i>Information Retrieval, Embedded Systems, Networks,
-                        Software Engineering 2, Project.</i>
-                    </div>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-
-        <div class="section">
-            <div class="header">
-                <h2>Third Year Project</h2>
-            </div>
-            <div class="content">
-                <div class="item">
-                    <div class="text">
-                        <b>The Automated Assessment of Programming Skills</b> (graded 94.4%)<br />
-                        An open-source distributed system, which can be clustered across multiple
-                        nodes/instances using RMI communication, to automatically mark Java
-                        programming assignments using dynamic and static analysis.
-                    </div>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-
-        <div class="section">
-            <div class="header">
-                <h2>Awards</h2>
-            </div>
-            <div class="content">
-                <div class="item">
-                    <div class="time">
-                        2014
-                    </div>
-                    <div class="text">
-                        <i>Proxama Award - October - Talent</i>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="time">
-                        2014
-                    </div>
-                    <div class="text">
-                        <i>Douglas Lewin Memorial Prize for Final Year Project</i>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="time">
-                        2012
-                    </div>
-                    <a href="https://www.uea.ac.uk/computing/news/-/asset_publisher/BZNbbdsKL4kr/blog/school-prizes/10165">
-                        <div class="text">
-                            <i>The Pearson Education Prize in Computing Science</i>
+                <div class="content">
+                    <div class="item">
+                        <div class="time">
+                            March 2015 - Present
                         </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <div class="time">
-                        2011
+                        <div class="text">
+                            <b>Worldpay / FIS</b> - <i>Principal Software Engineer - promoted December 2019,</i><br />
+                            <i>Senior Software Engineer - promoted November 2015,</i><br />
+                            <i>Software Engineer</i><br />
+                            Working on HPP (Hosted Payment Pages) platform, the next generation of payment pages for online
+                            commerce. Supporting multiple languages, currencies, international alternative payment methods
+                            and card schemes. Processing high volumes of transactions, in the billions annually. Used by
+                            well-known retailers, corporates, government agencies and smaller businesses.<br />
+                            <br />
+                            Technical lead working with the business (product manager, project owner, service owners,
+                            enterprise architecture, enterprise security, other teams, etc) to implement projects, release
+                            lead, defining release process and SDLC, mentoring, department presentations, shifting
+                            platform from proprietary licensing to save costs, code reviews, high-level designs,
+                            platform security, interviewing candidates, improving interview process,
+                            running training sessions with various teams, platform architecture, on-call production support.<br />
+                            <br />
+                            Using Java 11, Spring Boot, Kubernetes, Docker containers, AWS, OpenShift, Ansible, historically
+                            Oracle stack (Weblogic, DB, Coherence), Fastly, Angular and much more.<br />
+                            <br />
+                            Experience with working on legacy gateway, mission critical, high-throughput systems. Migrating
+                            legacy systems. Based in team using Scaled Agile (SaFE), transformed from Scrum to Kanban,
+                            using Jira / Rally, physical whiteboards / walls.
+                        </div>
                     </div>
-                    <div class="text">
-                        <a href="https://www.eveningnews24.co.uk/news/technology/city-college-norwich-students-take-gold-and-silver-in-national-competition-1-975520">
-                            <i>WorldSkills Web Design - National Final - Gold</i>
+                    <div class="item">
+                        <div class="time">
+                            Nov 2014 - March 2015
+                        </div>
+                        <div class="text">
+                            <b>Proxama</b> - <i>Software Engineer</i><br />
+                            Working on a PCI-compliant product, CardGateway, to provide token and risk management of
+                            contactless payments for Visa and MasterCard. Using JEE6, Glassfish and C#.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="time">
+                            Aug 2014 - Oct 2014
+                        </div>
+                        <div class="text">
+                            <b>Proxama</b> - <i>Research &amp; Development</i><br />
+                            Design of the CardGateway Issuer System product, graph databases for risk analysis, EMVTT / PoS solution.
+                            Software for demos presented to tier one/two clients, including major banks.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="time">
+                            2013
+                        </div>
+                        <div class="text">
+                            <b>University of East Anglia</b> - <i>Teaching Lab Assistant</i> - helped with <i>Discover Computing</i> school visit.
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="section">
+                <div class="header">
+                    <h2>Technical Skills</h2>
+                </div>
+                <div class="content">
+                    <div class="item">
+                        <div class="text">
+                            <b>Languages</b> - Java, JavaScript, TypeScript, C#, C/C++ (inc. 11), Matlab.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="text">
+                            <b>Platforms</b> - Mac, Linux (Arch, Debian, Ubuntu), Windows, Raspberry Pi, ARM Cortex M, Verifone VX 820 PoS PED.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="text">
+                            <b>Fintech</b> - PCI-DSS, Card Schemes, PSD2 / SCA, ISO 8583, Four Corner Model, Alternative
+                            Payment Methods (APMs), Digital Wallets, EMVCo.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="text">
+                            <b>Web</b> - WCAG, Web Accessibility, OWASP, HTML5, CSS3, JavaScript, TypeScript, ReactJS, Redux,
+                            Angular, AngularJS, ASP.NET, PHP, Gulp, Grunt.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="text">
+                            <b>Misc.</b> - Amazon Web Services (AWS), Git, Jenkins,
+                            SQL (Oracle, MySQL, Postgres, MS SQL), Mongo, Spring Boot, JVisualVM,
+                            OpenGL, Java EE, Glassfish, Tomcat, Resource Adapters, JMS, Hibernate,
+                            JUnit, Mockito, Docker, Maven, Checkstyle, Ant, dependency injection,
+                            Agile / Scrum / Kanban / Scaled Agile / SaFE,
+                            WSDL, SOAP, REST, LDAP / Active Directory, design patterns, Jira, Rally,
+                            NodeJS, NPM, Android, iOS, React Native.
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="section">
+                <div class="header">
+                    <h2>Education</h2>
+                </div>
+                <div class="content">
+                    <div class="item">
+                        <div class="time">
+                            2014
+                        </div>
+                        <div class="text">
+                            <b>Bachelor of Science (BSc)</b> - Computer Science<br />
+                            First Class (Honours) Starred (I*) - 83.48% weighted average<br />
+                            University of East Anglia<br />
+                            <br />
+                            Year 1: 90.71% - <i>Computing Fundamentals, Computing Revolution,
+                            Mathematics for Computing A, Computing Systems 1, Computing Systems 2,
+                            Programming 1.</i><br />
+                            Year 2: 81.77% - <i>Theoretical Computing, Database Systems, Graphics 1,
+                            Architectures & Operating Systems, Data Structures & Algorithms,
+                            Programming 2.</i><br />
+                            Year 3: 82.66% - <i>Information Retrieval, Embedded Systems, Networks,
+                            Software Engineering 2, Project.</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="section">
+                <div class="header">
+                    <h2>Third Year Project</h2>
+                </div>
+                <div class="content">
+                    <div class="item">
+                        <div class="text">
+                            <b>The Automated Assessment of Programming Skills</b> (graded 94.4%)<br />
+                            An open-source distributed system, which can be clustered across multiple
+                            nodes/instances using RMI communication, to automatically mark Java
+                            programming assignments using dynamic and static analysis.
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="section">
+                <div class="header">
+                    <h2>Awards</h2>
+                </div>
+                <div class="content">
+                    <div class="item">
+                        <div class="time">
+                            2014
+                        </div>
+                        <div class="text">
+                            <i>Proxama Award - October - Talent</i>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="time">
+                            2014
+                        </div>
+                        <div class="text">
+                            <i>Douglas Lewin Memorial Prize for Final Year Project</i>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="time">
+                            2012
+                        </div>
+                        <a href="https://www.uea.ac.uk/computing/news/-/asset_publisher/BZNbbdsKL4kr/blog/school-prizes/10165">
+                            <div class="text">
+                                <i>The Pearson Education Prize in Computing Science</i>
+                            </div>
                         </a>
                     </div>
+                    <div class="item">
+                        <div class="time">
+                            2011
+                        </div>
+                        <div class="text">
+                            <a href="https://www.eveningnews24.co.uk/news/technology/city-college-norwich-students-take-gold-and-silver-in-national-competition-1-975520">
+                                <i>WorldSkills Web Design - National Final - Gold</i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="time">
+                            2011
+                        </div>
+                        <div class="text">
+                            <i>Further Education Awards</i>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="time">
+                            2010
+                        </div>
+                        <div class="text">
+                            <i>WorldSkills Web Design - National Final - Bronze</i>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="time">
+                            2010
+                        </div>
+                        <div class="text">
+                            <i>Further Education Awards</i>
+                        </div>
+                    </div>
                 </div>
-                <div class="item">
-                    <div class="time">
-                        2011
-                    </div>
-                    <div class="text">
-                        <i>Further Education Awards</i>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="time">
-                        2010
-                    </div>
-                    <div class="text">
-                        <i>WorldSkills Web Design - National Final - Bronze</i>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="time">
-                        2010
-                    </div>
-                    <div class="text">
-                        <i>Further Education Awards</i>
-                    </div>
-                </div>
+                <div class="clear"></div>
             </div>
-            <div class="clear"></div>
+
         </div>
 
-    </div>
-
-</body>
+    </body>
 </html>

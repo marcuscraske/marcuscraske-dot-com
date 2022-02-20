@@ -27,4 +27,5 @@ gem "jekyll-assets"
 gem "jekyll-paginate"
 gem "jekyll-asset-pipeline"
 gem "yui-compressor"
-gem 'jekyll-sitemap'
+gem "jekyll-sitemap"
+gem "jekyll-webp"

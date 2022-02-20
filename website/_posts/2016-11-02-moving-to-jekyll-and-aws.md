@@ -4,9 +4,7 @@ title: Moving to Jekyll and AWS
 selected: blog
 ---
 
-<a href="/assets/posts/2016-11-02-moving-to-jekyll-and-aws/thumb.png">
-    <img alt="Jekyll logo" src="/assets/posts/2016-11-02-moving-to-jekyll-and-aws/thumb.png" class="post-thumb" />
-</a>
+{% include image.html path="/assets/posts/2016-11-02-moving-to-jekyll-and-aws/thumb.png" alt="Jekyll logo" class="post-thumb" %}
 
 Recently I have transitioned my website to be statically generated, using Jekyll, and moved hosting to Amazon Web
 Services (AWS). Not only does it load faster, due to being distributed around the world using AWS CloudFront, but it

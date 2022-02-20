@@ -5,8 +5,6 @@ selected: blog
 pageUrl: /projects/my-food-hygiene-ratings
 ---
 
-<a href="/assets/projects/my-food-hygiene-ratings/thumb.png">
-    <img alt="App icon" src="/assets/projects/my-food-hygiene-ratings/thumb.png" class="post-thumb" />
-</a>
+{% include image.html path="/assets/projects/my-food-hygiene-ratings/thumb.png" alt="App icon" class="post-thumb" %}
 
-My Android and iOS app to allow users to find hygiene ratings of establishments (restaurants, bars, shops etc).
+My hobby Android and iOS app to allow users to find hygiene ratings of establishments (restaurants, bars, shops etc).

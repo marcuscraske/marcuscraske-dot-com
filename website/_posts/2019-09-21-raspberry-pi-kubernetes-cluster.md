@@ -3,9 +3,8 @@ layout: post
 title: Raspberry Pi Kubernetes Cluster
 selected: blog
 ---
-<a href="/assets/posts/2019-09-21-raspberry-pi-kubernetes-cluster/thumb.png">
-    <img alt="K8 and Pi logo" src="/assets/posts/2019-09-21-raspberry-pi-kubernetes-cluster/thumb.png" class="post-thumb" />
-</a>
+
+{% include image.html path="/assets/posts/2019-09-21-raspberry-pi-kubernetes-cluster/thumb.png" alt="K8 and Pi logo" class="post-thumb" %}
 
 In this article, I setup:
 - A Kubernetes cluster using the new Raspberry Pi 4.

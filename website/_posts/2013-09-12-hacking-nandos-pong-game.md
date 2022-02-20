@@ -4,9 +4,7 @@ title: Hacking the Nandos Pong Game
 selected: blog
 ---
 
-<a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/thumb.png">
-    <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/thumb.png" alt="Thumbnail" class="post-thumb" />
-</a>
+{% include image.html path="/assets/posts/2013-09-12-hacking-nandos-pong-game/thumb.png" alt="Thumbnail" class="post-thumb" %}
 
 As apart of a promotion between the 1st of September until the 31st of October 2012, the game allows students to win
 Nando's Gift Cards worth £600 - with three of them up for grabs, hence £1,800 of value. To win the prize, one must
@@ -29,32 +27,24 @@ The first step was to begin recording exchanged packet data between the client (
 the server (nandos.co.uk); this was accomplished by using <a href="http://www.wireshark.org/">Wireshark</a>:
 
 <p class="center">
-    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark.png">
-        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark.png" alt="Wireshark" />
-    </a>
+    {% include image.html path="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark.png" alt="Wireshark" %}
 </p>
 
 Next I began playing the game and kept a watch on Wireshark for activity, however no exchange of data occurred
 until the end of the game when I submitted my score:
 
 <p class="center">
-    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/game_submit.png">
-        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/game_submit.png" alt="Game Submit" />
-    </a>
+    {% include image.html path="/assets/posts/2013-09-12-hacking-nandos-pong-game/game_submit.png" alt="Game Submit" %}
 </p>
 
 <p class="center">
-    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_activity.png">
-        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_activity.png" alt="Wireshark Activity" />
-    </a>
+    {% include image.html path="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_activity.png" alt="Wireshark Activity" %}
 </p>
 
 If we look through the packets, we eventually find fragments of the data we just sent from the game:
 
 <p class="center">
-    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/packet_data.png">
-        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/packet_data.png" alt="Packet Data" />
-    </a>
+    {% include image.html path="/assets/posts/2013-09-12-hacking-nandos-pong-game/packet_data.png" alt="Packet Data" %}
 </p>
 
 The hex responsible for the header has been highlighted in red, with the hex for the data highlighted in green. From
@@ -73,9 +63,7 @@ a character.
 Once we begin checking what the characters mean in the data area, a pattern becomes obvious:
 
 <p class="center">
-    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data.png">
-        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data.png" alt="Wireshark Data" />
-    </a>
+    {% include image.html path="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data.png" alt="Wireshark Data" %}
 </p>
 
 I've put rectangles around areas:
@@ -106,9 +94,7 @@ each piece of data comes before a string, and apparently 02 indicates a string p
 Lets take a closer look at a piece of data:
 
 <p class="center">
-    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data_closer.png">
-        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data_closer.png" alt="Wireshark Data Closer" />
-    </a>
+    {% include image.html path="/assets/posts/2013-09-12-hacking-nandos-pong-game/wireshark_data_closer.png" alt="Wireshark Data Closer" %}
 </p>
 
 If 00 indicates a number parameter, 04 (hex) means 4 (numerically); is it a co-incidence our data is four bytes in
@@ -140,9 +126,7 @@ This area is most likely our score since 00 indicates a number, and from trial a
 by changing the two bytes after 00 to random hex values - which led to a new high-score of 38 million:
 
 <p class="center">
-    <a href="/assets/posts/2013-09-12-hacking-nandos-pong-game/highscore.png">
-        <img src="/assets/posts/2013-09-12-hacking-nandos-pong-game/highscore.png" alt="Highscore" />
-    </a>
+    {% include image.html path="/assets/posts/2013-09-12-hacking-nandos-pong-game/highscore.png" alt="Highscore" %}
 </p>
 
 I also found changing <i>00 40 82</i> to <i>00 FF FF</i> would also wipe my old scores. According to the Wikipedia
@@ -570,3 +554,7 @@ Very simple resolutions:
   an automated email server could automatically verify users, so a white-list could be enforced.
 - Check the number of entries being submitted from an IP, with a threshold and automatic banning - again this is
   very simple and should have been implemented.
+
+__Legal disclaimer: this post only presents what could be possible, and is not an admission of guilt, or/and actions,
+nor does it condone such behaviour. And any photos are artistic in nature, and this article was written and exists
+only for the purposes of entertainment and education.__

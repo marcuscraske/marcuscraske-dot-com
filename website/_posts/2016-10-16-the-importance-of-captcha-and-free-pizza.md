@@ -4,9 +4,7 @@ title: The Importance of Captcha & Free Pizza!
 selected: blog
 ---
 
-<a href="/assets/posts/2016-10-16-importance-of-captcha/thumb.png">
-    <img src="/assets/posts/2016-10-16-importance-of-captcha-papa-rewards/thumb.png" alt="Splunk, AWS and Slack" class="post-thumb" />
-</a>
+{% include image.html path="/assets/posts/2016-10-16-importance-of-captcha/thumb.png" alt="The Importance of Captcha & Free Pizza!" class="post-thumb" %}
 
 During October 2016, Papa Johns held a competition to promote their Papa Rewards system, whereby users could
 enter an e-mail and potentially win Papa Reward points, or receive a £10 discount.
@@ -23,22 +21,23 @@ at...<i>random?</i>.
 Sounds like free dinner for a month! :)
 
 ## Free Dinner
-Initially you could enter a random e-mail without any sort of confirmation and eventually players would win. This was
-soon rectified, after about a week, by requiring users to confirm their e-mail when entering excessive entries from
-an IP address. And using the same Gmail e-mail with a filter added, by appending a suffix to the username e.g.
-`limpygnome@gmail.com` turned into `limpygnome+whatever.com`, was also banned, along with many temporary e-mail
+At first, you could enter a random e-mail without any sort of confirmation and eventually players would win the main
+prize (a large pizza).
+
+After only a week, this was changed, requiring users to confirm their e-mail when entering excessive entries from
+a single IP address. And using the same Gmail e-mail with a filter added, by appending a suffix to the username e.g.
+`john@gmail.com` turned into `john+whatever@gmail.com`, was also banned, along with many temporary e-mail
 providers.
 
 But not all temporary e-mail providers. And the process, including the e-mail confirmation page, did not present
 any form of human verification, such as a captcha, or limit the volume of requests/entries.
 
 
-And as a result, a bot could mine large pizzas instead:
+And as a result, a simple bot, using [Selenium](https://www.selenium.dev/documentation/), could _mine_ for a
+specific number of large pizzas instead:
 
 <p class="center">
-    <a href="/assets/posts/2016-10-16-importance-of-captcha/workers.png">
-        <img src="/assets/posts/2016-10-16-importance-of-captcha-papa-rewards/workers-thumb.png" alt="Automated bots" />
-    </a>
+    {% include image.html path="/assets/posts/2016-10-16-importance-of-captcha/workers.png" alt="Automated bots" class="post-thumb" %}
 </p>
 
 ...theoretically :D.
@@ -47,3 +46,7 @@ Source code:
 <https://github.com/limpygnome/papa-rewards-bot>
 
 Nom nom nom...
+
+__Legal disclaimer: this post only presents what could be possible, and is not an admission of guilt, or/and actions,
+nor does it condone such behaviour. And any photos are artistic in nature, and this article was written and exists
+only for the purposes of entertainment and education.__

@@ -4,9 +4,7 @@ title: Splunk Alerts on Slack
 selected: blog
 ---
 
-<a href="/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png">
-    <img src="/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png" alt="Splunk, AWS and Slack" class="post-thumb" />
-</a>
+{% include image.html path="/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png" alt="Splunk, AWS and Slack" class="post-thumb" %}
 
 For those using log tools such as [Splunk](https://splunk.com), you can setup alerts. These will run queries every so
 often and trigger actions when conditions are met e.g. count of events surpasses a threshold.

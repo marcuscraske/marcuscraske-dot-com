@@ -358,27 +358,27 @@ footer a:focus
 
 footer a[title=Github]
 {
-    background-image: url('/assets/footer/github.png');
+    background-image: url('/assets/footer/github.webp');
 }
 
 footer a[title=LinkedIn]
 {
-    background-image: url('/assets/footer/linkedin.png');
+    background-image: url('/assets/footer/linkedin.webp');
 }
 
 footer a[title=Strava]
 {
-    background-image: url('/assets/footer/strava.png');
+    background-image: url('/assets/footer/strava.webp');
 }
 
 footer a[title=E-mail]
 {
-    background-image: url('/assets/footer/email.png');
+    background-image: url('/assets/footer/email.webp');
 }
 
 footer a[title=Instagram]
 {
-    background-image: url('/assets/footer/instagram.png');
+    background-image: url('/assets/footer/instagram.webp');
 }
 
 
@@ -388,7 +388,7 @@ footer a[title=Instagram]
 
 main a
 {
-    color: #666;
+    color: #000;
 }
 
 main p
@@ -448,9 +448,20 @@ main img.thumb
 {
     display: block;
     margin: auto;
-    max-width: 40%;
+    max-width: 54em;
     max-height: 40%;
     border-radius: 4px;
+}
+
+@media only screen and (max-width: 1000px)
+{
+    main > img,
+    main p img,
+    main .gallery img,
+    main img.thumb
+    {
+        max-width: 40%;
+    }
 }
 
 main .gallery.larger img
@@ -475,7 +486,7 @@ article time
 {
     display: block;
     margin: 1em 1em 0 0;
-    color: #999;
+    color: #666;
     font-weight: bold;
 }
 
@@ -484,7 +495,7 @@ article time
     margin-bottom: -1em;
 }
 
-#home article h3,
+#home article h1,
 h1
 {
     margin: 0;
@@ -497,7 +508,7 @@ h1
     margin: 0.5em 0 0 0;
 }
 
-#home article h3 a
+#home article h1 a
 {
     text-decoration: none;
 }
