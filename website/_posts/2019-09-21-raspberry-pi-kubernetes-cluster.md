@@ -300,55 +300,35 @@ but you'll most likely not be able to access the cluster locally.
 Let's install MetalLB using helm:
 
 ````
+kubectl create namespace metallb-system
 helm repo add metallb https://metallb.github.io/metallb
-helm install metallb metallb/metallb --namespace kube-ingress
+helm install metallb metallb/metallb --namespace metallb-system
 ````
 
-Based on the above, choose either _Layer 2_ or _BGP_.
-
-#### Option 1: Layer 2 (recommended)
 Create `metallb-config.yaml` to configure load balancer:
 
 ````
-apiVersion: v1
-kind: ConfigMap
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
 metadata:
-  namespace: kube-ingress
-  name: metallb-config
-data:
-  config: |
-    address-pools:
-    - name: default
-      protocol: layer2
-      addresses:
-      - 192.168.1.240-192.168.1.250
-````
-
-### Option 2: BGP
-Create `metallb-config.yaml` to configure load balancer:
-
-````
-apiVersion: v1
-kind: ConfigMap
+  name: first-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 192.168.1.230-192.168.1.250
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
 metadata:
-  namespace: kube-ingress
-  name: metallb-config
-data:
-  config: |
-    peers:
-    - peer-address: 192.168.1.1
-      peer-asn: 64501
-      my-asn: 64500
-    address-pools:
-    - name: default
-      protocol: bgp
-      addresses:
-      - 192.168.10.0/24
+  name: example
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - first-pool
 ````
 
-For more details on both options, refer to the [official docs](https://metallb.universe.tf/configuration/).
-
-Just be careful, as we've got a different namespace to the docs.
+For more details on options, as BGP is available instead of Layer 2, refer to
+the [official docs](https://metallb.universe.tf/configuration/).
 
 Once config has been setup, apply it:
 
@@ -398,7 +378,7 @@ apiVersion: v1
 metadata:
   name: uptime
   annotations:
-    metallb.universe.tf/allow-shared-ip: home-network
+    metallb.universe.tf/address-pool: first-pool
 spec:
   selector:
     app: uptime
@@ -408,7 +388,6 @@ spec:
     targetPort: 8080
   sessionAffinity: None
   type: LoadBalancer
-  loadBalancerIP: 192.168.1.240
 ````
 
 You can then front your router's WAN / public internet IP address with a CDN such as
