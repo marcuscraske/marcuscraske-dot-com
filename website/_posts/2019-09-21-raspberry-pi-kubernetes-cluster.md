@@ -81,7 +81,7 @@ Run these steps for both your single control plane node, and node(s):
 
 - Install useful network tools and Kubernetes ADM client:
     ````
-    sudo apt install dnsutils kubeadm
+    sudo apt install dnsutils kubeadm kubelet
     ````
 
 - Install latest Docker:
@@ -91,9 +91,14 @@ Run these steps for both your single control plane node, and node(s):
     newgrp docker
     ````
 
-- Configure ip tables to open all ports, currently required for [pod DNS to work](https://github.com/kubernetes-sigs/kubespray/issues/4674)):
+- Configure ip tables to open all ports, currently required for [pod DNS to work](https://github.com/kubernetes-sigs/kubespray/issues/4674).
+  Start by editing:
     ````
-    sudo iptables -P FORWARD ACCEPT
+    sudo vim /etc/rc.local
+    ````
+  And add (before any lines with _exit_):
+    ````
+    /sbin/iptables -P FORWARD ACCEPT
     ````
   Without this step, you may find `coredns` pods fail to start on app nodes
   and/or DNS does not work.
@@ -186,6 +191,15 @@ Based on the [official guide](https://kubernetes.io/docs/tasks/access-applicatio
     - kind: ServiceAccount
       name: admin-user
       namespace: kube-system
+    ---
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: secret-admin-user
+      namespace: kube-system
+      annotations:
+        kubernetes.io/service-account.name: "admin-user"
+    type: kubernetes.io/service-account-token
     ````
 
 - Apply the file, it will setup a user for the dashboard:
@@ -208,7 +222,7 @@ Save the following script as `dashboard.sh`:
 MASTER="pi@192.168.1.100"
 
 # Print token for login
-TOKEN_COMMAND="kubectl -n kube-system describe secret \$(kubectl -n kube-system get secret | grep admin-user | awk '{print \$1}')"
+TOKEN_COMMAND="kubectl -n kube-system describe secret/secret-admin-user | grep 'token: ' | awk '{ print \$2 }'"
 
 echo "Dumping token for dashboard..."
 ssh ${MASTER} -C "${TOKEN_COMMAND}"
@@ -240,50 +254,15 @@ token on the logon screen.
 Helm is a package manager for Kubernetes, which we'll use to setup
 ingress in the next section.
 
-It consists of two parts: _helm_ the client, _tiller_ the Helm server.
-
-The server will be deployed as a pod, which needs a service account. Thus
-create a file `rbac-config.yaml` with:
-
-````
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: tiller
-  namespace: kube-system
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: tiller
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-  - kind: ServiceAccount
-    name: tiller
-    namespace: kube-system
-````
-
-And apply the config:
-````
-kubectl apply -f rbac-config.yaml
-````
-
-Since we're using a Raspberry Pi with an _arm_ architecture, we'll install an
-_arm_ version of the helm client on the master node and
-a _multi-arch_ [image](https://github.com/jessestuart/tiller-multiarch) of _tiller_
-on the cluster:
+Let's install the client:
 
 ````
 ssh pi@k8-master1
-wget https://get.helm.sh/helm-v2.14.3-linux-arm.tar.gz
-tar xvzf helm-v2.14.3-linux-arm.tar.gz
+wget https://get.helm.sh/helm-v3.9.2-linux-arm.tar.gz
+tar -zxvf helm-v3.9.2-linux-arm.tar.gz
 sudo mv linux-arm/helm /usr/local/bin/helm
-rm -rf linux-arm
-helm init --tiller-image=jessestuart/tiller:v2.14.3 --service-account tiller
 ````
+
 
 ## Ingress
 We'll setup [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/), so that
@@ -298,18 +277,10 @@ for managing anything related to ingress to our services.
 Install using helm:
 ````
 ssh pi@k8-master1
-helm install stable/nginx-ingress --name nginx-ingress --namespace kube-ingress --set controller.publishService.enabled=true
-````
-
-This now has [official](https://github.com/kubernetes/ingress-nginx/pull/3852)
-arm support, we just need to change the deployment images:
-
-````
-kubectl --namespace kube-ingress set image deployment/nginx-ingress-controller \
-    nginx-ingress-controller=quay.io/kubernetes-ingress-controller/nginx-ingress-controller-arm:dev
-
-kubectl --namespace kube-ingress set image deployment/nginx-ingress-default-backend \
-    nginx-ingress-default-backend=gcr.io/google_containers/defaultbackend-arm:1.5
+kubectl create namespace kube-ingress
+helm repo add nginx-stable https://helm.nginx.com/stable
+helm repo update
+helm install nginx-ingress nginx-stable/nginx-ingress --namespace kube-ingress
 ````
 
 ### Metal Loadbalancer
@@ -329,12 +300,13 @@ but you'll most likely not be able to access the cluster locally.
 Let's install MetalLB using helm:
 
 ````
-helm install --namespace kube-ingress --name metallb stable/metallb
+helm repo add metallb https://metallb.github.io/metallb
+helm install metallb metallb/metallb --namespace kube-ingress
 ````
 
 Based on the above, choose either _Layer 2_ or _BGP_.
 
-#### Option 1: Layer 2
+#### Option 1: Layer 2 (recommended)
 Create `metallb-config.yaml` to configure load balancer:
 
 ````
@@ -379,6 +351,7 @@ For more details on both options, refer to the [official docs](https://metallb.u
 Just be careful, as we've got a different namespace to the docs.
 
 Once config has been setup, apply it:
+
 ````
 kubectl apply -f metallb-config.yaml
 ````
@@ -441,6 +414,16 @@ spec:
 You can then front your router's WAN / public internet IP address with a CDN such as
 [CloudFlare](https://www.cloudflare.com), which is free and offers DDOS protection (useful for a home network).
 This will also provide valid SSL certificates.
+
+
+## Check Pods
+You can check pods across all namespaces/nodes are running:
+
+````
+ssh pi@k8-master1
+kubectl get pods --all-namespaces
+````
+
 
 ## Summary
 In this article we setup a simple cluster capable of deployments and taking
