@@ -2,6 +2,7 @@
 layout: post
 title: Raspberry Pi Kubernetes Cluster
 selected: blog
+updated: 2022-12-13
 ---
 
 {% include image.html path="/assets/posts/2019-09-21-raspberry-pi-kubernetes-cluster/thumb.png" alt="K8 and Pi logo" class="post-thumb" %}
@@ -30,7 +31,7 @@ Relevant official docs:
 ### Generic Raspberry Pi Setup
 Run these steps for both your single control plane node, and node(s):
 
-- [Download the latest Raspbian imag](https://www.raspberrypi.org/downloads/raspbian) and
+- [Download the latest 64-bit Raspbian image](https://www.raspberrypi.org/downloads/raspbian) and
   install it onto the micro SD card.
 
   At the time of this article, the latest  Raspbian Buster. I've chosen the lite
@@ -49,16 +50,16 @@ Run these steps for both your single control plane node, and node(s):
 - Run `sudo raspi-config` and:
     - Configure hostname (under _Network Options_).
         - I've used the naming convention `k8-master1` for the control plane
-          node and `k8-slave1` for the nodes.
+          node and `k8-slave1` to n for the nodes.
     - Enable SSH daemon (under _Interfacing Options_).
     - Update to latest version.
 
-- Run `sudo nano /etc/dhcpcd.conf` and configure a static IP address.
+- Run `sudo nano /etc/dhcpcd.conf` and configure a static IP address (change `static ip_address` line for each node).
     ````
     interface eth0
-    static ip_address=192.168.1.102/24
+    static ip_address=192.168.1.100/24
     static routers=192.168.1.1
-    static domain_name_servers=8.8.8.8 8.8.4.4
+    static domain_name_servers=192.168.1.1
     ````
 
 - Disable swap:
@@ -68,6 +69,14 @@ Run these steps for both your single control plane node, and node(s):
     sudo update-rc.d dphys-swapfile remove
     sudo apt purge dphys-swapfile
     ````
+
+- Enable memory cgroups, run `sudo nano /boot/cmdline.txt` and append the following to the end of the line:
+    ````
+    cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1
+    ````
+
+- Reboot, connect using the new IP address.
+
 - Add Kubernetes repository to package sources:
     ````
     echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
@@ -81,7 +90,8 @@ Run these steps for both your single control plane node, and node(s):
 
 - Install useful network tools and Kubernetes ADM client:
     ````
-    sudo apt install dnsutils kubeadm kubelet
+    sudo apt install dnsutils kubelet kubeadm kubelet
+    sudo apt-mark hold kubelet kubeadm kubectl
     ````
 
 - Install latest Docker:
@@ -94,7 +104,7 @@ Run these steps for both your single control plane node, and node(s):
 - Configure ip tables to open all ports, currently required for [pod DNS to work](https://github.com/kubernetes-sigs/kubespray/issues/4674).
   Start by editing:
     ````
-    sudo vim /etc/rc.local
+    sudo nano /etc/rc.local
     ````
   And add (before any lines with _exit_):
     ````
@@ -125,6 +135,29 @@ I've named my control plane node _k8-master1_.
     ````
     sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --service-cidr=10.244.240.0/20 --token-ttl=0
     ````
+
+  If this command fails due to container runtime not running, run the following commands:
+  ````
+  sudo -i
+  rm /etc/containerd/config.toml
+  containerd config default > /etc/containerd/config.toml
+  ````
+  
+  And search for `SystemdCgroup` param and set it to true:
+  ````
+  sudo nano /etc/containerd/config.toml
+  ````
+  
+  And restart containerd:
+  ````
+  sudo systemctl restart containerd
+  ````
+
+  And run the previous `kubeadm` command again.
+
+  This seems to be an issue with containerd not using cgroup, see [GitHub issue](https://github.com/kubernetes/kubernetes/issues/110177)
+  for details.
+
 - At the end of the previous step, copy the provided command for app nodes / slave
   to join the cluster. We'll run this later, it'll look something like:
     ````
@@ -132,9 +165,14 @@ I've named my control plane node _k8-master1_.
       --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     ````
 
-- Run the provided commands displayed at the end of the previous step.
+- Enable your user to use `kubectl`:
+    ````
+    mkdir -p $HOME/.kube
+    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+    ````
 
-- Install a pod network; in this case, we'll install Weave:
+- Install pod networking (CNI); in this case, we'll install Flannel on the master and each slave:
     ````
     kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
     ````
@@ -258,9 +296,9 @@ Let's install the client:
 
 ````
 ssh pi@k8-master1
-wget https://get.helm.sh/helm-v3.9.2-linux-arm.tar.gz
-tar -zxvf helm-v3.9.2-linux-arm.tar.gz
-sudo mv linux-arm/helm /usr/local/bin/helm
+wget https://get.helm.sh/helm-v3.9.2-linux-arm64.tar.gz
+tar -zxvf helm-v3.9.2-linux-arm64.tar.gz
+sudo mv linux-arm64/helm /usr/local/bin/helm
 ````
 
 
@@ -270,18 +308,6 @@ external traffic can reach our cluster.
 
 Our end-goal will be for services to be accessible from the internet.
 
-### Nginx
-This section will setup our _ingress controller_, using NGINX, responsible
-for managing anything related to ingress to our services.
-
-Install using helm:
-````
-ssh pi@k8-master1
-kubectl create namespace kube-ingress
-helm repo add nginx-stable https://helm.nginx.com/stable
-helm repo update
-helm install nginx-ingress nginx-stable/nginx-ingress --namespace kube-ingress
-````
 
 ### Metal Loadbalancer
 Since we aren't using a cloud provider, such as AWS, we don't have a cloud
@@ -311,7 +337,7 @@ Create `metallb-config.yaml` to configure load balancer:
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: first-pool
+  name: main-pool
   namespace: metallb-system
 spec:
   addresses:
@@ -320,11 +346,11 @@ spec:
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
-  name: example
+  name: main-pool
   namespace: metallb-system
 spec:
   ipAddressPools:
-  - first-pool
+  - main-pool
 ````
 
 For more details on options, as BGP is available instead of Layer 2, refer to
@@ -337,6 +363,22 @@ kubectl apply -f metallb-config.yaml
 ````
 
 Ingress is now setup.
+
+
+### Nginx
+This section will setup our _ingress controller_, using NGINX, responsible
+for managing anything related to ingress to our services. This was originally used for the project in 2019. But as of
+2022, I've moved to istio, you can skip ahead to the section called _istio_ below.
+
+Install using helm:
+````
+ssh pi@k8-master1
+kubectl create namespace kube-ingress
+helm repo add nginx-stable https://helm.nginx.com/stable
+helm repo update
+helm install nginx-ingress nginx-stable/nginx-ingress --namespace kube-ingress --set controller.service.loadBalancerIP=192.168.1.230
+````
+
 
 ### Ingress Example
 You can now define an ingress to a service.
@@ -378,7 +420,7 @@ apiVersion: v1
 metadata:
   name: uptime
   annotations:
-    metallb.universe.tf/address-pool: first-pool
+    metallb.universe.tf/address-pool: main-pool
 spec:
   selector:
     app: uptime
@@ -395,12 +437,151 @@ You can then front your router's WAN / public internet IP address with a CDN suc
 This will also provide valid SSL certificates.
 
 
+## Istio (2022)
+An alternative to nginx, you can use istio with istio gateway.
+
+Relevant docs:
+- <https://istio.io/latest/docs/setup/install/helm/>
+- <https://istio.io/latest/docs/setup/additional-setup/gateway/>
+
+We'll start by installing istio:
+
+````
+ssh pi@k8-master1
+
+helm repo add istio https://istio-release.storage.googleapis.com/charts
+helm repo update
+
+kubectl create namespace istio-system
+helm install istiod istio/istiod -n istio-system --wait
+````
+
+You'll want to wait until all the pods related to istio are running and ready:
+
+````
+kubectl get pods -A
+````
+
+We'll next install the gateway, change the IP address to the desired IP for exposing services on your local
+network:
+
+````
+kubectl create namespace istio-ingress
+helm install istio-ingressgateway istio/gateway -n istio-ingress --set service.loadBalancerIP="192.168.2.199"
+````
+
+Rather than add an ingress for exposing a service, we'll first create a namespace and a shared gateway, which will
+ingress traffic to the domain `smart.home.local`:
+
+````
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: smart-home
+  labels:
+    name: smart-home
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  namespace: smart-home
+  name: smart-home-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "smart.home.local"
+````
+
+And then in each service we want to expose, we can add a virtual service to tie it to the gateway, with this example
+rewriting the request to remove the prefix/path of the route:
+
+````
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  namespace: smart-home
+  name: example
+spec:
+  hosts:
+  - "smart.home.local"
+  gateways:
+  - smart-home-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /api/example
+    rewrite:
+      uri: " "
+    route:
+    - destination:
+        port:
+          number: 80
+        host: example-service
+````
+
+
 ## Check Pods
 You can check pods across all namespaces/nodes are running:
 
 ````
 ssh pi@k8-master1
 kubectl get pods --all-namespaces
+````
+
+
+## Shared Data
+_This section is optional, and was added later in 2022._
+
+You might want to mount a file share between all the worker nodes, so they can share config. This example uses
+CIFs/Samba.
+
+SSH to the worker:
+
+````
+ssh pi@k8-slave1
+````
+
+Switch to root:
+
+````
+sudo -i
+````
+
+Setup the desired location to mount data:
+
+````
+mkdir -p /mnt/k8-data
+chown -R pi:pi /mnt/k8-data/
+````
+
+Grab the number from this command e.g. 1000, this will be used later for the `gid` and `uid`:
+
+````
+getent group pi
+````
+
+Add user to group:
+
+````
+usermod -a -G k8data pi
+````
+
+Test the mount will work, changing the IP of the host with the file share and login user/pass:
+
+````
+mount.cifs -v //192.168.1.200/k8-data/k8-slave1 /mnt/k8-data --verbose -o user=kubernetes,pass=xxx,gid=1000,uid=1000
+````
+
+Providing the above works, now add a new line to `/etc/fstab`, so that it's automatically mounted on each boot:
+
+````
+//192.168.1.200/k8-data/k8-slave1 /mnt/k8-data cifs username=kubernetes,password=xxx,gid=1000,uid=1000 0 0
 ````
 
 
