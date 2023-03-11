@@ -2,7 +2,7 @@
 layout: post
 title: Raspberry Pi Kubernetes Cluster
 selected: blog
-updated: 2022-12-13
+updated: 2023-03-11
 ---
 
 {% include image.html path="/assets/posts/2019-09-21-raspberry-pi-kubernetes-cluster/thumb.png" alt="K8 and Pi logo" class="post-thumb" %}
@@ -14,6 +14,7 @@ In this article, I setup:
 
 Many articles already exist for older Debian distributions and Raspberry Pis,
 so hopefully this updated set of steps helps others save time.
+
 
 ## Kubernetes Cluster Setup
 In this section is the setup of a basic cluster, which consists of the
@@ -582,6 +583,28 @@ Providing the above works, now add a new line to `/etc/fstab`, so that it's auto
 
 ````
 //192.168.1.200/k8-data/k8-slave1 /mnt/k8-data cifs username=kubernetes,password=xxx,gid=1000,uid=1000 0 0
+````
+
+
+## Renewing Kubernetes Certificates
+By default, the certificates will expire after a year.
+
+To check when the certificates expire:
+
+````
+kubeadm certs check-expiration
+````
+
+These are automatically renewed during a control plane upgrade.
+
+Otherwise, it can be done manually:
+
+````
+kubeadm certs renew all
+kubectl -n kube-system delete pod -l 'component=kube-apiserver'
+kubectl -n kube-system delete pod -l 'component=kube-controller-manager'
+kubectl -n kube-system delete pod -l 'component=kube-scheduler'
+kubectl -n kube-system delete pod -l 'component=etcd'
 ````
 
 
