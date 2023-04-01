@@ -6,49 +6,65 @@ sectionid: "home"
 hideHeader: true
 ---
 
-{% for post in paginator.posts %}
+<h1>
+    About Me
+</h1>
+<p>
+    I'm a full-stack software engineer 👨‍💻. Currently based in London, UK 🇬🇧.
+</p>
+<p>
+    You can e-mail me at <a href="mailto:contact@marcuscraske.com">contact@marcuscraske.com</a>.
+</p>
+{% include socials.html %}
 
-    {% if post.hidden == null %}
+<h1>
+    Blog
+</h1>
+<div class="blog">
+    {% for post in paginator.posts %}
 
-        <article>
-            <time datetime="{{ post.date | date: "%F" }}">
-                {{ post.date | date:"%b %d, %Y" }}
-            </time>
-            <h1>
-                {% if post.pageUrl != null %}
-                <a href="{{ post.pageUrl }}">
-                {% else %}
-                <a href="{{ post.url }}">
-                {% endif %}
-                    {{ post.title }}
-                </a>
-            </h1>
+        {% if post.hidden == null %}
 
-            {{ post.excerpt | truncatewords: 60 }}
+            <article>
+                <time datetime="{{ post.date | date: "%F" }}">
+                    {{ post.date | date:"%b %d, %Y" }}
+                </time>
+                <h1>
+                    {% if post.pageUrl != null %}
+                    <a href="{{ post.pageUrl }}">
+                    {% else %}
+                    <a href="{{ post.url }}">
+                    {% endif %}
+                        {{ post.title }}
+                    </a>
+                </h1>
 
-            <div class="clearfix"></div>
+                {{ post.excerpt | truncatewords: 60 }}
 
-        </article>
+                <div class="clearfix"></div>
 
-    {% endif %}
+            </article>
 
-{% endfor %}
+        {% endif %}
 
-<!-- Pagination links -->
-<div class="pagination">
+    {% endfor %}
 
-    {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
-    {% else %}
-        <span class="previous">Previous</span>
-    {% endif %}
+    <!-- Pagination links -->
+    <div class="pagination">
 
-    <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+        {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
+        {% else %}
+            <span class="previous">Previous</span>
+        {% endif %}
 
-    {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="next">Next</a>
-    {% else %}
-        <span class="next ">Next</span>
-    {% endif %}
+        <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
 
+        {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+        {% else %}
+            <span class="next ">Next</span>
+        {% endif %}
+
+    </div>
 </div>

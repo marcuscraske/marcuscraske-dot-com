@@ -14,4 +14,6 @@ A list of blogs and sites I can recommend:
 - [Spotify Labs](https://labs.spotify.com)
 - [Slack: Engineering](https://slack.engineering)
 
-Got a suggestion? [Drop](/contact) me a message, or comment below.
+Got a suggestion? Drop me a message, or comment below.
+
+{% include page-comments.html %}

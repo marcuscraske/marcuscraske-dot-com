@@ -16,6 +16,8 @@ exclude:
   - Gemfile.lock
   - run.sh
   - README.md
+  - package.json
+  - package-lock.json
 
 # Assets
 assets:

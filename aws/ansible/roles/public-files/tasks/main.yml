@@ -1,7 +1,0 @@
-- name: Sync public files with s3 bucket
-  connection: local
-  shell: >
-       s3cmd sync "{{ aws_root }}/../public-files/" "s3://public-{{ ObjectAlias }}/"
-       --acl-public --no-mime-magic --guess-mime-type --delete-removed
-       --bucket-location=eu-west-1
-       --access_key={{ aws_access_key }} --secret_key={{ aws_secret_key }}

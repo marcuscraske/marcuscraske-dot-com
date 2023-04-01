@@ -26,7 +26,6 @@ layout: compress
         {% css_asset_tag bundle %}
         - /_assets/layout.css
         - /_assets/timeline.css
-        - /_assets/music-player.css
         - /_assets/icomoon/style.css
 
         - /_assets/syntaxhighlighter/styles/shCore.css
@@ -44,8 +43,6 @@ layout: compress
         - /_assets/syntaxhighlighter/scripts/shBrushPlain.js
         - /_assets/syntaxhighlighter/scripts/shBrushSql.js
         - /_assets/syntaxhighlighter/scripts/shBrushJScript.js
-
-        - /_assets/music-player.js
 
         - /node_modules/jquery/dist/jquery.min.js
         - /node_modules/jscroll/dist/jquery.jscroll.min.js
@@ -78,13 +75,13 @@ layout: compress
                     <li>
                         <a href="/" {% if page.selected == 'blog' %} class="selected" {% endif %}>
                             <span class="icon-home"></span>
-                            Blog
+                            Home
                         </a>
                     </li>
                     <li>
                         <a href="/cv">
                             <span class="icon-file-text2"></span>
-                            Curriculum Vitae
+                            Résumé / CV
                         </a>
                     </li>
                     <li>
@@ -94,27 +91,9 @@ layout: compress
                         </a>
                     </li>
                     <li>
-                        <a href="/timeline" {% if page.selected == 'timeline' %} class="selected" {% endif %}>
-                            <span class="icon-airplane"></span>
-                            Timeline
-                        </a>
-                    </li>
-                    <li>
                         <a href="/links" {% if page.selected == 'links' %} class="selected" {% endif %}>
                             <span class="icon-books"></span>
                             Links
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/contact" {% if page.selected == 'contact' %} class="selected" {% endif %}>
-                            <span class="icon-phone"></span>
-                            Contact
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://files.marcuscraske.com">
-                            <span class="icon-folder-open"></span>
-                            Public Files
                         </a>
                     </li>
                 </ul>
@@ -144,35 +123,16 @@ layout: compress
                         WCAG 2.1 AA Friendly
                     </a>
                 </li>
-                <li>
-                    <a href="https://github.com/limpygnome/limpygnome-dot-com">
-                        Fork Me
-                    </a>
-                </li>
             </ul>
 
-            <a title="Github" href="https://www.github.com/marcuscraske">
-                Github
-            </a>
-            <a title="Instagram" href="https://www.instagram.com/marcuscraske">
-                Instagram
-            </a>
-            <a title="LinkedIn" href="http://www.linkedin.com/in/marcuscraske">
-                LinkedIn
-            </a>
-            <a title="Strava" href="https://www.strava.com/athletes/marcuscraske">
-                Strava
-            </a>
-            <a title="E-mail" href="mailto:contact@marcuscraske.com" target="_blank">
-                E-mail
-            </a>
+            {% include socials.html %}
 
         </footer>
 
         <script type="text/javascript">
             SyntaxHighlighter.all();
-            $('section').jscroll({
-                contentSelector: "section",
+            $('.blog').jscroll({
+                contentSelector: ".blog",
                 nextSelector: ".next"
             });
         </script>

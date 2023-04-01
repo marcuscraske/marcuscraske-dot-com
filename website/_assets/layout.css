@@ -124,7 +124,9 @@ body
 .wrapper-header
 {
     background: #000;
-    padding: 1em;
+    /*background-color: #159957;*/
+    /*background-image: linear-gradient(120deg, #5036f7, #e60032);*/
+    padding: 0.5em;
 }
 
 .wrapper-header header,
@@ -138,7 +140,7 @@ body
 {
     float: left;
     margin: 0;
-    padding: 0.3em 0.5em;
+    padding: 0.3em 0.5em 0;
     font-size: 2em;
 }
 
@@ -194,7 +196,7 @@ body
 {
     nav ul
     {
-        display: table;
+        display: flex;
         width: 100%;
     }
 
@@ -317,32 +319,28 @@ footer ul li a:focus
 
 
 /*
-    Footer icons
+    Social icons
 */
-footer > a
+.socials > a
 {
     display: inline-block;
     text-indent: -9999em;
-    width: 2.8em;
-    height: 2.8em;
+    width: 2em;
+    height: 2em;
     background-size: 100%;
     margin: 0.5em;
     text-decoration: none;
-    -webkit-transition:     width .4s,    height .4s ease;
-    -moz-transition:        width .4s,    height .4s ease;
-    -o-transition:          width .4s,    height .4s ease;
-    -ms-transition:         width .4s,    height .4s ease;
-    transition:             width .4s,    height .4s ease;
+    transition: opacity .6s;
+    opacity: 0.5;
 }
-footer > a:hover,
-footer > a:focus
+.socials > a:hover,
+.socials > a:focus
 {
-    width: 3.8em;
-    height: 3.8em;
+    opacity: 1.0;
 }
 
 /* Github */
-footer a
+.socials a
 {
     filter: grayscale(100%);
     background-repeat: no-repeat;
@@ -350,35 +348,35 @@ footer a
     background-position: center;
 }
 
-footer a:hover,
-footer a:focus
+.socials a:hover,
+.socials a:focus
 {
     filter: none;
 }
 
-footer a[title=Github]
+.socials a[title=Github]
 {
-    background-image: url('/assets/footer/github.webp');
+    background-image: url('/assets/socials/github.svg');
 }
-
-footer a[title=LinkedIn]
+.socials a[title=LinkedIn]
 {
-    background-image: url('/assets/footer/linkedin.webp');
+    background-image: url('/assets/socials/linkedin.svg');
 }
-
-footer a[title=Strava]
+.socials a[title=Strava]
 {
-    background-image: url('/assets/footer/strava.webp');
+    background-image: url('/assets/socials/strava.svg');
 }
-
-footer a[title=E-mail]
+.socials a[title=E-mail]
 {
-    background-image: url('/assets/footer/email.webp');
+    background-image: url('/assets/socials/email.svg');
 }
-
-footer a[title=Instagram]
+.socials a[title=Instagram]
 {
-    background-image: url('/assets/footer/instagram.webp');
+    background-image: url('/assets/socials/instagram.svg');
+}
+.socials a[title=Twitter]
+{
+    background-image: url('/assets/socials/twitter.svg');
 }
 
 
@@ -493,12 +491,17 @@ article time
 h1
 {
     margin: 0;
-    font-size: 2rem;
     font-weight: bold;
+}
+
+#home article h1
+{
+    font-size: 1.4rem;
 }
 
 h1
 {
+    font-size: 1.7rem;
     margin: 0.5em 0 0 0;
 }
 
