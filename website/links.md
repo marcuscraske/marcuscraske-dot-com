@@ -13,6 +13,7 @@ A list of blogs and sites I can recommend:
 - [Netflix Techblog](https://medium.com/netflix-techblog)
 - [Spotify Labs](https://labs.spotify.com)
 - [Slack: Engineering](https://slack.engineering)
+- [Techbloc](https://techbloc.net/)
 
 Got a suggestion? Drop me a message, or comment below.
 

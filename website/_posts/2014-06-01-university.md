@@ -4,15 +4,20 @@ title: University
 selected: blog
 ---
 
+{% include image.html path="/assets/posts/2014-06-01-university/graduation.webp" alt="Graduation photo with my project advisor and BFFL" class="post-thumb" %}
+
 This page contains a summary of my achievements whilst at the University of East Anglia, studying Computer Science.
+
 
 ## Project
 Read [PALS](/projects/pals) for my third year project.
+
 
 ## Awards
 
 - Douglas Lewin Memorial Prize for Final Year Project
 - The Pearson Education Prize in Computer Science
+
 
 ## Grades
 The grades below have been copied from my academic transcript.
