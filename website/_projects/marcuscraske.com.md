@@ -6,20 +6,26 @@ priority: 2022
 selected: projects
 ---
 
-Static website [Jekyll](https://jekyllrb.com/) website, written in HTML and Markdown, using: Terraform, AWS S3
-and Cloudflare.
+Static website [Jekyll](https://jekyllrb.com/) website, written in HTML and Markdown, using: Terraform and Cloudflare.
 
 ## Features
-- Using Amazon Web Services (AWS) CloudFront, as content distribution network (CDN)
 - Responsive design
 - Font icons
 - WCAG 2.0 AA friendly
-- Assets combined and Minified (JS and CSS)
+- Assets combined and Minified (JavaScript and CSS)
+- Images compressed to webp.
 
 ## Source
-<https://github.com/limpygnome/limpygnome-dot-com>
+<https://github.com/marcuscraske/marcuscraske-dot-com>
 
 ## History
+### 2023
+Migrated from AWS S3 to Github for hosting, still using Cloudflare for CDN and Terraform for DNS.
+
+<a href="/assets/projects/marcuscraske.com/2023.webp">
+    <img src="/assets/projects/marcuscraske.com/2023.webp" alt="Screenshot of landing page" />
+</a>
+
 ### 2021
 Migrated to marcuscraske.com, using CloudFlare for CDN and Terraform for deployment.
 
