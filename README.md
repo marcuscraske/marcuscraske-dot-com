@@ -13,6 +13,12 @@ Notable directories:
 - *deployment* - configuration for deploying the website.
 
 
+## Updating Site
+Use `./run.sh` to make local changes.
+
+Then `./build.sh` to do a clean build, and push up changes to publish the site.
+
+
 ## Jekyll
 This is a simple Jekyll website, thus refer to the
 [official docs](https://jekyllrb.com/docs/).

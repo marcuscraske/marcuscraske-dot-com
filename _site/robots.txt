@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /cv/
+Sitemap: https://marcuscraske.com/sitemap.xml

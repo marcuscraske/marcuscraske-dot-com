@@ -1,0 +1,88 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <title> Splunk Alerts on Slack - Marcus Craske </title> <meta name="description" content="Personal blog, projects and things of Marcus Craske. Software engineer. Hack the planet!"> <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, minimum-scale=1"> <meta name="HandheldFriendly" content="True" /> <meta property="og:site_name" content="Marcus Craske"> <meta property="og:type" content="website"> <meta property="og:title" content="Marcus Craske"> <meta property="og:description" content="Personal blog, projects and things of Marcus Craske. Software engineer. Hack the planet!"> <link rel="shortcut icon" href="/favicon.ico"> <link href='/assets/bundle-195f83f01886fcb0f5f7529033791e2c.css' rel='stylesheet' type='text/css' /> <script src='/assets/bundle-d326fb47b9e7e5d81c260da8de38d879.js' type='text/javascript'></script> <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-86993638-1', 'auto'); ga('send', 'pageview'); </script> </head> <body> <a id="skip-to-content" href="#main"> Skip to main content </a> <div class="wrapper-header"> <header> <h1> <a href="/"> Marcus Craske </a> </h1> <p> <a href="https://www.youtube.com/watch?v=Cipc8EowshY"> hack the planet<span class="terminal">|</span> </a> </p> </header> <nav> <ul> <li> <a href="/" class="selected" > <span class="icon-home"></span> Home </a> </li> <li> <a href="/cv"> <span class="icon-file-text2"></span> Résumé / CV </a> </li> <li> <a href="/projects" > <span class="icon-lab"></span> Projects </a> </li> <li> <a href="/links" > <span class="icon-books"></span> Links </a> </li> </ul> </nav> </div> <div class="wrapper"> <main id="main"> <article> <header> <time datetime="2017-11-06"> Nov 06, 2017 </time> <h1> <span class="icon icon-arrow"></span> Splunk Alerts on Slack </h1> </header> <p><a href="/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png"> <picture> <source srcset="/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.webp" type="image/webp" /> <img src="/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png" alt="Splunk, AWS and Slack" class="post-thumb" /> </picture> </a></p> <p>For those using log tools such as <a href="https://splunk.com">Splunk</a>, you can setup alerts. These will run queries every so often and trigger actions when conditions are met e.g. count of events surpasses a threshold.</p> <p>This post is about pushing those alerts from Splunk to Slack. When an alarm is triggered, a JSON request is made by Splunk to a URL you provide. This gives the benefit of your own customisation of messages.</p> <h2 id="reasons">Reasons</h2> <p>You can find applications on the Splunk app store to post alerts to Slack. However you may have issues when running such apps on a cluster. Or you may have permission issues in an enterprise environment. In my situation, I ran into both problems.</p> <h2 id="flow">Flow</h2> <ol> <li>Splunk invokes an AWS API Gateway endpoint.</li> <li>The AWS API Gateway endpoint invokes an AWS Lambda function.</li> <li>The AWS Lambda function sends a message to a Slack inbound web hook (and delivers the message your own desired Slack channel).</li> </ol> <h2 id="step-1---create-slack-inbound-webhook">Step 1 - Create Slack Inbound Webhook</h2> <p>Go to the following page, whilst logged-in to your Slack workspace:</p> <p><a href="https://slack.com/apps/A0F7XDUAZ-incoming-webhooks?page=1">https://slack.com/apps/A0F7XDUAZ-incoming-webhooks?page=1</a></p> <p>Or alternatively, from Slack’s website:</p> <ul> <li>Configure apps</li> <li>Custom integrations (sidebar)</li> <li>Incoming WebHooks</li> </ul> <p>More information about inbound web hooks can be found here:</p> <p><a href="https://api.slack.com/incoming-webhooks">https://api.slack.com/incoming-webhooks</a></p> <p>Once you’ve setup an inbound webhook, copy the <i>Webhook URL</i> for the next step. Let’s pretend it’s:</p> <p><a href="https://hooks.slack.com/services/XXXXX/YYYY/ZZZZZZZZZZZZZZ">https://hooks.slack.com/services/XXXXX/YYYY/ZZZZZZZZZZZZZZ</a></p> <h2 id="step-2---setup-aws-lambda-function">Step 2 - Setup AWS Lambda Function</h2> <p>Create a new Lambda function from scratch:</p> <p><a href="https://console.aws.amazon.com/lambda/home?region=us-east-1#/create/new">https://console.aws.amazon.com/lambda/home?region=us-east-1#/create/new</a></p> <p>For this example, we’ll call it <i>splunk alert</i>.</p> <p>Then paste in the following, but edit the request options with parts of the <i>Webhook URL</i> from the previous step:</p><pre class="brush: javascript">
+var util = require("util");
+var https = require("https");
+
+exports.handler = (event, context, callback) =&gt; {
+    console.log('Received event:', JSON.stringify(event, null, 2));
+
+    // request headers - needs to be configured with Slack inbound hook
+    var request_options = {
+      hostname: 'hooks.slack.com',
+      path: '/services/XXXXX/YYYY/ZZZZZZZZZZZZZZ',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    };
+
+    // open up the connection
+    var req = https.request(request_options, function(result) {
+        callback(null, 'Success');
+    });
+
+    req.on('error', function(err) {
+        console.log('Error, with: ' + err.message);
+        callback('Error, with: ' + err.message);
+    });
+
+    // parse json from request to this lambda
+    var json = JSON.parse(event.body);
+
+    // read data from splunk
+    var result = json["result"];
+    var searchLink = json["results_link"];
+    var searchName = json["search_name"];
+
+    // convert splunk result fields into fields for slack message
+    var fields = [];
+    for (var key in result)
+    {
+        var item = {
+            "title" : key,
+            "value" : result[key],
+            "short" : true
+        };
+        fields.push(item);
+    }
+
+    // build message
+    var message = {
+    	"channel": "#slack-channel",
+    	"username": "monkeyboy",
+    	"icon_emoji": ":monkey:",
+        "attachments":[
+            {
+                "pretext" : ":banana: *" + searchName + "* :banana:",
+                "title" : "Click to view search results",
+                "title_link" : searchLink,
+                "fields" : fields,
+                "color" : "danger",
+                "mrkdwn_in" : ["pretext"]
+            }
+        ]
+    };
+
+    // write message data
+    req.write(JSON.stringify(message));
+
+    // close connection
+    req.end();
+
+};
+</pre><p>Towards the end is the JSON object <code class="language-plaintext highlighter-rouge">message</code>, which is the Slack message written to the Slack inbound webhook. This can be heavily customised.</p> <p>Docs on Slack message format:</p> <ul> <li><a href="https://api.slack.com/docs/message-formatting">https://api.slack.com/docs/message-formatting</a></li> <li><a href="https://api.slack.com/docs/message-attachments">https://api.slack.com/docs/message-attachments</a></li> <li><a href="https://api.slack.com/docs/messages/builder">https://api.slack.com/docs/messages/builder</a></li> </ul> <p>Once you’re happy with your Lambda, publish it. At the top, go to <i>Actions</i> and select <i>Publish new version</i>.</p> <h2 id="step-3---create-aws-api-gateway-trigger">Step 3 - Create AWS API Gateway Trigger</h2> <p>On your AWS Lambda function page, go to the <i>Triggers</i> tab and add a trigger.</p> <p>You will then see a dotted box, click it and select <i>API Gateway</i>.</p> <p>Then will in the form with an <i>API name</i> (such as <i>splunk-alerts</i>) and set the <i>Security</i> to <i>Open</i> (although you may want to change this later):</p> <p><a href="/assets/posts/2017-11-06-splunk-alerts-on-slack/add-trigger-aws.png"> <img src="/assets/posts/2017-11-06-splunk-alerts-on-slack/add-trigger-aws.png" alt="Add trigger dialogue on AWS" /> </a></p> <p>You should now have API Gateway available as a trigger. Click the arrow icon to show the endpoint’s URL.</p> <h2 id="step-4---test-trigger">Step 4 - Test Trigger</h2> <p>Let’s say the trigger URL is:</p> <p><a href="https://xyz.execute-api.us-east-1.amazonaws.com/prod/splunk-alerts">https://xyz.execute-api.us-east-1.amazonaws.com/prod/splunk-alerts</a></p> <p>Just make a POST request with the following test payload:</p><pre class="brush: javascript">
+{
+  "result": {
+    "test" : "value"
+    "count" : "8",
+    "host": "xyz"
+  },
+  "sid": "test_search_id",
+  "results_link": "https://google.com",
+  "search_name": "example alert name",
+  "owner": "foobar",
+  "app": "search"
+}
+</pre><p>In Chrome I use the <i>Postman</i> app, but this is simple enough to achieve with cURL as well:</p><pre class="brush: bash">
+echo "{  \"result\": {\"test\" : \"value\"\"count\" : \"8\",\"host\": \"xyz\"  },  \"sid\": \"test_search_id\",  \"results_link\": \"https://google.com\",  \"search_name\": \"example alert name\",  \"owner\": \"foobar\",  \"app\": \"search\"}"
+| curl -d @- "https://xyz.execute-api.us-east-1.amazonaws.com/prod/splunk-alerts"
+</pre><h2 id="step-5---splunk-alert">Step 5 - Splunk Alert</h2> <p>Run a query on the Splunk search application. Once it has finished loading, select <i>Save As</i> and then <i>Alert</i>.</p> <p>Configure the alert as needed; useful docs:</p> <p><a href="https://docs.splunk.com/Documentation/SplunkCloud/6.6.3/Alert/Alertexamples">https://docs.splunk.com/Documentation/SplunkCloud/6.6.3/Alert/Alertexamples</a></p> <p>After the alert is setup, add a <i>Webhook</i> action and set the URL to the endpoint created earlier.</p> <h2 id="summary">Summary</h2> <p>You should now have <i>monkeyboy</i> to save the day:</p> <p><a href="/assets/posts/2017-11-06-splunk-alerts-on-slack2.png"> <img src="/assets/posts/2017-11-06-splunk-alerts-on-slack/monkey-boy.png" alt="monkeyboy on Slack" /> </a></p> <section id="comments"> <h2> Comments </h2> <script id="dsq-count-scr" src="//limpygnome-com.disqus.com/count.js" async></script> <div id="disqus_thread"></div> <script> var disqus_config = function () { this.page.url = PAGE_URL; this.page.identifier = PAGE_IDENTIFIER; }; (function() { var d = document, s = d.createElement('script'); s.src = '//limpygnome-com.disqus.com/embed.js'; s.setAttribute('data-timestamp', +new Date()); (d.head || d.body).appendChild(s); })(); </script> <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> </section> </article> </main> </div> <footer> <p class="disclaimer"> Disclaimer: this is a personal blog, any opinions and actions are my own and do not represent my employer. </p> <ul> <li> <a href="https://opensource.org/licenses/MIT"> MIT License </a> </li> <li> <a href="https://www.w3.org/WAI/standards-guidelines/wcag"> WCAG 2.1 AA Friendly </a> </li> </ul> <p class="socials"> <a title="Github" href="https://www.github.com/marcuscraske"> Github </a> <a title="LinkedIn" href="http://www.linkedin.com/in/marcuscraske"> LinkedIn </a> <a title="Instagram" href="https://www.instagram.com/marcuscraske"> Instagram </a> <a title="Twitter" href="https://twitter.com/marcuscraske"> Twitter </a> <a title="Strava" href="https://www.strava.com/athletes/marcuscraske"> Strava </a> <a title="Mastodon" href="https://hachyderm.io/@marcuscraske" target="_blank"> Mastodon </a> <a title="E-mail" href="mailto:contact@marcuscraske.com" target="_blank"> E-mail </a> </p> </footer> <script type="text/javascript"> SyntaxHighlighter.all(); $('.blog').jscroll({ contentSelector: ".blog", nextSelector: ".next" }); </script> </body> </html>

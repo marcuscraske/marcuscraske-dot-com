@@ -1,0 +1,1772 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://marcuscraske.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://marcuscraske.com/" rel="alternate" type="text/html" /><updated>2023-04-02T18:47:19+01:00</updated><id>https://marcuscraske.com/feed.xml</id><title type="html">marcuscraske-dot-com</title><subtitle>The source behind my site.</subtitle><entry><title type="html">QCON London 2023: Paving the Road</title><link href="https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road/" rel="alternate" type="text/html" title="QCON London 2023: Paving the Road" /><published>2023-04-01T00:00:00+01:00</published><updated>2023-04-01T00:00:00+01:00</updated><id>https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road</id><content type="html" xml:base="https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/thumb.webp&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2023-04-01-qcon-london-2023/thumb.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2023-04-01-qcon-london-2023/thumb.webp&quot; alt=&quot;QCON logo&quot; class=&quot;post-thumb&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;My fifth year attending &lt;a href=&quot;https://qconlondon.com/&quot;&gt;QCON London&lt;/a&gt;, a conference focused on knowledge-sharing high-level
+emerging trends and adopted best-practices in software engineering, featuring many world-leading organisations and
+subject-matter experts. And this year did not disappoint, with the emergence of &lt;em&gt;paved roads&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;paved-roads&quot;&gt;Paved Roads&lt;/h2&gt;
+&lt;p class=&quot;center&quot;&gt;
+    &lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/paved-road.webp&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2023-04-01-qcon-london-2023/paved-road.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2023-04-01-qcon-london-2023/paved-road.webp&quot; alt=&quot;Paved road, as an analogy&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;
+
+&lt;/p&gt;
+
+&lt;p&gt;Last year, we saw a few talks introduce &lt;em&gt;golden path&lt;/em&gt;, referring to a well known Spotify Engineering blog post on
+&lt;a href=&quot;https://engineering.atspotify.com/2020/08/how-we-use-golden-paths-to-solve-fragmentation-in-our-software-ecosystem/&quot;&gt;golden paths to solve fragmentation in our software ecosystem&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As the breadth and complexity of software continues to grow, it becomes difficult to scale teams and productivity.
+Often, there’s a lot of fragmented processes, which are not well-documented, nor optimal, relying on rumour-driven
+development (word of mouth). Teams are often figuring-out and performing a lot of the same manual steps
+for e.g. setting up environments, deploying code and building new software; whilst wasting time figuring out said
+processes and steps, and often not doing best practices and, even worse, delivering significantly less value to
+customers.&lt;/p&gt;
+
+&lt;p&gt;And despite this year having a dedicated track, called &lt;em&gt;Paving the Road&lt;/em&gt;, many talks outside the track referenced
+the topic, perhaps suggesting this is a strong emerging topic that’s now on the rise to mainstream industry adoption.&lt;/p&gt;
+
+&lt;p&gt;In particular, a few companies have already heavily adopted paved roads, with companies such as: Monzo, BBC, Picnic,
+Snyk and SkyScanner; discussing the topic this year.&lt;/p&gt;
+
+&lt;p&gt;And one thing they all have in common is the topology of their teams:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Platform engineering teams:&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Focused on delivering and running infrastructure, such as running Kubernetes clusters and persistence.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Product teams:&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Focused on primarily writing business logic and delivering to customers.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Dev enablement, or dev experience, teams:&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Focused on abstracting the complexity of platform engineering, for adopting by product teams.
+Building skeleton services, optimising processes, building internal tooling and writing guides.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;how-to-apply-a-product-mindset-to-your-platform-team-tomorrow&quot;&gt;How to Apply a Product Mindset to Your Platform Team Tomorrow&lt;/h3&gt;
+&lt;p&gt;A product manager at Picnic gave a talk on running platform engineering as product, despite the customer being internal.&lt;/p&gt;
+
+&lt;p&gt;Key points:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Talk to your customers (product teams) before building anything.&lt;/li&gt;
+  &lt;li&gt;Talk to the wider business (CTO/CPO, tech leads, product managers, teams etc) to check what is being built aligns with
+the companies’ strategy.&lt;/li&gt;
+  &lt;li&gt;Design your (end-user) personas.&lt;/li&gt;
+  &lt;li&gt;In contract to the other companies, he suggested to not use &lt;a href=&quot;https://cloud.google.com/blog/products/devops-sre/using-the-four-keys-to-measure-your-devops-performance&quot;&gt;DORA metrics&lt;/a&gt;,
+but rather think about the problem being solved, and directly measuring it.&lt;/li&gt;
+  &lt;li&gt;And internal marketing is important:
+    &lt;ul&gt;
+      &lt;li&gt;Sharing success stories (all hands, Slack, encourage your users to share their stories).&lt;/li&gt;
+      &lt;li&gt;Running workshops / presentations.&lt;/li&gt;
+      &lt;li&gt;Give out laptop stickers!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5-principles-for-enablement-with-almost-nothing-to-do-with-building-tools&quot;&gt;5 Principles for Enablement with (Almost) Nothing to do with Building Tools&lt;/h3&gt;
+&lt;p&gt;The BBC already has platform teams, and has recently begun migrating their teams to using an engineering delivery
+enablement group (dev enablement / dev experience).&lt;/p&gt;
+
+&lt;p&gt;Their five key principles:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;We share knowledge and make things which could be improved, visible&lt;/li&gt;
+  &lt;li&gt;We build and foster communities and relationships&lt;/li&gt;
+  &lt;li&gt;We respect other teams’ time and uniqueness&lt;/li&gt;
+  &lt;li&gt;We radiate a sharing mindset through collaboration&lt;/li&gt;
+  &lt;li&gt;We aim for long-term improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Key takeaways:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Be on the ground with the teams, not in an ivory tower:
+    &lt;ul&gt;
+      &lt;li&gt;Started by advertising their availability to teams to help work with them.&lt;/li&gt;
+      &lt;li&gt;Worked with a team to improve their pipeline, including pairing, and saw an increase in the number of deployments.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Give teams information, rather than enforcing rules
+    &lt;ul&gt;
+      &lt;li&gt;An example was moving license compliance from blocking/breaking builds to a Github bot, which instead gave
+teams information.&lt;/li&gt;
+      &lt;li&gt;Trust teams to do the right thing.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Communicate with your users:
+    &lt;ul&gt;
+      &lt;li&gt;Providing guidance for teams: examples and guides&lt;/li&gt;
+      &lt;li&gt;Running retrospectives with teams&lt;/li&gt;
+      &lt;li&gt;Running guilds (communities of practice / CoPs) every two weeks
+        &lt;ul&gt;
+          &lt;li&gt;Along with a full day to do work for a guild / CoP, such as looking at new tools&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Product teams don’t have much time to move tools and their workflow, unless it’s valuable&lt;/li&gt;
+  &lt;li&gt;Inner open-source model:
+    &lt;ul&gt;
+      &lt;li&gt;Contributions are not expected as a norm&lt;/li&gt;
+      &lt;li&gt;Accepting contributions from teams as a priority over other work&lt;/li&gt;
+      &lt;li&gt;An effort to merge every PR, but not blindly&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Sharing success stories and shout-outs external to their team through&lt;/li&gt;
+  &lt;li&gt;Be somewhere in the middle with balancing autonomy and alignment:
+    &lt;ul&gt;
+      &lt;li&gt;The BBC went too far with autonomy, which has now swung back towards somewhere in the middle between autonomy and
+alignment.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;breaking-free-from-end-to-end-testing&quot;&gt;Breaking Free From End-to-End Testing&lt;/h3&gt;
+&lt;p&gt;Discover shared how they moved away from end-to-end testing to PACT contract testing, in order to improve build
+reliability and speed, especially as they started to scale. It was mentioned it was quite cumbersome to setup PACT for
+each service, and thus they added everything to a shared pipeline.&lt;/p&gt;
+
+&lt;h3 id=&quot;effective--efficient-observability-with-open-telemetry&quot;&gt;Effective &amp;amp; Efficient Observability with Open Telemetry&lt;/h3&gt;
+&lt;p&gt;SkyScanner gave some insight into their use of Open Telemetry, from operating at large scale:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;1.8 million spans per second.&lt;/li&gt;
+  &lt;li&gt;90k+ traces per second&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Key points:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;An enablement team maintains a &lt;em&gt;golden path&lt;/em&gt;, with shared libraries and container images.&lt;/li&gt;
+  &lt;li&gt;Make golden path the path of least resistance.
+    &lt;ul&gt;
+      &lt;li&gt;Can configure best practices into the golden path / paved road.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;They only keep 4.5%~ of all traces: errors, slowness and a random percentage of the remainder.&lt;/li&gt;
+  &lt;li&gt;Use of probability sampling, and tail-based sampling (for capturing the entire trace), although more difficult to 
+configure.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;platform-engineering-where-do-we-go-from-here&quot;&gt;Platform Engineering: Where Do We Go From Here?&lt;/h3&gt;
+&lt;p&gt;The head of platforms at Snyk gave an overview of their transformation journey over the last two years.&lt;/p&gt;
+
+&lt;p&gt;Key points:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Build incentives for adoption, rather than mandates.&lt;/li&gt;
+  &lt;li&gt;They built a developer portal, using Spotify &lt;a href=&quot;https://backstage.spotify.com/&quot;&gt;Backstage&lt;/a&gt;:
+    &lt;ul&gt;
+      &lt;li&gt;Guides and training&lt;/li&gt;
+      &lt;li&gt;Self-service&lt;/li&gt;
+      &lt;li&gt;Plugins for wider integration, such as OpenAPI service documentation.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Build for the 99% of developers.&lt;/li&gt;
+  &lt;li&gt;Strongly opinionated platforms:
+    &lt;ul&gt;
+      &lt;li&gt;Extremely repeatable.&lt;/li&gt;
+      &lt;li&gt;Best-practice default configuration.&lt;/li&gt;
+      &lt;li&gt;Teams can contribute back to a central function, including documentation.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;As of mid-2022, platform engineering was still early in adoption, but reaching peak hype as a trend.&lt;/li&gt;
+  &lt;li&gt;Various predictions (see &lt;a href=&quot;#gallery&quot;&gt;gallery&lt;/a&gt; for picture of slide).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;banking-on-thousands-of-microservices&quot;&gt;Banking on Thousands of Microservices&lt;/h3&gt;
+&lt;p&gt;Monzo were back yet again, with an update on their journey with thousands of microservices.&lt;/p&gt;
+
+&lt;p&gt;Being able to watch their story over time has been particularly interesting, and they’ve made good key decisions
+early-on, such as &lt;a href=&quot;https://monzo.com/blog/2016/09/19/building-a-modern-bank-backend&quot;&gt;adopting Kubernetes in 2016&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It appears since 2019, they’ve increased from around 1,500 to over 2,000 microservices as well - impressive!&lt;/p&gt;
+
+&lt;p&gt;Key points:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;They’ve scaled from tens of engineers and tens of services, to 300 engineers and over 2,000 services.&lt;/li&gt;
+  &lt;li&gt;They have a clear definition of their bounded contexts, allowing for team ownership of services to change over time.&lt;/li&gt;
+  &lt;li&gt;Product teams are not given much autonomy:
+    &lt;ul&gt;
+      &lt;li&gt;All of the code lives in a mono-repo.&lt;/li&gt;
+      &lt;li&gt;The enablement team maintains a shared core library, used by every service.
+        &lt;ul&gt;
+          &lt;li&gt;Providing functions around RPC, Cassandra, locking, logging, metrics, queueing and more.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Services only use Golang, with product teams only able to add business logic.&lt;/li&gt;
+      &lt;li&gt;Observability built into every service, using: Prometheus, Open Telemetry and Jaeger.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Abstract the platform for engineers:
+    &lt;ul&gt;
+      &lt;li&gt;Product teams shouldn’t need to know about Kubernetes.&lt;/li&gt;
+      &lt;li&gt;Product teams shouldn’t need to be experts in platforms (Kubernetes, Cassandra etc).&lt;/li&gt;
+      &lt;li&gt;Abstract core patterns.&lt;/li&gt;
+      &lt;li&gt;Otherwise engineers are not being leveraged to their maximum potential, solving the wrong problems.&lt;/li&gt;
+      &lt;li&gt;They’ve been moving to EKS, and engineers shoudln’t know or care.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Every new product engineer goes through a “Backend Engineering 101” guide when they join.&lt;/li&gt;
+  &lt;li&gt;Sharing of success stories:
+    &lt;ul&gt;
+      &lt;li&gt;A Slack channel to share screenshots of graphs where optimisations have been made with e.g. cpu usage.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;You’re still reading? 😂&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;In summary, the experience and knowledge shared from the above talks/companies suggests the paved road is
+edging towards mainstream adoption.&lt;/p&gt;
+
+&lt;p&gt;If one was to build a paved road, there’s a few things in common you can do:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Organise your engineering unit into a set of distinct teams: platform, dev enablement and product.&lt;/li&gt;
+  &lt;li&gt;Build opinionated services aligned with the objectives of the company, rather than giving teams autonomy.&lt;/li&gt;
+  &lt;li&gt;Abstract the platform from product teams:
+    &lt;ul&gt;
+      &lt;li&gt;Leverage the most out of your product teams by having them focused on customer problems.&lt;/li&gt;
+      &lt;li&gt;Provide skeletons and templating for building services fast.&lt;/li&gt;
+      &lt;li&gt;Best practice configuration can be in the skeleton for new services.&lt;/li&gt;
+      &lt;li&gt;Allows for having a common pattern to build, deploy and support services; familiar to all engineers.&lt;/li&gt;
+      &lt;li&gt;Product teams can focus on business logic, rather than being experts in platform infrastructure.
+        &lt;ul&gt;
+          &lt;li&gt;They shouldn’t care how the platform works, or where it runs.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Reduce overall cognitive load.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Share knowledge and work with your product teams:
+    &lt;ul&gt;
+      &lt;li&gt;Build a developer portal&lt;/li&gt;
+      &lt;li&gt;Write guides.&lt;/li&gt;
+      &lt;li&gt;Run workshops and guilds/communities-of-practice (CoPs).&lt;/li&gt;
+      &lt;li&gt;Advocate and run training sessions.&lt;/li&gt;
+      &lt;li&gt;Internally open-source, and allow contributions from product teams.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Share success stories and achievements, and market your work like a product:
+    &lt;ul&gt;
+      &lt;li&gt;Encourage customers to share their success stories.&lt;/li&gt;
+      &lt;li&gt;Credit those who’ve helped outside the team.&lt;/li&gt;
+      &lt;li&gt;Give out stickers with a logo/branding.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;gallery&quot;&gt;Gallery&lt;/h2&gt;
+&lt;ul class=&quot;gallery&quot;&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-day2-keynote-radia-perlman.webp&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-day2-keynote-radia-perlman.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-day2-keynote-radia-perlman.webp&quot; alt=&quot;Radia Perlman, creator of spanning tree algorithm, opening day two with a keynote&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Radia Perlman, creator of spanning tree algorithm, opening day two with a keynote&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-effective-efficient-observability.webp&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-effective-efficient-observability.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-effective-efficient-observability.webp&quot; alt=&quot;Effective &amp;amp; Efficient Observability (SkyScanner)&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Effective &amp;amp; Efficient Observability (SkyScanner)&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-effective-efficient-observability-2.webp&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-effective-efficient-observability-2.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-effective-efficient-observability-2.webp&quot; alt=&quot;Effective &amp;amp; Efficient Observability (SkyScanner): Make golden path the path of least resistance&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Effective &amp;amp; Efficient Observability (SkyScanner): Make golden path the path of least resistance&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-end-to-end-testing.webp&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-end-to-end-testing.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-end-to-end-testing.webp&quot; alt=&quot;Breaking Free From End-to-End Testing (Discover)&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Breaking Free From End-to-End Testing (Discover)&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-monzo-banking-thousands-microservices.webp&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-monzo-banking-thousands-microservices.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-monzo-banking-thousands-microservices.webp&quot; alt=&quot;Banking on Thousands of Microservices (Monzo)&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Banking on Thousands of Microservices (Monzo)&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-platform-quote.webp&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-platform-quote.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-platform-quote.webp&quot; alt=&quot;Quote on platform orchestration&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Quote on platform orchestration&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-snyk-predictions.webp&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-snyk-predictions.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2023-04-01-qcon-london-2023/qcon-snyk-predictions.webp&quot; alt=&quot;Predictions from Crystal Hirschorn (Snyk)&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Predictions from Crystal Hirschorn (Snyk)&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;raw-notes&quot;&gt;Raw Notes&lt;/h2&gt;
+&lt;p&gt;You can find my personal raw notes &lt;a href=&quot;https://github.com/marcuscraske/files-marcuscraske-dot-com/blob/main/conference-notes/qcon-london-2023.txt&quot;&gt;here&lt;/a&gt;,
+although they might not mean much, and may be inaccurate.&lt;/p&gt;</content><author><name></name></author><summary type="html">My fifth year attending QCON London, a conference focused on knowledge-sharing high-level emerging trends and adopted best-practices in software engineering, featuring many world-leading organisations and subject-matter experts. And this year did not disappoint, with the emergence of paved roads.</summary></entry><entry><title type="html">Smart Home</title><link href="https://marcuscraske.com/2022/02/19/smart-home/" rel="alternate" type="text/html" title="Smart Home" /><published>2022-02-19T00:00:00+00:00</published><updated>2022-02-19T00:00:00+00:00</updated><id>https://marcuscraske.com/2022/02/19/smart-home</id><content type="html" xml:base="https://marcuscraske.com/2022/02/19/smart-home/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2022-02-19-smart-home/microservices.png&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/microservices.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/microservices.png&quot; alt=&quot;Smart home dashboard&quot; class=&quot;post-thumb&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Automated lighting, hoovering, heating, energy management and information. A combination of off-the-shelf and
+hand-cranked code running on a Kubernetes cluster.&lt;/p&gt;
+
+&lt;p&gt;Mostly completed in December 2019, and tweaked throughout 2020 and 2021.&lt;/p&gt;
+
+&lt;h2 id=&quot;dashboard&quot;&gt;Dashboard&lt;/h2&gt;
+
+&lt;p class=&quot;center&quot;&gt;
+    &lt;a href=&quot;/assets/posts/2022-02-19-smart-home/dashboard.jpg&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/dashboard.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/dashboard.jpg&quot; alt=&quot;Dashboard on TV&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;
+
+&lt;/p&gt;
+
+&lt;p&gt;The centrepiece of the smart home, located near the front door. Lots of data is aggregated from both
+within the home and external sources, used for checking: weather, train times, share price of the S&amp;amp;P 500,
+sun-rise/sunset, and general state of the home. This has been particularly useful when leaving home, and checking
+the train times and whether to take an umbrella. Or leaving last minute for a quick spin on the bike, and checking
+the wind direction to plan a route.&lt;/p&gt;
+
+&lt;p&gt;The floor plan shows the colour of the lights, and temperature, in each room, with some lights supporting RGB, and
+motion sensors, with those recently activated in green.&lt;/p&gt;
+
+&lt;p&gt;The TV its self is just using a Raspberry Pi, with an Electron (Node.js) app launching on startup. The app
+displays an external web-page, and periodically polls an externally hosted service to check whether to turn the screen
+off, when there’s no motion in the room.&lt;/p&gt;
+
+&lt;p&gt;The externally hosted resources are on a Kubernetes cluster, which we’ll delve into in the upcoming sections.&lt;/p&gt;
+
+&lt;h2 id=&quot;microservice-architecture&quot;&gt;Microservice Architecture&lt;/h2&gt;
+
+&lt;p&gt;The data displayed on the dashboard is derived from multiple microservices:&lt;/p&gt;
+
+&lt;p class=&quot;center&quot;&gt;
+    &lt;a href=&quot;/assets/posts/2022-02-19-smart-home/microservices.png&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/microservices.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/microservices.png&quot; alt=&quot;Microservice diagram&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;
+
+&lt;/p&gt;
+
+&lt;h2 id=&quot;why-microservices&quot;&gt;Why Microservices?&lt;/h2&gt;
+
+&lt;p&gt;Admittedly overkill for a project of this size.&lt;/p&gt;
+
+&lt;p&gt;Most of the services are only a few scripts large, but each one has a
+clear purpose, and can fail without taking down the entire ecosystem. This is important for one service in
+particular, which interfaces with a device using USB, and can be prone to hardware issues, causing the service
+to hang or slow-down.&lt;/p&gt;
+
+&lt;p&gt;Updates can be easily performed to a single service, without affecting the overall functionality. For example, updating
+the &lt;em&gt;Dashboard&lt;/em&gt; without affecting automation scripts, which are otherwise performing actions on the home. And if
+an update fails, most of the functionality continues to work, and can be fixed another day.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-kubernetes&quot;&gt;Why Kubernetes?&lt;/h2&gt;
+
+&lt;p&gt;The microservices needed to run on something, and reliability is important, especially for &lt;em&gt;Home Actions&lt;/em&gt;, which is
+running automated scripts to control the home.&lt;/p&gt;
+
+&lt;p&gt;Using a Raspberry Pi makes sense for running the microservices, due to the low power consumption, but they’re notorious
+for failing due to MicroSD cards burning out. Running on a single machine could leave the entire system not working for
+days, or longer, if there isn’t time to rectify problems.&lt;/p&gt;
+
+&lt;p&gt;Instead, Kubernetes allows for building a distributed system, spreading loads across multiple
+machines (Raspberry Pi’s), useful for mitigating such failure. It reduces the risk of regular maintenance,
+allowing for each machine to be patched and re-introduced one at a time. And in the event of problems, removed from the
+Kubernetes cluster and left to be fixed another day.&lt;/p&gt;
+
+&lt;p&gt;This project was also a good example to build on a previous post,
+&lt;a href=&quot;/2019/09/21/raspberry-pi-kubernetes-cluster/&quot;&gt;running a Kubernetes cluster on Raspberry Pi’s&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;service-stack&quot;&gt;Service Stack&lt;/h2&gt;
+&lt;p&gt;Each service uses the &lt;em&gt;node&lt;/em&gt; (Node.js) Docker container image, using &lt;a href=&quot;https://expressjs.com/&quot;&gt;Express&lt;/a&gt; for building
+simple APIs. Since we’re running these images on Raspberry Pi’s, with the ARM instruction set, image builds
+are done remotely over SSH on the Kubernetes master node.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-services&quot;&gt;The Services&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Dashboard:&lt;/strong&gt; displaying data from the other services, as seen on the TV shown previously, accessible to any device on
+both the local network and internet. Built using React, with each section built as its own one or more components.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bin Collection:&lt;/strong&gt; perhaps known as garbage collection outside the UK, is usually
+every week. But the days can switch between Friday and Saturday, and become even stranger around public
+holidays. A &lt;em&gt;council&lt;/em&gt; is responsible for the collection of garbage, a local government organisation. And collection
+dates are published on their website. Unfortunately, they don’t provide a public API, so the service scrapes their
+website, reading the data from the page. The service then provides a simple JSON API for the other services.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Weather:&lt;/strong&gt; sourced for free from &lt;a href=&quot;https://openweathermap.org/&quot;&gt;OpenWeather&lt;/a&gt;, this was the most accurate of a few
+services trialed over a period of time, and able to provide predictions for a few days, down to individual hours.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Uptime:&lt;/strong&gt; pinging the Google homepage every second, used to track internet problems within the last 24 hours.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Trains:&lt;/strong&gt; data is retrieved, for the station closest to my home, using the &lt;a href=&quot;https://wiki.openraildata.com/index.php/NRE_Darwin_Web_Service_(Public)&quot;&gt;National Rail Live Departure Boards Web
+Service&lt;/a&gt; (LDBWS) SOAP API, . It’s the same API
+used by the National Rail Enquiries website. And the data is derived from the &lt;a href=&quot;https://wiki.openraildata.com/index.php?title=TRUST_vs_Darwin#Darwin&quot;&gt;National Rail
+Darwin&lt;/a&gt; system, the same data used for the
+departure boards across UK stations.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Share Price:&lt;/strong&gt; retrieving share price information, updating every five minutes, for a given symbol. This used the
+free &lt;a href=&quot;https://finnhub.io/&quot;&gt;Finnhub Stock API&lt;/a&gt;. Although, I only ever displayed &lt;em&gt;SPY&lt;/em&gt; (S&amp;amp;P 500).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Philip Hue:&lt;/strong&gt; all the lights and motion sensors use Philip Hue, which has a bridge/hub device for controlling
+and retrieving state information. This service throttles requests from other services, as well as simplifying bulk
+interaction, such as fetching or pushing state to all the lights and/or sensors within a room. Throttling is important,
+as the bridge is incredibly underpowered, and it doesn’t take many requests to inadvertently cause a denial of service
+attack. Which happened a few times at the start of the project, and the lights wouldn’t turn on automatically
+in the rooms…like being back in the stone age, or what most typical homes still have today.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Power Plugs:&lt;/strong&gt; almost every appliance has a smart plug, which can measure the power usage in watts, and turn
+on/off power, using the Tuya cloud API. Huge kudos to the &lt;a href=&quot;https://github.com/codetheweb/tuyapi&quot;&gt;tuyapi&lt;/a&gt; project
+for simplifying connectivity.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Power Usage:&lt;/strong&gt; this is one of the interesting sources of information, as it provides the power usage for the entire
+house. British Gas, many years ago, were handing out the &lt;a href=&quot;http://www.currentcost.com/product-cc128.html&quot;&gt;CC128&lt;/a&gt; energy
+monitor for free. You just put a clamp, hooked up to a wireless battery pack, around the mains electric,
+in the outdoor utility box. This is able to measure the total power usage by measuring the magnetic field
+of the cable, using the &lt;a href=&quot;https://en.wikipedia.org/wiki/Hall_effect#Split_ring_clamp-on_sensor&quot;&gt;hall effect&lt;/a&gt;. It turns
+out the CC128 has a serial bus on the back, which outputs the power usage as XML. You can buy a CC128 on eBay, and just
+need a USB to serial adapter. This unfortunately means the service must be tied to a fixed instance (Raspberry Pi).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Home Actions:&lt;/strong&gt; running automation scripts, more detail in the next section.&lt;/p&gt;
+
+&lt;h2 id=&quot;automation-scripts&quot;&gt;Automation Scripts&lt;/h2&gt;
+&lt;p&gt;The &lt;em&gt;Home Actions&lt;/em&gt; service had a few automated scripts, consuming data and performing actions on the &lt;em&gt;Power Plugs&lt;/em&gt;
+and &lt;em&gt;Philip Hue&lt;/em&gt; services:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Turning on the treadmill fan,&lt;/strong&gt; when the treadmill is used, based on the power consumption of the treadmill smart 
+plug going above an idle threshold (in watts).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Turning off the living room lights and motion sensor,&lt;/strong&gt; when a projector is turned-on, again based on plug power
+consumption, but for the projector.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Turning off all the smart plugs when the house is idle,&lt;/strong&gt; based on 30 minutes of inactivity on all the motion
+sensors, which are in every single room. And then turning them back on, when motion is detected again.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Turning on the (dashboard) TV when motion is detected in the kitchen,&lt;/strong&gt; saving a significant amount of energy.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;smart-appliances&quot;&gt;Smart Appliances&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;This section is not sponsored, I promise…&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Philip Hue lighting&lt;/strong&gt; throughout the entire interior and exterior of the house. Motion sensors in every room
+automatically turn on, and eventually off, every single light. Each bulb is ultra energy efficient, using 7 watts each.
+A typical LED bulb uses 9 watts, or incandescent bulb uses 100 watts. And an RGB LED floodlight, using 15 watts,
+for the outdoor carpark space - a typical halogen floodlight uses 200-400 watts. Thus significant energy savings.
+And a front door light, synchronised with sunrise/sunset. The light switch in each room has been covered with a 3D
+printed mount, purchased from Etsy, to fit a standard Philip Hue remote.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Roborok S5 Max Robovac&lt;/strong&gt; both upstairs and downstairs, running twice a week, cleaning the floors, including mopping.
+Requiring typically fortnightly maintenance: emptying of the onboard bin, cleaning the brush and refilling the water tank.
+Although, I suspect it wouldn’t do well with animal hair, as human hair was enough to cripple it at times.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hive Smart Heating&lt;/strong&gt; isn’t particularly different to a time-controlled thermostat, other than it can be controlled
+through a mobile app, and run different schedules for different days. Super useful to turn off the heating when going
+on holiday, and turning it on remotely before getting home.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Foscam IP Cameras&lt;/strong&gt; were an unusual choice, but I wanted something that worked entirely offline due to privacy
+concerns. These cameras are well-established in corporate environments due to reliability, and often appeared on leaked
+camera lists, on forums and discussion boards, when they were misconfigured. Although if I were to pick new cameras,
+I’d probably look at Reolink. In total, I had 2x 1080p and 1x 1440p (2k) cameras, recorded using
+&lt;a href=&quot;https://github.com/ccrisan/motioneyeos/wiki&quot;&gt;MotionEyeOS&lt;/a&gt;, at 12 FPS, with footage stored for two weeks,
+in a locked cabinet on WD Purple NVR drives (in RAID1), and automatically uploaded to Dropbox.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Aoycocr Smart Plugs&lt;/strong&gt; providing individual power usage, and control, of appliances remotely. Make sure to get a model
+which can monitor power, as most do not. Just search for &lt;em&gt;smart plug power monitor&lt;/em&gt; on
+Amazon, and check it explicitly mentions energy monitoring, and it’s Tuya compatible.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;And best of all…&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Most of the above smart appliances can be accessed through smart apps over the internet, what could go wrong? ;)&lt;/p&gt;
+
+&lt;h2 id=&quot;photos&quot;&gt;Photos&lt;/h2&gt;
+
+&lt;ul class=&quot;gallery&quot;&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2022-02-19-smart-home/bridges.jpg&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/bridges.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/bridges.jpg&quot; alt=&quot;Philip Hue and Hive bridges, used for remote control&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Philip Hue and Hive bridges, used for remote control&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2022-02-19-smart-home/cabinet.jpg&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/cabinet.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/cabinet.jpg&quot; alt=&quot;Rack mounted in a 42U server cabinet, although the cabinet is not exclusively for this project&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Rack mounted in a 42U server cabinet, although the cabinet is not exclusively for this project&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2022-02-19-smart-home/heating-receiver.jpg&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/heating-receiver.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/heating-receiver.jpg&quot; alt=&quot;Hive heating receiver&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Hive heating receiver&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2022-02-19-smart-home/heating-thermostat.jpg&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/heating-thermostat.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/heating-thermostat.jpg&quot; alt=&quot;Hive heating thermostat control&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Hive heating thermostat control&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2022-02-19-smart-home/light-covered.jpg&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/light-covered.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/light-covered.jpg&quot; alt=&quot;Philip Hue mount over normal light switch, with magnetic removable remote&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Philip Hue mount over normal light switch, with magnetic removable remote&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2022-02-19-smart-home/light-uncovered.jpg&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/light-uncovered.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/light-uncovered.jpg&quot; alt=&quot;Philip Hue mount cover removed&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Philip Hue mount cover removed&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2022-02-19-smart-home/pi-rack.jpg&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/pi-rack.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/pi-rack.jpg&quot; alt=&quot;Raspberry Pi 1U rack mount shelf&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Raspberry Pi 1U rack mount shelf&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2022-02-19-smart-home/robovac-downstairs.jpg&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/robovac-downstairs.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/robovac-downstairs.jpg&quot; alt=&quot;Robovac (downstairs)&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Robovac (downstairs)&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2022-02-19-smart-home/robovac-upstairs.jpg&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/robovac-upstairs.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/robovac-upstairs.jpg&quot; alt=&quot;Robovac (upstairs)&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Robovac (upstairs)&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2022-02-19-smart-home/smart-plugs.jpg&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/smart-plugs.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/smart-plugs.jpg&quot; alt=&quot;Some of the smart plugs&quot; class=&quot;&quot; /&gt;
+    &lt;/picture&gt;&lt;span&gt;Some of the smart plugs&lt;/span&gt;
+&lt;/a&gt;
+
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;A lot of the custom aspects of the project could have used off-the-shelf platforms, such as
+&lt;a href=&quot;https://www.apple.com/uk/ios/home/&quot;&gt;Apple HomeKit&lt;/a&gt; or &lt;a href=&quot;https://www.openhab.org/&quot;&gt;openHAB&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But what value does custom bring?&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Integrating and scripting different platforms together, although openHAB probably offers similar and makes it easier.&lt;/li&gt;
+  &lt;li&gt;The dashboard, which is completely customisable, and one of the main reasons for this project.&lt;/li&gt;
+  &lt;li&gt;Learning.&lt;/li&gt;
+  &lt;li&gt;Flexing that one’s house runs on JavaScript.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;What about maintenance and issues?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A home automation script had a bug, which spammed the Philip Hue service, and caused a denial of service attack
+on the Philip Hue Bridge. The remote switches and motion sensors rely on the Philip Hue bridge to
+turn the lights on. And unfortunately, the issue occurred at night, so I had to stumble 
+through the house, in the dark, with my phone torch to get to my desk to undeploy the service. Such a first world
+problem. The bug was later rectified, and throttling added to the Philip Hue service as a fail-safe.&lt;/li&gt;
+  &lt;li&gt;The certificates used by Kubernetes expired, causing the Kubernetes API to stop working, along with service
+communication, which included internet and local service-to-service connectivity. This was later fixed by renewing
+the certificates.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Overall, it’s been an interesting ongoing project for the last two years. And despite moving house soon, I will
+be carrying forward this setup.&lt;/p&gt;</content><author><name></name></author><summary type="html">Automated lighting, hoovering, heating, energy management and information. A combination of off-the-shelf and hand-cranked code running on a Kubernetes cluster. Mostly completed in December 2019, and tweaked throughout 2020 and 2021.</summary></entry><entry><title type="html">Raspberry Pi Kubernetes Cluster</title><link href="https://marcuscraske.com/2019/09/21/raspberry-pi-kubernetes-cluster/" rel="alternate" type="text/html" title="Raspberry Pi Kubernetes Cluster" /><published>2019-09-21T00:00:00+01:00</published><updated>2019-09-21T00:00:00+01:00</updated><id>https://marcuscraske.com/2019/09/21/raspberry-pi-kubernetes-cluster</id><content type="html" xml:base="https://marcuscraske.com/2019/09/21/raspberry-pi-kubernetes-cluster/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2019-09-21-raspberry-pi-kubernetes-cluster/thumb.png&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2019-09-21-raspberry-pi-kubernetes-cluster/thumb.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2019-09-21-raspberry-pi-kubernetes-cluster/thumb.png&quot; alt=&quot;K8 and Pi logo&quot; class=&quot;post-thumb&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In this article, I setup:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;A Kubernetes cluster using the new Raspberry Pi 4.&lt;/li&gt;
+  &lt;li&gt;Kubernetes Dashboard.&lt;/li&gt;
+  &lt;li&gt;Ingress using NGINX.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Many articles already exist for older Debian distributions and Raspberry Pis,
+so hopefully this updated set of steps helps others save time.&lt;/p&gt;
+
+&lt;h2 id=&quot;kubernetes-cluster-setup&quot;&gt;Kubernetes Cluster Setup&lt;/h2&gt;
+&lt;p&gt;In this section is the setup of a basic cluster, which consists of the
+following:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;A single control plane node, used to manage the cluster.&lt;/li&gt;
+  &lt;li&gt;One or more nodes, used to later run our application deployments (pods, containers, etc).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A node is just a traditional bare-metal or virtual host, such as a Raspberry Pi.&lt;/p&gt;
+
+&lt;p&gt;Relevant official docs:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/docs/concepts/#kubernetes-control-plane&quot;&gt;Concepts&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/&quot;&gt;Single control-plane cluster with kubeadm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;generic-raspberry-pi-setup&quot;&gt;Generic Raspberry Pi Setup&lt;/h3&gt;
+&lt;p&gt;Run these steps for both your single control plane node, and node(s):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.raspberrypi.org/downloads/raspbian&quot;&gt;Download the latest 64-bit Raspbian image&lt;/a&gt; and
+install it onto the micro SD card.&lt;/p&gt;
+
+    &lt;p&gt;At the time of this article, the latest  Raspbian Buster. I’ve chosen the lite
+image, as everything will be  remotely and no desktop is required.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh.txt&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/boot&lt;/code&gt; partition of micro SD card, to enable SSH daemon
+when started for first time. This is to avoid using an actual physical
+keyboard, mouse and screen.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Plug-in the Raspberry Pi to your network and power it up. Use your router to
+find the dynamically allocated IP address (assuming your network has DHCP).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SSH to the Raspberry Pi using the default credentials. The default user is &lt;em&gt;pi&lt;/em&gt;
+the password is &lt;em&gt;raspberry&lt;/em&gt;. E.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh pi@192.168.1.45&lt;/code&gt; and enter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;raspberry&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo raspi-config&lt;/code&gt; and:
+    &lt;ul&gt;
+      &lt;li&gt;Configure hostname (under &lt;em&gt;Network Options&lt;/em&gt;).
+        &lt;ul&gt;
+          &lt;li&gt;I’ve used the naming convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k8-master1&lt;/code&gt; for the control plane
+node and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;k8-slave1&lt;/code&gt; to n for the nodes.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Enable SSH daemon (under &lt;em&gt;Interfacing Options&lt;/em&gt;).&lt;/li&gt;
+      &lt;li&gt;Update to latest version.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo nano /etc/dhcpcd.conf&lt;/code&gt; and configure a static IP address (change &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;static ip_address&lt;/code&gt; line for each node).
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  interface eth0
+  static ip_address=192.168.1.100/24
+  static routers=192.168.1.1
+  static domain_name_servers=192.168.1.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Disable swap:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  sudo dphys-swapfile swapoff
+  sudo dphys-swapfile uninstall
+  sudo update-rc.d dphys-swapfile remove
+  sudo apt purge dphys-swapfile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Enable memory cgroups, run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo nano /boot/cmdline.txt&lt;/code&gt; and append the following to the end of the line:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Reboot, connect using the new IP address.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Add Kubernetes repository to package sources:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  echo &quot;deb http://apt.kubernetes.io/ kubernetes-xenial main&quot; | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Update available packages:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  sudo apt update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Install useful network tools and Kubernetes ADM client:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  sudo apt install dnsutils kubelet kubeadm kubelet
+  sudo apt-mark hold kubelet kubeadm kubectl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Install latest Docker:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  curl -sSL get.docker.com | sh &amp;amp;&amp;amp; \
+  sudo usermod pi -aG docker &amp;amp;&amp;amp; \
+  newgrp docker
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Configure ip tables to open all ports, currently required for &lt;a href=&quot;https://github.com/kubernetes-sigs/kubespray/issues/4674&quot;&gt;pod DNS to work&lt;/a&gt;.
+Start by editing:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  sudo nano /etc/rc.local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;And add (before any lines with &lt;em&gt;exit&lt;/em&gt;):&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  /sbin/iptables -P FORWARD ACCEPT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Without this step, you may find &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;coredns&lt;/code&gt; pods fail to start on app nodes
+and/or DNS does not work.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Configure &lt;em&gt;iptables&lt;/em&gt; to run in legacy, since &lt;em&gt;kube-proxy&lt;/em&gt;
+has &lt;a href=&quot;update-alternatives --set iptables /usr/sbin/iptables-legacy&quot;&gt;issues with iptables version 1.8&lt;/a&gt;:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Reboot &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo reboot&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;control-plane-setup&quot;&gt;Control Plane Setup&lt;/h3&gt;
+&lt;p&gt;The master node, responsible for controlling the cluster.&lt;/p&gt;
+
+&lt;p&gt;Based on steps from &lt;a href=&quot;https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/&quot;&gt;official guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I’ve named my control plane node &lt;em&gt;k8-master1&lt;/em&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;SSH onto the Pi you want to be the master e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh pi@k8-master&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Init cluster, with defined CIDR / network range for pods and a non-expiring token for slaves to join the cluster later:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --service-cidr=10.244.240.0/20 --token-ttl=0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;If this command fails due to container runtime not running, run the following commands:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -i
+rm /etc/containerd/config.toml
+containerd config default &amp;gt; /etc/containerd/config.toml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;And search for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SystemdCgroup&lt;/code&gt; param and set it to true:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/containerd/config.toml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;And restart containerd:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl restart containerd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;And run the previous &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubeadm&lt;/code&gt; command again.&lt;/p&gt;
+
+    &lt;p&gt;This seems to be an issue with containerd not using cgroup, see &lt;a href=&quot;https://github.com/kubernetes/kubernetes/issues/110177&quot;&gt;GitHub issue&lt;/a&gt;
+for details.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;At the end of the previous step, copy the provided command for app nodes / slave
+to join the cluster. We’ll run this later, it’ll look something like:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  kubeadm join 192.168.1.100:6443 --token xxxxxx.xxxxxxxxxxxxxxxxx \
+    --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Enable your user to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl&lt;/code&gt;:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Install pod networking (CNI); in this case, we’ll install Flannel on the master and each slave:
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  kubectl apply -f &quot;https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;node-setup&quot;&gt;Node Setup&lt;/h3&gt;
+&lt;p&gt;The node(s), responsible for later running our application deployments.&lt;/p&gt;
+
+&lt;p&gt;Run the command from earlier to join the node to the cluster, either as root or prefix the command with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo&lt;/code&gt;, for example:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo kubeadm join 192.168.1.100:6443 --token xxxxxx.xxxxxxxxxxxxxxxxx \
+    --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This may take a few minutes.&lt;/p&gt;
+
+&lt;p&gt;Done.&lt;/p&gt;
+
+&lt;h2 id=&quot;kubernetes-dashbaord&quot;&gt;Kubernetes Dashbaord&lt;/h2&gt;
+&lt;p&gt;Let’s install a dashboard to easily manage our cluster.&lt;/p&gt;
+
+&lt;p&gt;Based on the &lt;a href=&quot;https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard&quot;&gt;official guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;setup&quot;&gt;Setup&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;SSH to the master node e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ssh pi@k8-master1&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Install the dashboard:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta4/aio/deploy/recommended.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Paste the following in the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;user.yaml&lt;/code&gt;:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    name: admin-user
+    namespace: kube-system
+  ---
+  apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    name: admin-user
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: admin-user
+    namespace: kube-system
+  ---
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: secret-admin-user
+    namespace: kube-system
+    annotations:
+      kubernetes.io/service-account.name: &quot;admin-user&quot;
+  type: kubernetes.io/service-account-token
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Apply the file, it will setup a user for the dashboard:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  kubectl apply -f user.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;access&quot;&gt;Access&lt;/h3&gt;
+&lt;p&gt;I’ve written a simple script to help automate accessing the dashboard.&lt;/p&gt;
+
+&lt;p&gt;This will:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Proxy port &lt;em&gt;8080&lt;/em&gt; from the cluster to our local machine, in order to access
+the dashboard on our machine.&lt;/li&gt;
+  &lt;li&gt;Print out a token we can use to login to the dashboard.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Save the following script as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dashboard.sh&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;MASTER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pi@192.168.1.100&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Print token for login&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;TOKEN_COMMAND&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;kubectl -n kube-system describe secret/secret-admin-user | grep 'token: ' | awk '{ print &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\$&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;2 }'&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Dumping token for dashboard...&quot;&lt;/span&gt;
+ssh &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;MASTER&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;TOKEN_COMMAND&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Login:&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;  http://localhost:8080/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Create SSH tunnel to k8 master and run proxy&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Creating proxy tunnel to this machine from master...&quot;&lt;/span&gt;
+ssh &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; 8080:localhost:8080 &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;MASTER&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;kubectl proxy --port=8080 || true&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Terminate proxy...&quot;&lt;/span&gt;
+ssh &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;MASTER&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;pkill kubectl&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Change the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MASTER&lt;/code&gt; variable to the IP address or host-name of your control
+plane node.&lt;/p&gt;
+
+&lt;p&gt;Run the script:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./dashboard.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Visit the URL displayed by the script to access the dashboard, and copy the
+token on the logon screen.&lt;/p&gt;
+
+&lt;h2 id=&quot;installing-helm&quot;&gt;Installing Helm&lt;/h2&gt;
+&lt;p&gt;Helm is a package manager for Kubernetes, which we’ll use to setup
+ingress in the next section.&lt;/p&gt;
+
+&lt;p&gt;Let’s install the client:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh pi@k8-master1
+wget https://get.helm.sh/helm-v3.9.2-linux-arm64.tar.gz
+tar -zxvf helm-v3.9.2-linux-arm64.tar.gz
+sudo mv linux-arm64/helm /usr/local/bin/helm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ingress&quot;&gt;Ingress&lt;/h2&gt;
+&lt;p&gt;We’ll setup &lt;a href=&quot;https://kubernetes.io/docs/concepts/services-networking/ingress/&quot;&gt;ingress&lt;/a&gt;, so that
+external traffic can reach our cluster.&lt;/p&gt;
+
+&lt;p&gt;Our end-goal will be for services to be accessible from the internet.&lt;/p&gt;
+
+&lt;h3 id=&quot;metal-loadbalancer&quot;&gt;Metal Loadbalancer&lt;/h3&gt;
+&lt;p&gt;Since we aren’t using a cloud provider, such as AWS, we don’t have a cloud
+load balancer available.&lt;/p&gt;
+
+&lt;p&gt;Instead we’ll setup a load-balancer on our cluster, using MetalLB, which runs in a pod and
+attaches its self onto a physical network IP.&lt;/p&gt;
+
+&lt;p&gt;You can either attach to an IP using Layer 2 (OSI Data Link layer), whereby only
+a single node can handle traffic. This presents a resilience risk, but
+offers the most support, and you’ll definitely be able to access said IP from
+your machine on the same network. Alternatively your cluster can, providing
+your router supports it, use &lt;a href=&quot;https://en.wikipedia.org/wiki/Border_Gateway_Protocol&quot;&gt;BGP&lt;/a&gt;,
+but you’ll most likely not be able to access the cluster locally.&lt;/p&gt;
+
+&lt;p&gt;Let’s install MetalLB using helm:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl create namespace metallb-system
+helm repo add metallb https://metallb.github.io/metallb
+helm install metallb metallb/metallb --namespace metallb-system
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;metallb-config.yaml&lt;/code&gt; to configure load balancer:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: main-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 192.168.1.230-192.168.1.250
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: main-pool
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - main-pool
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For more details on options, as BGP is available instead of Layer 2, refer to
+the &lt;a href=&quot;https://metallb.universe.tf/configuration/&quot;&gt;official docs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once config has been setup, apply it:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl apply -f metallb-config.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Ingress is now setup.&lt;/p&gt;
+
+&lt;h3 id=&quot;nginx&quot;&gt;Nginx&lt;/h3&gt;
+&lt;p&gt;This section will setup our &lt;em&gt;ingress controller&lt;/em&gt;, using NGINX, responsible
+for managing anything related to ingress to our services. This was originally used for the project in 2019. But as of
+2022, I’ve moved to istio, you can skip ahead to the section called &lt;em&gt;istio&lt;/em&gt; below.&lt;/p&gt;
+
+&lt;p&gt;Install using helm:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh pi@k8-master1
+kubectl create namespace kube-ingress
+helm repo add nginx-stable https://helm.nginx.com/stable
+helm repo update
+helm install nginx-ingress nginx-stable/nginx-ingress --namespace kube-ingress --set controller.service.loadBalancerIP=192.168.1.230
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;ingress-example&quot;&gt;Ingress Example&lt;/h3&gt;
+&lt;p&gt;You can now define an ingress to a service.&lt;/p&gt;
+
+&lt;p&gt;An example which forwards traffic for &lt;em&gt;marcuscraske.com/uptime/**&lt;/em&gt; to the service &lt;em&gt;uptime&lt;/em&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  namespace: home-network
+  name: uptime-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: marcuscraske.com
+    http:
+      paths:
+      - path: /uptime
+        backend:
+          serviceName: uptime
+          servicePort: 80
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Using the Kubernetes dashboard, or &lt;em&gt;kubeadm&lt;/em&gt; tool, you can find the local network
+IP address allocated.&lt;/p&gt;
+
+&lt;p&gt;Then port forward traffic on your router for the IP address, so that it’s exposed to the internet.&lt;/p&gt;
+
+&lt;p&gt;If you want multiple ingress points to share the same IP address, you can add config to your
+services to get a defined IP address allocated.&lt;/p&gt;
+
+&lt;p&gt;Take note of the annotations section, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;type&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;loadBalancerIP&lt;/code&gt; params in this example:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kind: Service
+apiVersion: v1
+metadata:
+  name: uptime
+  annotations:
+    metallb.universe.tf/address-pool: main-pool
+spec:
+  selector:
+    app: uptime
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  sessionAffinity: None
+  type: LoadBalancer
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can then front your router’s WAN / public internet IP address with a CDN such as
+&lt;a href=&quot;https://www.cloudflare.com&quot;&gt;CloudFlare&lt;/a&gt;, which is free and offers DDOS protection (useful for a home network).
+This will also provide valid SSL certificates.&lt;/p&gt;
+
+&lt;h2 id=&quot;istio-2022&quot;&gt;Istio (2022)&lt;/h2&gt;
+&lt;p&gt;An alternative to nginx, you can use istio with istio gateway.&lt;/p&gt;
+
+&lt;p&gt;Relevant docs:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://istio.io/latest/docs/setup/install/helm/&quot;&gt;https://istio.io/latest/docs/setup/install/helm/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://istio.io/latest/docs/setup/additional-setup/gateway/&quot;&gt;https://istio.io/latest/docs/setup/additional-setup/gateway/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We’ll start by installing istio:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh pi@k8-master1
+
+helm repo add istio https://istio-release.storage.googleapis.com/charts
+helm repo update
+
+kubectl create namespace istio-system
+helm install istiod istio/istiod -n istio-system --wait
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You’ll want to wait until all the pods related to istio are running and ready:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl get pods -A
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We’ll next install the gateway, change the IP address to the desired IP for exposing services on your local
+network:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl create namespace istio-ingress
+helm install istio-ingressgateway istio/gateway -n istio-ingress --set service.loadBalancerIP=&quot;192.168.2.199&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Rather than add an ingress for exposing a service, we’ll first create a namespace and a shared gateway, which will
+ingress traffic to the domain &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;smart.home.local&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apiVersion: v1
+kind: Namespace
+metadata:
+  name: smart-home
+  labels:
+    name: smart-home
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  namespace: smart-home
+  name: smart-home-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - &quot;smart.home.local&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And then in each service we want to expose, we can add a virtual service to tie it to the gateway, with this example
+rewriting the request to remove the prefix/path of the route:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  namespace: smart-home
+  name: example
+spec:
+  hosts:
+  - &quot;smart.home.local&quot;
+  gateways:
+  - smart-home-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /api/example
+    rewrite:
+      uri: &quot; &quot;
+    route:
+    - destination:
+        port:
+          number: 80
+        host: example-service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;check-pods&quot;&gt;Check Pods&lt;/h2&gt;
+&lt;p&gt;You can check pods across all namespaces/nodes are running:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh pi@k8-master1
+kubectl get pods --all-namespaces
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;shared-data&quot;&gt;Shared Data&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;This section is optional, and was added later in 2022.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;You might want to mount a file share between all the worker nodes, so they can share config. This example uses
+CIFs/Samba.&lt;/p&gt;
+
+&lt;p&gt;SSH to the worker:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh pi@k8-slave1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Switch to root:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -i
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Setup the desired location to mount data:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir -p /mnt/k8-data
+chown -R pi:pi /mnt/k8-data/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Grab the number from this command e.g. 1000, this will be used later for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gid&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uid&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;getent group pi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add user to group:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;usermod -a -G k8data pi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Test the mount will work, changing the IP of the host with the file share and login user/pass:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mount.cifs -v //192.168.1.200/k8-data/k8-slave1 /mnt/k8-data --verbose -o user=kubernetes,pass=xxx,gid=1000,uid=1000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Providing the above works, now add a new line to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/fstab&lt;/code&gt;, so that it’s automatically mounted on each boot:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//192.168.1.200/k8-data/k8-slave1 /mnt/k8-data cifs username=kubernetes,password=xxx,gid=1000,uid=1000 0 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;renewing-kubernetes-certificates&quot;&gt;Renewing Kubernetes Certificates&lt;/h2&gt;
+&lt;p&gt;By default, the certificates will expire after a year.&lt;/p&gt;
+
+&lt;p&gt;To check when the certificates expire:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubeadm certs check-expiration
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;These are automatically renewed during a control plane upgrade.&lt;/p&gt;
+
+&lt;p&gt;Otherwise, it can be done manually:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubeadm certs renew all
+kubectl -n kube-system delete pod -l 'component=kube-apiserver'
+kubectl -n kube-system delete pod -l 'component=kube-controller-manager'
+kubectl -n kube-system delete pod -l 'component=kube-scheduler'
+kubectl -n kube-system delete pod -l 'component=etcd'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;In this article we setup a simple cluster capable of deployments and taking
+external traffic.&lt;/p&gt;</content><author><name></name></author><summary type="html">In this article, I setup: A Kubernetes cluster using the new Raspberry Pi 4. Kubernetes Dashboard. Ingress using NGINX. Many articles already exist for older Debian distributions and Raspberry Pis, so hopefully this updated set of steps helps others save time.</summary></entry><entry><title type="html">My Food Hygiene Ratings</title><link href="https://marcuscraske.com/2019/03/20/my-food-hygiene-ratings/" rel="alternate" type="text/html" title="My Food Hygiene Ratings" /><published>2019-03-20T00:00:00+00:00</published><updated>2019-03-20T00:00:00+00:00</updated><id>https://marcuscraske.com/2019/03/20/my-food-hygiene-ratings</id><content type="html" xml:base="https://marcuscraske.com/2019/03/20/my-food-hygiene-ratings/">&lt;p&gt;&lt;a href=&quot;/assets/projects/my-food-hygiene-ratings/thumb.png&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/projects/my-food-hygiene-ratings/thumb.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/projects/my-food-hygiene-ratings/thumb.png&quot; alt=&quot;App icon&quot; class=&quot;post-thumb&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;My hobby Android and iOS app to allow users to find hygiene ratings of establishments (restaurants, bars, shops etc).&lt;/p&gt;</content><author><name></name></author><summary type="html">My hobby Android and iOS app to allow users to find hygiene ratings of establishments (restaurants, bars, shops etc).</summary></entry><entry><title type="html">QCON London 2019</title><link href="https://marcuscraske.com/2019/03/07/qcon/" rel="alternate" type="text/html" title="QCON London 2019" /><published>2019-03-07T00:00:00+00:00</published><updated>2019-03-07T00:00:00+00:00</updated><id>https://marcuscraske.com/2019/03/07/qcon</id><content type="html" xml:base="https://marcuscraske.com/2019/03/07/qcon/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2019-03-07-qcon/thumb.png&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2019-03-07-qcon/thumb.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2019-03-07-qcon/thumb.png&quot; alt=&quot;QCON logo&quot; class=&quot;post-thumb&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I got the opportunity this year to attend the &lt;a href=&quot;https://qconlondon.com/&quot;&gt;QCON London&lt;/a&gt; conference,
+ran my InfoQ, and would absolutely recommend it to anyone interested or working in the software engineering industry,
+that’s proficient with technical language and subjects. Most talks were aimed at a general wider audience, from
+engineers to CTOs, with abstract high-level material, rather than getting too down and dirty with the technicalities of
+specific languages or frameworks.&lt;/p&gt;
+
+&lt;h2 id=&quot;favourite-talks&quot;&gt;Favourite Talks&lt;/h2&gt;
+&lt;h3 id=&quot;mature-microservices-and-how-to-operate-them-financial-times&quot;&gt;&lt;a href=&quot;https://qconlondon.com/london2019/keynote/mature-microservices-and-how-operate-them&quot;&gt;MATURE MICROSERVICES AND HOW TO OPERATE THEM (Financial Times)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The opening keynote for the conference, which covered how the Financial Times were able to shift the organisation
+to deliver changes faster, with less impact (smaller blast radius) by shifting to micro-services, and allowed
+engineering teams to take autonomy of what they built.&lt;/p&gt;
+
+&lt;h3 id=&quot;airbnbs-great-migration-building-services-at-scale&quot;&gt;&lt;a href=&quot;https://qconlondon.com/london2019/presentation/airbnb%E2%80%99s-great-migration-building-services-scale&quot;&gt;Airbnb’s Great Migration: Building Services at Scale&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This went through Airbnb’s migration from their monolith, &lt;em&gt;the monorail&lt;/em&gt;, to micro-services using Kubernetes,. Some
+key points were about the technical approach, from starting at the persistence layer and working their way up to
+presentation. As well as the shift in their organisation structure, and how it enabled them to go from releasing
+every few weeks to thousands per a year, and how it enabled them to scale work for a huge growth in engineering teams.&lt;/p&gt;
+
+&lt;p&gt;An interesting approach I had not seen before was the use of a &lt;a href=&quot;https://github.com/twitter/diffy&quot;&gt;diffy&lt;/a&gt; environment,
+where requests were put through both an old and new version of a service, and the output compared to spot
+regressed behaviour.&lt;/p&gt;
+
+&lt;h3 id=&quot;real-world-examples-of-faas-cloudflare&quot;&gt;&lt;a href=&quot;https://qconlondon.com/london2019/presentation/real-world-examples-faas&quot;&gt;Real World Examples of FaaS (CloudFlare)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A look into how people are using CloudFlare Workers, which allows functions as a service (FaaS), where you can
+upload simple JavaScript to perform request-response operations. This has already existed for years with products
+such as Amazon Lambda, but it was interesting to see CloudFlare customers using this slightly different implementation
+for building sites, or as a proxy for JWT authentication.&lt;/p&gt;
+
+&lt;h3 id=&quot;progressive-delivery&quot;&gt;&lt;a href=&quot;https://qconlondon.com/london2019/presentation/progressive-delivery&quot;&gt;Progressive Delivery&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The new buzzword on the block, as the next frontier after continuous delivery to smoothly roll-out changes in
+a high-cadence environment. Covering canary releases, A/B testing and feature toggling. Even though I’ve already
+used those techniques in real production environments at large, my main take-away was at how we as engineers can sell them
+to the business, so they gain confidence in shifting a cultural change towards faster releases. A key point was how
+a traditional &lt;a href=&quot;https://en.wikipedia.org/wiki/ITIL&quot;&gt;ITL&lt;/a&gt; process has a lack of empathy for both teams, and more
+importantly, our customers.&lt;/p&gt;
+
+&lt;h3 id=&quot;webassembly-and-the-future-of-the-web-platform&quot;&gt;&lt;a href=&quot;https://qconlondon.com/london2019/presentation/webassembly-and-future-web-platform&quot;&gt;WebAssembly and the Future of the Web Platform&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;An exciting look into how WebAssembly is going to change the internet.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-lies-between-the-challenge-of-operationalising-microservices-tesla&quot;&gt;&lt;a href=&quot;https://qconlondon.com/london2019/presentation/what-lies-between-challenge-operationalising-microservices&quot;&gt;What Lies Between: The Challenge of Operationalising Microservices (Tesla)&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Colin gave a good insight into how Tesla is successfully using Kubernetes in a mechanical environment, for energy, at
+scale, and some of the important lessons learned. These include storing KPIs/metrics of services into a time-series
+database for observability, handling failure in business logic and use exponential backoff for erroneous requests to
+prevent a cascading failure (due to overloading an unhealthy service with too many requests). An important point
+was made about how observability, as a term, is being abused in the micro-service world, and how it can be used
+in its original definition from control theory.&lt;/p&gt;
+
+&lt;h3 id=&quot;develop-hundreds-of-kubernetes-services-at-scale-with-airbnb&quot;&gt;&lt;a href=&quot;https://qconlondon.com/london2019/presentation/develop-hundreds-kubernetes-services-scale-airbnb&quot;&gt;Develop Hundreds of Kubernetes Services at Scale With Airbnb&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A fantastic extension to the first talk by Airbnb, that went into much more technical detail about how they’ve actually
+implemented Kubernetes. They’ve got hundreds of services, with deployment configuration living with the code. However
+they’re using Python scripts to refactor such configuration, at scale, in order to roll out regular security updates.
+Their scripts also create generic templates for new services. And such scripts have automated integration tests, which
+are routinely creating and deploying new projects to ensure they work.&lt;/p&gt;
+
+&lt;h2 id=&quot;raw-notes&quot;&gt;Raw Notes&lt;/h2&gt;
+&lt;p&gt;Not guaranteed to mean much, but can be found &lt;a href=&quot;https://github.com/marcuscraske/files-marcuscraske-dot-com/blob/main/conference-notes/qcon-london-2019.txt&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">I got the opportunity this year to attend the QCON London conference, ran my InfoQ, and would absolutely recommend it to anyone interested or working in the software engineering industry, that’s proficient with technical language and subjects. Most talks were aimed at a general wider audience, from engineers to CTOs, with abstract high-level material, rather than getting too down and dirty with the technicalities of specific languages or frameworks.</summary></entry><entry><title type="html">Splunk Alerts on Slack</title><link href="https://marcuscraske.com/2017/11/06/splunk-alerts-on-slack/" rel="alternate" type="text/html" title="Splunk Alerts on Slack" /><published>2017-11-06T00:00:00+00:00</published><updated>2017-11-06T00:00:00+00:00</updated><id>https://marcuscraske.com/2017/11/06/splunk-alerts-on-slack</id><content type="html" xml:base="https://marcuscraske.com/2017/11/06/splunk-alerts-on-slack/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2017-11-06-splunk-alerts-on-slack/aws-splunk-slack.png&quot; alt=&quot;Splunk, AWS and Slack&quot; class=&quot;post-thumb&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For those using log tools such as &lt;a href=&quot;https://splunk.com&quot;&gt;Splunk&lt;/a&gt;, you can setup alerts. These will run queries every so
+often and trigger actions when conditions are met e.g. count of events surpasses a threshold.&lt;/p&gt;
+
+&lt;p&gt;This post is about pushing those alerts from Splunk to Slack. When an alarm is triggered,
+a JSON request is made by Splunk to a URL you provide. This gives the benefit of your own customisation of
+messages.&lt;/p&gt;
+
+&lt;h2 id=&quot;reasons&quot;&gt;Reasons&lt;/h2&gt;
+&lt;p&gt;You can find applications on the Splunk app store to post alerts to Slack. However you may have issues when running
+such apps on a cluster. Or you may have permission issues in an enterprise environment. In my situation, I ran into both
+problems.&lt;/p&gt;
+
+&lt;h2 id=&quot;flow&quot;&gt;Flow&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;Splunk invokes an AWS API Gateway endpoint.&lt;/li&gt;
+  &lt;li&gt;The AWS API Gateway endpoint invokes an AWS Lambda function.&lt;/li&gt;
+  &lt;li&gt;The AWS Lambda function sends a message to a Slack inbound web hook (and delivers the message your own desired Slack channel).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;step-1---create-slack-inbound-webhook&quot;&gt;Step 1 - Create Slack Inbound Webhook&lt;/h2&gt;
+&lt;p&gt;Go to the following page, whilst logged-in to your Slack workspace:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://slack.com/apps/A0F7XDUAZ-incoming-webhooks?page=1&quot;&gt;https://slack.com/apps/A0F7XDUAZ-incoming-webhooks?page=1&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Or alternatively, from Slack’s website:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Configure apps&lt;/li&gt;
+  &lt;li&gt;Custom integrations (sidebar)&lt;/li&gt;
+  &lt;li&gt;Incoming WebHooks&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;More information about inbound web hooks can be found here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://api.slack.com/incoming-webhooks&quot;&gt;https://api.slack.com/incoming-webhooks&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you’ve setup an inbound webhook, copy the &lt;i&gt;Webhook URL&lt;/i&gt; for the next step. Let’s pretend it’s:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://hooks.slack.com/services/XXXXX/YYYY/ZZZZZZZZZZZZZZ&quot;&gt;https://hooks.slack.com/services/XXXXX/YYYY/ZZZZZZZZZZZZZZ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;step-2---setup-aws-lambda-function&quot;&gt;Step 2 - Setup AWS Lambda Function&lt;/h2&gt;
+&lt;p&gt;Create a new Lambda function from scratch:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://console.aws.amazon.com/lambda/home?region=us-east-1#/create/new&quot;&gt;https://console.aws.amazon.com/lambda/home?region=us-east-1#/create/new&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For this example, we’ll call it &lt;i&gt;splunk alert&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then paste in the following, but edit the request options with parts of the &lt;i&gt;Webhook URL&lt;/i&gt; from the
+previous step:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: javascript&quot;&gt;
+var util = require(&quot;util&quot;);
+var https = require(&quot;https&quot;);
+
+exports.handler = (event, context, callback) =&amp;gt; {
+    console.log('Received event:', JSON.stringify(event, null, 2));
+
+    // request headers - needs to be configured with Slack inbound hook
+    var request_options = {
+      hostname: 'hooks.slack.com',
+      path: '/services/XXXXX/YYYY/ZZZZZZZZZZZZZZ',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    };
+
+    // open up the connection
+    var req = https.request(request_options, function(result) {
+        callback(null, 'Success');
+    });
+
+    req.on('error', function(err) {
+        console.log('Error, with: ' + err.message);
+        callback('Error, with: ' + err.message);
+    });
+
+    // parse json from request to this lambda
+    var json = JSON.parse(event.body);
+
+    // read data from splunk
+    var result = json[&quot;result&quot;];
+    var searchLink = json[&quot;results_link&quot;];
+    var searchName = json[&quot;search_name&quot;];
+
+    // convert splunk result fields into fields for slack message
+    var fields = [];
+    for (var key in result)
+    {
+        var item = {
+            &quot;title&quot; : key,
+            &quot;value&quot; : result[key],
+            &quot;short&quot; : true
+        };
+        fields.push(item);
+    }
+
+    // build message
+    var message = {
+    	&quot;channel&quot;: &quot;#slack-channel&quot;,
+    	&quot;username&quot;: &quot;monkeyboy&quot;,
+    	&quot;icon_emoji&quot;: &quot;:monkey:&quot;,
+        &quot;attachments&quot;:[
+            {
+                &quot;pretext&quot; : &quot;:banana: *&quot; + searchName + &quot;* :banana:&quot;,
+                &quot;title&quot; : &quot;Click to view search results&quot;,
+                &quot;title_link&quot; : searchLink,
+                &quot;fields&quot; : fields,
+                &quot;color&quot; : &quot;danger&quot;,
+                &quot;mrkdwn_in&quot; : [&quot;pretext&quot;]
+            }
+        ]
+    };
+
+    // write message data
+    req.write(JSON.stringify(message));
+
+    // close connection
+    req.end();
+
+};
+&lt;/pre&gt;
+
+&lt;p&gt;Towards the end is the JSON object &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;message&lt;/code&gt;, which is the Slack message written to the Slack inbound webhook. This can
+be heavily customised.&lt;/p&gt;
+
+&lt;p&gt;Docs on Slack message format:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://api.slack.com/docs/message-formatting&quot;&gt;https://api.slack.com/docs/message-formatting&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://api.slack.com/docs/message-attachments&quot;&gt;https://api.slack.com/docs/message-attachments&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://api.slack.com/docs/messages/builder&quot;&gt;https://api.slack.com/docs/messages/builder&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Once you’re happy with your Lambda, publish it. At the top, go to &lt;i&gt;Actions&lt;/i&gt; and select &lt;i&gt;Publish new version&lt;/i&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-3---create-aws-api-gateway-trigger&quot;&gt;Step 3 - Create AWS API Gateway Trigger&lt;/h2&gt;
+&lt;p&gt;On your AWS Lambda function page, go to the &lt;i&gt;Triggers&lt;/i&gt; tab and add a trigger.&lt;/p&gt;
+
+&lt;p&gt;You will then see a dotted box, click it and select &lt;i&gt;API Gateway&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then will in the form with an &lt;i&gt;API name&lt;/i&gt; (such as &lt;i&gt;splunk-alerts&lt;/i&gt;) and set the &lt;i&gt;Security&lt;/i&gt; to
+&lt;i&gt;Open&lt;/i&gt; (although you may want to change this later):&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/posts/2017-11-06-splunk-alerts-on-slack/add-trigger-aws.png&quot;&gt;
+    &lt;img src=&quot;/assets/posts/2017-11-06-splunk-alerts-on-slack/add-trigger-aws.png&quot; alt=&quot;Add trigger dialogue on AWS&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You should now have API Gateway available as a trigger. Click the arrow icon to show the endpoint’s URL.&lt;/p&gt;
+
+&lt;h2 id=&quot;step-4---test-trigger&quot;&gt;Step 4 - Test Trigger&lt;/h2&gt;
+&lt;p&gt;Let’s say the trigger URL is:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://xyz.execute-api.us-east-1.amazonaws.com/prod/splunk-alerts&quot;&gt;https://xyz.execute-api.us-east-1.amazonaws.com/prod/splunk-alerts&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Just make a POST request with the following test payload:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: javascript&quot;&gt;
+{
+  &quot;result&quot;: {
+    &quot;test&quot; : &quot;value&quot;
+    &quot;count&quot; : &quot;8&quot;,
+    &quot;host&quot;: &quot;xyz&quot;
+  },
+  &quot;sid&quot;: &quot;test_search_id&quot;,
+  &quot;results_link&quot;: &quot;https://google.com&quot;,
+  &quot;search_name&quot;: &quot;example alert name&quot;,
+  &quot;owner&quot;: &quot;foobar&quot;,
+  &quot;app&quot;: &quot;search&quot;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;In Chrome I use the &lt;i&gt;Postman&lt;/i&gt; app, but this is simple enough to achieve with cURL as well:&lt;/p&gt;
+
+&lt;pre class=&quot;brush: bash&quot;&gt;
+echo &quot;{  \&quot;result\&quot;: {\&quot;test\&quot; : \&quot;value\&quot;\&quot;count\&quot; : \&quot;8\&quot;,\&quot;host\&quot;: \&quot;xyz\&quot;  },  \&quot;sid\&quot;: \&quot;test_search_id\&quot;,  \&quot;results_link\&quot;: \&quot;https://google.com\&quot;,  \&quot;search_name\&quot;: \&quot;example alert name\&quot;,  \&quot;owner\&quot;: \&quot;foobar\&quot;,  \&quot;app\&quot;: \&quot;search\&quot;}&quot;
+| curl -d @- &quot;https://xyz.execute-api.us-east-1.amazonaws.com/prod/splunk-alerts&quot;
+&lt;/pre&gt;
+
+&lt;h2 id=&quot;step-5---splunk-alert&quot;&gt;Step 5 - Splunk Alert&lt;/h2&gt;
+&lt;p&gt;Run a query on the Splunk search application. Once it has finished loading, select &lt;i&gt;Save As&lt;/i&gt; and then &lt;i&gt;Alert&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;Configure the alert as needed; useful docs:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.splunk.com/Documentation/SplunkCloud/6.6.3/Alert/Alertexamples&quot;&gt;https://docs.splunk.com/Documentation/SplunkCloud/6.6.3/Alert/Alertexamples&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;After the alert is setup, add a &lt;i&gt;Webhook&lt;/i&gt; action and set the URL to the endpoint created earlier.&lt;/p&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;You should now have &lt;i&gt;monkeyboy&lt;/i&gt; to save the day:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/posts/2017-11-06-splunk-alerts-on-slack2.png&quot;&gt;
+    &lt;img src=&quot;/assets/posts/2017-11-06-splunk-alerts-on-slack/monkey-boy.png&quot; alt=&quot;monkeyboy on Slack&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">For those using log tools such as Splunk, you can setup alerts. These will run queries every so often and trigger actions when conditions are met e.g. count of events surpasses a threshold. This post is about pushing those alerts from Splunk to Slack. When an alarm is triggered, a JSON request is made by Splunk to a URL you provide. This gives the benefit of your own customisation of messages.</summary></entry><entry><title type="html">Defcon 25</title><link href="https://marcuscraske.com/2017/08/25/defcon-25/" rel="alternate" type="text/html" title="Defcon 25" /><published>2017-08-25T00:00:00+01:00</published><updated>2017-08-25T00:00:00+01:00</updated><id>https://marcuscraske.com/2017/08/25/defcon-25</id><content type="html" xml:base="https://marcuscraske.com/2017/08/25/defcon-25/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2017-08-25-defcon-25/me.jpg&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2017-08-25-defcon-25/me.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2017-08-25-defcon-25/me.jpg&quot; alt=&quot;Me at Defcon&quot; class=&quot;post-thumb&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Burner phone? &lt;em&gt;Check.&lt;/em&gt; Laptop wiped? &lt;em&gt;Check.&lt;/em&gt; Few WN722N adapters? &lt;em&gt;Check.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;It was that time of year again, where the InfoSec community got together in Las Vegas for the world’s largest hacking
+conference, with an estimated 25,000 people, for three day of: talks, hacking and drinking.&lt;/p&gt;
+
+&lt;h2 id=&quot;talks&quot;&gt;Talks&lt;/h2&gt;
+
+&lt;p&gt;Defcon has been running every year since 1993, back from the days of BBS, usually surrounded by controversy in the news.&lt;/p&gt;
+
+&lt;p&gt;This year was no exception, with the main controversy surrounding (American) voting machines, owned and exploited within
+minutes to hours [1]. A few interesting talks from this year included:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Abusing webhooks for command and control [2] – a demonstration of using web hooks in common continuous integration and
+build management platforms, such as Github Enterprise (used at Worldpay), to create backdoor tunnels to transfer files
+and run commands from within a secure/hostile network. All wrapped up in a simple tool, requiring only a malicious
+branch to be pushed up in any repository, with network activity looking like that of a developer. This just shows the
+importance of protecting our accounts from phishing and socially engineering, as any developer could open the gate to
+our entire infrastructure.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;JSON Attacks! [3] – remember the serialization vulnerabilities from Apache Commons in 2015 [4]? The new word on the
+block is JSON libraries, with almost every popular library vulnerable in some form, except Gson (Java).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Exploiting URL Parser in Trending Programming Languages [5] – probably my favourite talk from this year. Due to
+inconsistencies between URL parsers/validators and requesters, various languages and libraries (Python, .NET, Java,
+etc) can be tricked into retrieving dangerous URLs. An example was demonstrated for Github.com, where the speaker was
+able to chain another exploit for remote code execution, using a malicious webhook URL. Subsequently files could be
+pulled off a server and network belonging to Github.com. This meant Github Enterprise was also vulnerable, as it’s the
+same application.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Application DOS in Microservice Architectures [6] – a talk by security engineers at Netflix, a company well known for
+pushing micro-services in the industry. This talk looks into methods of denial of service, through expensive API
+calls, and ways to mitigate these attacks. The team successfully managed to take down a region of Netflix for 5
+minutes using AWS, and a custom open-sourced tool, costing a massive…$1.71.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Wiping out CSRF [7] – a look at CSRF in 2017, as well as a few prevention techniques in legacy applications through
+JavaScript.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;DOOMed point of sale systems [8] – when a Verifone payment terminal is left with the default password for an admin
+screen, which is more common than you’d think, it took this speaker only a few vulnerabilities to run a classic game
+of DOOM on it.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;images&quot;&gt;Images&lt;/h2&gt;
+&lt;p&gt;Some of my own images, although my burner phone’s camera was a bit rubbish:&lt;/p&gt;
+
+&lt;ul class=&quot;gallery larger&quot;&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2017-08-25-defcon-25/packet-hacking-village.jpg&quot;&gt;
+            &lt;img src=&quot;/assets/posts/2017-08-25-defcon-25/packet-hacking-village.jpg&quot; alt=&quot;Defcon 25 Packet Hacking Village&quot; /&gt;
+            Packet Hacking Village
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2017-08-25-defcon-25/esculators-main.jpg&quot;&gt;
+            &lt;img src=&quot;/assets/posts/2017-08-25-defcon-25/esculators-main.jpg&quot; alt=&quot;Defcon 25 main esculators&quot; /&gt;
+            Main Esculators
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2017-08-25-defcon-25/sms-otp.jpg&quot;&gt;
+            &lt;img src=&quot;/assets/posts/2017-08-25-defcon-25/sms-otp.jpg&quot; alt=&quot;Defcon 25 SMS OTP talk&quot; /&gt;
+            Quick snap from a talk on defeating SMS One Time Password (OTP) with brute force
+        &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Few pictures taken from public domain:&lt;/p&gt;
+
+&lt;ul class=&quot;gallery larger&quot;&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2017-08-25-defcon-25/esculators.jpg&quot;&gt;
+            &lt;img src=&quot;/assets/posts/2017-08-25-defcon-25/esculators.jpg&quot; alt=&quot;Defcon 25 esculators&quot; /&gt;
+            The Less Busy Esculators
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2017-08-25-defcon-25/hall.jpg&quot;&gt;
+            &lt;img src=&quot;/assets/posts/2017-08-25-defcon-25/hall.jpg&quot; alt=&quot;Defcon 25 hall&quot; /&gt;
+            Main Conference Hall
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;/assets/posts/2017-08-25-defcon-25/antennas.jpg&quot;&gt;
+            &lt;img src=&quot;/assets/posts/2017-08-25-defcon-25/antennas.jpg&quot; alt=&quot;Defcon 25 antenna man&quot; /&gt;
+            Cool Antenna Hack
+        &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;next-year&quot;&gt;Next Year&lt;/h2&gt;
+
+&lt;p&gt;Defcon is cancelled [9].&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.theregister.co.uk/2017/07/29/us_voting_machines_hacking&quot;&gt;https://www.theregister.co.uk/2017/07/29/us_voting_machines_hacking&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://media.defcon.org/DEF%20CON%2025/DEF%20CON%2025%20presentations/DEFCON-25-Dimitry-Snezhkov-Abusing-Web-Hooks-UPDATED.pdf&quot;&gt;https://media.defcon.org/DEF%20CON%2025/DEF%20CON%2025%20presentations/DEFCON-25-Dimitry-Snezhkov-Abusing-Web-Hooks-UPDATED.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://media.defcon.org/DEF%20CON%2025/DEF%20CON%2025%20presentations/DEFCON-25-Alvaro-Munoz-JSON-attacks.pdf&quot;&gt;https://media.defcon.org/DEF%20CON%2025/DEF%20CON%2025%20presentations/DEFCON-25-Alvaro-Munoz-JSON-attacks.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blogs.apache.org/foundation/entry/apache_commons_statement_to_widespread&quot;&gt;https://blogs.apache.org/foundation/entry/apache_commons_statement_to_widespread&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf&quot;&gt;https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://media.defcon.org/DEF%20CON%2025/DEF%20CON%2025%20presentations/DEFCON-25-Scott-Behrens-and-Jeremy-Heffner-Starting-The-Avalanche-Application-DoS-In-Microservice-Architectures.pdf&quot;&gt;https://media.defcon.org/DEF%20CON%2025/DEF%20CON%2025%20presentations/DEFCON-25-Scott-Behrens-and-Jeremy-Heffner-Starting-The-Avalanche-Application-DoS-In-Microservice-Architectures.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://media.defcon.org/DEF%20CON%2025/DEF%20CON%2025%20presentations/DEFCON-25-Joe-Rozner-Wiping-Out-CSRF.pdf&quot;&gt;https://media.defcon.org/DEF%20CON%2025/DEF%20CON%2025%20presentations/DEFCON-25-Joe-Rozner-Wiping-Out-CSRF.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://media.defcon.org/DEF%20CON%2025/DEF%20CON%2025%20presentations/DEFCON-25-trixr4skids-DOOMed-Point-of-Sale-Systems-UPDATED.pdf&quot;&gt;https://media.defcon.org/DEF%20CON%2025/DEF%20CON%2025%20presentations/DEFCON-25-trixr4skids-DOOMed-Point-of-Sale-Systems-UPDATED.pdf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://motherboard.vice.com/en_us/article/ezvez4/def-con-is-cancelled-again&quot;&gt;https://motherboard.vice.com/en_us/article/ezvez4/def-con-is-cancelled-again&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">Burner phone? Check. Laptop wiped? Check. Few WN722N adapters? Check. It was that time of year again, where the InfoSec community got together in Las Vegas for the world’s largest hacking conference, with an estimated 25,000 people, for three day of: talks, hacking and drinking.</summary></entry><entry><title type="html">Parrot Manager</title><link href="https://marcuscraske.com/2017/04/19/parrot-manager/" rel="alternate" type="text/html" title="Parrot Manager" /><published>2017-04-19T00:00:00+01:00</published><updated>2017-04-19T00:00:00+01:00</updated><id>https://marcuscraske.com/2017/04/19/parrot-manager</id><content type="html" xml:base="https://marcuscraske.com/2017/04/19/parrot-manager/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2017-04-19-parrot-manager/parrot-icon.png&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2017-04-19-parrot-manager/parrot-icon.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2017-04-19-parrot-manager/parrot-icon.png&quot; alt=&quot;Parrot manager logo&quot; class=&quot;post-thumb&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;My side project for the last few months.&lt;/p&gt;
+
+&lt;p&gt;A simple cross-platform modern password manager, with the ability to synchronize a password database over SSH
+and make automatic backups.&lt;/p&gt;
+
+&lt;h2 id=&quot;reasons--purpose&quot;&gt;Reasons &amp;amp; Purpose&lt;/h2&gt;
+&lt;p&gt;Many pre-existing password managers do provide the ability to synchronize over SSH very well, or at all, nor offer a
+modern user interface. There are cloud services, such as &lt;a href=&quot;https://www.lastpass.com/&quot;&gt;LastPass&lt;/a&gt;, but the thought of sticking passwords in a
+large centralized target seems brave.&lt;/p&gt;
+
+&lt;p&gt;Instead I wanted an application which allowed storing my passwords on my own decentralized boxes, and happened to
+want a new project to play with the new Angular.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-it-works&quot;&gt;How It Works&lt;/h2&gt;
+&lt;p&gt;It uses the following stack:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Angular - modular JavaScript single page application for user interface. At the time of starting parrot, Angular
+had just released v2 and were working on v4. This was probably quite risky, given the major changes compared to v1,
+such as a heavily dependency on TypeScript and moving to everything being a component. This initially turned out to be
+a slight learning curve, mainly unlearning the first version of AngularJS, which then turned into the ability to
+quickly build many different screens, with complex behaviour.&lt;/li&gt;
+  &lt;li&gt;Bootstrap - responsive and reusable components.&lt;/li&gt;
+  &lt;li&gt;Java - provides portability and the heavy lifting, using &lt;a href=&quot;https://www.bouncycastle.org/&quot;&gt;Bouncy Castle&lt;/a&gt; for
+cryptography.
+    &lt;ul&gt;
+      &lt;li&gt;JavaFX / Webkit - the AngularJS app is rendered through a webkit control, using the JavaFX framework. This
+communicates with the application through POJOs injected as JavaScript objects at a global scope. These POJOs are
+just services, which are wrapped within Angular services and used within components.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;screenshots-download--contribute&quot;&gt;Screenshots, Download &amp;amp; Contribute&lt;/h2&gt;
+&lt;p&gt;Want to give it a try or contribute?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/limpygnome/parrot-manager&quot;&gt;https://github.com/limpygnome/parrot-manager&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;outcome&quot;&gt;Outcome&lt;/h2&gt;
+&lt;p&gt;Small and fun project, learned a lot about creating a hybrid desktop application. And reaping the benefits of a
+new password manager.&lt;/p&gt;</content><author><name></name></author><summary type="html">My side project for the last few months. A simple cross-platform modern password manager, with the ability to synchronize a password database over SSH and make automatic backups.</summary></entry><entry><title type="html">Moving to Jekyll and AWS</title><link href="https://marcuscraske.com/2016/11/02/moving-to-jekyll-and-aws/" rel="alternate" type="text/html" title="Moving to Jekyll and AWS" /><published>2016-11-02T00:00:00+00:00</published><updated>2016-11-02T00:00:00+00:00</updated><id>https://marcuscraske.com/2016/11/02/moving-to-jekyll-and-aws</id><content type="html" xml:base="https://marcuscraske.com/2016/11/02/moving-to-jekyll-and-aws/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2016-11-02-moving-to-jekyll-and-aws/thumb.png&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2016-11-02-moving-to-jekyll-and-aws/thumb.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2016-11-02-moving-to-jekyll-and-aws/thumb.png&quot; alt=&quot;Jekyll logo&quot; class=&quot;post-thumb&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Recently I have transitioned my website to be statically generated, using Jekyll, and moved hosting to Amazon Web
+Services (AWS). Not only does it load faster, due to being distributed around the world using AWS CloudFront, but it
+but it’s easier to maintain and reduces the potential to be attacked. And costs less!&lt;/p&gt;
+
+&lt;h2 id=&quot;jekyll&quot;&gt;Jekyll&lt;/h2&gt;
+&lt;p&gt;The pages of this site are now either written in HTML, Markdown files or a combination of both. Previously I had used
+FreeMarker, a Java templating engine to replace JSPs, which is slightly more powerful than what’s used now. But this
+power is not needed, since this site is just a collection of mainly static articles.&lt;/p&gt;
+
+&lt;p&gt;Since Java is no longer being used, there’s no need to regularly update and maintain various dependencies, for bugs
+and security. And since the site is statically generated, no real processing is occurring when viewing this site,
+meaning content can be sent to the end-user a lot faster. And from a technical perspective, it’s far less to maintain,
+if anything at all, due to using far more agnostic and standardised markup languages.&lt;/p&gt;
+
+&lt;h2 id=&quot;amazon-web-services&quot;&gt;Amazon Web Services&lt;/h2&gt;
+&lt;p&gt;One pain with my previous VPS was having to maintain Apache Tomcat, fronted by Apache HTTPD. Again, these had to be
+regularly maintained for bugs and security, as well as: the operating system, system dependencies and bind (for DNS).
+Not to mention the configuration for Apache heavily changing between some versions and requiring a re-write. And then
+the version often differing between different distributions.&lt;/p&gt;
+
+&lt;p&gt;Some of the major advantages to using AWS:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;No longer need to maintain the underlying infrastructure or an application container.&lt;/li&gt;
+  &lt;li&gt;Content is distributed around the world using CloudFront as a &lt;em&gt;content distribution network&lt;/em&gt; (CDN). Time taken to
+load site has drastically decreased when comparing old and new site using &lt;em&gt;around the world&lt;/em&gt; testing tools.&lt;/li&gt;
+  &lt;li&gt;Auto-renewing SSL certificates, signed and provided by Amazon for &lt;strong&gt;free&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Easily added automated monitoring of infrastructure through CloudWatch - alarms for cost, sudden spikes in traffic.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;ansible&quot;&gt;Ansible&lt;/h2&gt;
+&lt;p&gt;Even though my last site was automated through Ansible, far less has to be done now. Since Ansible its self
+supports CloudFormation out of the box, I can just give it a json file and it’ll create or update my infrastructure.&lt;/p&gt;
+
+&lt;p&gt;For uploading the site as static resources, to an S3 bucket, I use &lt;a href=&quot;https://s3tools.org&quot;&gt;s3cmd&lt;/a&gt;. This is capable of
+recursively checking for file changes, almost like rsync, and invalidating CloudFront for changed resources.&lt;/p&gt;
+
+&lt;h2 id=&quot;other-things&quot;&gt;Other Things&lt;/h2&gt;
+&lt;p&gt;The site has been generally improved, as apart of this migration process:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Resources are minified into a single file for each CSS and JavaScript.&lt;/li&gt;
+  &lt;li&gt;General resources such as fonts and images optimised. Just loading the home-page is equal to the same size of
+a single image on other sites. Since costs are utility based, it makes sense to cut-down on bandwidth.&lt;/li&gt;
+  &lt;li&gt;Use of font icons to support higher resolutions (vector-based / lossless).&lt;/li&gt;
+  &lt;li&gt;Site is accessibility friendly, following WCAG 2.0 AA friendly guidelines. It’s important for everyone to be able to
+use the internet. And with HTML5 tags almost eliminating the need for any ARIA attributes, this does not require too
+much effort. The only real slight change was compromising on colours to have greater contrast and improving
+page structure. If you also happen to press tab when first loading the page, you’ll also notice a red box. But the
+majority of non-accessibility users would never see this.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Website is cheaper, less infrastructure maintenance, reduced complexity and attack vectors, site is easier to maintain
+and extend. And got to do a few improvements.&lt;/p&gt;</content><author><name></name></author><summary type="html">Recently I have transitioned my website to be statically generated, using Jekyll, and moved hosting to Amazon Web Services (AWS). Not only does it load faster, due to being distributed around the world using AWS CloudFront, but it but it’s easier to maintain and reduces the potential to be attacked. And costs less!</summary></entry><entry><title type="html">The Importance of Captcha &amp;amp; Free Pizza!</title><link href="https://marcuscraske.com/2016/10/16/the-importance-of-captcha-and-free-pizza/" rel="alternate" type="text/html" title="The Importance of Captcha &amp;amp; Free Pizza!" /><published>2016-10-16T00:00:00+01:00</published><updated>2016-10-16T00:00:00+01:00</updated><id>https://marcuscraske.com/2016/10/16/the-importance-of-captcha-and-free-pizza</id><content type="html" xml:base="https://marcuscraske.com/2016/10/16/the-importance-of-captcha-and-free-pizza/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2016-10-16-importance-of-captcha/thumb.png&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2016-10-16-importance-of-captcha/thumb.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2016-10-16-importance-of-captcha/thumb.png&quot; alt=&quot;The Importance of Captcha &amp;amp; Free Pizza!&quot; class=&quot;post-thumb&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;During October 2016, Papa Johns held a competition to promote their Papa Rewards system, whereby users could
+enter an e-mail and potentially win Papa Reward points, or receive a £10 discount.&lt;/p&gt;
+
+&lt;h2 id=&quot;rewards&quot;&gt;Rewards&lt;/h2&gt;
+&lt;p&gt;Besides the £10 discount, the actual rewards were:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;8 points for a free small side&lt;/li&gt;
+  &lt;li&gt;12 points for a free large side&lt;/li&gt;
+  &lt;li&gt;25 points for a free large pizza&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;…with no prior orders on an account needed, no need for other items on your order and free delivery. Rewarded
+at…&lt;i&gt;random?&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sounds like free dinner for a month! :)&lt;/p&gt;
+
+&lt;h2 id=&quot;free-dinner&quot;&gt;Free Dinner&lt;/h2&gt;
+&lt;p&gt;At first, you could enter a random e-mail without any sort of confirmation and eventually players would win the main
+prize (a large pizza).&lt;/p&gt;
+
+&lt;p&gt;After only a week, this was changed, requiring users to confirm their e-mail when entering excessive entries from
+a single IP address. And using the same Gmail e-mail with a filter added, by appending a suffix to the username e.g.
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;john@gmail.com&lt;/code&gt; turned into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;john+whatever@gmail.com&lt;/code&gt;, was also banned, along with many temporary e-mail
+providers.&lt;/p&gt;
+
+&lt;p&gt;But not all temporary e-mail providers. And the process, including the e-mail confirmation page, did not present
+any form of human verification, such as a captcha, or limit the volume of requests/entries.&lt;/p&gt;
+
+&lt;p&gt;And as a result, a simple bot, using &lt;a href=&quot;https://www.selenium.dev/documentation/&quot;&gt;Selenium&lt;/a&gt;, could &lt;em&gt;mine&lt;/em&gt; for a
+specific number of large pizzas instead:&lt;/p&gt;
+
+&lt;p class=&quot;center&quot;&gt;
+    &lt;a href=&quot;/assets/posts/2016-10-16-importance-of-captcha/workers.png&quot;&gt;
+    &lt;picture&gt;
+        &lt;source srcset=&quot;/assets/posts/2016-10-16-importance-of-captcha/workers.webp&quot; type=&quot;image/webp&quot; /&gt;
+        &lt;img src=&quot;/assets/posts/2016-10-16-importance-of-captcha/workers.png&quot; alt=&quot;Automated bots&quot; class=&quot;post-thumb&quot; /&gt;
+    &lt;/picture&gt;
+&lt;/a&gt;
+
+&lt;/p&gt;
+
+&lt;p&gt;…theoretically :D.&lt;/p&gt;
+
+&lt;p&gt;Source code:
+&lt;a href=&quot;https://github.com/limpygnome/papa-rewards-bot&quot;&gt;https://github.com/limpygnome/papa-rewards-bot&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Nom nom nom…&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Legal disclaimer: this post only presents what could be possible, and is not an admission of guilt, or/and actions,
+nor does it condone such behaviour. And any photos are artistic in nature, and this article was written and exists
+only for the purposes of entertainment and education.&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">During October 2016, Papa Johns held a competition to promote their Papa Rewards system, whereby users could enter an e-mail and potentially win Papa Reward points, or receive a £10 discount.</summary></entry></feed>

@@ -1,0 +1,212 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="utf-8"> <title> Raspberry Pi Kubernetes Cluster - Marcus Craske </title> <meta name="description" content="Personal blog, projects and things of Marcus Craske. Software engineer. Hack the planet!"> <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, minimum-scale=1"> <meta name="HandheldFriendly" content="True" /> <meta property="og:site_name" content="Marcus Craske"> <meta property="og:type" content="website"> <meta property="og:title" content="Marcus Craske"> <meta property="og:description" content="Personal blog, projects and things of Marcus Craske. Software engineer. Hack the planet!"> <link rel="shortcut icon" href="/favicon.ico"> <link href='/assets/bundle-195f83f01886fcb0f5f7529033791e2c.css' rel='stylesheet' type='text/css' /> <script src='/assets/bundle-d326fb47b9e7e5d81c260da8de38d879.js' type='text/javascript'></script> <script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-86993638-1', 'auto'); ga('send', 'pageview'); </script> </head> <body> <a id="skip-to-content" href="#main"> Skip to main content </a> <div class="wrapper-header"> <header> <h1> <a href="/"> Marcus Craske </a> </h1> <p> <a href="https://www.youtube.com/watch?v=Cipc8EowshY"> hack the planet<span class="terminal">|</span> </a> </p> </header> <nav> <ul> <li> <a href="/" class="selected" > <span class="icon-home"></span> Home </a> </li> <li> <a href="/cv"> <span class="icon-file-text2"></span> Résumé / CV </a> </li> <li> <a href="/projects" > <span class="icon-lab"></span> Projects </a> </li> <li> <a href="/links" > <span class="icon-books"></span> Links </a> </li> </ul> </nav> </div> <div class="wrapper"> <main id="main"> <article> <header> <time datetime="2019-09-21"> Sep 21, 2019 </time> <h1> <span class="icon icon-arrow"></span> Raspberry Pi Kubernetes Cluster </h1> </header> <p><a href="/assets/posts/2019-09-21-raspberry-pi-kubernetes-cluster/thumb.png"> <picture> <source srcset="/assets/posts/2019-09-21-raspberry-pi-kubernetes-cluster/thumb.webp" type="image/webp" /> <img src="/assets/posts/2019-09-21-raspberry-pi-kubernetes-cluster/thumb.png" alt="K8 and Pi logo" class="post-thumb" /> </picture> </a></p> <p>In this article, I setup:</p> <ul> <li>A Kubernetes cluster using the new Raspberry Pi 4.</li> <li>Kubernetes Dashboard.</li> <li>Ingress using NGINX.</li> </ul> <p>Many articles already exist for older Debian distributions and Raspberry Pis, so hopefully this updated set of steps helps others save time.</p> <h2 id="kubernetes-cluster-setup">Kubernetes Cluster Setup</h2> <p>In this section is the setup of a basic cluster, which consists of the following:</p> <ul> <li>A single control plane node, used to manage the cluster.</li> <li>One or more nodes, used to later run our application deployments (pods, containers, etc).</li> </ul> <p>A node is just a traditional bare-metal or virtual host, such as a Raspberry Pi.</p> <p>Relevant official docs:</p> <ul> <li><a href="https://kubernetes.io/docs/concepts/#kubernetes-control-plane">Concepts</a>.</li> <li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/">Single control-plane cluster with kubeadm</a></li> </ul> <h3 id="generic-raspberry-pi-setup">Generic Raspberry Pi Setup</h3> <p>Run these steps for both your single control plane node, and node(s):</p> <ul> <li> <p><a href="https://www.raspberrypi.org/downloads/raspbian">Download the latest 64-bit Raspbian image</a> and install it onto the micro SD card.</p> <p>At the time of this article, the latest Raspbian Buster. I’ve chosen the lite image, as everything will be remotely and no desktop is required.</p> </li> <li> <p>Create <code class="language-plaintext highlighter-rouge">ssh.txt</code> in <code class="language-plaintext highlighter-rouge">/boot</code> partition of micro SD card, to enable SSH daemon when started for first time. This is to avoid using an actual physical keyboard, mouse and screen.</p> </li> <li> <p>Plug-in the Raspberry Pi to your network and power it up. Use your router to find the dynamically allocated IP address (assuming your network has DHCP).</p> </li> <li> <p>SSH to the Raspberry Pi using the default credentials. The default user is <em>pi</em> the password is <em>raspberry</em>. E.g. <code class="language-plaintext highlighter-rouge">ssh pi@192.168.1.45</code> and enter <code class="language-plaintext highlighter-rouge">raspberry</code>.</p> </li> <li>Run <code class="language-plaintext highlighter-rouge">sudo raspi-config</code> and: <ul> <li>Configure hostname (under <em>Network Options</em>). <ul> <li>I’ve used the naming convention <code class="language-plaintext highlighter-rouge">k8-master1</code> for the control plane node and <code class="language-plaintext highlighter-rouge">k8-slave1</code> to n for the nodes.</li> </ul> </li> <li>Enable SSH daemon (under <em>Interfacing Options</em>).</li> <li>Update to latest version.</li> </ul> </li> <li>Run <code class="language-plaintext highlighter-rouge">sudo nano /etc/dhcpcd.conf</code> and configure a static IP address (change <code class="language-plaintext highlighter-rouge">static ip_address</code> line for each node). <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  interface eth0
+  static ip_address=192.168.1.100/24
+  static routers=192.168.1.1
+  static domain_name_servers=192.168.1.1
+</code></pre></div> </div> </li> <li>Disable swap: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sudo dphys-swapfile swapoff
+  sudo dphys-swapfile uninstall
+  sudo update-rc.d dphys-swapfile remove
+  sudo apt purge dphys-swapfile
+</code></pre></div> </div> </li> <li>Enable memory cgroups, run <code class="language-plaintext highlighter-rouge">sudo nano /boot/cmdline.txt</code> and append the following to the end of the line: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1
+</code></pre></div> </div> </li> <li> <p>Reboot, connect using the new IP address.</p> </li> <li>Add Kubernetes repository to package sources: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+</code></pre></div> </div> </li> <li>Update available packages: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sudo apt update
+</code></pre></div> </div> </li> <li>Install useful network tools and Kubernetes ADM client: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sudo apt install dnsutils kubelet kubeadm kubelet
+  sudo apt-mark hold kubelet kubeadm kubectl
+</code></pre></div> </div> </li> <li>Install latest Docker: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  curl -sSL get.docker.com | sh &amp;&amp; \
+  sudo usermod pi -aG docker &amp;&amp; \
+  newgrp docker
+</code></pre></div> </div> </li> <li>Configure ip tables to open all ports, currently required for <a href="https://github.com/kubernetes-sigs/kubespray/issues/4674">pod DNS to work</a>. Start by editing: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sudo nano /etc/rc.local
+</code></pre></div> </div> <p>And add (before any lines with <em>exit</em>):</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /sbin/iptables -P FORWARD ACCEPT
+</code></pre></div> </div> <p>Without this step, you may find <code class="language-plaintext highlighter-rouge">coredns</code> pods fail to start on app nodes and/or DNS does not work.</p> </li> <li>Configure <em>iptables</em> to run in legacy, since <em>kube-proxy</em> has <a href="update-alternatives --set iptables /usr/sbin/iptables-legacy">issues with iptables version 1.8</a>: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+</code></pre></div> </div> </li> <li>Reboot <code class="language-plaintext highlighter-rouge">sudo reboot</code>.</li> </ul> <h3 id="control-plane-setup">Control Plane Setup</h3> <p>The master node, responsible for controlling the cluster.</p> <p>Based on steps from <a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/">official guide</a>.</p> <p>I’ve named my control plane node <em>k8-master1</em>.</p> <ul> <li> <p>SSH onto the Pi you want to be the master e.g. <code class="language-plaintext highlighter-rouge">ssh pi@k8-master</code>.</p> </li> <li>Init cluster, with defined CIDR / network range for pods and a non-expiring token for slaves to join the cluster later: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --service-cidr=10.244.240.0/20 --token-ttl=0
+</code></pre></div> </div> <p>If this command fails due to container runtime not running, run the following commands:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -i
+rm /etc/containerd/config.toml
+containerd config default &gt; /etc/containerd/config.toml
+</code></pre></div> </div> <p>And search for <code class="language-plaintext highlighter-rouge">SystemdCgroup</code> param and set it to true:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/containerd/config.toml
+</code></pre></div> </div> <p>And restart containerd:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart containerd
+</code></pre></div> </div> <p>And run the previous <code class="language-plaintext highlighter-rouge">kubeadm</code> command again.</p> <p>This seems to be an issue with containerd not using cgroup, see <a href="https://github.com/kubernetes/kubernetes/issues/110177">GitHub issue</a> for details.</p> </li> <li>At the end of the previous step, copy the provided command for app nodes / slave to join the cluster. We’ll run this later, it’ll look something like: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  kubeadm join 192.168.1.100:6443 --token xxxxxx.xxxxxxxxxxxxxxxxx \
+    --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+</code></pre></div> </div> </li> <li>Enable your user to use <code class="language-plaintext highlighter-rouge">kubectl</code>: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+</code></pre></div> </div> </li> <li>Install pod networking (CNI); in this case, we’ll install Flannel on the master and each slave: <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+</code></pre></div> </div> </li> </ul> <h3 id="node-setup">Node Setup</h3> <p>The node(s), responsible for later running our application deployments.</p> <p>Run the command from earlier to join the node to the cluster, either as root or prefix the command with <code class="language-plaintext highlighter-rouge">sudo</code>, for example:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo kubeadm join 192.168.1.100:6443 --token xxxxxx.xxxxxxxxxxxxxxxxx \
+    --discovery-token-ca-cert-hash sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+</code></pre></div></div> <p>This may take a few minutes.</p> <p>Done.</p> <h2 id="kubernetes-dashbaord">Kubernetes Dashbaord</h2> <p>Let’s install a dashboard to easily manage our cluster.</p> <p>Based on the <a href="https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard">official guide</a>.</p> <h3 id="setup">Setup</h3> <ul> <li> <p>SSH to the master node e.g. <code class="language-plaintext highlighter-rouge">ssh pi@k8-master1</code>.</p> </li> <li> <p>Install the dashboard:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta4/aio/deploy/recommended.yaml
+</code></pre></div> </div> </li> <li> <p>Paste the following in the file <code class="language-plaintext highlighter-rouge">user.yaml</code>:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    name: admin-user
+    namespace: kube-system
+  ---
+  apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    name: admin-user
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: admin-user
+    namespace: kube-system
+  ---
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: secret-admin-user
+    namespace: kube-system
+    annotations:
+      kubernetes.io/service-account.name: "admin-user"
+  type: kubernetes.io/service-account-token
+</code></pre></div> </div> </li> <li> <p>Apply the file, it will setup a user for the dashboard:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  kubectl apply -f user.yaml
+</code></pre></div> </div> </li> </ul> <h3 id="access">Access</h3> <p>I’ve written a simple script to help automate accessing the dashboard.</p> <p>This will:</p> <ul> <li>Proxy port <em>8080</em> from the cluster to our local machine, in order to access the dashboard on our machine.</li> <li>Print out a token we can use to login to the dashboard.</li> </ul> <p>Save the following script as <code class="language-plaintext highlighter-rouge">dashboard.sh</code>:</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">MASTER</span><span class="o">=</span><span class="s2">"pi@192.168.1.100"</span>
+
+<span class="c"># Print token for login</span>
+<span class="nv">TOKEN_COMMAND</span><span class="o">=</span><span class="s2">"kubectl -n kube-system describe secret/secret-admin-user | grep 'token: ' | awk '{ print </span><span class="se">\$</span><span class="s2">2 }'"</span>
+
+<span class="nb">echo</span> <span class="s2">"Dumping token for dashboard..."</span>
+ssh <span class="k">${</span><span class="nv">MASTER</span><span class="k">}</span> <span class="nt">-C</span> <span class="s2">"</span><span class="k">${</span><span class="nv">TOKEN_COMMAND</span><span class="k">}</span><span class="s2">"</span>
+
+<span class="nb">echo</span> <span class="s2">"Login:"</span>
+<span class="nb">echo</span> <span class="s2">"  http://localhost:8080/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login"</span>
+
+<span class="c"># Create SSH tunnel to k8 master and run proxy</span>
+<span class="nb">echo</span> <span class="s2">"Creating proxy tunnel to this machine from master..."</span>
+ssh <span class="nt">-L</span> 8080:localhost:8080 <span class="k">${</span><span class="nv">MASTER</span><span class="k">}</span> <span class="nt">-C</span> <span class="s2">"kubectl proxy --port=8080 || true"</span>
+
+<span class="nb">echo</span> <span class="s2">"Terminate proxy..."</span>
+ssh <span class="k">${</span><span class="nv">MASTER</span><span class="k">}</span> <span class="nt">-C</span> <span class="s2">"pkill kubectl"</span>
+</code></pre></div></div> <p>Change the <code class="language-plaintext highlighter-rouge">MASTER</code> variable to the IP address or host-name of your control plane node.</p> <p>Run the script:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./dashboard.sh
+</code></pre></div></div> <p>Visit the URL displayed by the script to access the dashboard, and copy the token on the logon screen.</p> <h2 id="installing-helm">Installing Helm</h2> <p>Helm is a package manager for Kubernetes, which we’ll use to setup ingress in the next section.</p> <p>Let’s install the client:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh pi@k8-master1
+wget https://get.helm.sh/helm-v3.9.2-linux-arm64.tar.gz
+tar -zxvf helm-v3.9.2-linux-arm64.tar.gz
+sudo mv linux-arm64/helm /usr/local/bin/helm
+</code></pre></div></div> <h2 id="ingress">Ingress</h2> <p>We’ll setup <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">ingress</a>, so that external traffic can reach our cluster.</p> <p>Our end-goal will be for services to be accessible from the internet.</p> <h3 id="metal-loadbalancer">Metal Loadbalancer</h3> <p>Since we aren’t using a cloud provider, such as AWS, we don’t have a cloud load balancer available.</p> <p>Instead we’ll setup a load-balancer on our cluster, using MetalLB, which runs in a pod and attaches its self onto a physical network IP.</p> <p>You can either attach to an IP using Layer 2 (OSI Data Link layer), whereby only a single node can handle traffic. This presents a resilience risk, but offers the most support, and you’ll definitely be able to access said IP from your machine on the same network. Alternatively your cluster can, providing your router supports it, use <a href="https://en.wikipedia.org/wiki/Border_Gateway_Protocol">BGP</a>, but you’ll most likely not be able to access the cluster locally.</p> <p>Let’s install MetalLB using helm:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl create namespace metallb-system
+helm repo add metallb https://metallb.github.io/metallb
+helm install metallb metallb/metallb --namespace metallb-system
+</code></pre></div></div> <p>Create <code class="language-plaintext highlighter-rouge">metallb-config.yaml</code> to configure load balancer:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: main-pool
+  namespace: metallb-system
+spec:
+  addresses:
+  - 192.168.1.230-192.168.1.250
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: main-pool
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - main-pool
+</code></pre></div></div> <p>For more details on options, as BGP is available instead of Layer 2, refer to the <a href="https://metallb.universe.tf/configuration/">official docs</a>.</p> <p>Once config has been setup, apply it:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply -f metallb-config.yaml
+</code></pre></div></div> <p>Ingress is now setup.</p> <h3 id="nginx">Nginx</h3> <p>This section will setup our <em>ingress controller</em>, using NGINX, responsible for managing anything related to ingress to our services. This was originally used for the project in 2019. But as of 2022, I’ve moved to istio, you can skip ahead to the section called <em>istio</em> below.</p> <p>Install using helm:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh pi@k8-master1
+kubectl create namespace kube-ingress
+helm repo add nginx-stable https://helm.nginx.com/stable
+helm repo update
+helm install nginx-ingress nginx-stable/nginx-ingress --namespace kube-ingress --set controller.service.loadBalancerIP=192.168.1.230
+</code></pre></div></div> <h3 id="ingress-example">Ingress Example</h3> <p>You can now define an ingress to a service.</p> <p>An example which forwards traffic for <em>marcuscraske.com/uptime/**</em> to the service <em>uptime</em>.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  namespace: home-network
+  name: uptime-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: marcuscraske.com
+    http:
+      paths:
+      - path: /uptime
+        backend:
+          serviceName: uptime
+          servicePort: 80
+</code></pre></div></div> <p>Using the Kubernetes dashboard, or <em>kubeadm</em> tool, you can find the local network IP address allocated.</p> <p>Then port forward traffic on your router for the IP address, so that it’s exposed to the internet.</p> <p>If you want multiple ingress points to share the same IP address, you can add config to your services to get a defined IP address allocated.</p> <p>Take note of the annotations section, <code class="language-plaintext highlighter-rouge">type</code> and <code class="language-plaintext highlighter-rouge">loadBalancerIP</code> params in this example:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kind: Service
+apiVersion: v1
+metadata:
+  name: uptime
+  annotations:
+    metallb.universe.tf/address-pool: main-pool
+spec:
+  selector:
+    app: uptime
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  sessionAffinity: None
+  type: LoadBalancer
+</code></pre></div></div> <p>You can then front your router’s WAN / public internet IP address with a CDN such as <a href="https://www.cloudflare.com">CloudFlare</a>, which is free and offers DDOS protection (useful for a home network). This will also provide valid SSL certificates.</p> <h2 id="istio-2022">Istio (2022)</h2> <p>An alternative to nginx, you can use istio with istio gateway.</p> <p>Relevant docs:</p> <ul> <li><a href="https://istio.io/latest/docs/setup/install/helm/">https://istio.io/latest/docs/setup/install/helm/</a></li> <li><a href="https://istio.io/latest/docs/setup/additional-setup/gateway/">https://istio.io/latest/docs/setup/additional-setup/gateway/</a></li> </ul> <p>We’ll start by installing istio:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh pi@k8-master1
+
+helm repo add istio https://istio-release.storage.googleapis.com/charts
+helm repo update
+
+kubectl create namespace istio-system
+helm install istiod istio/istiod -n istio-system --wait
+</code></pre></div></div> <p>You’ll want to wait until all the pods related to istio are running and ready:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pods -A
+</code></pre></div></div> <p>We’ll next install the gateway, change the IP address to the desired IP for exposing services on your local network:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl create namespace istio-ingress
+helm install istio-ingressgateway istio/gateway -n istio-ingress --set service.loadBalancerIP="192.168.2.199"
+</code></pre></div></div> <p>Rather than add an ingress for exposing a service, we’ll first create a namespace and a shared gateway, which will ingress traffic to the domain <code class="language-plaintext highlighter-rouge">smart.home.local</code>:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
+kind: Namespace
+metadata:
+  name: smart-home
+  labels:
+    name: smart-home
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  namespace: smart-home
+  name: smart-home-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "smart.home.local"
+</code></pre></div></div> <p>And then in each service we want to expose, we can add a virtual service to tie it to the gateway, with this example rewriting the request to remove the prefix/path of the route:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  namespace: smart-home
+  name: example
+spec:
+  hosts:
+  - "smart.home.local"
+  gateways:
+  - smart-home-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /api/example
+    rewrite:
+      uri: " "
+    route:
+    - destination:
+        port:
+          number: 80
+        host: example-service
+</code></pre></div></div> <h2 id="check-pods">Check Pods</h2> <p>You can check pods across all namespaces/nodes are running:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh pi@k8-master1
+kubectl get pods --all-namespaces
+</code></pre></div></div> <h2 id="shared-data">Shared Data</h2> <p><em>This section is optional, and was added later in 2022.</em></p> <p>You might want to mount a file share between all the worker nodes, so they can share config. This example uses CIFs/Samba.</p> <p>SSH to the worker:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh pi@k8-slave1
+</code></pre></div></div> <p>Switch to root:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -i
+</code></pre></div></div> <p>Setup the desired location to mount data:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir -p /mnt/k8-data
+chown -R pi:pi /mnt/k8-data/
+</code></pre></div></div> <p>Grab the number from this command e.g. 1000, this will be used later for the <code class="language-plaintext highlighter-rouge">gid</code> and <code class="language-plaintext highlighter-rouge">uid</code>:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>getent group pi
+</code></pre></div></div> <p>Add user to group:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>usermod -a -G k8data pi
+</code></pre></div></div> <p>Test the mount will work, changing the IP of the host with the file share and login user/pass:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount.cifs -v //192.168.1.200/k8-data/k8-slave1 /mnt/k8-data --verbose -o user=kubernetes,pass=xxx,gid=1000,uid=1000
+</code></pre></div></div> <p>Providing the above works, now add a new line to <code class="language-plaintext highlighter-rouge">/etc/fstab</code>, so that it’s automatically mounted on each boot:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//192.168.1.200/k8-data/k8-slave1 /mnt/k8-data cifs username=kubernetes,password=xxx,gid=1000,uid=1000 0 0
+</code></pre></div></div> <h2 id="renewing-kubernetes-certificates">Renewing Kubernetes Certificates</h2> <p>By default, the certificates will expire after a year.</p> <p>To check when the certificates expire:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubeadm certs check-expiration
+</code></pre></div></div> <p>These are automatically renewed during a control plane upgrade.</p> <p>Otherwise, it can be done manually:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubeadm certs renew all
+kubectl -n kube-system delete pod -l 'component=kube-apiserver'
+kubectl -n kube-system delete pod -l 'component=kube-controller-manager'
+kubectl -n kube-system delete pod -l 'component=kube-scheduler'
+kubectl -n kube-system delete pod -l 'component=etcd'
+</code></pre></div></div> <h2 id="summary">Summary</h2> <p>In this article we setup a simple cluster capable of deployments and taking external traffic.</p> <section id="comments"> <h2> Comments </h2> <script id="dsq-count-scr" src="//limpygnome-com.disqus.com/count.js" async></script> <div id="disqus_thread"></div> <script> var disqus_config = function () { this.page.url = PAGE_URL; this.page.identifier = PAGE_IDENTIFIER; }; (function() { var d = document, s = d.createElement('script'); s.src = '//limpygnome-com.disqus.com/embed.js'; s.setAttribute('data-timestamp', +new Date()); (d.head || d.body).appendChild(s); })(); </script> <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> </section> </article> </main> </div> <footer> <p class="disclaimer"> Disclaimer: this is a personal blog, any opinions and actions are my own and do not represent my employer. </p> <ul> <li> <a href="https://opensource.org/licenses/MIT"> MIT License </a> </li> <li> <a href="https://www.w3.org/WAI/standards-guidelines/wcag"> WCAG 2.1 AA Friendly </a> </li> </ul> <p class="socials"> <a title="Github" href="https://www.github.com/marcuscraske"> Github </a> <a title="LinkedIn" href="http://www.linkedin.com/in/marcuscraske"> LinkedIn </a> <a title="Instagram" href="https://www.instagram.com/marcuscraske"> Instagram </a> <a title="Twitter" href="https://twitter.com/marcuscraske"> Twitter </a> <a title="Strava" href="https://www.strava.com/athletes/marcuscraske"> Strava </a> <a title="Mastodon" href="https://hachyderm.io/@marcuscraske" target="_blank"> Mastodon </a> <a title="E-mail" href="mailto:contact@marcuscraske.com" target="_blank"> E-mail </a> </p> </footer> <script type="text/javascript"> SyntaxHighlighter.all(); $('.blog').jscroll({ contentSelector: ".blog", nextSelector: ".next" }); </script> </body> </html>

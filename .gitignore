@@ -26,4 +26,3 @@ terraform.tfstate.backup
 
 # Jekyll
 node_modules/
-_site

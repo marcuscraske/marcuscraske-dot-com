@@ -22,6 +22,8 @@ exclude:
   - deployment
   - node_modules
   - asset-sources
+  - limpygnome-dot-com.iml
+  - marcuscraske-dot-com.iml
 
 # Assets
 assets:
