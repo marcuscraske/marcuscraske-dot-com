@@ -380,6 +380,10 @@ footer ul li a:focus
 {
     background-image: url('/assets/socials/twitter.svg');
 }
+.socials a[title=Mastodon]
+{
+    background-image: url('/assets/socials/mastodon.svg');
+}
 
 
 /*
