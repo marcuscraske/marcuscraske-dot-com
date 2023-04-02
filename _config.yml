@@ -4,10 +4,11 @@ url: "https://marcuscraske.com" # the base hostname & protocol for your site, e.
 
 # Build settings
 markdown: kramdown
-gems:
+plugins:
   - jekyll-feed
   - jekyll-assets
   - jekyll-paginate
+  - yui-compressor
   - jekyll-sitemap
   - jekyll-webp
 
@@ -24,6 +25,8 @@ exclude:
 
 # Assets
 assets:
+  compression: true
+  gzip: true
   compress:
     css: true
   autowrite: true
@@ -47,7 +50,7 @@ highlighter: rouge
 # Compress images to webp
 webp:
   enabled: true
-  quality: 75
+  quality: 100
   img_dir: ["/assets/", "/_assets/"]
   nested: true
   formats: [".jpeg", ".jpg", ".png"]
