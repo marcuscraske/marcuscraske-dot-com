@@ -13,6 +13,7 @@ layout: compress
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, minimum-scale=1">
         {% css_asset_tag bundle %}
         - /_assets/cv.css
+        - /_assets/icomoon/style.css
         {% endcss_asset_tag bundle %}
     </head>
     <body>
@@ -33,29 +34,26 @@ layout: compress
                 Marcus Craske
             </h1>
             <div class="contact">
-                <div class="info">
-                    <div class="th">
-                        m:
-                    </div>
-                    <div class="td">
-                        +44 (0) 790 66 86 857
-                    </div>
-                    <div class="clear"></div>
+                <div class="item">
+                    <span class="icon-phone"></span>
+                    +44 (0) 790 66 86 857
                 </div>
-                <div class="internet">
+                <div class="item">
+                    <span class="icon-mail4"></span>
                     <a href="mailto:contact@marcuscraske.com">
                         contact@marcuscraske.com
                     </a>
                 </div>
-                <div class="address">
+                <div class="item">
+                    <span class="icon-earth"></span>
                     <a href="https://marcus.engineer">
                         https://marcus.engineer
                     </a>
                 </div>
-                <div class="location">
+                <div class="item">
+                    <span class="icon-home"></span>
                     London, UK
                 </div>
-                <div class="clear"></div>
             </div>
 
             <div class="section first">
@@ -73,13 +71,14 @@ layout: compress
                             <b>Worldpay / FIS</b> - <i>Principal Software Engineer - promoted December 2019,</i><br />
                             <i>Senior Software Engineer - promoted November 2015,</i><br />
                             <i>Software Engineer</i><br />
-                            Working on strategic gateways, and primarily on the HPP (Hosted Payment Pages) platform, used by
-                            shoppers all around the world for taking online card and alternative payment method (APM)
+                            Working on payment gateways, and primarily on the HPP (Hosted Payment Pages) platform, used by
+                            shoppers all around the world.
+                            Processing high volumes of transactions, in the billions annually. Used by
+                            well-known retailers, corporates, government agencies and smaller businesses.
+                            Processing online card and alternative payment method (APM)
                             payments. Supporting multiple languages, currencies, international alternative payment methods,
                             card schemes, end-user devices. Working in a highly regulated environment
                             (PCI-DSS, SCA/PSD2, FCA, WCAG, GDPR etc).
-                            Processing high volumes of transactions, in the billions annually. Used by
-                            well-known retailers, corporates, government agencies and smaller businesses.
                             <br /><br />
                             Technical lead, experience working with: senior leadership (directors and c-suite) and
                             the wider business
@@ -94,13 +93,13 @@ layout: compress
                             running training sessions with various teams, platform architecture, on-call production support,
                             presentations.<br />
                             <br />
-                            <i>Using:<i/> Java 17, Spring Boot, Kubernetes, Docker containers, AWS (S3, DynamoDB, RDS/Aurora),
-                            OpenShift, Terraform, React, JavaScript, TypeScript, JSON, OpenAPI.
-                            Historically: JAXB / SOAP, Oracle (Weblogic, DB, Coherence), Ansible, Fastly, Angular and much more.<br />
-                            <br />
-                            Experience with working on legacy gateway, mission critical, high-throughput systems. Migrating
-                            legacy systems. Based in team using Scaled Agile (SaFE), transformed from Scrum to Kanban,
-                            using Jira / Rally, physical whiteboards / walls.
+                            <i>
+                                Using: Java 17, Spring Boot, Kubernetes, Docker containers, AWS,
+                                OpenShift, Terraform, React, JavaScript, TypeScript, JSON, OpenAPI.
+                                Historically: JAXB / SOAP, Oracle (Weblogic, DB, Coherence), Ansible, Angular
+                                and much more.
+                            </i>
+                            <br /><br />
                         </div>
                     </div>
                     <div class="item">
@@ -132,7 +131,6 @@ layout: compress
                         </div>
                     </div>
                 </div>
-                <div class="clear"></div>
             </div>
 
             <div class="section">
@@ -155,7 +153,7 @@ layout: compress
                     <div class="item">
                         <div class="text">
                             <b>Fintech</b> - PCI-DSS, Card Schemes, PSD2 / SCA, ISO 8583, Four Corner Model, Alternative
-                            Payment Methods (APMs), Digital Wallets, EMVCo.
+                            Payment Methods (APMs), Digital Wallets, EMVCo, TLVs.
                         </div>
                     </div>
                     <div class="item">
@@ -166,17 +164,20 @@ layout: compress
                     </div>
                     <div class="item">
                         <div class="text">
-                            <b>Misc.</b> - Amazon Web Services (AWS), Git, Jenkins,
-                            SQL (Oracle, MySQL, Postgres/PostgreSQL, MS SQL), Mongo, Spring Boot, JVisualVM,
-                            OpenGL, Java EE, Glassfish, Tomcat, Resource Adapters, JMS, Hibernate,
-                            JUnit, Mockito, Docker, Maven, Checkstyle, Ant, dependency injection,
-                            Agile / Scrum / Kanban / Scaled Agile / SaFE,
-                            WSDL, SOAP, REST, LDAP / Active Directory, design patterns, Jira, Rally,
-                            NodeJS, NPM, Android, iOS, React Native.
+                            <b>Misc.</b> - Amazon Web Services (AWS),
+                            SQL (Oracle, MySQL, Postgres/PostgreSQL, MS SQL), Mongo,
+                            Git, Jenkins, Maven, Gradle, Ant, Checkstyle,
+                            Spring Boot, Java EE, Tomcat, Hibernate,
+                            JUnit, Mockito, Selenium, Assertj, JVisualVM
+                            OpenGL,
+                            Docker, Kubernetes, dependency injection,
+                            Agile, Scrum, Kanban, Scaled Agile / SaFE,
+                            WSDL, SOAP, REST, OpenAPI, LDAP / Active Directory, design patterns, Jira, Rally,
+                            Fastly, Cloudflare,
+                            NPM, Node, Android, iOS, React Native.
                         </div>
                     </div>
                 </div>
-                <div class="clear"></div>
             </div>
 
             <div class="section">
@@ -193,20 +194,10 @@ layout: compress
                         <div class="text">
                             <b>Bachelor of Science (BSc)</b> - Computer Science<br />
                             First Class (Honours) Starred (I*) - 83.48% weighted average<br />
-                            University of East Anglia<br />
-                            <br />
-                            Year 1: 90.71% - <i>Computing Fundamentals, Computing Revolution,
-                            Mathematics for Computing A, Computing Systems 1, Computing Systems 2,
-                            Programming 1.</i><br />
-                            Year 2: 81.77% - <i>Theoretical Computing, Database Systems, Graphics 1,
-                            Architectures & Operating Systems, Data Structures & Algorithms,
-                            Programming 2.</i><br />
-                            Year 3: 82.66% - <i>Information Retrieval, Embedded Systems, Networks,
-                            Software Engineering 2, Project.</i>
+                            University of East Anglia
                         </div>
                     </div>
                 </div>
-                <div class="clear"></div>
             </div>
 
             <div class="section">
@@ -225,7 +216,6 @@ layout: compress
                         </div>
                     </div>
                 </div>
-                <div class="clear"></div>
             </div>
 
             <div class="section">
@@ -288,7 +278,6 @@ layout: compress
                         </div>
                     </div>
                 </div>
-                <div class="clear"></div>
             </div>
 
         </div>

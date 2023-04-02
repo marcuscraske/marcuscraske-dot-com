@@ -96,7 +96,7 @@ body
     }
     .options a:hover, .options a:focus
     {
-        color: #369;
+        color: #c4e2f9;
     }
     .wrapper
     {
@@ -119,10 +119,6 @@ body
         margin: 0em;
     }
 }
-.clear
-{
-    clear: both;
-}
 h1
 {
     margin: 0em;
@@ -134,66 +130,47 @@ h1
 }
 a
 {
-    color: #369;
+    color: #3e4fb1;
 }
 
 .contact
 {
-    display: table;
-    width: 100%;
-    border-top: solid 4px #ccc;
-    border-bottom: solid 4px #ccc;
-    padding: 0.5em 0;
-    margin: 1em 0;
-}
-
-.contact .address,
-.contact .info,
-.contact .internet
-{
-    display: table-cell;
-    vertical-align: middle;
-    width: 33%;
-}
-
-.contact .th,
-.contact .td
-{
-    display: inline-block;
-}
-
-.contact .th
-{
-    width: 1.5em;
+    display: flex;
+    border-bottom: solid 2px #ccc;
+    padding: 1em 0;
+    margin: 0 0 1rem;
     font-weight: bold;
-    color: #369;
-    margin: 0em 0.25em;
+    font-size: 0.8rem;
 }
-.contact .td
+
+.contact .item
 {
+    flex-grow: 1;
+    text-align: center;
+    vertical-align: middle;
 }
-.contact .address
+.contact .item:nth-child(1)
+{
+    text-align: left;
+}
+.contact .item:last-child
 {
     text-align: right;
 }
-.contact .internet
-{
-    margin: 0em auto;
-    text-align: center;
-}
-.contact .info
-{
-}
 
 
-.section .header
-{
-    float: left;
-    width: 20%;
-}
 .section
 {
     margin: 1em;
+    display: flex;
+}
+.section .header
+{
+    flex: 0 0 9rem;
+}
+.section .content
+{
+    flex-grow: 1;
 }
 .wrapper .section.first
 {
@@ -202,15 +179,10 @@ a
 .section .header h2
 {
     margin: 0em;
-    margin-top: -0.1em;
     padding: 0em 0.5em 0em 0em;
-    color: #369;
-    font-size: 1.2rem;
-}
-.section .content
-{
-    float: right;
-    width: 80%;
+    color: #3e4fb1;
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 .section .content .item
 {
@@ -225,10 +197,10 @@ a
 {
     float: right;
     color: #666;
-    width: 25%;
     text-align: right;
+    padding: 0 0 0.5rem 0.5rem;
 }
 .section .content .item .text
 {
-    width: 75%;
+    text-align: justify;
 }
