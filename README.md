@@ -11,6 +11,7 @@ This repository hosts the source code behind my personal website:
 Notable directories:
 - *asset-sources* - the source files behind assets
 - *deployment* - configuration for deploying the website.
+- *docs* - the compiled site, for Github pages.
 
 
 ## Updating Site
