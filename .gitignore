@@ -23,3 +23,7 @@ public-files/output/
 .terraform*
 terraform.tfstate
 terraform.tfstate.backup
+
+# Jekyll
+node_modules/
+_site

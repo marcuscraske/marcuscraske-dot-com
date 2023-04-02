@@ -18,6 +18,9 @@ exclude:
   - README.md
   - package.json
   - package-lock.json
+  - deployment
+  - node_modules
+  - asset-sources
 
 # Assets
 assets:
