@@ -164,10 +164,10 @@ Key points:
 ## Summary
 _You're still reading? 😂_
 
-In summary, the experience and knowledge shared from the above talks/companies suggests the paved road is
-edging towards mainstream adoption.
+In summary, the experience and knowledge shared from the above talks/companies suggests paved roads are
+close towards mainstream industry adoption.
 
-If one was to build a paved road, there's a few things in common you can do:
+If one was to adopt paved roads, there's a few common practices you can do:
 - Organise your engineering unit into a set of distinct teams: platform, dev enablement and product.
 - Build opinionated services aligned with the objectives of the company, rather than giving teams autonomy.
 - Abstract the platform from product teams:

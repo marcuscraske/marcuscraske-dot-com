@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://marcuscraske.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://marcuscraske.com/" rel="alternate" type="text/html" /><updated>2023-04-02T18:53:10+01:00</updated><id>https://marcuscraske.com/feed.xml</id><title type="html">marcuscraske-dot-com</title><subtitle>The source behind my site.</subtitle><entry><title type="html">QCON London 2023: Paving the Road</title><link href="https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road/" rel="alternate" type="text/html" title="QCON London 2023: Paving the Road" /><published>2023-04-01T00:00:00+01:00</published><updated>2023-04-01T00:00:00+01:00</updated><id>https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road</id><content type="html" xml:base="https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/thumb.webp&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://marcuscraske.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://marcuscraske.com/" rel="alternate" type="text/html" /><updated>2023-04-02T19:32:17+01:00</updated><id>https://marcuscraske.com/feed.xml</id><title type="html">marcuscraske-dot-com</title><subtitle>The source behind my site.</subtitle><entry><title type="html">QCON London 2023: Paving the Road</title><link href="https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road/" rel="alternate" type="text/html" title="QCON London 2023: Paving the Road" /><published>2023-04-01T00:00:00+01:00</published><updated>2023-04-01T00:00:00+01:00</updated><id>https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road</id><content type="html" xml:base="https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/thumb.webp&quot;&gt;
     &lt;picture&gt;
         &lt;source srcset=&quot;/assets/posts/2023-04-01-qcon-london-2023/thumb.webp&quot; type=&quot;image/webp&quot; /&gt;
         &lt;img src=&quot;/assets/posts/2023-04-01-qcon-london-2023/thumb.webp&quot; alt=&quot;QCON logo&quot; class=&quot;post-thumb&quot; /&gt;
@@ -226,10 +226,10 @@ early-on, such as &lt;a href=&quot;https://monzo.com/blog/2016/09/19/building-a-
 &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;You’re still reading? 😂&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;In summary, the experience and knowledge shared from the above talks/companies suggests the paved road is
-edging towards mainstream adoption.&lt;/p&gt;
+&lt;p&gt;In summary, the experience and knowledge shared from the above talks/companies suggests paved roads are
+close towards mainstream industry adoption.&lt;/p&gt;
 
-&lt;p&gt;If one was to build a paved road, there’s a few things in common you can do:&lt;/p&gt;
+&lt;p&gt;If one was to adopt paved roads, there’s a few common practices you can do:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Organise your engineering unit into a set of distinct teams: platform, dev enablement and product.&lt;/li&gt;
   &lt;li&gt;Build opinionated services aligned with the objectives of the company, rather than giving teams autonomy.&lt;/li&gt;

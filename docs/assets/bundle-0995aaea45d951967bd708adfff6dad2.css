@@ -209,7 +209,7 @@ a
   font-family: 'icons';
   src:  url('/assets/icons/icons.eot');
   src:  url('/assets/icons/icons.woff2') format('woff2'),
-        url('/assets/icons.eot') format('embedded-opentype'),
+        url('/assets/icons/icons.eot') format('embedded-opentype'),
         url('/assets/icons/icons.ttf') format('truetype'),
         url('/assets/icons/icons.woff') format('woff'),
         url('/assets/icons/icons.svg') format('svg');

@@ -6,11 +6,35 @@ resource "cloudflare_zone" "marcuscraske-dot-com" {
 # Main website
 ########################################################################################################################
 
-resource "cloudflare_record" "marcuscraske-dot-com" {
+resource "cloudflare_record" "marcuscraske-dot-com-1" {
     zone_id     = cloudflare_zone.marcuscraske-dot-com.id
     name        = "marcuscraske.com"
-    value       = data.terraform_remote_state.main-website.outputs.endpoint
-    type        = "CNAME"
+    value       = "185.199.108.153"
+    type        = "A"
+    proxied     = true
+    ttl         = 1
+}
+resource "cloudflare_record" "marcuscraske-dot-com-2" {
+    zone_id     = cloudflare_zone.marcuscraske-dot-com.id
+    name        = "marcuscraske.com"
+    value       = "185.199.109.153"
+    type        = "A"
+    proxied     = true
+    ttl         = 1
+}
+resource "cloudflare_record" "marcuscraske-dot-com-3" {
+    zone_id     = cloudflare_zone.marcuscraske-dot-com.id
+    name        = "marcuscraske.com"
+    value       = "185.199.110.153"
+    type        = "A"
+    proxied     = true
+    ttl         = 1
+}
+resource "cloudflare_record" "marcuscraske-dot-com-4" {
+    zone_id     = cloudflare_zone.marcuscraske-dot-com.id
+    name        = "marcuscraske.com"
+    value       = "185.199.111.153"
+    type        = "A"
     proxied     = true
     ttl         = 1
 }
@@ -45,19 +69,6 @@ resource "cloudflare_page_rule" "https" {
     actions {
         always_use_https = true
     }
-}
-
-########################################################################################################################
-# Public files
-########################################################################################################################
-
-resource "cloudflare_record" "files-marcuscraske-dot-com" {
-    zone_id     = cloudflare_zone.marcuscraske-dot-com.id
-    name        = "files"
-    value       = data.terraform_remote_state.public-files.outputs.endpoint
-    type        = "CNAME"
-    proxied     = true
-    ttl         = 1
 }
 
 
@@ -109,5 +120,17 @@ resource "cloudflare_record" "aspmx-marcuscraske-dot-com" {
     name        = "marcuscraske.com"
     value       = "aspmx.l.google.com"
     type        = "MX"
+    priority    = "1"
+}
+
+########################################################################################################################
+# Github pages verification
+########################################################################################################################
+
+resource "cloudflare_record" "marcuscraske-dot-com-gh-verify" {
+    zone_id     = cloudflare_zone.marcuscraske-dot-com.id
+    name        = "_github-pages-challenge-marcuscraske"
+    value       = "1c97d1f9666d4c10c2548fad29232c"
+    type        = "TXT"
     priority    = "1"
 }
