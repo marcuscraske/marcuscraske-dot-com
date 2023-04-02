@@ -7,8 +7,8 @@ selected: blog
 {% include image.html path="/assets/posts/2023-04-01-qcon-london-2023/thumb.webp" alt="QCON logo" class="post-thumb" %}
 
 My fifth year attending [QCON London](https://qconlondon.com/), a conference focused on knowledge-sharing high-level
-emerging trends and adopted best-practices in software engineering, featuring many world-leading organisations and
-subject-matter experts. And this year did not disappoint, with the emergence of _paved roads_.
+emerging trends and best-practices in software engineering, featuring many world-leading organisations and
+subject-matter experts. And this year did not disappoint, with the evolution of _paved roads_.
 
 
 ## Paved Roads
@@ -123,7 +123,7 @@ Key points:
   - Guides and training
   - Self-service
   - Plugins for wider integration, such as OpenAPI service documentation.
-- Build for the 99% of developers.
+- [Build for the 99% of developers](https://future.com/software-development-building-for-99-developers/) - worth a read.
 - Strongly opinionated platforms:
   - Extremely repeatable.
   - Best-practice default configuration.
@@ -150,11 +150,11 @@ Key points:
   - Services only use Golang, with product teams only able to add business logic.
   - Observability built into every service, using: Prometheus, Open Telemetry and Jaeger.
 - Abstract the platform for engineers:
+  - Otherwise, engineers are not being leveraged to their maximum potential, solving the wrong problems.
   - Product teams shouldn't need to know about Kubernetes.
   - Product teams shouldn't need to be experts in platforms (Kubernetes, Cassandra etc).
   - Abstract core patterns.
-  - Otherwise engineers are not being leveraged to their maximum potential, solving the wrong problems.
-  - They've been moving to EKS, and engineers shoudln't know or care.
+  - Example: they've been migrating their Kubernetes to EKS, and engineers shouldn't know or care.
 - Every new product engineer goes through a "Backend Engineering 101" guide when they join.
 - Sharing of success stories:
   - A Slack channel to share screenshots of graphs where optimisations have been made with e.g. cpu usage.
@@ -167,7 +167,7 @@ _You're still reading? 😂_
 In summary, the experience and knowledge shared from the above talks/companies suggests paved roads are
 close towards mainstream industry adoption.
 
-If one was to adopt paved roads, there's a few common practices you can do:
+If one was to adopt paved roads, there's a few common practices you can consider:
 - Organise your engineering unit into a set of distinct teams: platform, dev enablement and product.
 - Build opinionated services aligned with the objectives of the company, rather than giving teams autonomy.
 - Abstract the platform from product teams:

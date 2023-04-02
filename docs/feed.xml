@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://marcuscraske.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://marcuscraske.com/" rel="alternate" type="text/html" /><updated>2023-04-02T19:32:17+01:00</updated><id>https://marcuscraske.com/feed.xml</id><title type="html">marcuscraske-dot-com</title><subtitle>The source behind my site.</subtitle><entry><title type="html">QCON London 2023: Paving the Road</title><link href="https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road/" rel="alternate" type="text/html" title="QCON London 2023: Paving the Road" /><published>2023-04-01T00:00:00+01:00</published><updated>2023-04-01T00:00:00+01:00</updated><id>https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road</id><content type="html" xml:base="https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/thumb.webp&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="https://marcuscraske.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://marcuscraske.com/" rel="alternate" type="text/html" /><updated>2023-04-02T19:54:16+01:00</updated><id>https://marcuscraske.com/feed.xml</id><title type="html">marcuscraske-dot-com</title><subtitle>The source behind my site.</subtitle><entry><title type="html">QCON London 2023: Paving the Road</title><link href="https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road/" rel="alternate" type="text/html" title="QCON London 2023: Paving the Road" /><published>2023-04-01T00:00:00+01:00</published><updated>2023-04-01T00:00:00+01:00</updated><id>https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road</id><content type="html" xml:base="https://marcuscraske.com/2023/04/01/qcon-london-2023-paving-the-road/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2023-04-01-qcon-london-2023/thumb.webp&quot;&gt;
     &lt;picture&gt;
         &lt;source srcset=&quot;/assets/posts/2023-04-01-qcon-london-2023/thumb.webp&quot; type=&quot;image/webp&quot; /&gt;
         &lt;img src=&quot;/assets/posts/2023-04-01-qcon-london-2023/thumb.webp&quot; alt=&quot;QCON logo&quot; class=&quot;post-thumb&quot; /&gt;
@@ -6,8 +6,8 @@
 &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;My fifth year attending &lt;a href=&quot;https://qconlondon.com/&quot;&gt;QCON London&lt;/a&gt;, a conference focused on knowledge-sharing high-level
-emerging trends and adopted best-practices in software engineering, featuring many world-leading organisations and
-subject-matter experts. And this year did not disappoint, with the emergence of &lt;em&gt;paved roads&lt;/em&gt;.&lt;/p&gt;
+emerging trends and best-practices in software engineering, featuring many world-leading organisations and
+subject-matter experts. And this year did not disappoint, with the evolution of &lt;em&gt;paved roads&lt;/em&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;paved-roads&quot;&gt;Paved Roads&lt;/h2&gt;
 &lt;p class=&quot;center&quot;&gt;
@@ -170,7 +170,7 @@ configure.&lt;/li&gt;
       &lt;li&gt;Plugins for wider integration, such as OpenAPI service documentation.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;Build for the 99% of developers.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://future.com/software-development-building-for-99-developers/&quot;&gt;Build for the 99% of developers&lt;/a&gt; - worth a read.&lt;/li&gt;
   &lt;li&gt;Strongly opinionated platforms:
     &lt;ul&gt;
       &lt;li&gt;Extremely repeatable.&lt;/li&gt;
@@ -208,11 +208,11 @@ early-on, such as &lt;a href=&quot;https://monzo.com/blog/2016/09/19/building-a-
   &lt;/li&gt;
   &lt;li&gt;Abstract the platform for engineers:
     &lt;ul&gt;
+      &lt;li&gt;Otherwise, engineers are not being leveraged to their maximum potential, solving the wrong problems.&lt;/li&gt;
       &lt;li&gt;Product teams shouldn’t need to know about Kubernetes.&lt;/li&gt;
       &lt;li&gt;Product teams shouldn’t need to be experts in platforms (Kubernetes, Cassandra etc).&lt;/li&gt;
       &lt;li&gt;Abstract core patterns.&lt;/li&gt;
-      &lt;li&gt;Otherwise engineers are not being leveraged to their maximum potential, solving the wrong problems.&lt;/li&gt;
-      &lt;li&gt;They’ve been moving to EKS, and engineers shoudln’t know or care.&lt;/li&gt;
+      &lt;li&gt;Example: they’ve been migrating their Kubernetes to EKS, and engineers shouldn’t know or care.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;Every new product engineer goes through a “Backend Engineering 101” guide when they join.&lt;/li&gt;
@@ -229,7 +229,7 @@ early-on, such as &lt;a href=&quot;https://monzo.com/blog/2016/09/19/building-a-
 &lt;p&gt;In summary, the experience and knowledge shared from the above talks/companies suggests paved roads are
 close towards mainstream industry adoption.&lt;/p&gt;
 
-&lt;p&gt;If one was to adopt paved roads, there’s a few common practices you can do:&lt;/p&gt;
+&lt;p&gt;If one was to adopt paved roads, there’s a few common practices you can consider:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Organise your engineering unit into a set of distinct teams: platform, dev enablement and product.&lt;/li&gt;
   &lt;li&gt;Build opinionated services aligned with the objectives of the company, rather than giving teams autonomy.&lt;/li&gt;
@@ -334,7 +334,7 @@ close towards mainstream industry adoption.&lt;/p&gt;
 
 &lt;h2 id=&quot;raw-notes&quot;&gt;Raw Notes&lt;/h2&gt;
 &lt;p&gt;You can find my personal raw notes &lt;a href=&quot;https://github.com/marcuscraske/files-marcuscraske-dot-com/blob/main/conference-notes/qcon-london-2023.txt&quot;&gt;here&lt;/a&gt;,
-although they might not mean much, and may be inaccurate.&lt;/p&gt;</content><author><name></name></author><summary type="html">My fifth year attending QCON London, a conference focused on knowledge-sharing high-level emerging trends and adopted best-practices in software engineering, featuring many world-leading organisations and subject-matter experts. And this year did not disappoint, with the emergence of paved roads.</summary></entry><entry><title type="html">Smart Home</title><link href="https://marcuscraske.com/2022/02/19/smart-home/" rel="alternate" type="text/html" title="Smart Home" /><published>2022-02-19T00:00:00+00:00</published><updated>2022-02-19T00:00:00+00:00</updated><id>https://marcuscraske.com/2022/02/19/smart-home</id><content type="html" xml:base="https://marcuscraske.com/2022/02/19/smart-home/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2022-02-19-smart-home/microservices.png&quot;&gt;
+although they might not mean much, and may be inaccurate.&lt;/p&gt;</content><author><name></name></author><summary type="html">My fifth year attending QCON London, a conference focused on knowledge-sharing high-level emerging trends and best-practices in software engineering, featuring many world-leading organisations and subject-matter experts. And this year did not disappoint, with the evolution of paved roads.</summary></entry><entry><title type="html">Smart Home</title><link href="https://marcuscraske.com/2022/02/19/smart-home/" rel="alternate" type="text/html" title="Smart Home" /><published>2022-02-19T00:00:00+00:00</published><updated>2022-02-19T00:00:00+00:00</updated><id>https://marcuscraske.com/2022/02/19/smart-home</id><content type="html" xml:base="https://marcuscraske.com/2022/02/19/smart-home/">&lt;p&gt;&lt;a href=&quot;/assets/posts/2022-02-19-smart-home/microservices.png&quot;&gt;
     &lt;picture&gt;
         &lt;source srcset=&quot;/assets/posts/2022-02-19-smart-home/microservices.webp&quot; type=&quot;image/webp&quot; /&gt;
         &lt;img src=&quot;/assets/posts/2022-02-19-smart-home/microservices.png&quot; alt=&quot;Smart home dashboard&quot; class=&quot;post-thumb&quot; /&gt;
