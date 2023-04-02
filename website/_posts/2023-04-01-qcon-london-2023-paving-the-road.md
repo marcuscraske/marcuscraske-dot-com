@@ -171,15 +171,23 @@ If one was to build a paved road, there's a few things in common you can do:
 - Organise your engineering unit into a set of distinct teams: platform, dev enablement and product.
 - Build opinionated services aligned with the objectives of the company, rather than giving teams autonomy.
 - Abstract the platform from product teams:
+  - Leverage the most out of your product teams by having them focused on customer problems.
+  - Provide skeletons and templating for building services fast.
   - Best practice configuration can be in the skeleton for new services.
-  - Allows for having a common pattern to build, deploy and support services.
+  - Allows for having a common pattern to build, deploy and support services; familiar to all engineers.
   - Product teams can focus on business logic, rather than being experts in platform infrastructure.
     - They shouldn't care how the platform works, or where it runs.
-- Share knowledge with your product teams:
+  - Reduce overall cognitive load.
+- Share knowledge and work with your product teams:
   - Build a developer portal
   - Write guides.
   - Run workshops and guilds/communities-of-practice (CoPs).
   - Advocate and run training sessions.
+  - Internally open-source, and allow contributions from product teams.
+- Share success stories and achievements, and market your work like a product:
+  - Encourage customers to share their success stories.
+  - Credit those who've helped outside the team.
+  - Give out stickers with a logo/branding.
 
 
 ## Gallery

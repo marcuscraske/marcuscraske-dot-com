@@ -80,7 +80,7 @@ body
 {
     body
     {
-        background: #444;
+        background: #131418;
         margin: 1em;
     }
     .options
@@ -103,7 +103,7 @@ body
         width: 8.27in;
         margin: 1em auto 3em auto;
         padding: 2em;
-        box-shadow: 0em 0em 3em #000;
+        box-shadow: 0em 0em 3em #999;
     }
 }
 

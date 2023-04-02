@@ -47,7 +47,8 @@ html, body
 {
     margin: 0;
     padding: 0;
-    background: #fff;
+    background: #131418;
+    color: #fff;
     overflow-x: hidden;
 }
 
@@ -125,10 +126,7 @@ body
 
 .wrapper-header
 {
-    background: #000;
-    /*background-color: #159957;*/
-    /*background-image: linear-gradient(120deg, #5036f7, #e60032);*/
-    padding: 0.5em;
+    padding: 1em;
 }
 
 .wrapper-header header,
@@ -273,7 +271,6 @@ main
     overflow-x: hidden;
     padding: 0em 1em 1em;
     border-radius: 12px;
-    color: #000;
 }
 
 
@@ -310,7 +307,7 @@ footer ul li
 footer ul li,
 footer ul li a
 {
-    color: #333;
+    color: #ccc;
 }
 
 footer ul li a:hover,
@@ -392,7 +389,7 @@ footer ul li a:focus
 
 main a
 {
-    color: #000;
+    color: #fff;
 }
 
 main p
@@ -483,7 +480,7 @@ article time
 {
     display: block;
     margin: 1em 1em 0 0;
-    color: #666;
+    color: #ccc;
     font-weight: bold;
 }
 
