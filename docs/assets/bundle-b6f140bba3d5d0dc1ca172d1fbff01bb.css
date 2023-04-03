@@ -128,7 +128,6 @@ body
 {
     background: url("/assets/background/background-ai.webp") no-repeat center;
     background-size: cover;
-    padding: 10rem 2rem 0rem 2rem;
 }
 
 .wrapper-header header,
@@ -138,14 +137,17 @@ body
     margin: auto;
 }
 
+.wrapper-header header
+{
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}
+
 .wrapper-header nav
 {
-    background: rgba(19, 20, 24, 0.8);
 }
 
 .wrapper-header h1
 {
-    float: left;
     margin: 0;
     padding: 0.3em 0.5em 0;
     font-size: 2em;
@@ -153,7 +155,6 @@ body
 
 .wrapper-header p
 {
-    float: right;
     margin: 0;
     padding: 0.6em 0.5em 0 0;
     font-size: 1.5em;
@@ -201,10 +202,28 @@ body
 
 @media screen and (min-width: 1000px)
 {
+    .wrapper-header
+    {
+        padding: 10rem 2rem 0rem 2rem;
+    }
+    .wrapper-header header
+    {
+        padding-bottom: 4rem;
+    }
+    .wrapper-header h1
+    {
+        float: left;
+    }
+    .wrapper-header p
+    {
+        float: right;
+    }
+
     nav ul
     {
         display: flex;
         width: 100%;
+        background: rgba(19, 20, 24, 0.8);
     }
 
     nav ul li
@@ -216,9 +235,14 @@ body
 
 @media screen and (max-width: 1000px)
 {
+    .wrapper-header header
+    {
+        background: rgba(19, 20, 24, 0.8);
+    }
     nav
     {
         display: block;
+        background: rgba(19, 20, 24, 0.8);
     }
 
     nav ul li
@@ -231,6 +255,11 @@ body
     {
         display: block;
         width: auto;
+    }
+
+    .wrapper-header p
+    {
+        text-align: right;
     }
 
     .wrapper-header header,
