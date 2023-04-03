@@ -4,7 +4,6 @@ url: "https://marcuscraske.com" # the base hostname & protocol for your site, e.
 destination: docs/
 
 # Build settings
-markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-assets
@@ -25,6 +24,10 @@ exclude:
   - asset-sources
   - limpygnome-dot-com.iml
   - marcuscraske-dot-com.iml
+
+# Code highlighter
+markdown: kramdown
+highlighter: rouge
 
 # Assets
 assets:
@@ -47,8 +50,6 @@ excerpt_separator: "#"
 collections:
   projects:
     output: true
-
-highlighter: rouge
 
 # Compress images to webp
 webp:
