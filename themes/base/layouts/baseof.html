@@ -1,0 +1,130 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">-->
+<!--<head>-->
+<!--  {{ partial "head.html" . }}-->
+<!--</head>-->
+<!--<body>-->
+<!--  <header>-->
+<!--    {{ partial "header.html" . }}-->
+<!--  </header>-->
+<!--  <main>-->
+<!--    {{ block "main" . }}{{ end }}-->
+<!--  </main>-->
+<!--  <footer>-->
+<!--    {{ partial "footer.html" . }}-->
+<!--  </footer>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            {{ if .IsHome }}
+                Marcus Craske
+            {{ else }}
+                {{ .Page.Title }} - Marcus Craske
+            {{ end }}
+        </title>
+        <meta name="description" content="Personal blog, projects and things of Marcus Craske. Software engineer. Hack the planet!">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, minimum-scale=1">
+        <meta name="HandheldFriendly" content="True" />
+
+        <meta property="og:site_name" content="Marcus Craske">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Marcus Craske">
+        <meta property="og:description" content="Personal blog, projects and things of Marcus Craske. Software engineer. Hack the planet!">
+
+        <link rel="shortcut icon" href="/favicon.ico">
+
+        {{ partial "head.html" . }}
+
+        {{ if .Store.Get "hasMermaid" }}
+            {{ $mermaid := resources.Get "js/mermaid-init.js" | js.Build | minify | fingerprint }}
+            <script type="module" src="{{ $mermaid.RelPermalink }}"></script>
+        {{ end }}
+
+        {{ with resources.Get "js/copybutton.js" }}
+            {{ $minifiedScript := . | minify | fingerprint }}
+                <script src="{{ $minifiedScript.Permalink }}" integrity="{{ $minifiedScript.Data.Integrity }}" defer></script>
+            {{ else }}
+                {{ errorf "copybutton.js not found in assets/js/" }}
+        {{ end }}
+
+    </head>
+    <body>
+        <a id="skip-to-content" href="#main">
+            Skip to main content
+        </a>
+        <div class="wrapper-header">
+            <header>
+                <h1>
+                    <a href="/">
+                        Marcus Craske
+                    </a>
+                </h1>
+                <p>
+                    <a href="https://www.youtube.com/watch?v=Cipc8EowshY">
+                        hack the planet<span class="terminal">|</span>
+                    </a>
+                </p>
+            </header>
+            <nav>
+                <ul>
+                    <li class="{{ if or .IsHome .Params.blog }}selected{{ end }}">
+                        <a href="/">
+                            <span class="icon-home"></span>
+                            Blog
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/cv">
+                            <span class="icon-file-text2"></span>
+                            Résumé / CV
+                        </a>
+                    </li>
+                    <li class="{{ if .Params.projects }}selected{{ end }}">
+                        <a href="/projects">
+                            <span class="icon-lab"></span>
+                            Projects
+                        </a>
+                    </li>
+                    <li class="{{ if .Params.links }}selected{{ end }}">
+                        <a href="/links">
+                            <span class="icon-books"></span>
+                            Links
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="wrapper">
+            <main id="main">
+                {{ block "main" . }}{{ end }}
+                {{ partial "page-comments.html" . }}
+            </main>
+        </div>
+
+        <footer>
+            <p class="disclaimer">
+                Disclaimer: this is a personal blog, any opinions and actions are my own and do not represent my employer.
+            </p>
+            <ul>
+                <li>
+                    <a href="https://opensource.org/licenses/MIT">
+                        MIT License
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.w3.org/WAI/standards-guidelines/wcag">
+                        WCAG 2.1 AA Friendly
+                    </a>
+                </li>
+            </ul>
+            {{ partial "socials.html" . }}
+        </footer>
+
+    </body>
+</html>
