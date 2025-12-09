@@ -9,6 +9,8 @@ TODO fix helm versions
 
 TODO docker registry...
 
+TODO nfs backup longhorn not working...
+
 <!--more-->
 
 ## History & Why
@@ -54,6 +56,7 @@ mindmap
         Vector
         Grafana
         Loki
+        Istio
     svc) Services (
         Mumble VoIP Server
         Undisclosed Service
@@ -78,13 +81,16 @@ And since it controls the lights in my house, the switch-over needed to be minim
 
 
 ## Using AI to Migrate Services
-A lot of the microservices have been migrated from nodejs to golang, for a few reasons:
-- Reduced runtime memory and CPU utilisation, generally greater performance
-  - Since nodejs is interpreted, whereas golang is highly optimised machine code.
-- Smaller container images with no effort.
+Shout-out to [JetBrains Goland](https://www.jetbrains.com/go/) for the built-in AI features, which have been used
+to migrate a lot of microservices from Node.js to Golang.
 
-Both ecosystems have a monolithic library of various tools to reduce code, and I've used
-built-in AI tooling in JetBrains Goland to convert large chunks of code.
+This has been done for a few reasons:
+- Reduced runtime memory and CPU utilisation, generally greater performance
+  - Since Node.js is interpreted, whereas Golang is highly optimised machine code.
+- Smaller container images with no effort.
+- Better support for multi-threading, useful for e.g. background jobs.
+
+Both ecosystems have my own monolithic library to reduce and industrialise code.
 
 ## The Rebuild...
 Topology of the old Kubernetes (k8s) cluster:
@@ -117,31 +123,66 @@ mindmap
 
 
 ## Network
+I've got a [Mikrotik CCR2004-1G-12S+2XS](https://mikrotik.com/product/ccr2004_1g_12s_2xs) router. Not only does
+it feature 10gbps and 25gbps [SFP](https://en.wikipedia.org/wiki/Small_Form-factor_Pluggable) ports, it has many
+advanced and customisable features, such as:
+- Multiple IP address pools
+- BGP routing
+
+We'll use both of these features in later sections.
+
+
+### Setup IP Address Pools
 I've decided to setup two IP ranges for my Kubernetes cluster:
 - `192.168.4.0/24` - for the control plane and worker nodes.
 - `192.168.5.0/24` - for allocating IPs to services for external ingress.
 
 This enables putting the cluster on an isolated VLAN in the future if needed, and avoids
-potential clashes from the various guests and devices on the rest of the network (non-k8s).
+potential clashes from the various guests and devices on the rest of the network (non-k8s) using DHCP on a different
+IP range.
+
+
 
 With a Mikrotik router, you just need to setup an address list (this will automatically create the routing
-between any other IP lists):
+between any other IP lists). I've got mine tied to a virtual interface, _bridge-LAN_, that bridges multiple physical
+interfaces to form a LAN:
 
 <img src="mikrotik-address-list.png" />
 
-And in my case, I needed to update the firewall for LAN IPs:
+And in my case, I needed to update a firewall list for LAN IPs - used to allow cross-communication between LAN devices:
 
 <img src="mikrotik-firewall.png" />
+
+
+### Setup BGP (Routing) Peering
+We'll use [BGP routing](https://en.wikipedia.org/wiki/Border_Gateway_Protocol) for two purposes:
+- __Control plane load balancing:__ enable the control plane to use BGP routing for high availability of the Kubernetes
+  cluster control plane.
+- __Worker node external IP addresses:__ enable worker nodes to advertise IPs from `192.168.5.0/24` for individual
+  (Kubernetes) services.
+
+Before the next step, we need to setup  between the
+main router and control plane nodes, so we can peer the control plane nodes.
+
+For each node, we need to add a BGP connection:
+
+<img src="mikrotik-bgp1.png" />
+
+<img src="mikrotik-bgp2.png" />
+
+And we'll end up with something like:
+
+<img src="mikrotik-bgp-list.png" />
 
 
 ## Generic Control Plane & Worker Machine Setup
 Download Debian 13 to a USB device, and install on each machine, with SSH server enabled, and no
 graphical interface (not needed).
 
-Login as root, and install some common utility packages:
+Install some common utility packages:
 
 ````bash
-apt install -y net-tools dnsutils sudo vim htop
+sudo apt install -y net-tools dnsutils sudo vim htop
 ````
 
 ### Disable Swap
@@ -156,22 +197,26 @@ NAME       TYPE      SIZE USED PRIO
 
 Thus, to disable swap:
 ````bash
-systemctl mask swap.target
+sudo systemctl mask swap.target
 ````
 
 Quick reboot:
 ````bash
-reboot
+sudo reboot
 ````
 
 And validate it's now disabled (should return nothing):
 ````bash
-swapon --show
+sudo swapon --show
 ````
 
 
 ### Non-Raspberry Pi Steps
-Make my user a sudoer, so I can use root from SSH:
+__Note: for the network configuration demonstrated in this section, you could use NetworkManager (via nmtui) as shown in
+the Raspberry Pi section. NetworkManager is best practice for Linux, I've opted for an older setup process, either can
+work.__
+
+Make my non-root user a sudoer, so I can use root from SSH:
 
 ````bash
 adduser limpygnome sudo
@@ -208,7 +253,7 @@ And apply the new network settings:
 service systemctl restart networking
 ````
 
-If DNS doesn't work, we can just override the _resolv.conf_ file:
+And for DNS, as DHCP manager is disabled, we can just override the _resolv.conf_ file:
 ````bash
 sudo bash -c 'cat > /etc/resolv.conf <<EOF
 nameserver 192.168.4.1
@@ -230,9 +275,13 @@ And either reboot or restart the network manager to apply changes:
 sudo systemctl restart NetworkManager
 ````
 
-And enable cgroup for memory, run:
+Next, we need to enable a Linux kernel feature called cgroup (control group) for memory management, which is not
+enabled out of the box on a Raspberry Pi. This will enable Kubernetes to offload the memory management to the operating
+system, for consistent resource limiting (via throttling or killing processes with out-of-memory / OOM exit codes).
+
+We'll need to enable the command-line used to boot the operating system, let's edit it:
 ````bash
-vim /boot/firmware/cmdline.txt
+sudo vim /boot/firmware/cmdline.txt
 ````
 
 At the end of the line, add:
@@ -240,22 +289,30 @@ At the end of the line, add:
 cgroup_enable=memory cgroup_memory=1
 ````
 
+Save the file, and reboot:
+````bash
+sudo reboot
+````
+
 
 ## Enable Packet Forwarding (All Nodes)
+We need to enable all nodes to function as routers, so the Kubernetes container networking can pass
+packets between nodes directly:
+
 ````bash
 echo "net.ipv4.ip_forward=1" | sudo tee /etc/sysctl.d/99-kubernetes.conf
 sudo sysctl --system
 ````
 
 ## Setup containerd (All Nodes)
-_containerd_ is used to run the containers, for what would have been Docker in the past. 
+_containerd_ is used to run the containers, a container runtime, equivalent to Docker in the past. 
 
 Install the required package:
 ````bash
 sudo apt install -y containerd
 ````
 
-Ensure we use _systemd_ for managing resources (CPU, memory, etc) of containers:
+Ensure we use _systemd_ (which uses cgroups) for managing resources (CPU, memory, etc) of containers:
 ````bash
 sudo mkdir -p /etc/containerd
 
@@ -271,7 +328,7 @@ sudo systemctl enable containerd
 ````
 
 
-### Install Kubernetes (All Nodes)
+## Install Kubernetes (All Nodes)
 We'll be using v1.34.2 (the latest at the time of this article), check for the latest
 release [here](https://github.com/kubernetes/kubernetes/releases).
 
@@ -305,18 +362,6 @@ Since containerd points at a different directory for `cni` to the Debian default
 ````bash
 sudo ln -s /opt/cni/bin /usr/lib/cni
 ````
-
-### Setup BGP on Mikrotik
-Before the next step, we need to setup BGP routing between the main router
-and control plane nodes, so we can peer the control plane nodes.
-
-For each control plane node, we need to add a BGP connection:
-<img src="mikrotik-bgp1.png" />
-
-<img src="mikrotik-bgp2.png" />
-
-And end up with something such as:
-<img src="mikrotik-address-list.png" />
 
 
 ### Setup kube-vip (All Control Plane Nodes)
@@ -464,7 +509,12 @@ And then on your local machine:
 scp your_username@192.168.4.10:~/.kube/config ~/.kube/
 ````
 
-And on your local machien, test it works:
+And if you haven't installed `kubectl`, install it. Example for Mac:
+````bash
+brew install kubernetes-cli
+````
+
+And on your local machine, test it works:
 ````bash
 kubectl get nodes
 ````
@@ -513,14 +563,6 @@ And apply it:
 kubectl apply -f dashboard-user.yaml
 ````
 
-And now create a token for the above user:
-````bash
-kubectl -n kubernetes-dashboard create token admin-user
-````
-
-Keep a copy of the output (the token), and use it to login in the next steps.
-
-
 From your local dev machine (not a control plane node), you can port forward the dashboard
 to a local port to access it in a browser:
 ````bash
@@ -533,11 +575,17 @@ on your machine._
 And open the following URL in your browser:
 - <https://localhost:8443/>
 
-
+And generate a token to login to the above page:
+````bash
+kubectl -n kubernetes-dashboard create token admin-user
+````
 
 
 ## Setup Storage
-For distributed storage, we'll use _Longhorn_.
+For distributed (block) storage, we'll use [Longhorn](https://longhorn.io/).
+
+This will enable services to ask for storage, which is then replicated between other worker nodes, and backed-up
+to an [NFS](https://en.wikipedia.org/wiki/Network_File_System) mount outside the cluster.
 
 ### Installation
 First, we'll install the required packages on every single node:
@@ -679,16 +727,21 @@ You can then check it's bound:
 kubectl get pvc -n testing
 ````
 
-You should see the _storageclass_ column is `longhorn-retain`.
+You should see the _storageclass_ column is `longhorn-retain`, example:
+````bash
+❯ kubectl get pvc -n testing
+NAME       STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      VOLUMEATTRIBUTESCLASS
+test-pvc   Bound    pvc-4f37e713-7665-4278-9fdd-fa42cc9dbdb2   100Mi      RWO            longhorn-retain   <unset>
+````
 
 
 ## Setup Load Balancing
-We'll enable external access to services by setting up load balancing, using Metal LB.
+We'll enable external access to services by setting up load balancing, using [Metal LB](https://metallb.io/).
 
-Whilst we could use kube-vip with a single VIP IP, Metal LB enables us to assign a pool of IPs instead.
+Whilst we could use kube-vip with a single VIP (virtual IP), Metal LB enables us to assign a pool of IPs instead.
 
 ### Setup Pool
-In the [network](#network) section, we already setup the pool _192.168.5.1/28_ and BGP connections to all the worker
+In the [network](#network) section, we already setup the pool _192.168.5.0/24_ and BGP connections to all the worker
 nodes. These two steps are a prerequisite.
 
 
@@ -736,21 +789,57 @@ metadata:
   namespace: metallb-system
 ````
 
+_Note: `192.168.5.1` is excluded, as the router serves this IP as a gateway._
+
 And apply it:
 ````bash
 kubectl apply -f metallb.yaml
 ````
 
+We can now assign an IP to a Kubernetes service.
 
-## Setup Logging with Grafana
+Example of static allocation (`metallb.io/loadBalancerIPs` annotation):
+````yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: foobar
+  annotations:
+    metallb.io/loadBalancerIPs: 192.168.5.123
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: foobar
+````
+
+Example of dynamic allocation (`type: LoadBalancer`):
+````yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: foobar
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: foobar
+  type: LoadBalancer
+````
+
+See the [docs](https://metallb.io/usage/) for usage.
+
+
+## Setup Logging
 For application logging, we'll use:
-- __Vector__ to export logs to Loki.
-- __Loki__ to capture and query data.
-- __Grafana__ as a frontend, which will connect to Loki to query data.
+- __[Vector](https://vector.dev/)__ to export logs from Kubernetes containers to Loki.
+  - This run as a [daemon set](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
+- __[Loki](https://grafana.com/oss/loki/)__ to capture, store, and query data.
+- __[Grafana](https://grafana.com/grafana/)__ as a frontend, which will connect to Loki to query data.
 
 ### Loki
-We'll install Loki to store and provide the ability to query logs.
-
 This deployment is not designed for production, with only a single replica running, and based on the instructions found here:
 - <https://grafana.com/docs/loki/latest/setup/install/helm/install-monolithic/>
 
@@ -1060,7 +1149,9 @@ And you should, hopefully, see some logs:
 
 
 ## Istio
-We'll install Istio, as it has many useful features. One of the main features we can use is
+We'll install [Istio](https://istio.io/), a Kubernetes operator, as it has many useful features.
+
+One of the main features we can use is
 [Gateway API](https://istio.io/latest/docs/tasks/traffic-management/ingress/gateway-api/), so we can have
 multiple services under the same hostname, but different paths.
 
@@ -1080,8 +1171,7 @@ helm upgrade --install istio-base istio/base \
 ````
 
 ## Postgres
-We'll use the CrunchyData Postgres operator:
-- <>
+We'll use the [CrunchyData Postgres Kubernetes operator](https://www.crunchydata.com/products/crunchy-high-availability-postgresql).
 
 ### Installation
 Using these installation steps:
