@@ -5,12 +5,6 @@ date: "2025-12-08"
 
 In this post, I build a highly available Kubernetes cluster.
 
-TODO fix helm versions
-
-TODO docker registry...
-
-TODO nfs backup longhorn not working...
-
 <!--more-->
 
 ## History & Why
@@ -64,7 +58,7 @@ mindmap
         Undisclosed Service
         Open Speed Test
         Ollama
-        tmp("Temporary Game Server(s)")
+        tmp("Temporary Gaming Server(s)")
 ````
 
 Originally, the cluster was [just for a custom-made distributed smart-home written in nodejs](../2022-02-19-smart-home/).
@@ -1167,8 +1161,23 @@ helm repo add istio https://istio-release.storage.googleapis.com/charts
 helm repo update
 
 helm upgrade --install istio-base istio/base \
-  -n istio-system
+  -n istio-system --wait
+
+helm upgrade --install istiod istio/istiod \
+  -n istio-system --wait
+
+helm upgrade --install istio-ingress istio/gateway \
+  -n istio-system --wait
 ````
+
+We can then get the external IP for Istio gateway:
+````
+kubectl get svc istio-ingress -n istio-system \
+  -o jsonpath='{.status.loadBalancer.ingress[0].ip}{"\n"}'
+````
+
+You can then create DNS records on a local DNS server that point to the above IP, when using the Gateway API.
+
 
 ## Postgres
 We'll use the [CrunchyData Postgres Kubernetes operator](https://www.crunchydata.com/products/crunchy-high-availability-postgresql).
@@ -1199,7 +1208,7 @@ And let's wait until the operator is _Running_:
 kubectl -n postgres-operator get pods --selector=postgres-operator.crunchydata.com/control-plane=postgres-operator --field-selector=status.phase=Running
 ````
 
-### Creating a Cluster
+### Creating a Database Cluster
 Then, create the file `postgres.yaml`:
 ````yaml
 apiVersion: v1
@@ -1262,7 +1271,7 @@ And then apply the file to create the Postgres cluster:
 kubectl apply -f postgres.yaml
 ````
 
-### Testing Cluster
+### Testing Database Cluster
 We'll use pgAdmin on our local dev machine, as it features a rich UI:
 - <https://www.pgadmin.org/>
 
@@ -1289,3 +1298,192 @@ Note: the port `5431` is exposed on the dev machine, as to avoid a conflict with
 
 Once connected, the _Activity_ tab should start to populate with statistics:
 <img src="pgadmin-activity.png" />
+
+
+
+## Docker Registry
+We'll setup a Docker registry for custom, and even keeping backups of public, container images.
+
+_Note: this is not a production setup, and features no security._
+
+### Setup
+First, let's create a namespace:
+````bash
+kubectl create namespace registry
+````
+
+And then create a secret with the user and pass for the registry (change as needed):
+````bash
+kubectl create secret generic registry-basic-auth \
+  -n registry \
+  --from-literal=REGISTRY_USERNAME=svc_registry \
+  --from-literal=REGISTRY_PASSWORD=mypassword123
+````
+
+And then create the file `registry.yaml`:
+````yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: registry-pvc
+  namespace: registry
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-registry
+  namespace: registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-registry
+  template:
+    metadata:
+      labels:
+        app: docker-registry
+    spec:
+      initContainers:
+        - name: generate-htpasswd
+          image: httpd:2.4
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              htpasswd -Bbc /auth/htpasswd "$REGISTRY_USERNAME" "$REGISTRY_PASSWORD"
+          envFrom:
+            - secretRef:
+                name: registry-basic-auth
+          volumeMounts:
+            - name: auth
+              mountPath: /auth
+      containers:
+        - name: registry
+          image: registry:3
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - name: registry-storage
+              mountPath: /var/lib/registry
+            - name: auth
+              mountPath: /auth
+              readOnly: true
+          env:
+            - name: REGISTRY_AUTH
+              value: htpasswd
+            - name: REGISTRY_AUTH_HTPASSWD_REALM
+              value: Registry Realm
+            - name: REGISTRY_AUTH_HTPASSWD_PATH
+              value: /auth/htpasswd
+      volumes:
+        - name: registry-storage
+          persistentVolumeClaim:
+            claimName: registry-pvc
+        - name: auth
+          emptyDir: {}
+---
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: registry
+  name: registry
+  annotations:
+    metallb.universe.tf/loadBalancerIPs: 192.168.5.200
+spec:
+  selector:
+    app: docker-registry
+  ports:
+    - name: main
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
+  type: LoadBalancer
+````
+
+And apply it:
+````bash
+kubectl apply -f registry.yaml
+````
+
+This will create a Docker registry with the user/pass, and I've set a static IP of `192.168.5.200`.
+
+### Testing
+We'll run these steps from our local dev machine.
+
+Make sure you've got podman installed on your machine.
+
+Otherwise, to install it on Mac:
+````bash
+brew install podman
+````
+
+Startup your podman machine, if it's not already running:
+````bash
+podman machin init;
+podman machine start;
+````
+
+Let's attempt to login to the registry:
+````bash
+podman login --tls-verify=false 192.168.5.200:5000
+````
+
+When prompted, enter the user and pass for the registry (as configured earlier).
+
+You should see something like:
+````bash
+> podman login --tls-verify=false 192.168.5.200:5000
+Username: svc_registry
+Password:
+Login Succeeded!
+````
+
+### Pulling Images
+The user/pass of the registry can be either added through an image pull secret:
+- <https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/>
+
+Or added to a Kubernetes service account (recommended):
+- <https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account>
+
+We'll go with the service account approach.
+
+For each namespace, we'll need to repeat these steps...
+
+First, create the secret:
+````bash
+kubectl create secret docker-registry myregistrykey --docker-server=192.168.5.200:5000 \
+        --docker-username=svc_registry --docker-password=mypassword123 \
+        --docker-email=dummy@localhost \
+        -n default
+````
+
+And next, patch the default service account for the namespace to use the secret:
+````bash
+kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "myregistrykey"}]}' \
+  -n default
+````
+
+
+## References
+
+### Helm Chart Versions
+This is a snapshot of the Helm chart versions at the time of writing this article.
+
+````bash
+root@k8-control0:~# helm list -A
+NAME                	NAMESPACE           	REVISION	UPDATED                                	STATUS  	CHART                      	APP VERSION
+grafana             	grafana             	1       	2025-12-07 23:23:37.526374675 +0000 UTC	deployed	grafana-10.3.0             	12.3.0
+istio-base          	istio-system        	4       	2025-12-09 14:54:08.375236113 +0000 UTC	deployed	base-1.28.1                	1.28.1
+istio-ingress       	istio-system        	2       	2025-12-09 14:53:50.795096567 +0000 UTC	deployed	gateway-1.28.1             	1.28.1
+istiod              	istio-system        	1       	2025-12-09 14:51:43.713766538 +0000 UTC	deployed	istiod-1.28.1              	1.28.1
+kubernetes-dashboard	kubernetes-dashboard	1       	2025-12-06 01:52:39.197123797 +0000 UTC	deployed	kubernetes-dashboard-7.14.0
+loki                	loki                	4       	2025-12-08 00:54:57.875622636 +0000 UTC	deployed	loki-6.46.0                	3.5.7
+longhorn            	longhorn-system     	1       	2025-12-06 00:46:46.309632008 +0000 UTC	deployed	longhorn-1.10.1            	v1.10.1
+metallb             	metallb-system      	1       	2025-12-07 22:57:24.216214839 +0000 UTC	deployed	metallb-0.15.3             	v0.15.3
+vector              	vector              	1       	2025-12-08 00:41:15.355666911 +0000 UTC	deployed	vector-0.48.0              	0.51.1-distroless-libc
+````
