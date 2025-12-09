@@ -5,27 +5,27 @@
 {
     font-family: "Open Sans";
     src:    local("Open Sans"),
-            url("/assets/open-sans/font.woff2"),
-            url("/assets/open-sans/font.woff"),
-            url("/assets/open-sans/font.ttf");
+            url("/open-sans/font.woff2"),
+            url("/open-sans/font.woff"),
+            url("/open-sans/font.ttf");
 }
 @font-face
 {
     font-family: "Open Sans";
     font-weight: bold;
     src:    local("Open Sans"),
-            url("/assets/open-sans/font-bold.woff2"),
-            url("/assets/open-sans/font-bold.woff"),
-            url("/assets/open-sans/font-bold.ttf");
+            url("/open-sans/font-bold.woff2"),
+            url("/open-sans/font-bold.woff"),
+            url("/open-sans/font-bold.ttf");
 }
 @font-face
 {
     font-family: "Open Sans";
     font-style: italic;
     src:    local("Open Sans"),
-            url("/assets/open-sans/font-italic.woff2"),
-            url("/assets/open-sans/font-italic.woff"),
-            url("/assets/open-sans/font-italic.ttf");
+            url("/open-sans/font-italic.woff2"),
+            url("/open-sans/font-italic.woff"),
+            url("/open-sans/font-italic.ttf");
 }
 @font-face
 {
@@ -33,9 +33,9 @@
     font-weight: bold;
     font-style: italic;
     src:    local("Open Sans"),
-            url("/assets/open-sans/font-bold-italic.woff2"),
-            url("/assets/open-sans/font-bold-italic.woff"),
-            url("/assets/open-sans/font-bold-italic.ttf");
+            url("/open-sans/font-bold-italic.woff2"),
+            url("/open-sans/font-bold-italic.woff"),
+            url("/open-sans/font-bold-italic.ttf");
 }
 
 
@@ -228,7 +228,7 @@ main
 {
     .wrapper-header
     {
-        padding: 10rem 2rem 0rem 2rem;
+        padding: 6rem 2rem 0rem 2rem;
     }
     .wrapper-header header
     {
@@ -621,11 +621,6 @@ h1
 main article time
 {
     font-weight: bold;
-}
-
-main article h2
-{
-    clear: both;
 }
 
 

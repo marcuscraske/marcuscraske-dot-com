@@ -74,25 +74,21 @@
                 <ul>
                     <li class="{{ if or .IsHome .Params.blog }}selected{{ end }}">
                         <a href="/">
-                            <span class="icon-home"></span>
                             Blog
                         </a>
                     </li>
                     <li>
                         <a href="/cv">
-                            <span class="icon-file-text2"></span>
                             Résumé / CV
                         </a>
                     </li>
                     <li class="{{ if .Params.projects }}selected{{ end }}">
                         <a href="/projects">
-                            <span class="icon-lab"></span>
                             Projects
                         </a>
                     </li>
                     <li class="{{ if .Params.links }}selected{{ end }}">
                         <a href="/links">
-                            <span class="icon-books"></span>
                             Links
                         </a>
                     </li>

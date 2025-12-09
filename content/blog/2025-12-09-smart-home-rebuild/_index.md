@@ -1,5 +1,5 @@
 ---
-title: "Smart Home Updated"
+title: "Smart Home: Rebuild"
 date: "2025-12-08"
 ---
 
@@ -7,23 +7,67 @@ In this post, I build a highly available Kubernetes cluster.
 
 TODO fix helm versions
 
+TODO docker registry...
+
 <!--more-->
 
-## Why?
+## History & Why
 Back in 2019, I was one of the early adopters of running Kubernetes on a Raspberry Pi, when ARM support
 finally came available in beta. And even got a few mentions on places like Stackoverflow
-[1](https://stackoverflow.com/questions/61011414/unable-to-access-nginx-nodeport-service-in-k8-cluster-running-on-rpi)
-[2](https://stackoverflow.com/questions/60432834/why-does-ingress-on-my-kubernates-cluster-doesnt-respond-on-specified-host-usi).
+[[1]](https://stackoverflow.com/questions/61011414/unable-to-access-nginx-nodeport-service-in-k8-cluster-running-on-rpi)
+[[2]](https://stackoverflow.com/questions/60432834/why-does-ingress-on-my-kubernates-cluster-doesnt-respond-on-specified-host-usi).
+You can read the [original article](../2019-09-21-raspberry-pi-kubernetes-cluster).
 
-After six years of successful operation, with a rebuild around 2022, there were a few motivations to
+After six years of successful operation, with only a minor rebuild around 2022, there were a few motivations to
 upgrade...
+- Concerns about how much longer the microsds could last, some being six years old.
+  - And attempting to take a backup would be too risky, and failure would be disruptive.
+- Running only a single control plane node - YOLO.
+- Most workloads on Raspberry Pi 4Bs - outdated and under-powered for 2025!
 
-Concerns about how much longer the microsds could last...and with only a single control plane node. And
-attempting to take a backup would be risky, and failure would be disruptive.
+And the purpose and scale of my cluster had grown a lot, here's present state...
 
-And the purpose and scale of my cluster had grown a lot, which was originally just a custom-made distributed
-smart-home written in nodejs. Now, everything from databases (with Crunchydata's Postgres operator),
-gaming servers to Plex are running on it. I even added a 2U rackmount ATX worker node that was effectively
+````mermaid
+mindmap
+  root((Home k8s Cluster))
+    sh) Smart Home Microservices (
+        Dashboard
+        Dynamic DNS
+        Home State
+        Homepage
+        Shareprice
+        Undisclosed Service
+        Trainbar Dashboard
+        Uptime
+        Weather
+        Hibernate
+        Light Switches
+        Motion Lights
+        State Trigger
+        Smart Meter
+        Sentinel
+        Transport
+    sup) k8s Supporting (
+        Docker Registry
+        Postgres via CrunchyData
+        NFS Storage
+        Vector
+        Grafana
+        Loki
+    svc) Services (
+        Mumble VoIP Server
+        Undisclosed Service
+        Undisclosed Service
+        Undisclosed Service
+        Open Speed Test
+        Ollama
+        tmp("Temporary Game Server(s)")
+````
+
+Originally, the cluster was [just for a custom-made distributed smart-home written in nodejs](../2022-02-19-smart-home/).
+
+Now, everything from databases (with Crunchydata's Postgres operator),
+gaming servers to undisclosed services with heavy loads are running on it. I even added a 2U rackmount ATX worker node that was effectively
 a gaming PC. But another risk, I only had a single node able to be that workhorse, despite a dual-module
 redundant PSU being installed.
 
@@ -33,16 +77,43 @@ it was time to rebuild.
 And since it controls the lights in my house, the switch-over needed to be minimum.
 
 
-## Nodejs to Golang with AI
-diagram here of microservices
-
+## Using AI to Migrate Services
 A lot of the microservices have been migrated from nodejs to golang, for a few reasons:
 - Reduced runtime memory and CPU utilisation, generally greater performance
   - Since nodejs is interpreted, whereas golang is highly optimised machine code.
 - Smaller container images with no effort.
 
-Both ecosystems have a monolithic library of various tools to reduce code, and I've used Golang's
-built-in AI tooling to convert chunks of code.
+Both ecosystems have a monolithic library of various tools to reduce code, and I've used
+built-in AI tooling in JetBrains Goland to convert large chunks of code.
+
+## The Rebuild...
+Topology of the old Kubernetes (k8s) cluster:
+
+
+````mermaid
+mindmap
+    root) Cluster (
+        Control Plane Nodes
+            <b>k8-control1</b><br />192.168.1.100<br />Raspberry PI 4B 4gb
+        Worker Nodes
+            <b>k8-worker1</b><br />192.168.1.101<br />Raspberry PI 4B 4gb
+            <b>k8-worker2</b><br />192.168.1.102<br />Raspberry PI 4B 4gb
+            <b>k8-hc-worker1</b><br />192.168.1.110<br />Used for heavy workloads, 8 core 16 thread 64gb DDR4.
+````
+
+Topology of the new Kubernetes (k8s) cluster:
+
+````mermaid
+mindmap
+    root) Cluster (
+        Control Plane Nodes
+            <b>k8-control0</b><br />192.168.4.10<br />Raspberry PI 5B 4gb
+            <b>k8-control1</b><br />192.168.4.11<br />Raspberry PI 5B 4gb
+            <b>k8-control2</b><br />192.168.4.12<br />Raspberry PI 5B 4gb
+        Worker Nodes
+            <b>k8-worker0</b><br />192.168.4.20<br />Ryzen Mini PC 8 core 16 thread 32gb DDR5
+            <b>k8-worker1</b><br />192.168.4.21<br />Ryzen Mini PC 8 core 16 thread 32gb DDR5
+````
 
 
 ## Network
@@ -51,7 +122,7 @@ I've decided to setup two IP ranges for my Kubernetes cluster:
 - `192.168.5.0/24` - for allocating IPs to services for external ingress.
 
 This enables putting the cluster on an isolated VLAN in the future if needed, and avoids
-potential clashes from the various guests and devices on the main IP address pool.
+potential clashes from the various guests and devices on the rest of the network (non-k8s).
 
 With a Mikrotik router, you just need to setup an address list (this will automatically create the routing
 between any other IP lists):
@@ -61,25 +132,6 @@ between any other IP lists):
 And in my case, I needed to update the firewall for LAN IPs:
 
 <img src="mikrotik-firewall.png" />
-
-
-## Topology
-
-````mermaid
-flowchart LR
-    id["This ❤ Unicode"]
-````
-
-convert to mermaid...
-
-control0: 192.168.4.10
-control1: 192.168.4.11
-control2: 192.168.4.12
-
-worker0: 192.168.4.20
-worker1: 192.168.4.21
-
-services 192.168.4.5.0/24
 
 
 ## Generic Control Plane & Worker Machine Setup
