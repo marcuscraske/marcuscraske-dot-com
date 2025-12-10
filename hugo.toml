@@ -1,0 +1,18 @@
+baseURL = 'https://marcuscraske.com/'
+languageCode = 'en-gb'
+title = 'Marcus Craske'
+theme = 'base'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+
+  [[module.mounts]]
+    source = "node_modules"
+    target = "assets/node_modules"

@@ -1,28 +1,11 @@
-# IDE configuration
-nb-configuration.xml
 .idea/
+public/
 *.iml
-
-# Compiled files
-target/
-
-# Static website
-website/_site
-website/.sass-cache
-website/.jekyll-metadata
-website/.*cache
-website/_site
-
-public-files/output/
-
-# OS files
 .DS_Store
+node_modules/
 
 # Terraform
 .terraform
 .terraform*
 terraform.tfstate
 terraform.tfstate.backup
-
-# Jekyll
-node_modules/

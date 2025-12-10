@@ -1,0 +1,38 @@
+{{ define "main" }}
+  {{ .Content }}
+  {{ $blogPages := where .Site.Pages "Params.blog" true }}
+  <div id="home">
+    {{ range $blogPages.ByDate.Reverse }}
+      {{ $url := .Params.pageUrl | default .RelPermalink }}
+      <section>
+
+        {{ if .Params.thumbnail }}
+        <a href="{{ $url }}">
+          <img src="{{ .Params.thumbnail }}" alt="Thumbnail" />
+        </a>
+        {{ end }}
+
+        <div>
+          <h3>
+            <a href="{{ $url }}">
+              {{ .LinkTitle }}
+            </a>
+          </h3>
+          <a href="{{ $url }}">
+            {{ .Summary
+              | replaceRE "<h[1-6][^>]*>.*?</h[1-6]>" ""
+              | replaceRE "<a[^>]*>(.*?)</a>" "$1"
+              | safeHTML
+              | truncate 500
+            }}
+          </a>
+          {{ if .Params.Date }}
+          <time datetime="{{ .Params.Date }}">
+            {{ humanize .Date.Day }} {{ .Date.Format "January 2006" }}
+          </time>
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+  </div>
+{{ end }}

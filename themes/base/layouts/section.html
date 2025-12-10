@@ -1,0 +1,35 @@
+{{ define "main" }}
+  <article>
+    <h1>
+      {{ .Title }}
+    </h1>
+    {{ if .Params.thumbnail }}
+      <img src="{{ .Params.thumbnail }}" alt="Thumbnail" class="post-thumb-big" />
+    {{ end }}
+    {{ if .Params.Date }}
+    <time datetime="{{ .Params.Date }}">
+      {{ humanize .Date.Day }} {{ .Date.Format "January 2006" }}
+    </time>
+    {{ end }}
+    {{ .Content }}
+    <div id="section-list">
+      {{ range .Pages.ByDate.Reverse }}
+        <section>
+          <h2>
+            {{ $url := .Params.pageUrl | default .RelPermalink }}
+            <a href="{{ $url }}">
+              {{ if .Params.thumbnail }}
+                <img src="{{ .Params.thumbnail }}" alt="Thumbnail" />
+              {{ end }}
+              {{ if .Params.year }}
+                <span class="year">{{ .Params.year }}</span>
+              {{ end }}
+              {{ .LinkTitle }}
+            </a>
+          </h2>
+          {{ .Summary }}
+        </section>
+      {{ end }}
+    </div>
+  </article>
+{{ end }}
