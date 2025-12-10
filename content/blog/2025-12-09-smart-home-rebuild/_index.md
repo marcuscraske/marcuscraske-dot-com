@@ -1,6 +1,7 @@
 ---
 title: "Smart Home: Rebuild"
 date: "2025-12-08"
+thumbnail: "/blog/2025-12-09-smart-home-rebuild/rack-close.jpg"
 ---
 
 In this post, I build a highly available Kubernetes cluster.
@@ -131,11 +132,12 @@ I've decided to setup two IP ranges for my Kubernetes cluster:
 - `192.168.4.0/24` - for the control plane and worker nodes.
 - `192.168.5.0/24` - for allocating IPs to services for external ingress.
 
-This enables putting the cluster on an isolated VLAN in the future if needed, and avoids
+For now, I've mapped these to the same LAN bridge. Whilst this may not be considered best practice, for now it saves
+the need for both a separate switch and physical interface (SFP port) on the router.
+
+However, this enables putting the cluster on a separate fully isolated VLAN in the future, if needed, and avoids
 potential clashes from the various guests and devices on the rest of the network (non-k8s) using DHCP on a different
 IP range.
-
-
 
 With a Mikrotik router, you just need to setup an address list (this will automatically create the routing
 between any other IP lists). I've got mine tied to a virtual interface, _bridge-LAN_, that bridges multiple physical
@@ -625,7 +627,7 @@ metadata:
   name: default
   namespace: longhorn-system
 spec:
-  backupTargetURL: "nfs://192.168.1.200:/k8-data/longhorn-backup"
+  backupTargetURL: "nfs://nas3.home:/volume1/k8-data/longhorn-backup"
   credentialSecret: ""
   pollInterval: "300s"
 ````
@@ -1467,6 +1469,42 @@ And next, patch the default service account for the namespace to use the secret:
 kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "myregistrykey"}]}' \
   -n default
 ````
+
+## Gallery
+
+<ul class="gallery">
+    <li>
+        <a href="rack.jpg">
+            <img src="rack.jpg" alt="The rack housing the cluster." />
+            The rack housing the cluster.
+        </a>
+    </li>
+    <li>
+        <a href="rack-close.jpg">
+            <img src="rack-close.jpg" alt="Rack up-close and annotated." />
+            Rack up-close and annotated.
+        </a>
+    </li>
+    <li>
+        <a href="rack-back.jpg">
+            <img src="rack-back.jpg" alt="Back of the rack." />
+            Back of the rack.
+        </a>
+    </li>
+    <li>
+        <a href="rack-top.jpg">
+            <img src="rack-top.jpg" alt="Top of the rack, featuring: wifi router, zigbee dongles, and smart meter CAD." />
+            Top of the rack, featuring: wifi router, zigbee dongles, and
+            <a href="https://shop.glowmarkt.com/products/display-and-cad-combined-for-smart-meter-customers">smart meter CAD</a>.
+        </a>
+    </li>
+    <li>
+        <a href="rack-closet.jpg">
+            <img src="rack-closet.jpg" alt="Quite literally down to the millimeter when the closet door is shut." />
+            Quite literally down to the millimeter when the closet door is shut.
+        </a>
+    </li>
+</ul>
 
 
 ## References
