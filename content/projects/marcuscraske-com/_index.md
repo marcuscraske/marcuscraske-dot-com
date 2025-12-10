@@ -20,6 +20,13 @@ Static website [Jekyll](https://jekyllrb.com/) website, written in HTML and Mark
 <https://github.com/marcuscraske/marcuscraske-dot-com>
 
 ## History
+### 2025
+Migrated from Jekyll to Hugo for the website framework.
+
+<a href="2025-dec.png">
+    <img src="2025-dec.png" alt="Screenshot of landing page" />
+</a>
+
 ### 2023
 Migrated from AWS S3 to Github for hosting, still using Cloudflare for CDN and Terraform for DNS.
 

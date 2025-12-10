@@ -3,25 +3,35 @@
   {{ $blogPages := where .Site.Pages "Params.blog" true }}
   <div id="home">
     {{ range $blogPages.ByDate.Reverse }}
+      {{ $url := .Params.pageUrl | default .RelPermalink }}
       <section>
-        {{ $url := .Params.pageUrl | default .RelPermalink }}
-        <h3>
-          <a href="{{ $url }}">
-            {{ .LinkTitle }}
-          </a>
-        </h3>
+
         {{ if .Params.thumbnail }}
-          <a href="{{ $url }}">
-            <img src="{{ .Params.thumbnail }}" alt="Thumbnail" class="post-thumb" />
-          </a>
+        <a href="{{ $url }}">
+          <img src="{{ .Params.thumbnail }}" alt="Thumbnail" />
+        </a>
         {{ end }}
-        {{ if .Params.Date }}
+
+        <div>
+          <h3>
+            <a href="{{ $url }}">
+              {{ .LinkTitle }}
+            </a>
+          </h3>
+          <a href="{{ $url }}">
+            {{ .Summary
+              | replaceRE "<h[1-6][^>]*>.*?</h[1-6]>" ""
+              | replaceRE "<a[^>]*>(.*?)</a>" "$1"
+              | safeHTML
+              | truncate 500
+            }}
+          </a>
+          {{ if .Params.Date }}
           <time datetime="{{ .Params.Date }}">
             {{ humanize .Date.Day }} {{ .Date.Format "January 2006" }}
           </time>
-        {{ end }}
-        {{ .Summary | replaceRE "<h[1-6][^>]*>.*?</h[1-6]>" "" | safeHTML | truncate 500 }}
-        <div class="clearfix"></div>
+          {{ end }}
+        </div>
       </section>
     {{ end }}
   </div>

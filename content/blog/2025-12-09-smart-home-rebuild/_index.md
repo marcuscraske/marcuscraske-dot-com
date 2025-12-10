@@ -6,8 +6,6 @@ thumbnail: "/blog/2025-12-09-smart-home-rebuild/rack-close.jpg"
 
 In this post, I build a highly available Kubernetes cluster.
 
-<!--more-->
-
 ## History & Why
 Back in 2019, I was one of the early adopters of running Kubernetes on a Raspberry Pi, when ARM support
 finally came available in beta. And even got a few mentions on places like Stackoverflow
@@ -17,6 +15,8 @@ You can read the [original article](../2019-09-21-raspberry-pi-kubernetes-cluste
 
 After six years of successful operation, with only a minor rebuild around 2022, there were a few motivations to
 upgrade...
+<!--more-->
+
 - Concerns about how much longer the microsds could last, some being six years old.
   - And attempting to take a backup would be too risky, and failure would be disruptive.
 - Running only a single control plane node - YOLO.
