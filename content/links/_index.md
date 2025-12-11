@@ -12,8 +12,7 @@ A list of blogs and sites I can recommend:
 - [Meta: Engineering Blog](https://code.facebook.com/posts)
 - [Netflix TechBlog](https://netflixtechblog.com/)
 - [Spotify: Engineering Blog](https://engineering.atspotify.com/)
+- [Chick-Fil-A Tech](https://medium.com/chick-fil-atech)
 - [Techbloc](https://techbloc.net/)
 
 Got a suggestion? Drop me a message, or comment below.
-
-{% include page-comments.html %}

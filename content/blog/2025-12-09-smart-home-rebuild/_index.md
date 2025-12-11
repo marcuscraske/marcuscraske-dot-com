@@ -75,6 +75,15 @@ it was time to rebuild.
 And since it controls the lights in my house, the switch-over needed to be minimum.
 
 
+## Disclaimer
+This article is intended for a [homelab environment](https://www.reddit.com/r/homelab/wiki/introduction/), not
+production.
+
+Some configuration is insecure, and shortcuts have been taken to minimise resource usage.
+
+This article is provided for educational purposes.
+
+
 ## Using AI to Migrate Services
 Shout-out to [JetBrains Goland](https://www.jetbrains.com/go/) for the built-in AI features, which have been used
 to migrate a lot of microservices from Node.js to Golang.
@@ -803,6 +812,7 @@ metadata:
   annotations:
     metallb.io/loadBalancerIPs: 192.168.5.123
 spec:
+  type: LoadBalancer
   ports:
     - port: 80
       targetPort: 80
@@ -817,12 +827,12 @@ kind: Service
 metadata:
   name: foobar
 spec:
+  type: LoadBalancer
   ports:
   - port: 80
     targetPort: 80
   selector:
     app: foobar
-  type: LoadBalancer
 ````
 
 See the [docs](https://metallb.io/usage/) for usage.
@@ -1170,6 +1180,9 @@ helm upgrade --install istiod istio/istiod \
 
 helm upgrade --install istio-ingress istio/gateway \
   -n istio-system --wait
+  
+helm install istio-ingressgateway istio/gateway \
+  -n istio-system --wait
 ````
 
 We can then get the external IP for Istio gateway:
@@ -1395,8 +1408,9 @@ metadata:
   namespace: registry
   name: registry
   annotations:
-    metallb.universe.tf/loadBalancerIPs: 192.168.5.200
+    metallb.io/loadBalancerIPs: 192.168.5.200
 spec:
+  type: LoadBalancer
   selector:
     app: docker-registry
   ports:
@@ -1404,7 +1418,6 @@ spec:
       protocol: TCP
       port: 5000
       targetPort: 5000
-  type: LoadBalancer
 ````
 
 And apply it:
@@ -1444,6 +1457,42 @@ Username: svc_registry
 Password:
 Login Succeeded!
 ````
+
+### Worker Configuration
+_Note: for this section, you'll see a reference to registry.home, which is just a static DNS record on the router
+pointing to 192.168.5.200._
+
+We'll need to configure containerd to allow our registry to be insecure.
+
+Repeat these steps for each worker node (and control plane nodes if they need to pull from the registry)...
+
+Once logged-in, go to edit the containerd config file:
+````bash
+sudo vim /etc/containerd/config.toml
+````
+
+Find the section with `plugins."io.containerd.grpc.v1.cri".registry`, and add the below with the correct indentation:
+````toml
+[plugins."io.containerd.grpc.v1.cri".registry.mirrors."registry.home:5000"]
+  endpoint = ["http://registry.home:5000"]
+
+[plugins."io.containerd.grpc.v1.cri".registry.configs."registry.home:5000".tls]
+  insecure_skip_verify = true
+````
+
+As an example of before:
+
+<img src="containerd-registry-before.png" alt="Before containerd toml registry config" />
+
+And an example of after adding the config:
+
+<img src="containerd-registry-after.png" alt="After containerd toml registry config" />
+
+And restart containerd:
+````bash
+sudo systemctl restart containerd
+````
+
 
 ### Pulling Images
 The user/pass of the registry can be either added through an image pull secret:
@@ -1518,6 +1567,7 @@ NAME                	NAMESPACE           	REVISION	UPDATED                      
 grafana             	grafana             	1       	2025-12-07 23:23:37.526374675 +0000 UTC	deployed	grafana-10.3.0             	12.3.0
 istio-base          	istio-system        	4       	2025-12-09 14:54:08.375236113 +0000 UTC	deployed	base-1.28.1                	1.28.1
 istio-ingress       	istio-system        	2       	2025-12-09 14:53:50.795096567 +0000 UTC	deployed	gateway-1.28.1             	1.28.1
+istio-ingressgateway	istio-system        	1       	2025-12-10 22:46:37.225130713 +0000 UTC	deployed	gateway-1.28.1             	1.28.1
 istiod              	istio-system        	1       	2025-12-09 14:51:43.713766538 +0000 UTC	deployed	istiod-1.28.1              	1.28.1
 kubernetes-dashboard	kubernetes-dashboard	1       	2025-12-06 01:52:39.197123797 +0000 UTC	deployed	kubernetes-dashboard-7.14.0
 loki                	loki                	4       	2025-12-08 00:54:57.875622636 +0000 UTC	deployed	loki-6.46.0                	3.5.7
