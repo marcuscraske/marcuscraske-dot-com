@@ -567,6 +567,7 @@ main .gallery img
     {
         grid-column: 1 / -1;
         flex-direction: row;
+        align-items: stretch;
     }
 
     #home > :first-child h3
@@ -574,10 +575,17 @@ main .gallery img
         margin-top: 0;
     }
 
+    #home > :first-child div
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
     #home > :first-child img
     {
-        width: 15rem;
-        height: 15rem;
+        width: 18rem;
+        height: 18rem;
+        min-height: 15rem;
         max-height: unset;
         max-width: unset;
         object-fit: cover;
