@@ -1,21 +1,23 @@
 {{ if not .IsHome }}
 
-    <script id="dsq-count-scr" src="//limpygnome-com.disqus.com/count.js" async></script>
-
-    <div id="disqus_thread"></div>
-    <script>
-        var disqus_config = function () {
-            this.page.url = PAGE_URL;
-            this.page.identifier = PAGE_IDENTIFIER;
-        };
-
-        (function() {
-            var d = document, s = d.createElement('script');
-            s.src = '//limpygnome-com.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
+    <!--
+        Kudos to Giscus for reactions and comments:
+        https://giscus.app/
+    -->
+    <script src="https://giscus.app/client.js"
+            data-repo="marcuscraske/marcuscraske-dot-com"
+            data-repo-id="MDEwOlJlcG9zaXRvcnkzMDE0OTQ3Nw=="
+            data-category="General"
+            data-category-id="DIC_kwDOAcwLZc4C5R7x"
+            data-mapping="{{ .RelPermalink }}"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="light"
+            data-lang="en"
+            crossorigin="anonymous"
+            async>
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 {{ end }}
